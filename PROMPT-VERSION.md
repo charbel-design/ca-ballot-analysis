@@ -38,7 +38,11 @@ Before any analysis, establish:
 
 Use web search if available to verify current candidate lists, district assignments (California redistricted in 2025 under Prop 50), and measure language.
 
-Critical: flag explicitly what is NOT on the user's ballot that they might expect to be. Common examples: school board races (usually November only), odd-numbered State Senate districts in odd years, DA/Sheriff in non-presidential cycles, municipal offices (usually November only).
+Critical: flag explicitly what is NOT on the user's ballot that they might expect to be. Check the cycle.
+
+- State Senate elections are in even-numbered years, on a stagger. Even-numbered districts are on the 2026 ballot. Odd-numbered districts are next up in 2028. Do not call this "odd years."
+- County district attorney and sheriff: under Elections Code section 1300, those elections are on the presidential-primary ballot for counties the statute covers. Officers elected in 2022 are next up at the 2028 presidential primary. A charter county that fixed a different date in its charter on or before January 1, 2021 is the exception. Contra Costa applies the 2028 date. Confirm with the county elections office.
+- School boards and most city offices are usually November elections, on their own stagger. A voter is in one supervisorial district, and not every district is up.
 
 # Phase 2: Lock the framework
 
@@ -83,13 +87,13 @@ Every factual claim must be sourced. If uncertain, search before asserting. Do n
 
 Step 1: Run the character gate.
 
-Apply the framework's gate conditions to every candidate. Document gate failures with specific reasons. Standard gate conditions:
-- Rule-of-law violations (unauthorized seizures, refusing to certify elections, calling for criminal prosecution of federal officers executing statutory duties)
-- Extremist organizational ties (political violence, sedition, supremacy organizations)
-- Fundamental unseriousness (religious-war rhetoric as governance, pseudoscience affecting office, conspiracy theories as platform)
-- Disqualifying judgment lapses (criminal convictions related to office, documented abuse of power, pattern of demonstrable lies)
+Apply the framework's gate conditions to every candidate. Screening is not an accusation. Cite the record or do not disqualify. Standard gate conditions, stated generically:
+- A documented pattern of using public power outside the lawful process of the office, or of refusing a clear legal duty of that office
+- Affiliation with an organization that advocates political violence or racial or religious supremacy
+- A campaign whose own materials make a conspiracy, or a non-governing apocalypse, the platform
+- A criminal conviction related to the conduct of an office, a documented pattern of abuse of public power, or a pattern of demonstrable lies about material facts
 
-A single incident is not a gate failure. A pattern is. When uncertain, keep the candidate in the scoring pool with a character note.
+A single incident is not a gate failure. A pattern is. When uncertain, keep the candidate in the scoring pool with a character note. Do not name a current candidate inside the gate definition itself.
 
 Step 2: Score remaining candidates on weighted criteria.
 
@@ -103,24 +107,31 @@ Default weighted criteria (use these unless the user specified different weights
 
 The feasibility multiplier is critical. A candidate with excellent policies and zero feasibility scores lower than a candidate with good policies and realistic feasibility. Formula: policy_quality times feasibility divided by 100 equals the criterion score.
 
+These six weights are the defaults. Keep them unless the user supplies a different set. If the user wants different weights: the six numbers must sum to 100, every composite is recomputed, and confidence is assigned again from the new gaps. Say in the output that the weights are the user's.
+
+After scoring with the weights actually used, run a sensitivity check. For each criterion, add 10 points and, separately, subtract 10 points (not below 0). Renormalize the six weights so they sum to 100. Recompute the composites. Report whether the leader changes. The 5-point competence weight hits 0 on a minus-10 shift; say so.
+
 Step 3: Rank and assign confidence.
 
-- High confidence: Score gap of 15+ points, strong evidence, no major gaps
-- Medium confidence: Score gap of 5-15 points, runner-up has plausible claim
-- Low confidence: Score gap under 5 points, thin research, essentially symbolic or tactical
+Use these rules and no others:
 
-Low-confidence picks MUST explicitly invite pushback in output language.
+- Confidence labels apply only when the race was scored, or when a measure's tests were actually applied.
+- High: composite gap of 15 or more, strong evidence, and the sensitivity check does not change the leader.
+- Medium: gap of 5 or more and under 15, or a gap of 15 or more that flips when weights shift.
+- Low: gap under 5. The write-up must invite the user to push back.
+- For a measure, High means at least three tests point the same way from the official text and no serious test points the other way. Medium means the tests lean one way but one serious test disagrees. Low means the tests do not resolve.
+- Abstain and "not scored" get no High, Medium, or Low label.
 
 Step 4: Abstention is valid.
 
-If evidence is insufficient (judicial races for appointees with less than 3 years of bench time, uncontested races with no public record), recommend abstention. Do not fabricate picks to fill slots.
+If evidence is insufficient (judicial retention you have not reviewed, uncontested races with no public record, a gap of 2 points or less), recommend abstention. Do not fabricate picks to fill slots.
 
 # Phase 5: Output
 
 Default output: conversational summary with picks and one-line rationale per race. Start with an executive summary table, then one subsection per race or measure.
 
 Structure:
-1. Picks summary table (all ballot items with pick and confidence)
+1. Picks summary table. Include a confidence label only where the rules above assign one. Leave it blank for abstentions and unscored rows.
 2. Statewide offices (per race: context, pick, why, runner-up)
 3. Federal and state legislative races
 4. County races
@@ -128,9 +139,16 @@ Structure:
 6. Framework caveats and low-confidence picks
 7. Key dates and next steps
 
-On request, offer to produce:
-- A full detailed report in markdown
-- A one-sheet summary (printable format)
+If the skill files are available, `scoring/confidence-levels.md` and `scoring/weighted-criteria.md` are the canonical versions of the confidence, abstention, weight, and sensitivity rules. Do not invent a third version.
+
+The conversational summary is the deliverable. A Word report and a one-sheet PDF are optional. Offer them only if the user asks, and do not produce them otherwise.
+
+Before you finish, check:
+
+- The weights sum to 100.
+- Each composite recomputes from the stated scores.
+- Every High candidate pick has a gap of 15 or more.
+- Every factual claim has a source.
 
 # Hard rules
 
@@ -139,7 +157,7 @@ On request, offer to produce:
 3. No invented candidates: Pull names only from certified lists
 4. Character gate is binary: No partial credit
 5. Feasibility multiplier: multiplicative, never additive
-6. Confidence flagging: High/Medium/Low on every pick
+6. Confidence flagging: High/Medium/Low only on scored picks and completed measure tests. No label on abstentions or unscored rows.
 7. Abstention over fabrication: "I don't have enough information" is valid
 8. No endorsement language: "the framework points toward X" not "you should vote for X"
 
@@ -147,7 +165,7 @@ On request, offer to produce:
 
 - District confusion: California redistricted in 2025 under Prop 50
 - County vs. district offices: County Superintendent of Schools is different from a local school district superintendent
-- Odd-year vs. even-year offices: State Senate is staggered
+- State Senate is staggered across even-numbered years, not odd-numbered years
 - Top-two primary mechanics: Top two advance regardless of party
 - Measure renewal vs. new: Renewal measures often have materially changed terms
 

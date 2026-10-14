@@ -1,101 +1,56 @@
-# Confidence Levels
+# Confidence Levels and When to Skip a Race
 
-## Purpose
+This is the only definition of confidence labels and abstention. `SKILL.md`, `PROMPT-VERSION.md`, `scoring/weighted-criteria.md`, `research/measure-analysis.md`, and each framework file point here. Do not restate a different rule anywhere else.
 
-Every pick gets a confidence level. This is not hedging; it's calibration. A voter should know where to push back and where the framework is speaking clearly.
+Confidence is calibration. It tells the voter where the framework is speaking clearly and where to push back.
 
-## The three levels
+## Labels attach only to a finished pick
 
-### High confidence
+- A **scored candidate race** has a composite for every candidate still in the pool, computed from stated criterion scores and weights that sum to 100. Only then may the pick be High, Medium, or Low.
+- A **measure pick** uses the measure tests below. It does not need a six-criterion composite.
+- **Abstain** and **not scored** are not confidence labels. Leave the confidence cell blank. Do not write High, Medium, or Low on a row that has no score and no completed measure test.
 
-- Framework points decisively toward one candidate/position
-- Score gap of 15+ points between winner and runner-up (if using weighted scoring)
-- Strong evidence on all key criteria
-- No major information gaps
-- Runner-up has weak or compromised claim
+## Scored candidate races
 
-Example: Measure B (sales tax) NO is High confidence because the measure fails the historical-pattern test, the concentrated-benefit test, AND the second-order test simultaneously. All three of these point the same direction with strong evidence.
+Compare the leader's composite with the runner-up. Use the exact weighted sum, not a rounded headline that no longer matches the arithmetic.
 
-### Medium confidence
+- **High**: the gap is 15 points or more, the evidence behind the criterion scores is strong, and the sensitivity check in `scoring/weighted-criteria.md` does not change the leader.
+- **Medium**: the gap is 5 points or more and under 15, or the gap is 15 or more but a weight shift in that check changes the leader.
+- **Low**: the gap is under 5 points. The write-up must say the pick is uncertain and invite the voter to disagree.
 
-- Framework points in a clear direction
-- Score gap of 5-15 points (if using weighted scoring)
-- Some evidence gaps but the direction is reasonably clear
-- Runner-up has a plausible counter-argument
-- Reasonable voters using the same framework might pick differently
+If the gap is 2 points or less, or the sources are too thin to score a criterion without inventing a record, do not force a pick. Abstain.
 
-Example: Treasurer (Caballero) is Medium confidence because while Caballero aligns best with the framework, Kounalakis has comparable experience and the policy differences on fiscal management are narrower than they look.
+Low-confidence picks use plain language such as "I am not confident here" or "push back if you disagree." A confident tone on a low-confidence pick misrepresents the analysis.
 
-### Low confidence
+## Ballot measures
 
-- Score gap under 5 points
-- Thin research surface
-- Framework outputs ambiguous
-- Pick is essentially symbolic or tactical
-- Runner-up has an almost-equal claim
+Measures are yes/no. Apply the framework's measure tests to the official summary. Do not invent a 15-point gap.
 
-Example: BOE D2 (Shireman) is Low confidence because the office is low-leverage, the candidate's record is thin, and "taxpayer advocate" designation is more signal than substance.
+- **High**: at least three tests point the same way, each test is tied to the official text or fiscal estimate, and no test of similar importance points the other way.
+- **Medium**: the tests lean one way, but one serious test points the other way, or a test that matters is thin in the official record.
+- **Low**: the tests do not resolve. Say so and invite pushback. Low is allowed. A guess dressed up as Medium is not.
 
-## Low-confidence picks require explicit language
+If the official text is missing, abstain. Do not fill the gap from a campaign site.
 
-In output, low-confidence picks MUST include language like:
-- "I'm not confident here"
-- "push back if you disagree"
-- "this is essentially symbolic/tactical"
-- "reasonable voters could land differently"
+## When to abstain
 
-This is non-negotiable. A confident-sounding low-confidence pick misrepresents the analysis.
+Abstain, with no confidence label, when:
 
-## When to recommend abstention
+1. The public record is too thin for a responsible pick. Judicial retention with no review of the justice's opinions belongs here. So do local races known only by a ballot designation.
+2. Every candidate fails the character gate. Do not pick the "least bad" failure.
+3. The framework does not resolve the race. Composites within 2 points, with similar evidence, are this case.
+4. The framework has no criterion that distinguishes the candidates. Say that, rather than forcing a fit.
 
-Recommend abstention when:
+Abstention is a finished answer. Do not invent a name to fill the ballot.
 
-1. **Information is too thin for a responsible pick**
-   - Judicial races for appointees with <3 years on the bench
-   - Down-ballot races where candidates have no public record
+## What confidence is not
 
-2. **All candidates fail the character gate**
-   - Rare but possible
-   - Do not pick "least bad" as a gate failure
+- It is not a win probability.
+- It is not a reward for agreeing with the framework's author.
+- It is not available for a row of dashes.
 
-3. **Framework does not resolve the race**
-   - Candidates score within 2 points with similar evidence quality
-   - No tiebreaker in the framework applies
+A ballot that is all High is a reason to recheck the gaps. A ballot that is all Low usually means the research was too thin to score.
 
-4. **User's framework doesn't apply**
-   - Some races are so technical or local that the user's framework doesn't have criteria to distinguish candidates (e.g., soil and water conservation district boards)
-   - Be honest about this rather than forcing a framework fit
+## Updating a label
 
-Abstention is a valid output. Do not fabricate picks to fill ballot slots.
-
-## Calibration checks
-
-After producing a full ballot analysis, review the confidence distribution:
-
-- **All High**: Probably overconfident. Real analysis produces a mix.
-- **Mostly Low**: Framework may not be the right fit, or research is too thin.
-- **Healthy mix**: 30-50% High, 30-50% Medium, 10-30% Low is typical for a well-researched CA ballot.
-- **All Medium**: May indicate hedging rather than calibration. Push for High on clearly-decided races.
-
-## Updating confidence over time
-
-Confidence is not static. Between analysis and election, new evidence emerges:
-- New scandals or endorsements can shift Medium → High or High → Low
-- Polling data may affect feasibility scores (raising or lowering tactical confidence)
-- Late-breaking revelations may trigger new character gate evaluations
-
-When the voter returns with updated information close to election day, re-evaluate confidence specifically. Don't just update picks — update the confidence levels on those picks.
-
-## Communicating confidence to users
-
-Confidence language should be:
-
-- **Specific about the source of uncertainty** ("I'm not confident because Shireman's record is thin" vs. "I'm not sure about this one")
-- **Actionable** ("If you want to verify, here's what to check" vs. just flagging doubt)
-- **Not paralyzing** (Low confidence doesn't mean don't vote — it means vote with less conviction)
-
-## Example confidence statement
-
-> "My pick is Deepika Naharas for Auditor-Controller, at Medium confidence. The framework favors outsider audit perspectives for this role, and Naharas as an accounting consultant fits that better than the insider candidate Karumbi. But my research surface on Naharas specifically is thin — I know her general background but not her specific audit philosophy. If you want continuity and smooth office operations over aggressive audit, flip this to Karumbi. If you get a chance to read a direct candidate statement from Naharas before you vote, that could push this to High confidence in either direction."
-
-Notice: the statement names the pick, the confidence, the reasoning, the counter-case, and an action the voter could take. That's the target.
+New sourced evidence can move a pick from Medium to High, or from High to Low. Recompute the composite and rerun the sensitivity check. Do not change the label because a poll moved.

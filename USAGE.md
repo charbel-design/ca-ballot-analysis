@@ -12,7 +12,7 @@ Start with:
 1. `frameworks/fairness-not-equity.md` to see what a worked framework looks like
 2. `research/character-gate.md` to see how to evaluate disqualifying conduct
 3. `research/measure-analysis.md` to see how to think through ballot measures
-4. `examples/2026-primary-ca10.md` to see a full worked example
+4. `examples/2026-general-san-ramon.md` for the November 3, 2026 general, and `examples/2026-primary-ca10.md` for the corrected June primary
 
 Useful if you want the thinking, not the automation.
 
@@ -77,11 +77,11 @@ If you can't get the skill to install, fall back to Option 2 (paste-in prompt) o
 Whichever option you use, a complete ballot analysis will give you:
 
 - **A pick for every race** on your ballot (or an abstain recommendation when evidence is too thin)
-- **Confidence levels** (High / Medium / Low) for each pick, with Low-confidence picks explicitly inviting pushback
+- **Confidence levels** (High / Medium / Low) for scored picks, with Low-confidence picks explicitly inviting pushback. Abstentions are unlabeled.
 - **A one-line rationale** for each pick tied to specific framework criteria
 - **A list of what's NOT on your ballot** that you might expect (prevents surprises)
 - **Character gate disqualifications** with stated reasoning
-- **Deliverable options**: if you ask, Claude can produce a full Word report and printable one-sheet PDF
+- **Optional deliverables**: a Word report and a one-sheet PDF exist only if you ask for them. The analysis itself is the written picks.
 
 Budget about 15-30 minutes of back-and-forth with Claude for a full primary ballot analysis. General elections with more propositions can take longer.
 

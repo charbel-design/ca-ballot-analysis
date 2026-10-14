@@ -69,6 +69,8 @@ Template:
 
 When is a pick High/Medium/Low confidence in your framework?
 
+If you leave these blank, use `scoring/confidence-levels.md`. Do not invent a looser High.
+
 - **High**: ____________
 - **Medium**: ____________
 - **Low**: ____________

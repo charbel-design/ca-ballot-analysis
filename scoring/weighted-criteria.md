@@ -56,17 +56,14 @@ Formula: `(sub_score_1 × sub_score_2) / 100 = criterion_score`
 
 Example: Policy quality 90, Feasibility 30 → (90 × 30) / 100 = 27. That 27 is the criterion score, which then gets weighted.
 
-This is the key reason Mahan outscored Hilton in the June 2026 analysis: Hilton's high policy quality multiplied by low feasibility produced a lower criterion score than Mahan's good policy quality × high feasibility.
+The June 2026 primary example is the worked case. Hilton's policy-times-feasibility score is 18 and Mahan's is 60. After the weights below are applied, the corrected composites are Mahan 73.00, Villaraigosa 65.55, and Hilton 49.55. See `examples/2026-primary-ca10.md`.
 
 ## When candidate scores are close
 
-If top two candidates score within 5 points:
-- This is a "low confidence" pick
-- Output should name both candidates as plausible
-- Lead with the winner but explicitly flag the close call
-- Explain what would break the tie (what additional evidence would shift the score)
+Apply `scoring/confidence-levels.md`. Do not invent a second threshold here.
 
-If scores are within 2 points: consider whether the framework is even resolving this race. It may be that both candidates are similarly aligned and the voter should pick based on a tiebreaker not captured in the framework.
+- A gap under 5 points is Low confidence, and the write-up names both candidates.
+- A gap of 2 points or less is a reason to abstain rather than pretend the framework decided the race.
 
 ## Comparing candidates side-by-side
 
@@ -88,7 +85,7 @@ Every composite score must be accompanied by:
 
 1. **The criterion-level scores** (so the user can see where the candidate won and lost)
 2. **The reasoning** (so the user can challenge specific judgments)
-3. **Confidence level** (High/Medium/Low)
+3. **Confidence level**, using only `scoring/confidence-levels.md`
 4. **Key sources** (so the user can verify)
 
 Do NOT produce a ranked list without the underlying scoring. That's just endorsement with extra steps.
@@ -145,7 +142,7 @@ If research produces almost no useful information about a candidate (common in m
 **Scoring**:
 [Scoring table if 3+ candidates, or side-by-side prose if 2 candidates]
 
-**Pick**: [Candidate name] — [Confidence level]
+**Pick**: [Candidate name] — [Confidence level from scoring/confidence-levels.md, or Abstain / Not scored with no label]
 
 **Why**:
 [3-5 sentences summarizing the decisive criteria]
@@ -155,3 +152,57 @@ If research produces almost no useful information about a candidate (common in m
 ```
 
 The "if the framework is wrong" section is critical: it invites the voter to identify where they disagree with the framework, rather than where they disagree with a specific pick.
+
+## Adjustable weights
+
+The fairness-not-equity defaults are 20, 35, 15, 15, 10, and 5. They stay the defaults. A voter may replace them.
+
+To use different weights:
+
+1. Write six percentages, one per criterion, in the same order as the framework.
+2. Check that they sum to 100. If they do not, stop and fix them before scoring.
+3. Recompute every composite with the new weights. Do not reuse a ranking from the default weights.
+4. Assign confidence again under `scoring/confidence-levels.md`.
+5. Say, in the output, that the weights are the voter's and not the framework default.
+
+Policy quality times feasibility is still computed inside that criterion before the weight is applied. Changing the weights does not turn the multiplier into an addition.
+
+## Sensitivity check
+
+Run this once for every scored candidate race, after the default (or voter-chosen) composites are done.
+
+Starting weights: `W = [20, 35, 15, 15, 10, 5]` unless the voter substituted a set that sums to 100. Use that set as `W` instead.
+
+For each criterion, and for a shift of +10 and of −10:
+
+1. Copy `W`.
+2. Add the shift to that one criterion. If the result would be negative, set it to 0 and note that the shift was clipped. The 5-point competence weight clips on −10.
+3. Renormalize so the six weights sum to 100: `new_i = trial_i / sum(trial) × 100`.
+4. Recompute every candidate's composite with `new`.
+5. Record whether the leader changed.
+
+Report, for that race, either "the leader is the same in all 12 shifts" or which shifts change the leader, with the new composites. A shift that changes the leader blocks a High label. See `scoring/confidence-levels.md`.
+
+Worked check, June 2026 primary governor scores from `examples/2026-primary-ca10.md` (delivery, policy×feasibility, five-year, concentrated, individualism, competence):
+
+| Candidate | Scores | Composite |
+| --- | --- | --- |
+| Mahan | 85, 60, 80, 75, 75, 85 | 73.00 |
+| Villaraigosa | 85, 53, 65, 60, 70, 85 | 65.55 |
+| Hilton | 40, 18, 75, 80, 85, 70 | 49.55 |
+
+Mahan remains first in all 12 shifts. The gap to Villaraigosa is 7.45, so the label is Medium, not High.
+
+## Verification checklist
+
+Run this before treating an analysis as finished. The same list is what `SKILL.md` and `PROMPT-VERSION.md` require.
+
+- [ ] The six weights sum to 100.
+- [ ] Each composite equals the weighted sum of the stated criterion scores. Show the arithmetic.
+- [ ] Policy×feasibility was multiplied, then weighted. It was not added as a seventh score.
+- [ ] Every High candidate pick has a gap of 15 or more and does not flip in the sensitivity check.
+- [ ] Every High measure pick has three aligned tests and no serious test the other way, per `scoring/confidence-levels.md`.
+- [ ] Unscored rows and abstentions have no High/Medium/Low label.
+- [ ] Every factual claim about a candidate or measure has an inline source link.
+- [ ] The worked example, if any, shows a last-verified date.
+- [ ] The sensitivity check is reported for each scored race.

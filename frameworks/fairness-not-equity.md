@@ -12,12 +12,12 @@ A candidate who fails any gate condition is disqualified regardless of policy al
 
 Gate conditions (any one disqualifies):
 
-- **Rule-of-law violations.** Documented actions that undermine the rule of law: ordering unauthorized seizures, refusing to certify lawful elections, calling for criminal prosecution of federal officers performing statutory duties, etc.
-- **Extremist organizational ties.** Past or present affiliation with organizations that have endorsed political violence, sedition, or racial/religious supremacy.
-- **Fundamental unseriousness.** Religious-war rhetoric as a governance frame. Pseudoscience beliefs affecting the office. Conspiracy theories as campaign pillars.
-- **Disqualifying judgment lapses.** Criminal convictions related to office conduct, documented abuse of power, pattern of demonstrable lies.
+- **Rule-of-law violations.** A documented pattern of using public power outside the lawful process of the office, or of refusing a clear legal duty of that office.
+- **Extremist organizational ties.** Past or present affiliation with an organization that advocates political violence or racial or religious supremacy.
+- **Fundamental unseriousness.** A campaign whose own materials make a conspiracy, or a non-governing apocalypse, the platform. Or a claim the candidate would have to apply in office that contradicts the established record of that field.
+- **Disqualifying judgment lapses.** A criminal conviction related to the conduct of an office, a documented pattern of abuse of public power, or a pattern of demonstrable lies about material facts.
 
-A single incident is not automatic disqualification; a pattern is. Use judgment. If uncertain, document the concern but leave the candidate in the scoring pool with a character note.
+Screening is not an accusation. Cite the record or do not disqualify. A single incident is not automatic disqualification; a pattern is. If uncertain, document the concern and leave the candidate in the scoring pool. The evaluation notes in `research/character-gate.md` use the same rule.
 
 ## Weighted criteria (total 100%)
 
@@ -67,11 +67,9 @@ Literacy in the domain of the office. Minimum threshold, not a ceiling. A candid
 
 ## Confidence calibration
 
-After scoring, assign confidence:
+Use `scoring/confidence-levels.md`. Do not apply a different gap rule in this file.
 
-- **High**: Composite score gap of 15+ points between winner and runner-up. Strong evidence on all six criteria. No major information gaps.
-- **Medium**: Score gap of 5-15 points. Some evidence gaps but framework points clearly. Runner-up has plausible claim.
-- **Low**: Score gap under 5 points. Thin research surface. Framework outputs ambiguous. Pick is essentially symbolic or tactical.
+These weights are the defaults. A voter may substitute another set that sums to 100, using the method in `scoring/weighted-criteria.md`. Substituting weights does not change the gate, the feasibility multiplier, or the measure tests.
 
 ## Ballot measures
 

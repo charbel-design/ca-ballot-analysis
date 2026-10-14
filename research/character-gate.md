@@ -18,16 +18,17 @@ This is the most important step in the analysis. Weighted scoring can produce cl
 
 5. **When in doubt, keep them in the pool.** Better to have a weak candidate score poorly in weighted criteria than to wrongly disqualify someone. The gate should be for clear failures, not borderline cases.
 
+6. **Screening is not an accusation.** A gate note is a conclusion about the public record, not a criminal charge, an endorsement of a rumor, or a finding that the candidate is unfit in some broader moral sense. Cite the record: a court opinion, a filing, a vote, or a statement the candidate published. If you cannot cite it, do not disqualify, and do not repeat the claim. A single sourced incident is recorded as a note. A pattern of sourced incidents is what fails the gate.
+
 ## Common gate conditions and how to evaluate them
 
 ### Rule-of-law violations
 
 **What counts**:
-- Ordering unauthorized government actions (seizures, arrests, confiscations)
-- Refusing to certify lawful election results
-- Calling for criminal prosecution of federal officers for executing statutory duties
-- Advocating defiance of court orders
-- Publicly attacking the legitimacy of judges who rule against them
+- Using the powers of an office to interfere with an election, a court, or another agency outside that office's lawful process
+- Refusing to carry out a clear legal duty of the office
+- A governing platform whose method is to ignore a court order or a statute rather than to change it through legislation or litigation
+- A documented pattern of using public authority to punish critics or political opponents
 
 **What doesn't count**:
 - Policy disagreements with current law (normal politics)
@@ -55,10 +56,9 @@ This is the most important step in the analysis. Weighted scoring can produce cl
 ### Fundamental unseriousness
 
 **What counts**:
-- Campaign framing as religious war, cosmic battle, or spiritual struggle rather than governance
-- Conspiracy theories as core platform pillars (not just occasional comments)
-- Pseudoscience beliefs that affect the office's duties (an anti-vaccine pediatric health commissioner, a flat-earth transportation commissioner)
-- Performative politics: running for office as a stunt or personal brand-building without substantive agenda
+- A campaign whose central message is apocalyptic, conspiratorial, or otherwise not a program of government, repeated across the candidate's own materials
+- Claims about the physical world that the candidate would have to act on in office and that contradict the established record of that field
+- A candidacy conducted as a stunt, with no stated agenda for the office's actual duties
 
 **What doesn't count**:
 - Strong religious identity (most politicians have one; not disqualifying)
@@ -101,10 +101,10 @@ For each candidate:
 ## Sample gate-failure language
 
 Good:
-> "Candidate X fails the character gate. In 2025, while serving as Sheriff, X ordered deputies to seize ballots from drop boxes over unfounded election integrity concerns, drawing a court order to return them. This is a direct rule-of-law violation, not a policy disagreement."
+> "Candidate X fails the character gate. Court filings in [year] show that, while holding Office A, X directed staff to [specific act] after a court had already ordered the opposite. The order and the defiance are both in the record. This is a use of the office outside its lawful process, not a policy disagreement."
 
 Good:
-> "Candidate Y fails the character gate based on a consistent pattern of religious-war framing in campaign materials, including campaign literature describing the election as 'a battle between light and darkness' and debate appearances centered on stopping 'grooming.' This is unseriousness as core messaging, not incidental rhetoric."
+> "Candidate Y fails the character gate. In three separate pieces of campaign material, linked here, the entire platform is a claim that the election is a cosmic battle rather than a set of governing choices. That is the campaign's message, not an aside."
 
 Bad:
 > "Candidate Z fails the character gate because they hold views I disagree with." ← Policy disagreement is not a gate.
@@ -121,7 +121,7 @@ In the final report, present gate failures in a dedicated section, not buried in
 
 ### [Candidate Name] ([Office])
 - **Gate condition failed**: [Category]
-- **Evidence**: [1-2 sentences with sources]
+- **Evidence**: [1-2 sentences, each with a source link. Screening is not an accusation.]
 - **Why this is disqualifying, not just negative**: [Why this isn't just a policy disagreement]
 ```
 

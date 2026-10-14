@@ -143,15 +143,11 @@ For each measure, produce:
 [Anything that could change the analysis]
 ```
 
-## Measure vs. candidate: different confidence calibration
+## Measure vs. candidate confidence
 
-Measures often produce higher-confidence picks than candidate races because:
-- Measures have explicit legal text (not just campaign promises)
-- Historical analogs are usually available
-- The money behind each side is directly disclosable
-- There are only two options (yes/no) rather than multi-candidate scoring
+Measures often have a legal text, a fiscal estimate, and two choices. That can support a clearer pick than a thin candidate race. It does not create a special, easier High.
 
-A measure pick should usually be Medium or High confidence. Low confidence on a measure usually indicates that the measure is genuinely novel or that information is incomplete — in which case, recommend the voter seek additional sources rather than defaulting to either position.
+Confidence and abstention for measures are defined only in `scoring/confidence-levels.md`. A novel measure, or one whose official text does not resolve the tests, is Low or an abstention. Do not default to either yes or no to fill the slot.
 
 ## Campaign finance as signal
 

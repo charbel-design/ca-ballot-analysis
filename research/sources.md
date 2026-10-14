@@ -95,7 +95,7 @@ For each ballot item:
 
 For ballot measures:
 
-1. **Read the ballot language itself.** Check for court-ordered revisions (Measure B in CCC June 2026 is a live example).
+1. **Read the ballot language itself.** Check whether a court ordered the question revised. Confirm that against the county pamphlet or a court filing before repeating it.
 2. **Read the legislative analyst / impartial analysis.** Usually in the voter information pamphlet.
 3. **Find the measure's sponsor and opponent coalitions.** FPPC again.
 4. **Check for historical analogs.** If it's a renewal, compare to the original. If it's a new tax, compare to similar past measures.

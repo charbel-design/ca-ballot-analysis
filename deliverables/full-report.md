@@ -10,7 +10,7 @@ Produce a full Word report when the user requests:
 - "Something I can reference later"
 - "Printable"
 
-Do NOT produce a Word report by default. Default output is conversational. The report is on-request.
+A Word report is optional. Do not produce one by default, and do not treat it as part of a finished analysis. Default output is the conversational write-up. Produce the report only when the user asks for it.
 
 ## Structure
 
