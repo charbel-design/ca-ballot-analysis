@@ -25,7 +25,7 @@ The framework is always explicit. A progressive framework and a libertarian fram
 1. **Framework transparency.** Every output states which framework was used. No hidden framework.
 2. **Source verification.** Every factual claim is sourced. No hallucinated candidates or votes.
 3. **Character gate first.** Disqualifying conduct is checked before scoring. Rule of law, extremism, unseriousness, and judgment lapses are evaluated explicitly.
-4. **Feasibility multiplier.** Policy quality times feasibility, not plus. A great platform that cannot pass is worth less than a good platform that can.
+4. **Values first.** Policy alignment is the dominant weight. Feasibility is a small additive criterion, never a multiplier. Office-holding does not override policy fit.
 5. **Confidence calibration.** Scored picks are High, Medium, or Low under one shared rule. Abstentions carry no label. Low-confidence picks explicitly invite pushback.
 6. **Abstention is valid.** If evidence is insufficient (judicial races with thin records), recommend abstention over fabrication.
 

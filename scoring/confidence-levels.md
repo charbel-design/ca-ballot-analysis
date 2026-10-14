@@ -7,7 +7,7 @@ Confidence is calibration. It tells the voter where the framework is speaking cl
 ## Labels attach only to a finished pick
 
 - A **scored candidate race** has a composite for every candidate still in the pool, computed from stated criterion scores and weights that sum to 100. Only then may the pick be High, Medium, or Low.
-- A **measure pick** uses the measure tests below. It does not need a six-criterion composite.
+- A **measure pick** uses the measure tests below. It does not need the candidate-criterion composite.
 - **Abstain** and **not scored** are not confidence labels. Leave the confidence cell blank. Do not write High, Medium, or Low on a row that has no score and no completed measure test.
 
 ## Scored candidate races

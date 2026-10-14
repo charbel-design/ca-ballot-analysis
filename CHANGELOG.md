@@ -1,8 +1,46 @@
 # Changelog
 
+## October 14, 2026 — values-first weights
+
+The fairness-not-equity defaults changed. The previous entry on this date left them at 20, 35, 15, 15, 10, and 5, with policy quality multiplied by feasibility. That product, plus a heavy delivery weight, ranked candidates by whether they could win and whether they had held office. The owner rejected it. The composites in the entry below are the historical record of that version. They are not the current scores.
+
+### New defaults
+
+Seven additive weights, summing to 100:
+
+| Criterion | Weight |
+| --- | --- |
+| Policy alignment | 45 |
+| Five-year effects | 15 |
+| Concentrated benefit | 12 |
+| Individualism | 10 |
+| Delivery of framework-aligned results | 8 |
+| Feasibility and electability | 7 |
+| Baseline competence | 3 |
+
+Policy alignment is the dominant criterion. Feasibility is a separate score. It is never a multiplier. Delivery counts a result this framework would call a success, not years in office. Competence dropped from 5 to 3 so literacy cannot override policy fit. Concentrated benefit moved from 15 to 12 to make the seven weights sum to 100. The character gate, the sourcing rule, the confidence labels in `scoring/confidence-levels.md`, and the ±10 sensitivity check are unchanged. Seven criteria produce 14 shifts. Delivery (8), feasibility (7), and competence (3) clip to 0 on a −10 shift.
+
+The rationale is in `frameworks/fairness-not-equity.md`. The method is in `scoring/weighted-criteria.md`. `SKILL.md` and `PROMPT-VERSION.md` state the same weights.
+
+### Rescored races
+
+Same sources standard as the earlier pass: a claim without a link is not in the file. Campaign statements are scored as statements. They are not treated as audited results, which is why no candidate pick below is High.
+
+November 3, 2026 general, `examples/2026-general-san-ramon.md`:
+
+- Governor: Hilton 61.05, Becerra 48.50, gap 12.55, Medium. The leader is unchanged in all 14 shifts.
+- Attorney general: Gates 58.35, Bonta 55.05, gap 3.30, Low. Feasibility at +10 flips the leader.
+- U.S. House District 10: Frese 55.60, DeSaulnier 45.85, gap 9.75, Medium. The leader is unchanged in all 14 shifts.
+
+June 2, 2026 primary governor field in `examples/2026-primary-ca10.md`. The inherited scores from the first draft were withdrawn rather than reweighted.
+
+- Mahan 71.00, Hilton 61.05, Villaraigosa 60.50, Becerra 48.50. Gap 9.95, Medium. Mahan stays first in all 14 shifts. Hilton leads Villaraigosa by 0.55, and some shifts swap those two for second.
+
+Proposition picks were not rescored. They use the measure tests, not these weights.
+
 ## October 14, 2026
 
-Corrected the skill's scoring and screening rules, and added a worked example for the November 3, 2026 general election in San Ramon. The fairness-not-equity default weights are unchanged: 20, 35, 15, 15, 10, and 5.
+Corrected the skill's scoring and screening rules, and added a worked example for the November 3, 2026 general election in San Ramon. The weights in this entry were 20, 35, 15, 15, 10, and 5, with a feasibility multiplier. The entry above replaces those weights and those composites.
 
 ### Rules
 

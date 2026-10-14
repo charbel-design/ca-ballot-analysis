@@ -64,7 +64,7 @@ For each race:
 - Certified candidate list
 - Ballot designation for each candidate
 - Key platform positions
-- Delivery record and prior office track record
+- Delivery of results aligned with the framework. Holding the office is not itself a result.
 - Endorsements and campaign funding (follow the money)
 - Any disqualifying conduct
 
@@ -97,19 +97,19 @@ A single incident is not a gate failure. A pattern is. When uncertain, keep the 
 
 Step 2: Score remaining candidates on weighted criteria.
 
-Default weighted criteria (use these unless the user specified different weights):
-- 20%: Delivery track record (actual results at scale, not bills co-sponsored)
-- 35%: Policy quality multiplied by feasibility (MULTIPLICATIVE, not additive)
+Default weighted criteria (use these unless the user specified different weights). They are additive. Do not multiply any two of them.
+
+- 45%: Policy alignment with the framework (rules applied evenly, individual merit over group outcomes, housing supply, restraint on new taxes). This is the dominant criterion.
 - 15%: Second-order effects (does this still look fair in five years?)
-- 15%: Concentrated-benefit vs. diffuse-cost alignment (who funds them, who benefits)
+- 12%: Concentrated-benefit vs. diffuse-cost alignment (who funds them, who benefits)
 - 10%: Individualism vs. rule-equality resolution (consistent principle vs. ad-hoc)
-- 5%: Baseline competence (domain literacy)
+- 8%: Delivery of results aligned with the framework. Years in office are not a result. A campaign's own claim of a result cannot score at the top of the band until it is checked against another record.
+- 7%: Feasibility and electability, scored on its own. Never multiply this by policy alignment. A low score is a small penalty. Do not give every candidate from the minority party the same low number.
+- 3%: Baseline competence (domain literacy). Too small to override policy fit.
 
-The feasibility multiplier is critical. A candidate with excellent policies and zero feasibility scores lower than a candidate with good policies and realistic feasibility. Formula: policy_quality times feasibility divided by 100 equals the criterion score.
+These seven weights are the defaults. They sum to 100. Keep them unless the user supplies a different set. If the user wants different weights: the numbers must sum to 100, every composite is recomputed, and confidence is assigned again from the new gaps. Say in the output that the weights are the user's. Do not reintroduce a policy-times-feasibility multiplier.
 
-These six weights are the defaults. Keep them unless the user supplies a different set. If the user wants different weights: the six numbers must sum to 100, every composite is recomputed, and confidence is assigned again from the new gaps. Say in the output that the weights are the user's.
-
-After scoring with the weights actually used, run a sensitivity check. For each criterion, add 10 points and, separately, subtract 10 points (not below 0). Renormalize the six weights so they sum to 100. Recompute the composites. Report whether the leader changes. The 5-point competence weight hits 0 on a minus-10 shift; say so.
+After scoring with the weights actually used, run a sensitivity check. For each criterion, add 10 points and, separately, subtract 10 points (not below 0). Renormalize so the weights sum to 100. Recompute the composites. Report whether the leader changes. Seven criteria produce 14 shifts. On the defaults, delivery (8), feasibility (7), and competence (3) hit 0 on a minus-10 shift; say so.
 
 Step 3: Rank and assign confidence.
 
@@ -156,7 +156,7 @@ Before you finish, check:
 2. Source verification: Every factual claim must be sourced
 3. No invented candidates: Pull names only from certified lists
 4. Character gate is binary: No partial credit
-5. Feasibility multiplier: multiplicative, never additive
+5. Feasibility stays additive: score it separately from policy alignment, and never multiply the two
 6. Confidence flagging: High/Medium/Low only on scored picks and completed measure tests. No label on abstentions or unscored rows.
 7. Abstention over fabrication: "I don't have enough information" is valid
 8. No endorsement language: "the framework points toward X" not "you should vote for X"

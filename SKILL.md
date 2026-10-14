@@ -56,7 +56,7 @@ For each race:
 - Certified candidate list (SoS or county registrar)
 - Ballot designation for each candidate
 - Key platform positions (candidate sites, Ballotpedia, CalMatters)
-- Delivery record (prior office, track record)
+- Delivery of results aligned with the framework. Holding the office is not itself a result.
 - Endorsements and funding (FPPC disclosures, campaign finance)
 - Disqualifying conduct (lawsuits, criminal records, extremist affiliations). Screening is not an accusation. Cite the record or do not disqualify. See `research/character-gate.md`.
 
@@ -76,10 +76,10 @@ Step 1: **Run the character gate.**
 For every candidate, check disqualifying conduct per the framework's gate definition. Log failures with explicit reasons. Gate-failed candidates drop out of scoring entirely. See `research/character-gate.md` for gate evaluation patterns.
 
 Step 2: **Score remaining candidates.**
-Apply the framework's weighted criteria. Write explicit rationale for each criterion, not just numbers. If the framework requires a feasibility multiplier (most do), apply it — do not just add feasibility as another additive criterion.
+Apply the framework's weighted criteria. Write explicit rationale for each criterion, not just numbers. For fairness-not-equity, score policy alignment and feasibility as two additive criteria. Do not multiply them. Score delivery on framework-aligned results, not on years in office.
 
 Step 3: **Rank, then check the weights.**
-For each scored race, rank from the composites. If the voter wants different weights, substitute a set that sums to 100 and recompute. The method, and the ±10-point sensitivity check, are in `scoring/weighted-criteria.md`. The fairness-not-equity defaults stay 20 / 35 / 15 / 15 / 10 / 5 unless the voter changes them.
+For each scored race, rank from the composites. If the voter wants different weights, substitute a set that sums to 100 and recompute. The method, and the ±10-point sensitivity check, are in `scoring/weighted-criteria.md`. The fairness-not-equity defaults stay 45 / 15 / 12 / 10 / 8 / 7 / 3 unless the voter changes them. That order is policy, five-year, concentrated benefit, individualism, delivery, feasibility, competence.
 
 Step 4: **Assign confidence or abstain.**
 Follow `scoring/confidence-levels.md` only. Do not copy a looser definition into the write-up.
@@ -111,7 +111,7 @@ Before finishing, run the verification checklist in `scoring/weighted-criteria.m
 2. **Source verification.** Every factual claim about a candidate or measure must be sourced. No hallucinated candidates, votes, or positions. If uncertain, search before asserting.
 3. **No invented candidates.** Pull names only from certified candidate lists. Verify spelling and party designation from primary sources.
 4. **Character gate is binary.** No partial credit. Candidates who fail the gate are out, regardless of policy positions.
-5. **Feasibility multiplier.** Policy quality × feasibility, never policy quality + feasibility.
+5. **Feasibility stays additive.** Policy alignment and feasibility are separate scores. Never multiply them. A low feasibility score must not erase a large policy-alignment lead.
 6. **Confidence flagging.** Use `scoring/confidence-levels.md`. High, Medium, or Low on scored picks only. Abstain and not-scored rows get no label.
 7. **Abstention over fabrication.** "I don't have enough information to recommend here" is always a valid output.
 8. **Copyright discipline.** Paraphrase everything. One quote per source maximum, under 15 words. Never reproduce ballot measure text or candidate statements verbatim beyond brief identifying phrases.

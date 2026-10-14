@@ -21,23 +21,25 @@ Screening is not an accusation. Cite the record or do not disqualify. A single i
 
 ## Weighted criteria (total 100%)
 
-Score each remaining candidate 0-100 on each criterion. Apply weights. Apply feasibility multiplier where indicated.
+Score each remaining candidate 0-100 on each criterion. Multiply by the weight. Add the seven results. That sum is the composite.
 
-### 20%: Delivery track record
+These criteria are additive. Do not multiply any two of them together. A high policy score is not reduced because the candidate is unlikely to win, and a low policy score is not rescued because the candidate is likely to win.
 
-Has this person actually run something at scale and produced measurable results? Legislative voting records without executive delivery experience score lower. "Advocated for" and "co-sponsored" score lower than "implemented" and "delivered."
+### Why these weights
 
-Evidence: prior office outcomes, private-sector track record, measurable metrics (budgets balanced, crime rates, graduation rates, permit times, response times).
+An earlier version of this framework put 35% on policy quality multiplied by feasibility, 20% on delivery, and 5% on competence. In a state with a long Democratic trifecta, the product scored every Republican statewide agenda near the bottom no matter how closely the policies matched the values above. Delivery and competence then added a further reward for having held office. The framework was choosing who could win, not who matched the voter's beliefs.
 
-### 35%: Policy quality × feasibility
+That result was rejected. Policy alignment is now the dominant criterion. Feasibility is a small separate criterion. It is never a multiplier. Delivery counts framework-aligned results, not tenure, and its weight is small enough that office-holding cannot override policy fit. Competence stays in the rubric as a literacy check and is smaller still.
 
-**This is a multiplicative criterion, not additive.** A candidate with excellent policies and near-zero feasibility scores lower than a candidate with good policies and realistic feasibility.
+The seven defaults below sum to 100. A voter may substitute another set that sums to 100, using `scoring/weighted-criteria.md`. Substituting weights does not change the gate, the rule that feasibility is additive, or the measure tests.
 
-**Policy quality** (0-100): Does the policy address the actual problem? Does it pass basic economic logic? Does it avoid predictable unintended consequences? Does it respect constitutional limits and individual rights?
+### 45%: Policy alignment
 
-**Feasibility** (0-100): Can this candidate actually pass this agenda given their coalition, party alignment with the Legislature, and political reality? A Republican's ambitious statewide agenda in a D-supermajority state has low feasibility regardless of its merits.
+Does the stated policy match this framework: rules applied evenly, individual merit over group identity, opportunity over redistributed outcomes, housing supply over shortage, and restraint on new taxes and permanent spending?
 
-**Score** = (Policy quality × Feasibility) / 100
+Score the direction of the sourced platform. A campaign summary can support a high or low score. It cannot support the top of the band, because it is not a statute the candidate has passed. A missing platform is not a high score and not a low score. If the dominant criterion cannot be scored without inventing a record, abstain. See `scoring/confidence-levels.md`.
+
+Evidence: the candidate's own platform in a tier-1 voter guide, a Ballotpedia summary of that platform, or an equivalent sourced statement. Paraphrase. Do not treat a party label as a policy.
 
 ### 15%: Second-order effects (5-year test)
 
@@ -45,7 +47,7 @@ Does this policy still look fair in five years? Policies that sound fair on day 
 
 Evidence: historical analogs, supply-demand implications, incentive effects, precedent in other jurisdictions.
 
-### 15%: Concentrated-benefit vs. diffuse-cost alignment
+### 12%: Concentrated-benefit vs. diffuse-cost alignment
 
 Organized groups (public employee unions, connected developers, protected industries) reliably win policy fights over disorganized taxpayers and consumers. This criterion favors candidates who explicitly fight concentrated-benefit capture, and penalizes candidates funded primarily by or aligned with such groups.
 
@@ -61,19 +63,33 @@ Evidence: leginfo.ca.gov for authored bills, floor analyses identifying carve-ou
 
 When respect for individual choice and treating everyone the same conflict, how does the candidate resolve it? A well-specified framework handles this tension explicitly rather than ignoring it. Score based on whether the candidate's positions reflect a consistent principle or ad-hoc selection.
 
-### 5%: Baseline competence
+### 8%: Delivery of framework-aligned results
 
-Literacy in the domain of the office. Minimum threshold, not a ceiling. A candidate can max out other criteria and still lose to a competitor who has basic fluency in the office they're seeking.
+Did this person produce a measurable result that this framework would count as a success? Housing built, a tax or fee burden reduced, a rule applied evenly, a concentrated benefit removed. "Advocated for" and "co-sponsored" score lower than a result.
+
+Holding the office is not delivery. Years in Congress, a prior term as attorney general, or a mayor's title do not raise this score. A result the framework rejects, such as a new tax or a shortage-making housing rule, does not raise it either. A candidate's own claim of a result can support a mid score. It cannot support a high score until the number is checked against a record other than the campaign.
+
+Evidence: audited outcomes, official statistics, or a sourced result. Not the ballot designation.
+
+### 7%: Feasibility and electability
+
+Can this agenda be carried out, given the coalition, the office's actual powers, and the political record of similar candidates? This is a separate additive score. Do not multiply it by policy alignment.
+
+A low score here is a small penalty. It must not wipe out a large policy-alignment lead. Score what the office can do without a new legislative majority, such as enforcing a law voters already passed, higher than a platform that needs the other party to enact it. Do not reduce every Republican to the same low number.
+
+Evidence: chamber counts, how the office works, and recent results for that office. This criterion is not a prediction of the race being scored.
+
+### 3%: Baseline competence
+
+Literacy in the domain of the office. A minimum check, not a reason to prefer the incumbent. The weight is small on purpose: fluency cannot override policy fit. Score familiarity with the work of the office. Do not add points for tenure beyond what that familiarity requires.
 
 ## Confidence calibration
 
 Use `scoring/confidence-levels.md`. Do not apply a different gap rule in this file.
 
-These weights are the defaults. A voter may substitute another set that sums to 100, using the method in `scoring/weighted-criteria.md`. Substituting weights does not change the gate, the feasibility multiplier, or the measure tests.
-
 ## Ballot measures
 
-For ballot measures, apply criteria 15, 15, 10, and a substituted "does this advance or retard the fairness framework" criterion in place of the two candidate-specific criteria (track record, baseline competence).
+For ballot measures, do not score delivery, feasibility, or competence. Apply policy alignment, the five-year test, the concentrated-benefit test, and the individualism test through the questions below. There is no candidate composite and no feasibility multiplier.
 
 Specific tests for measures:
 - Does it redistribute from diffuse taxpayers to concentrated interests? (If yes → against)
@@ -86,7 +102,8 @@ Specific tests for measures:
 ## Known framework limitations
 
 This framework will reliably:
-- Favor candidates with executive delivery records over pure legislators
+- Favor the closer policy match over the candidate more likely to win
+- Give office-holding, by itself, little weight
 - Favor policies with rigorous 5-year analyses over politically expedient ones
 - Disfavor candidates funded primarily by public employee unions
 - Disfavor sales taxes, parcel taxes, and other regressive revenue tools

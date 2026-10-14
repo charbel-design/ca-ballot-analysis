@@ -2,16 +2,16 @@
 
 **Last verified: October 14, 2026.**
 
-**Framework:** fairness-not-equity, default weights 20 / 35 / 15 / 15 / 10 / 5.
+**Framework:** fairness-not-equity. Default weights 45 / 15 / 12 / 10 / 8 / 7 / 3. That order is policy alignment, five-year effects, concentrated benefit, individualism, delivery of framework-aligned results, feasibility, and competence. Feasibility is additive. It is not multiplied by policy.
 
-This file is the June primary example after a correction pass. The original composites did not recompute from the stated weights, several rows carried a confidence label with no score, and four candidates were disqualified with no source. Those mistakes are fixed below. Narrative claims from the original file that this pass could not re-verify are not repeated.
+This file is the June primary example after two correction passes. The first pass fixed composites that did not recompute, confidence labels on unscored rows, and unsourced disqualifications. The second pass withdrew the inherited criterion scores. Those scores were judgments from the first draft, not sourced findings, and they were built for a feasibility multiplier this framework no longer uses. The scores below use only the sources named in this file. Narrative claims from the original file that this pass could not re-verify are not repeated.
 
 Word and PDF renderings are optional. None were produced for this correction.
 
 ## What changed in this file
 
-- Composites are the weighted sums of the original criterion scores. Mahan is 73.00, not 81. Villaraigosa is 65.55, not 69. Hilton is 49.55, not 61.
-- The governor gap is 7.45 points, so the label is Medium. The old High label did not meet the 15-point rule in `scoring/confidence-levels.md`.
+- The inherited criterion scores are withdrawn. Under the current weights the composites are Mahan 71.00, Hilton 61.05, Villaraigosa 60.50, and Becerra 48.50. The gap from Mahan to Hilton is 9.95, so the label is Medium.
+- The first correction's composites (Mahan 73.00, Villaraigosa 65.55, Hilton 49.55) matched the old scores and the old multiplier. They are not reused. The old High label still does not apply.
 - Rows that were never scored no longer have a confidence label. Those picks are withdrawn.
 - The voter is in State Senate District 9, not District 7. Both are odd-numbered, so neither is on the 2026 ballot. The old "odd years" shorthand was wrong. See the scope section.
 - District attorney and sheriff are not on this ballot. That part of the old file was right for Contra Costa. The citation is below.
@@ -42,18 +42,19 @@ County fiscal offices (assessor, auditor-controller, clerk-recorder, treasurer-t
 
 ## Phase 2: Framework
 
-Fairness-not-equity, default weights. Confirmed for this example. The weights sum to 100.
+Fairness-not-equity, default weights. Confirmed for this example. The weights sum to 100. Policy alignment and feasibility are separate. Delivery does not score years in office.
 
 | Criterion | Weight |
 | --- | --- |
-| Delivery | 20 |
-| Policy quality × feasibility | 35 |
+| Policy alignment | 45 |
 | Five-year effects | 15 |
-| Concentrated benefit | 15 |
+| Concentrated benefit | 12 |
 | Individualism and rule-equality | 10 |
-| Baseline competence | 5 |
+| Delivery of framework-aligned results | 8 |
+| Feasibility and electability | 7 |
+| Baseline competence | 3 |
 
-A reader who wants different weights follows `scoring/weighted-criteria.md`: substitute six numbers that sum to 100, recompute, and say the weights are not the defaults.
+A reader who wants different weights follows `scoring/weighted-criteria.md`: substitute seven numbers that sum to 100, recompute, and say the weights are not the defaults.
 
 ## Character gate
 
@@ -69,33 +70,51 @@ What this pass could verify, and no more:
 
 ## Phase 4: Governor, the one scored race
 
-The original file scored three candidates and stated criterion scores. This correction keeps those scores, because they are the example's judgments, and replaces the composites. It does not restate the original biographical claims (clearance rates, fee cuts, tax plans, and similar), because this pass did not re-source them. The primary result is a separate fact: Becerra (28.0 percent, 2,591,857 votes) and Hilton (24.6 percent, 2,277,318) advanced. Mahan received 3.5 percent (327,537). Villaraigosa received 1.1 percent (104,107). ([Ballotpedia](https://ballotpedia.org/California_gubernatorial_election,_2026)) The framework ranking below is not a prediction, and it did not match the order of finish.
+The primary result is a separate fact from the framework ranking: Becerra (28.0 percent, 2,591,857 votes) and Hilton (24.6 percent, 2,277,318) advanced. Mahan received 3.5 percent (327,537). Villaraigosa received 1.1 percent (104,107). ([Ballotpedia](https://ballotpedia.org/California_gubernatorial_election,_2026)) The ranking below is not a prediction, and it did not match the order of finish. Other primary candidates are not scored. Their platforms were not reviewed to this standard.
 
-Policy×feasibility scores below are the already-multiplied criterion scores from the original file: Mahan (85×70)/100 = 60, Villaraigosa (70×75)/100 = 53, Hilton (90×20)/100 = 18.
+**Record used.**
 
-| Candidate | Delivery 20 | Policy×feas. 35 | Five-year 15 | Concentrated 15 | Individualism 10 | Competence 5 | Composite |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Mahan | 85 | 60 | 80 | 75 | 75 | 85 | 73.00 |
-| Villaraigosa | 85 | 53 | 65 | 60 | 70 | 85 | 65.55 |
-| Hilton | 40 | 18 | 75 | 80 | 85 | 70 | 49.55 |
+Mahan was first elected mayor of San Jose in 2022 and served on the San Jose council from 2021 to 2023. His Ballotpedia Candidate Connection answers say San Jose saw a decline in unsheltered homelessness and faster housing production under his mayoralty. Those are his claims. This pass did not check them against a homelessness count or a permit series. The same answers say he would cut housing fees and regulations, use surplus public land, lower construction cost, and meet health, housing, and school needs without a new tax. They also say shelter should be required when it is available, and that the SAT and the science of reading should return. ([Ballotpedia primary page](https://ballotpedia.org/California_gubernatorial_election,_2026_(June_2_top-two_primary)))
+
+Villaraigosa was mayor of Los Angeles from 2005 to 2013, a Los Angeles council member, and Speaker of the Assembly. Ballotpedia's biography says he worked as a union organizer. He did not complete the 2026 Candidate Connection survey. Ballotpedia's 2026 key messages, drawn from his campaign site, quote him on building because supply raises capacity, on an energy mix that includes nuclear, natural gas, and gasoline cars, and against energy mandates that burden working families. ([Ballotpedia primary page](https://ballotpedia.org/California_gubernatorial_election,_2026_(June_2_top-two_primary)); [Ballotpedia biography](https://ballotpedia.org/Antonio_Villaraigosa))
+
+Hilton's and Becerra's platform lines are the ones used in `examples/2026-general-san-ramon.md`, from the general-election Ballotpedia page: Hilton on income and gas taxes, oil drilling, and housing taxes, regulations, and lawsuits; Becerra on affordability, a path toward single-payer, and the state lowering prices where he says the market has failed. The same page is the source for the Democratic trifecta since 2011, the 2006 Republican gubernatorial win, and the September 2026 chamber counts. ([Ballotpedia](https://ballotpedia.org/California_gubernatorial_election,_2026))
+
+| Candidate | Policy 45 | Five-year 15 | Concentrated 12 | Individualism 10 | Delivery 8 | Feasibility 7 | Competence 3 | Composite |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Mahan | 80 | 75 | 60 | 65 | 45 | 60 | 75 | 71.00 |
+| Hilton | 70 | 65 | 60 | 70 | 30 | 20 | 60 | 61.05 |
+| Villaraigosa | 65 | 70 | 45 | 60 | 30 | 65 | 80 | 60.50 |
+| Becerra | 50 | 45 | 45 | 40 | 30 | 70 | 85 | 48.50 |
+
+Policy is 80 for Mahan because fee cuts, surplus land, and no new tax match the framework more specifically than a general affordability line. It is not 90 because the source is his survey. Policy is 70 for Hilton on the tax and housing-supply language, capped for the same reason. Policy is 65 for Villaraigosa on the supply and anti-mandate lines, which are less specific than Mahan's fee cuts. Policy is 50 for Becerra for the same split as in the November file: affordability toward the framework, single-payer and state price-setting away from it.
+
+Five-year follows those platforms. Supply and no new tax pass. A required-treatment rule is a liberty cost, scored under individualism rather than as a five-year failure of the housing plan. Single-payer and state price-setting do not pass the five-year test on the record used here.
+
+Concentrated-benefit stays near the middle where no 2026 donor table was reviewed. Villaraigosa is 45 rather than 50 because the biography records work as a union organizer. That is a historical alignment, not a 2026 disclosure, so it does not go to the bottom of the band. Individualism is highest for Hilton on the tax and supply statements, and lower for Mahan because required treatment is a coercion his other answers do not resolve.
+
+Delivery is 45 for Mahan and 30 for the other three. Mahan's survey states a homelessness decline and faster housing production. Those are the kind of result this criterion counts, and they stay in the middle because this pass did not verify the figures. The others have no sourced framework-aligned result in the pages used here. Tenure as mayor, speaker, attorney general, or secretary is not a delivery score.
+
+Feasibility is 20 for Hilton on the trifecta and the 2006 result. It is 60 for Mahan and 65 for Villaraigosa because a Democratic governor's supply agenda has a legislative path the Republican agenda does not, and a former speaker has a thicker coalition than a first-term mayor pushing fee cuts. It is 70 for Becerra on the same trifecta record as the November file. Competence is domain literacy from the offices and the advisory record in the sources, at a 3 percent weight.
 
 Arithmetic:
 
-- Mahan: (85×0.20) + (60×0.35) + (80×0.15) + (75×0.15) + (75×0.10) + (85×0.05) = 17 + 21 + 12 + 11.25 + 7.5 + 4.25 = 73.00
-- Villaraigosa: (85×0.20) + (53×0.35) + (65×0.15) + (60×0.15) + (70×0.10) + (85×0.05) = 17 + 18.55 + 9.75 + 9 + 7 + 4.25 = 65.55
-- Hilton: (40×0.20) + (18×0.35) + (75×0.15) + (80×0.15) + (85×0.10) + (70×0.05) = 8 + 6.3 + 11.25 + 12 + 8.5 + 3.5 = 49.55
+- Mahan: (80×0.45) + (75×0.15) + (60×0.12) + (65×0.10) + (45×0.08) + (60×0.07) + (75×0.03) = 36.00 + 11.25 + 7.20 + 6.50 + 3.60 + 4.20 + 2.25 = 71.00
+- Hilton: (70×0.45) + (65×0.15) + (60×0.12) + (70×0.10) + (30×0.08) + (20×0.07) + (60×0.03) = 31.50 + 9.75 + 7.20 + 7.00 + 2.40 + 1.40 + 1.80 = 61.05
+- Villaraigosa: (65×0.45) + (70×0.15) + (45×0.12) + (60×0.10) + (30×0.08) + (65×0.07) + (80×0.03) = 29.25 + 10.50 + 5.40 + 6.00 + 2.40 + 4.55 + 2.40 = 60.50
+- Becerra: (50×0.45) + (45×0.15) + (45×0.12) + (40×0.10) + (30×0.08) + (70×0.07) + (85×0.03) = 22.50 + 6.75 + 5.40 + 4.00 + 2.40 + 4.90 + 2.55 = 48.50
 
-Gap, Mahan minus Villaraigosa: 7.45. That is Medium. It is not High.
+Gap, Mahan minus Hilton: 9.95. That is Medium. It is not High. Hilton leads Villaraigosa by 0.55, which is inside the range where this file does not pretend the framework ranked second place.
 
-**Pick:** Mahan, among these three scored names, at Medium confidence. Hilton's raw policy score in the original file was the highest of the three, and the feasibility multiplier is why his criterion score is 18. That illustration still holds. It is not a claim about who won the primary.
+**Pick:** Mahan, among these four scored names, at Medium confidence. His sourced fee-cut and no-new-tax answers outscore Hilton's tax and housing answers by enough to survive the feasibility gap. Becerra's higher feasibility does not close a 30-point policy gap at a 7 percent weight.
 
-**If the framework is wrong:** a reader who refuses the feasibility multiplier, and who adds policy quality instead of multiplying, is using a different framework. The original file's lesson was that this multiplier moves Hilton from a high policy score to a low criterion score.
+**If the framework is wrong:** a reader who wants the ranking to prefer the candidate who can win is using the withdrawn multiplier, or a heavier feasibility weight. Raising feasibility by 10 and renormalizing still leaves Mahan first.
 
 ### Sensitivity
 
-Method: `scoring/weighted-criteria.md`. Each default weight is shifted by +10 and by −10, clipped at 0, then renormalized to 100. Twelve shifts.
+Method: `scoring/weighted-criteria.md`. Each default weight is shifted by +10 and by −10, clipped at 0, then renormalized to 100. Fourteen shifts.
 
-Mahan stays first in all 12. The competence −10 shift clips the 5-point weight to 0. The closest call among the shifts is not close enough to change the leader. The label stays Medium because the default gap is 7.45, not because a shift flipped the race.
+Mahan stays first in all 14. Delivery (8), feasibility (7), and competence (3) clip to 0 on the −10 shifts. The narrowest lead is feasibility at −10: Mahan 71.83, Hilton 64.14, gap 7.69. Some shifts swap Hilton and Villaraigosa for second. The leader does not change. The label stays Medium because the default gap is 9.95, not because a shift flipped the race.
 
 ## Withdrawn picks
 
@@ -105,17 +124,17 @@ Measure B and the urban-limit-line details in the original file (a court-ordered
 
 ## Verification checklist
 
-- [x] Weights 20+35+15+15+10+5 = 100.
-- [x] Composites recompute: 73.00, 65.55, 49.55.
-- [x] No candidate pick is labeled High. The only scored gap is 7.45.
+- [x] Weights 45+15+12+10+8+7+3 = 100.
+- [x] Composites recompute: Mahan 71.00, Hilton 61.05, Villaraigosa 60.50, Becerra 48.50.
+- [x] No candidate pick is labeled High. The scored gap is 9.95.
 - [x] Unscored rows have no confidence label.
 - [x] Factual claims that remain have an inline link. Unverified claims were removed.
-- [x] Sensitivity check: leader unchanged in 12 shifts.
+- [x] Sensitivity check: leader unchanged in 14 shifts.
 - [x] Last verified: October 14, 2026.
 
 ## Not verified in this pass
 
-- The original criterion scores themselves are judgments inherited from the first draft. They are not new findings about Mahan, Villaraigosa, or Hilton.
+- The withdrawn criterion scores from the first draft. They are not reused. The scores in the table above are new judgments tied to the Ballotpedia pages cited in this file. Mahan's homelessness and housing claims, and the "safest big city" line in his survey, were not checked against an independent dataset.
 - June results for county fiscal offices, and whether any of them went to a November runoff.
 - The text of Measure B and of any June urban-limit-line measure.
 - Bianco claims other than the ballot seizure reported by CalMatters and the later Supreme Court ruling reported by the Los Angeles Times.

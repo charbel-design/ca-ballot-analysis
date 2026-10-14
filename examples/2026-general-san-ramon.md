@@ -2,7 +2,7 @@
 
 **Last verified: October 14, 2026.**
 
-**Framework:** fairness-not-equity. Default weights 20 / 35 / 15 / 15 / 10 / 5. Those defaults were not changed.
+**Framework:** fairness-not-equity. Default weights 45 / 15 / 12 / 10 / 8 / 7 / 3. That order is policy alignment, five-year effects, concentrated benefit, individualism, delivery of framework-aligned results, feasibility, and competence. Feasibility is additive. It is not multiplied by policy.
 
 **Voter:** the same San Ramon voter as `examples/2026-primary-ca10.md`. ZIP 94582, Contra Costa County, no party preference. Council district and school trustee area depend on the street address. This file does not assign them.
 
@@ -12,11 +12,11 @@ Confidence labels follow `scoring/confidence-levels.md`. A row that was not scor
 
 ## How to read the scores
 
-Criterion scores are judgments tied to the sources under each race. A 50 on a criterion this pass did not research means "not researched," not "mediocre in fact." Those 50s cancel when both candidates have them, and they are why no candidate pick below is High.
+Criterion scores are judgments tied to the sources under each race. A score near the middle on a criterion this pass did not research means "not researched," not "mediocre in fact."
 
-Policy×feasibility is `(policy quality × feasibility) / 100`, then weighted at 35 percent. Composites are the weighted sum. The arithmetic is under each race so it can be redone.
+Each composite is the weighted sum of seven separate scores. Policy alignment is not multiplied by feasibility. Delivery is scored on a framework-aligned result, not on having held the office. The arithmetic is under each race so it can be redone.
 
-Readers who want other weights: replace the six defaults with six numbers that sum to 100, recompute every composite, and say the weights are yours. The method is in `scoring/weighted-criteria.md` and in `SKILL.md`.
+Readers who want other weights: replace the seven defaults with seven numbers that sum to 100, recompute every composite, and say the weights are yours. The method is in `scoring/weighted-criteria.md` and in `SKILL.md`.
 
 ## Phase 1: What is on this ballot
 
@@ -95,43 +95,49 @@ Hilton hosted *The Next Revolution* on Fox News from 2017 to 2023 and was a cont
 
 Feasibility uses Ballotpedia's statement that California has had a Democratic trifecta since 2011 and last elected a Republican governor, Arnold Schwarzenegger, in 2006. As of September 2026, the same page lists 29 Democrats and 10 Republicans in the 40-seat State Senate, with one vacancy, and 60 Democrats and 19 Republicans in the 80-seat Assembly, with one vacancy. ([Ballotpedia](https://ballotpedia.org/California_gubernatorial_election,_2026))
 
-| Candidate | Delivery 20 | Policy×feas. 35 | Five-year 15 | Concentrated 15 | Individualism 10 | Competence 5 | Composite |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Becerra | 80 | 35 | 45 | 45 | 40 | 85 | 50.00 |
-| Hilton | 40 | 14 | 65 | 60 | 70 | 60 | 41.65 |
+| Candidate | Policy 45 | Five-year 15 | Concentrated 12 | Individualism 10 | Delivery 8 | Feasibility 7 | Competence 3 | Composite |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Hilton | 70 | 65 | 60 | 70 | 30 | 20 | 60 | 61.05 |
+| Becerra | 50 | 45 | 45 | 40 | 30 | 70 | 85 | 48.50 |
 
-Becerra's policy×feasibility cell is (50×70)/100. Policy quality stays at 50 because the affordability goal points toward this framework and the single-payer and state-price language points away. Feasibility is 70 because of the trifecta and the chamber counts above, not because of a claim that every recent governor's race was won by a Democrat. Hilton's cell is (70×20)/100. Policy quality is 70 because the tax and housing-supply direction matches the framework, and it is not higher because the source is a campaign summary rather than a statute he has passed. Feasibility is 20 on that same trifecta record. The last Republican governor, on Ballotpedia's account, was elected in 2006. Five-year, concentrated-benefit, and individualism follow those same sourced statements. Donor tables were not reviewed, so the concentrated-benefit scores stay near the middle. Competence follows the offices actually held.
+Policy is 70 for Hilton because the tax cuts and the housing-supply language (hidden taxes, regulations, and lawsuits) match the framework. It is not higher because the source is a campaign summary on Ballotpedia, not a statute he has passed. Policy is 50 for Becerra because the affordability goal points toward this framework and the single-payer and state-price language points away. Five-year, concentrated-benefit, and individualism follow those same statements. Donor tables were not reviewed, so the concentrated-benefit scores stay near the middle.
 
-- Becerra: (80×0.20) + (35×0.35) + (45×0.15) + (45×0.15) + (40×0.10) + (85×0.05) = 16 + 12.25 + 6.75 + 6.75 + 4 + 4.25 = 50.00
-- Hilton: (40×0.20) + (14×0.35) + (65×0.15) + (60×0.15) + (70×0.10) + (60×0.05) = 8 + 4.9 + 9.75 + 9 + 7 + 3 = 41.65
+Delivery is 30 for both. The sources above do not report a checked result this framework would count, such as housing built or a tax burden reduced. Becerra's years at HHS, as attorney general, and in the House are not delivery. Hilton's work as an adviser and a television host is not delivery either.
 
-Gap: 8.35. Medium. Not High.
+Feasibility is 70 for Becerra and 20 for Hilton on the trifecta, the chamber counts, and the 2006 Republican gubernatorial win cited above. That gap is weighted at 7 percent. It is not multiplied into policy. Competence is 85 and 60 from the offices and the advisory record actually described. It is weighted at 3 percent.
 
-**Pick:** Becerra, Medium. The framework's feasibility multiplier outweighs Hilton's higher marks on taxes, housing supply, and individualism. A reader who drops that multiplier is using different weights or a different framework.
+- Hilton: (70×0.45) + (65×0.15) + (60×0.12) + (70×0.10) + (30×0.08) + (20×0.07) + (60×0.03) = 31.50 + 9.75 + 7.20 + 7.00 + 2.40 + 1.40 + 1.80 = 61.05
+- Becerra: (50×0.45) + (45×0.15) + (45×0.12) + (40×0.10) + (30×0.08) + (70×0.07) + (85×0.03) = 22.50 + 6.75 + 5.40 + 4.00 + 2.40 + 4.90 + 2.55 = 48.50
 
-**Sensitivity:** 0 of 12 shifts change the leader. The narrowest is delivery at −10, renormalized on a base of 90: Becerra 46.67, Hilton 41.83, gap 4.83. Under those weights the label would fall to Low. It does not flip.
+Gap: 12.55. Medium. Not High. The evidence is campaign summaries, which is a separate reason this is not High even if a later pass widened the gap past 15.
+
+**Pick:** Hilton, Medium. The policy, five-year, and individualism gaps are larger than the feasibility gap can offset at 7 percent. Personal regard for the candidate is not a criterion.
+
+**Sensitivity:** 0 of 14 shifts change the leader. The narrowest is feasibility at +10, renormalized: Hilton 57.32, Becerra 50.45, gap 6.86. Delivery, feasibility, and competence clip to 0 on the −10 shifts. None of those flips the leader.
 
 ### Attorney general
 
-**Record used.** Bonta is the incumbent. He won the November 8, 2022 general with 59.1 percent (6,339,441 votes) and the June 2, 2026 primary with 56.6 percent (4,979,967 votes). Gates took 37.9 percent (3,337,433) in that primary. ([Ballotpedia](https://ballotpedia.org/California_Attorney_General_election,_2026)) Gates's certified designation is Deputy United States Attorney. ([Certified list](https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf)) In a Ballotpedia Candidate Connection biography, Gates says he was elected Huntington Beach city attorney in 2014, 2018, and 2022. That is his submitted text. This pass did not match it to an Orange County canvass, so it is not scored as if it were.
+**Record used.** Bonta is the incumbent. He won the November 8, 2022 general with 59.1 percent (6,339,441 votes) and the June 2, 2026 primary with 56.6 percent (4,979,967 votes). Gates took 37.9 percent (3,337,433) in that primary. ([Ballotpedia](https://ballotpedia.org/California_Attorney_General_election,_2026)) Gates's certified designation is Deputy United States Attorney. ([Certified list](https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf)) The official voter guide prints no candidate statement for Bonta. Gates's statement says he would enforce Proposition 36, prosecute traffickers, move people into treatment, spend tax dollars honestly, and apply equal justice without regard to zip code or last name. He also says that, as a city attorney, he built a prosecution program that cut crime by double digits in its first year. That crime figure is his statement. This pass did not match it to a police dataset, and it did not match his city-attorney elections to an Orange County canvass. ([Secretary of State voter guide](https://voterguide.sos.ca.gov/candidates/attorney-general-candidate-statements.htm))
 
-This pass did not find a tier-2 comparison of their platforms beyond that biography. Criteria with no sourced distinction are set to 50 and labeled as not researched.
+Bonta's June 2026 answers to a GrowSF questionnaire are his own words on a third-party form, not an audit. He describes continued enforcement against retail-crime rings, traffickers, and wage theft; penalties he says he sponsored for cities that do not approve housing meeting objective standards; and a Housing Justice Team that he says opened a pathway for 40,000 units. The same answers emphasize civil rights, reproductive rights, and environmental enforcement, and lawsuits against the federal administration. ([GrowSF questionnaire](https://growsf.org/voter-guide/questionnaires/june-2026/rob-bonta/))
 
-| Candidate | Delivery 20 | Policy×feas. 35 | Five-year 15 | Concentrated 15 | Individualism 10 | Competence 5 | Composite |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Bonta | 75 | 35 | 50 | 50 | 50 | 80 | 51.25 |
-| Gates | 60 | 12 | 50 | 50 | 55 | 75 | 40.45 |
+| Candidate | Policy 45 | Five-year 15 | Concentrated 12 | Individualism 10 | Delivery 8 | Feasibility 7 | Competence 3 | Composite |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Gates | 65 | 60 | 55 | 65 | 35 | 30 | 70 | 58.35 |
+| Bonta | 55 | 55 | 50 | 50 | 45 | 70 | 85 | 55.05 |
 
-Bonta's policy×feasibility cell is (50×70)/100. The 50 is "platform not reviewed." The 70 is the trifecta and chamber counts cited in the governor section, plus his own 2022 win. Gates's cell is (60×20)/100. The 60 is his submitted taxpayer and public-safety emphasis, discounted because it is his own biography. The 20 is that same trifecta record together with the 2022 attorney general result. Individualism is 55 for that same self-description, a small step off the unreviewed 50. Competence is 80 for the sitting attorney general and 75 for the official "deputy United States attorney" designation together with the unverified city-attorney claim.
+Policy is 65 for Gates because equal enforcement and honest spending of tax dollars match the framework, and the source is his voter-guide statement rather than a statute. Policy is 55 for Bonta because the housing-approval enforcement matches the framework and the environmental-justice and tenant-protection language points the other way, so the score stays near the middle. Five-year follows those same statements: prosecution of an existing initiative is not a rent-control-style failure, and tenant protection without a supply detail is not a clear pass. Donor tables were not reviewed. Concentrated-benefit stays near the middle, with a small step up for Gates's spending line.
 
-- Bonta: (75×0.20) + (35×0.35) + (50×0.15) + (50×0.15) + (50×0.10) + (80×0.05) = 15 + 12.25 + 7.5 + 7.5 + 5 + 4 = 51.25
-- Gates: (60×0.20) + (12×0.35) + (50×0.15) + (50×0.15) + (55×0.10) + (75×0.05) = 12 + 4.2 + 7.5 + 7.5 + 5.5 + 3.75 = 40.45
+Delivery is 45 and 35, not a reward for the title. Bonta's unit figure and Gates's crime figure are campaign statements this pass did not check. Neither score leaves the middle of the low-to-mid range. Feasibility is 70 for the incumbent, using the 2022 result and the trifecta cited in the governor section. It is 30 for Gates, not 20: much of his stated agenda is enforcing a law voters already passed, which an attorney general can do without a new legislative majority, and the 2022 result is still an electability fact. Competence is 85 for the sitting attorney general and 70 for the official deputy-United-States-attorney designation. The unverified city-attorney elections are not part of that 70.
 
-Gap: 10.80. Medium.
+- Gates: (65×0.45) + (60×0.15) + (55×0.12) + (65×0.10) + (35×0.08) + (30×0.07) + (70×0.03) = 29.25 + 9.00 + 6.60 + 6.50 + 2.80 + 2.10 + 2.10 = 58.35
+- Bonta: (55×0.45) + (55×0.15) + (50×0.12) + (50×0.10) + (45×0.08) + (70×0.07) + (85×0.03) = 24.75 + 8.25 + 6.00 + 5.00 + 3.60 + 4.90 + 2.55 = 55.05
 
-**Pick:** Bonta, Medium. Most of the gap is feasibility plus the fact that several criteria were not researched. Push back if a sourced record of either candidate's litigation choices would move policy quality by more than a few points. I am not treating incumbency as a character endorsement.
+Gap: 3.30. Low. I am not confident here. Push back if a checked litigation record would move either policy score by more than a few points.
 
-**Sensitivity:** 0 of 12 shifts change the leader. The narrowest gap in the check is still about 9.4 points (individualism at +10). The Medium label is stable.
+**Pick:** Gates, Low. Policy alignment leads, and the feasibility weight is too small to reverse it. The margin is thin enough that a modest change in the policy cells would reverse the pick.
+
+**Sensitivity:** 1 of 14 shifts changes the leader. Feasibility at +10, renormalized, puts Bonta at 56.41 and Gates at 55.77, a gap of 0.64 the other way. The other 13 shifts keep Gates first. A flip blocks High. The default gap is already under 5, so the label is Low either way. Delivery, feasibility, and competence clip to 0 on the −10 shifts.
 
 ### U.S. House, District 10
 
@@ -139,29 +145,31 @@ Gap: 10.80. Medium.
 
 Frese's designation is Small Business Owner. His Ballotpedia Candidate Connection answers describe him as a businessman and state a platform: an eight-year congressional term limit, a ban on members trading stocks, no pay without a budget, less deficit spending, less red tape on building, and a ban on hedge funds buying single-family homes. ([Ballotpedia](https://ballotpedia.org/California%27s_10th_Congressional_District_election,_2026)) Those are his statements. This file does not adopt his description of DeSaulnier's bill record.
 
+DeSaulnier did not complete Ballotpedia's 2026 Candidate Connection survey. His 2024 survey, still on his Ballotpedia profile, says he worked to lower costs on housing, groceries, and health care, to bring down prescription-drug prices, to secure tax cuts for families, and to obtain a fair wage so that no one is left behind. It also says he secured more than $46 million for local projects. ([Ballotpedia profile](https://ballotpedia.org/Mark_DeSaulnier)) His 2026 campaign site calls him a progressive voice, cites workers' rights and a livable wage, and lists growing the economy, cutting health-care costs, and expanding affordable housing. ([Campaign site](https://desaulnierforcongress.com/))
+
 Ballotpedia's finance table, as of June 30, 2026, lists $567,258 in receipts for DeSaulnier and lists Frese's receipts as data not available. Missing data is not scored as independence from donors. Neither concentrated-benefit cell moves off 50.
 
-Feasibility is near the middle for both. One representative does not pass a platform, and this pass does not assume which party will organize the House in 2027.
+| Candidate | Policy 45 | Five-year 15 | Concentrated 12 | Individualism 10 | Delivery 8 | Feasibility 7 | Competence 3 | Composite |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Frese | 65 | 55 | 50 | 60 | 25 | 35 | 55 | 55.60 |
+| DeSaulnier | 45 | 40 | 50 | 45 | 35 | 60 | 70 | 45.85 |
 
-| Candidate | Delivery 20 | Policy×feas. 35 | Five-year 15 | Concentrated 15 | Individualism 10 | Competence 5 | Composite |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| DeSaulnier | 75 | 22.5 | 50 | 50 | 50 | 70 | 46.375 |
-| Frese | 35 | 26 | 55 | 50 | 60 | 55 | 40.60 |
+Policy is 65 for Frese because the term-limit, deficit, and housing-red-tape statements point toward the framework, while the proposed ban on a class of homebuyers points away, so the score stays well short of the top of the band. Policy is 45 for DeSaulnier because the family-tax-cut and housing-cost language points toward the framework and the wage, prescription-price, and progressive framing points away. Five-year is 55 and 40 for those same mixes: a homebuyer ban and drug-price controls are the shortage and price-setting patterns this framework treats as failures by year five. Individualism is 60 for the term-limit and stock-trading statements, and 45 where the "no one left behind" line is an outcome claim rather than a rule applied evenly.
 
-DeSaulnier's policy×feasibility cell is (45×50)/100. Policy is 45 because this pass did not find a platform summary to set against the framework, and a missing platform is not a high score. Frese's cell is (65×40)/100. Policy is 65 because the term-limit, deficit, and housing-red-tape statements point toward the framework, while the proposed ban on a class of homebuyers points away, so the score stays well short of the top of the band. Feasibility is 40 rather than 50 because the sources used here do not show a prior elected office. They do not prove he has never held one. Five-year is 55 for the same mixed platform. Individualism is 60 for the term-limit and stock-trading statements.
+Delivery is 35 and 25. The $46 million in local projects is a spending claim, and this framework does not treat earmarked local money as a success. The tax-cut sentence is his survey, with no bill identified here. Frese's sources show no delivered result. Years in Congress are not a delivery score. Feasibility is 60 and 35: DeSaulnier's 2024 and 2022 margins are an electability fact, Frese's primary share was 12.9 percent, and neither man passes a platform alone. This pass does not assume which party will organize the House in 2027. Competence is 70 and 55 from the record of having done the work of the House, or not having a sourced record of it. The weight is 3 percent.
 
-- DeSaulnier: (75×0.20) + (22.5×0.35) + (50×0.15) + (50×0.15) + (50×0.10) + (70×0.05) = 15 + 7.875 + 7.5 + 7.5 + 5 + 3.5 = 46.375
-- Frese: (35×0.20) + (26×0.35) + (55×0.15) + (50×0.15) + (60×0.10) + (55×0.05) = 7 + 9.1 + 8.25 + 7.5 + 6 + 2.75 = 40.60
+- Frese: (65×0.45) + (55×0.15) + (50×0.12) + (60×0.10) + (25×0.08) + (35×0.07) + (55×0.03) = 29.25 + 8.25 + 6.00 + 6.00 + 2.00 + 2.45 + 1.65 = 55.60
+- DeSaulnier: (45×0.45) + (40×0.15) + (50×0.12) + (45×0.10) + (35×0.08) + (60×0.07) + (70×0.03) = 20.25 + 6.00 + 6.00 + 4.50 + 2.80 + 4.20 + 2.10 = 45.85
 
-Gap: 5.775. Medium, and only just. I am not confident in the margin. Push back if you weight a first platform over an incumbency that this pass did not document bill by bill.
+Gap: 9.75. Medium. The platforms are campaign statements, so this is not High.
 
-**Pick:** DeSaulnier, Medium. The lead is incumbency and competence. Frese leads the policy×feasibility cell.
+**Pick:** Frese, Medium. Policy alignment leads by enough that the incumbency edge on feasibility and competence, at 7 and 3 percent, does not catch up.
 
-**Sensitivity:** 0 of 12 shifts change the leader. Delivery at −10, renormalized, narrows it to DeSaulnier 43.19 and Frese 41.22, a gap of 1.97. That shifted gap is inside the range where `scoring/confidence-levels.md` says to consider abstaining. The default-weight pick stays DeSaulnier. A reader who cuts the delivery weight should treat the race as unresolved.
+**Sensitivity:** 0 of 14 shifts change the leader. The narrowest is feasibility at +10, renormalized: Frese 53.73, DeSaulnier 47.14, gap 6.59. Delivery, feasibility, and competence clip to 0 on the −10 shifts. None of those flips the leader.
 
 ## Statewide propositions
 
-Each pick uses the measure tests in the framework, applied to the official summary. No six-criterion composite. High requires three tests the same way and no serious test the other way.
+Each pick uses the measure tests in the framework, applied to the official summary. Measures are not scored on the seven candidate weights. High requires three tests the same way and no serious test the other way.
 
 Summaries below are paraphrases of the June 29, 2026 numbering release unless another link is given. ([Numbering release](https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments); [qualified list](https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures))
 
@@ -217,13 +225,13 @@ The retention questions listed above are on the ballot. This pass did not read o
 
 ## Verification checklist
 
-- [x] Default weights 20+35+15+15+10+5 = 100.
-- [x] Composites recompute: Becerra 50.00, Hilton 41.65, Bonta 51.25, Gates 40.45, DeSaulnier 46.375, Frese 40.60.
-- [x] No candidate pick is High. The gaps are 8.35, 10.80, and 5.775.
+- [x] Default weights 45+15+12+10+8+7+3 = 100.
+- [x] Composites recompute: Hilton 61.05, Becerra 48.50, Gates 58.35, Bonta 55.05, Frese 55.60, DeSaulnier 45.85.
+- [x] No candidate pick is High. The gaps are 12.55, 3.30, and 9.75. Attorney general is Low, and one weight shift flips it.
 - [x] The two High measure picks are Propositions 41 and 42. Each has three aligned tests and no serious test the other way, as written above.
 - [x] Unscored rows and the judicial abstention have no High, Medium, or Low label.
 - [x] Factual claims in this file have an inline link.
-- [x] Sensitivity: the leader is unchanged in all 12 shifts in each scored race. The fragile case is District 10 if the delivery weight is cut.
+- [x] Sensitivity: the leader is unchanged in all 14 shifts for governor and District 10. Attorney general flips when feasibility is raised by 10 and renormalized.
 - [x] Last verified: October 14, 2026.
 
 ## What this pass did not verify
@@ -232,7 +240,8 @@ The retention questions listed above are on the ballot. This pass did not read o
 - June 2026 canvass totals for county fiscal offices, and therefore whether any of them continued to November.
 - Every page of the county measure-wording list. No San Ramon city measure was found in the portions used. That is not a certified "none exist."
 - Campaign donors for the scored candidates, beyond the single receipts figure for DeSaulnier.
-- Huntington Beach election returns for Gates.
+- Huntington Beach election returns for Gates, his voter-guide claim of a double-digit crime drop, and Bonta's questionnaire claim of a pathway for 40,000 housing units. Those sentences are scored as the candidates' own statements.
+- DeSaulnier's 2024 survey claim of tax cuts and of more than $46 million in local projects. No bill was identified in this pass.
 - The full text of each proposition, as opposed to the official title, summary, and analyst estimate in the numbering release.
 - Any justice's opinions.
 - Whether the Secretary of State's "odd-numbered Senate seats" sentence was later corrected. The certified list controls this file either way.
