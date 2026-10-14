@@ -40,15 +40,15 @@ The fairness-not-equity defaults, in order, are policy alignment 45, five-year e
 
 Example, using Steve Hilton's November 2026 governor scores from `examples/2026-general-san-ramon.md`:
 
-- Policy alignment (45%): 70 → 31.50
-- Five-year effects (15%): 65 → 9.75
-- Concentrated benefit (12%): 60 → 7.20
-- Individualism (10%): 70 → 7.00
+- Policy alignment (45%): 75 → 33.75
+- Five-year effects (15%): 60 → 9.00
+- Concentrated benefit (12%): 55 → 6.60
+- Individualism (10%): 75 → 7.50
 - Delivery (8%): 30 → 2.40
 - Feasibility (7%): 20 → 1.40
 - Competence (3%): 60 → 1.80
 
-**Composite: 31.50 + 9.75 + 7.20 + 7.00 + 2.40 + 1.40 + 1.80 = 61.05**
+**Composite: 33.75 + 9.00 + 6.60 + 7.50 + 2.40 + 1.40 + 1.80 = 62.45**
 
 ## Feasibility is not a multiplier
 
@@ -74,8 +74,8 @@ For races with 3+ serious candidates, produce a scoring table:
 ```markdown
 | Candidate | Policy (45%) | 5-year (15%) | Concentrated (12%) | Indiv (10%) | Delivery (8%) | Feasibility (7%) | Competence (3%) | Composite |
 |-----------|--------------|--------------|--------------------|-------------|---------------|------------------|-----------------|-----------|
-| Hilton | 70 | 65 | 60 | 70 | 30 | 20 | 60 | 61.05 |
-| Becerra | 50 | 45 | 45 | 40 | 30 | 70 | 85 | 48.50 |
+| Hilton | 75 | 60 | 55 | 75 | 30 | 20 | 60 | 62.45 |
+| Becerra | 40 | 40 | 40 | 35 | 30 | 70 | 85 | 42.15 |
 ```
 
 The arithmetic for that table is in `examples/2026-general-san-ramon.md`. A table like this invites the user to push back on specific cells.
@@ -186,7 +186,7 @@ Seven criteria produce 14 shifts. A framework with a different count produces tw
 
 Report, for that race, either "the leader is the same in all 14 shifts" or which shifts change the leader, with the new composites. A shift that changes the leader blocks a High label. See `scoring/confidence-levels.md`.
 
-Worked check, June 2026 primary, from `examples/2026-primary-ca10.md`. Scores are policy, five-year, concentrated, individualism, delivery, feasibility, competence.
+Worked check, June 2026 primary, from `examples/2026-primary-ca10.md`. Scores are policy, five-year, concentrated, individualism, delivery, feasibility, competence. The Hilton and Becerra cells here are the earlier ones in that primary file. The November deep pass rescored those two from later sources and did not recompute this primary field.
 
 | Candidate | Scores | Composite |
 | --- | --- | --- |

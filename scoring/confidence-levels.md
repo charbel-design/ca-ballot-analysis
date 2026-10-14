@@ -15,7 +15,7 @@ Confidence is calibration. It tells the voter where the framework is speaking cl
 Compare the leader's composite with the runner-up. Use the exact weighted sum, not a rounded headline that no longer matches the arithmetic.
 
 - **High**: the gap is 15 points or more, the evidence behind the criterion scores is strong, and the sensitivity check in `scoring/weighted-criteria.md` does not change the leader.
-- **Medium**: the gap is 5 points or more and under 15, or the gap is 15 or more but a weight shift in that check changes the leader.
+- **Medium**: the gap is 5 points or more and under 15, or the gap is 15 or more but a weight shift in that check changes the leader, or the gap is 15 or more and the evidence is not strong enough for High. Campaign summaries, candidate surveys, and news reports of a platform are not strong evidence. Statutes, dockets, official fiscal text, and a checked result are.
 - **Low**: the gap is under 5 points. The write-up must say the pick is uncertain and invite the voter to disagree.
 
 If the gap is 2 points or less, or the sources are too thin to score a criterion without inventing a record, do not force a pick. Abstain.

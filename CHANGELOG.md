@@ -1,5 +1,29 @@
 # Changelog
 
+## October 14, 2026 — deep pass and voter guide
+
+The November 3, 2026 San Ramon example was rescored from sourced platforms, not by nudging neutral cells. Policy alignment stays at 45. Feasibility stays additive at 7. A gap of 15 or more is Medium, not High, when the evidence is a campaign summary or a news report rather than a statute or a case file. That rule is now explicit in `scoring/confidence-levels.md`.
+
+Current candidate picks, with composites and the gap:
+
+- Governor: Hilton 62.45, Becerra 42.15, gap 20.30, Medium. Was Hilton 61.05 to 48.50, Medium. The leader is unchanged. The wider gap is the CalMatters tax and rate-freeze contrast. It is still not High.
+- Lieutenant governor: Romero 58.00, Ma 43.35, gap 14.65, Medium. Newly scored.
+- Secretary of state: Wagner 57.35, Weber 49.00, gap 8.35, Medium. Newly scored.
+- Controller: Morgan 60.25, Cohen 51.65, gap 8.60, Medium. Newly scored.
+- Treasurer: Hawks 51.25, Kounalakis 47.40, gap 3.85, Low. Newly scored. Feasibility at +10 flips it.
+- Attorney general: Bonta 62.65, Gates 43.15, gap 19.50, Medium. This reverses the prior pick, Gates 58.35 to Bonta 55.05, Low. CalMatters reports that Bonta enforced housing laws that make cities allow housing and that Gates fought those laws as Huntington Beach city attorney. The label stays Medium because the case files were not read.
+- Insurance commissioner: Allen 48.00, Kim 37.55, gap 10.45, Medium. Newly scored.
+- Board of Equalization, District 2: Pimentel 62.30, Lieber 45.85, gap 16.45, Medium. Newly scored. Not High. Both platforms are campaign material.
+- U.S. House, District 10: Frese 55.60, DeSaulnier 43.00, gap 12.60, Medium. Was Frese 55.60 to 45.85. DeSaulnier's policy cell moved from 45 to 40.
+- Assembly District 16: Bauer-Kahan 50.70, Rubay 42.50, gap 8.20, Medium. Newly scored. The source is San Ramon Patch, thinner than CalMatters.
+- Superintendent of public instruction: Shaw 56.90, Barrera 42.35, gap 14.55, Medium. Newly scored.
+
+Proposition direction is unchanged. Patch's note that Proposition 40 is labor-sponsored, and that Proposition 44 is union-backed, is cited and does not raise either label. Judicial retention and the local candidate contests stay unscored. ZIP 94582 is still not one council district, trustee area, or services-district division.
+
+The June primary file was not recomputed. It still uses the earlier Hilton and Becerra cells.
+
+The voter guide is `guide/2026-general-san-ramon.html` and `guide/ballot-sheet-nov-2026-san-ramon.pdf`. The same text is `examples/2026-general-san-ramon-sheet.md`. The HTML copy has weight sliders that recompute candidate races in the browser. Measures stay on the measure tests.
+
 ## October 14, 2026 — values-first weights
 
 The fairness-not-equity defaults changed. The previous entry on this date left them at 20, 35, 15, 15, 10, and 5, with policy quality multiplied by feasibility. That product, plus a heavy delivery weight, ranked candidates by whether they could win and whether they had held office. The owner rejected it. The composites in the entry below are the historical record of that version. They are not the current scores.

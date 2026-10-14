@@ -6,13 +6,13 @@
 
 **Voter:** the same San Ramon voter as `examples/2026-primary-ca10.md`. ZIP 94582, Contra Costa County, no party preference. Council district and school trustee area depend on the street address. This file does not assign them.
 
-This is an analysis under one named framework. It is not a prediction and not an instruction to vote. Word and PDF copies are optional and were not produced.
+This is an analysis under one named framework. It is not a prediction and not an instruction to vote. The voter guide is `guide/2026-general-san-ramon.html`, with the same text in `examples/2026-general-san-ramon-sheet.md` and `guide/ballot-sheet-nov-2026-san-ramon.pdf`. The HTML copy can recompute candidate races under other weights. Measures stay on the measure tests.
 
 Confidence labels follow `scoring/confidence-levels.md`. A row that was not scored does not get one.
 
 ## How to read the scores
 
-Criterion scores are judgments tied to the sources under each race. A score near the middle on a criterion this pass did not research means "not researched," not "mediocre in fact."
+Criterion scores in the deep pass are judgments tied to the sources under each race. A missing platform is not a high score and not a low score. If policy alignment could not be scored without inventing a record, the race is not scored.
 
 Each composite is the weighted sum of seven separate scores. Policy alignment is not multiplied by feasibility. Delivery is scored on a framework-aligned result, not on having held the office. The arithmetic is under each race so it can be redone.
 
@@ -64,7 +64,7 @@ San Ramon mayor is on the November ballot, citywide. The county contest list sho
 
 San Ramon city council contests on that list are District 2 (Chirag Kathrani, Founder/Entrepreneur; Richard J. Adler, Appointed Incumbent) and District 4 (Jeffrey Joh, Technology Strategist; Marisol Rubio, Councilwoman/In-Home Provider). A voter casts a vote in one district. The city tells residents to use its district lookup. ([City clerk](https://www.sanramon.ca.gov/our_city/departments_and_divisions/city_clerk/Elections/district_elections)) This pass did not run an address lookup, so it does not say which of those two a 94582 household is in.
 
-San Ramon Valley Unified School District Trustee Area 5 is on the county list: Rachel Hurd (Incumbent) and Joel Woods (Educator/Teacher/Referee). The district's 2022 adopted map schedules Areas 1, 4, and 5 for that year's cycle and every four years after, which includes 2026. ([County list](https://www.contracostavote.gov/wp-content/uploads/8-27-26_candidatelist_detail_final.pdf); [adopted map](https://www.srvusd.net/documents/About-Us/Board-of-Education/Redistricting/New-Trustee-Area-Map-Adopted-2-22-2022.pdf)) This pass did not confirm that 94582 is inside Area 5.
+San Ramon Valley Unified School District Trustee Area 5 is on the county list: Rachel Hurd (Incumbent) and Joel Woods (Educator/Teacher/Referee). The district's 2022 adopted map schedules Areas 1, 4, and 5 for that year's cycle and every four years after, which includes 2026. ([County list](https://www.contracostavote.gov/wp-content/uploads/8-27-26_candidatelist_detail_final.pdf); [adopted map](https://www.srvusd.net/documents/About-Us/Board-of-Education/Redistricting/New-Trustee-Area-Map-Adopted-2-22-2022.pdf)) San Ramon Patch, on October 12, 2026, describes Area 5 as eastern and southeastern San Ramon, centered on Dougherty Valley, and says Area 1 (Amanda Butland) and Area 4 (incumbent Susanna Ordway) drew only one candidate each. ZIP 94582 includes Dougherty Valley and older San Ramon, so many 94582 voters are not in Area 5. ([San Ramon Patch](https://patch.com/california/sanramon/san-ramon-voter-guide-2026-whats-ballot-voting-more))
 
 The same county list includes Dublin San Ramon Services District Director, Division 2 (Kismat Kathrani, Technology Business Owner; Donald Downey, Registered Geologist). This pass did not confirm that 94582 is in Division 2.
 
@@ -87,85 +87,215 @@ Fairness-not-equity. Rules applied evenly, individual merit over group outcome, 
 
 ## Scored races
 
-### Governor
+Deep pass, October 14, 2026. This section replaces the earlier composites in this file. Those earlier numbers (Hilton 61.05, Becerra 48.50, Gates 58.35, Bonta 55.05, Frese 55.60, DeSaulnier 45.85) are in the changelog. They are not the current picks. Attorney general moves from Gates to Bonta because CalMatters reports that Bonta enforced housing laws that make cities allow housing and that Gates fought those laws in Huntington Beach. Governor stays Hilton. District 10 stays Frese. The other statewide offices and Assembly District 16 are scored here for the first time. A gap of 15 or more stays Medium when the evidence is a campaign summary or a news report rather than a statute or a case file. The same text is in `examples/2026-general-san-ramon-sheet.md` and `guide/2026-general-san-ramon.html`.
 
-**Record used.** Becerra was U.S. secretary of health and human services from 2021 to 2025, California attorney general from 2017 to 2021, and a member of the U.S. House from 1993 to 2017. Ballotpedia describes his stated priorities as affordability in housing, health care, child care, and utilities, and it reports campaign-site language about moving toward a universal single-payer system and using the state to lower prices where he says the market has failed. ([Ballotpedia](https://ballotpedia.org/California_gubernatorial_election,_2026))
+Scores are policy, five-year effects, concentrated benefit, individualism, delivery, feasibility, competence. Composite = the weighted sum. Gap of 15 or more stays Medium when the evidence is a campaign summary or a news report rather than a statute or a case file.
 
-Hilton hosted *The Next Revolution* on Fox News from 2017 to 2023 and was a contributor there. He was a senior adviser to former U.K. prime minister David Cameron and worked as an advertising executive. Ballotpedia describes his stated priorities as housing, affordability, education, cutting income and gas taxes, and increasing oil drilling, including campaign-site language about the tax burden and about hidden housing taxes, regulations, and lawsuits. ([Ballotpedia](https://ballotpedia.org/California_gubernatorial_election,_2026)) His ballot designation is Small Business Owner. ([Certified list](https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf))
+### Governor — Hilton, Medium
 
-Feasibility uses Ballotpedia's statement that California has had a Democratic trifecta since 2011 and last elected a Republican governor, Arnold Schwarzenegger, in 2006. As of September 2026, the same page lists 29 Democrats and 10 Republicans in the 40-seat State Senate, with one vacancy, and 60 Democrats and 19 Republicans in the 80-seat Assembly, with one vacancy. ([Ballotpedia](https://ballotpedia.org/California_gubernatorial_election,_2026))
-
-| Candidate | Policy 45 | Five-year 15 | Concentrated 12 | Individualism 10 | Delivery 8 | Feasibility 7 | Competence 3 | Composite |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Hilton | 70 | 65 | 60 | 70 | 30 | 20 | 60 | 61.05 |
-| Becerra | 50 | 45 | 45 | 40 | 30 | 70 | 85 | 48.50 |
-
-Policy is 70 for Hilton because the tax cuts and the housing-supply language (hidden taxes, regulations, and lawsuits) match the framework. It is not higher because the source is a campaign summary on Ballotpedia, not a statute he has passed. Policy is 50 for Becerra because the affordability goal points toward this framework and the single-payer and state-price language points away. Five-year, concentrated-benefit, and individualism follow those same statements. Donor tables were not reviewed, so the concentrated-benefit scores stay near the middle.
-
-Delivery is 30 for both. The sources above do not report a checked result this framework would count, such as housing built or a tax burden reduced. Becerra's years at HHS, as attorney general, and in the House are not delivery. Hilton's work as an adviser and a television host is not delivery either.
-
-Feasibility is 70 for Becerra and 20 for Hilton on the trifecta, the chamber counts, and the 2006 Republican gubernatorial win cited above. That gap is weighted at 7 percent. It is not multiplied into policy. Competence is 85 and 60 from the offices and the advisory record actually described. It is weighted at 3 percent.
-
-- Hilton: (70×0.45) + (65×0.15) + (60×0.12) + (70×0.10) + (30×0.08) + (20×0.07) + (60×0.03) = 31.50 + 9.75 + 7.20 + 7.00 + 2.40 + 1.40 + 1.80 = 61.05
-- Becerra: (50×0.45) + (45×0.15) + (45×0.12) + (40×0.10) + (30×0.08) + (70×0.07) + (85×0.03) = 22.50 + 6.75 + 5.40 + 4.00 + 2.40 + 4.90 + 2.55 = 48.50
-
-Gap: 12.55. Medium. Not High. The evidence is campaign summaries, which is a separate reason this is not High even if a later pass widened the gap past 15.
-
-**Pick:** Hilton, Medium. The policy, five-year, and individualism gaps are larger than the feasibility gap can offset at 7 percent. Personal regard for the candidate is not a criterion.
-
-**Sensitivity:** 0 of 14 shifts change the leader. The narrowest is feasibility at +10, renormalized: Hilton 57.32, Becerra 50.45, gap 6.86. Delivery, feasibility, and competence clip to 0 on the −10 shifts. None of those flips the leader.
-
-### Attorney general
-
-**Record used.** Bonta is the incumbent. He won the November 8, 2022 general with 59.1 percent (6,339,441 votes) and the June 2, 2026 primary with 56.6 percent (4,979,967 votes). Gates took 37.9 percent (3,337,433) in that primary. ([Ballotpedia](https://ballotpedia.org/California_Attorney_General_election,_2026)) Gates's certified designation is Deputy United States Attorney. ([Certified list](https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf)) The official voter guide prints no candidate statement for Bonta. Gates's statement says he would enforce Proposition 36, prosecute traffickers, move people into treatment, spend tax dollars honestly, and apply equal justice without regard to zip code or last name. He also says that, as a city attorney, he built a prosecution program that cut crime by double digits in its first year. That crime figure is his statement. This pass did not match it to a police dataset, and it did not match his city-attorney elections to an Orange County canvass. ([Secretary of State voter guide](https://voterguide.sos.ca.gov/candidates/attorney-general-candidate-statements.htm))
-
-Bonta's June 2026 answers to a GrowSF questionnaire are his own words on a third-party form, not an audit. He describes continued enforcement against retail-crime rings, traffickers, and wage theft; penalties he says he sponsored for cities that do not approve housing meeting objective standards; and a Housing Justice Team that he says opened a pathway for 40,000 units. The same answers emphasize civil rights, reproductive rights, and environmental enforcement, and lawsuits against the federal administration. ([GrowSF questionnaire](https://growsf.org/voter-guide/questionnaires/june-2026/rob-bonta/))
+Xavier Becerra (Democratic, Voting Rights Attorney) and Steve Hilton (Republican, Small Business Owner).
 
 | Candidate | Policy 45 | Five-year 15 | Concentrated 12 | Individualism 10 | Delivery 8 | Feasibility 7 | Competence 3 | Composite |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Gates | 65 | 60 | 55 | 65 | 35 | 30 | 70 | 58.35 |
-| Bonta | 55 | 55 | 50 | 50 | 45 | 70 | 85 | 55.05 |
+| Becerra | 40 | 40 | 40 | 35 | 30 | 70 | 85 | 42.15 |
+| Hilton | 75 | 60 | 55 | 75 | 30 | 20 | 60 | 62.45 |
 
-Policy is 65 for Gates because equal enforcement and honest spending of tax dollars match the framework, and the source is his voter-guide statement rather than a statute. Policy is 55 for Bonta because the housing-approval enforcement matches the framework and the environmental-justice and tenant-protection language points the other way, so the score stays near the middle. Five-year follows those same statements: prosecution of an existing initiative is not a rent-control-style failure, and tenant protection without a supply detail is not a clear pass. Donor tables were not reviewed. Concentrated-benefit stays near the middle, with a small step up for Gates's spending line.
+**Why Hilton over Becerra.** Hilton’s published plan would cut income and gas taxes, cut fees on smaller homes, and limit lawsuits that stop construction. Becerra would freeze utility and insurance rates and has not ruled out new taxes. The gap is wide and no default weight shift flips it, and the label stays Medium because these are reported campaign plans, not laws either man has passed.
 
-Delivery is 45 and 35, not a reward for the title. Bonta's unit figure and Gates's crime figure are campaign statements this pass did not check. Neither score leaves the middle of the low-to-mid range. Feasibility is 70 for the incumbent, using the 2022 result and the trifecta cited in the governor section. It is 30 for Gates, not 20: much of his stated agenda is enforcing a law voters already passed, which an attorney general can do without a new legislative majority, and the 2022 result is still an electability fact. Competence is 85 for the sitting attorney general and 70 for the official deputy-United-States-attorney designation. The unverified city-attorney elections are not part of that 70.
+Policy is 75 against 40 from that tax and rate-freeze contrast. Hilton’s preference for suburban houses over apartments holds five-year effects at 60 rather than higher. Delivery is 30 for both: the sources do not show a checked result this framework would count, and years in office are not delivery. Feasibility is 20 against 70 from the Democratic trifecta since 2011 and the current legislative counts. That gap is weighted at 7 percent. Competence is 60 against 85 from the advisory record and the offices actually held, weighted at 3 percent.
 
-- Gates: (65×0.45) + (60×0.15) + (55×0.12) + (65×0.10) + (35×0.08) + (30×0.07) + (70×0.03) = 29.25 + 9.00 + 6.60 + 6.50 + 2.80 + 2.10 + 2.10 = 58.35
-- Bonta: (55×0.45) + (55×0.15) + (50×0.12) + (50×0.10) + (45×0.08) + (70×0.07) + (85×0.03) = 24.75 + 8.25 + 6.00 + 5.00 + 3.60 + 4.90 + 2.55 = 55.05
+**Sensitivity.** 0 of 14 default-weight shifts change the leader. The narrowest is feasibility at +10: Hilton 58.59, Becerra 44.68, gap 13.91.
 
-Gap: 3.30. Low. I am not confident here. Push back if a checked litigation record would move either policy score by more than a few points.
+- [CalMatters governor guide](https://calmatters.org/california-voter-guide-2026/governor/)
+- [Ballotpedia governor election](https://ballotpedia.org/California_gubernatorial_election,_2026)
+- [Certified candidate list](https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf)
 
-**Pick:** Gates, Low. Policy alignment leads, and the feasibility weight is too small to reverse it. The margin is thin enough that a modest change in the policy cells would reverse the pick.
+### Lieutenant governor — Romero, Medium
 
-**Sensitivity:** 1 of 14 shifts changes the leader. Feasibility at +10, renormalized, puts Bonta at 56.41 and Gates at 55.77, a gap of 0.64 the other way. The other 13 shifts keep Gates first. A flip blocks High. The default gap is already under 5, so the label is Low either way. Delivery, feasibility, and competence clip to 0 on the −10 shifts.
-
-### U.S. House, District 10
-
-**Record used.** DeSaulnier is the incumbent. His designation is United States Congressman. He won the 2024 general with 66.5 percent (242,325 votes) and the 2022 general with 78.9 percent (198,415 votes). ([Ballotpedia](https://ballotpedia.org/California%27s_10th_Congressional_District_election,_2026); [certified list](https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf))
-
-Frese's designation is Small Business Owner. His Ballotpedia Candidate Connection answers describe him as a businessman and state a platform: an eight-year congressional term limit, a ban on members trading stocks, no pay without a budget, less deficit spending, less red tape on building, and a ban on hedge funds buying single-family homes. ([Ballotpedia](https://ballotpedia.org/California%27s_10th_Congressional_District_election,_2026)) Those are his statements. This file does not adopt his description of DeSaulnier's bill record.
-
-DeSaulnier did not complete Ballotpedia's 2026 Candidate Connection survey. His 2024 survey, still on his Ballotpedia profile, says he worked to lower costs on housing, groceries, and health care, to bring down prescription-drug prices, to secure tax cuts for families, and to obtain a fair wage so that no one is left behind. It also says he secured more than $46 million for local projects. ([Ballotpedia profile](https://ballotpedia.org/Mark_DeSaulnier)) His 2026 campaign site calls him a progressive voice, cites workers' rights and a livable wage, and lists growing the economy, cutting health-care costs, and expanding affordable housing. ([Campaign site](https://desaulnierforcongress.com/))
-
-Ballotpedia's finance table, as of June 30, 2026, lists $567,258 in receipts for DeSaulnier and lists Frese's receipts as data not available. Missing data is not scored as independence from donors. Neither concentrated-benefit cell moves off 50.
+Fiona Ma (Democratic, State Treasurer/CPA) and Gloria Romero (Republican, Educator/Businesswoman).
 
 | Candidate | Policy 45 | Five-year 15 | Concentrated 12 | Individualism 10 | Delivery 8 | Feasibility 7 | Competence 3 | Composite |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Ma | 40 | 45 | 30 | 45 | 40 | 70 | 80 | 43.35 |
+| Romero | 65 | 60 | 55 | 65 | 35 | 25 | 70 | 58.00 |
+
+**Why Romero over Ma.** The sourced difference is school choice, which this framework treats as a signature education pick. Fiona Ma’s listed backers are the California Labor Federation, the building trades, and AFSCME, and the CalMatters guide did not report a reform platform. The gap is 14.65 and no default weight shift flips it.
+
+Policy is 65 against 40 because school choice is the only clear platform contrast in the source, not a full education plan. Concentrated benefit is 55 against 30 from those labor endorsements on Ma’s side and the absence of a comparable organized-interest list for Romero beyond the state Republican Party and Reform California. Delivery stays near the middle: holding the treasurer’s office is not itself a framework-aligned result. Feasibility is 25 against 70.
+
+**Sensitivity.** 0 of 14 default-weight shifts change the leader. The narrowest is feasibility at +10: Romero 55.00, Ma 45.77, gap 9.23.
+
+- [CalMatters lieutenant governor guide](https://calmatters.org/california-voter-guide-2026/lieutenant-governor/)
+- [Certified candidate list](https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf)
+
+### Secretary of state — Wagner, Medium
+
+Shirley N. Weber (Democratic, California Secretary of State) and Donald P. Wagner (Republican, Orange County Supervisor).
+
+| Candidate | Policy 45 | Five-year 15 | Concentrated 12 | Individualism 10 | Delivery 8 | Feasibility 7 | Competence 3 | Composite |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Weber | 45 | 50 | 45 | 50 | 40 | 75 | 80 | 49.00 |
+| Wagner | 65 | 60 | 50 | 65 | 30 | 30 | 70 | 57.35 |
+
+**Why Wagner over Weber.** Wagner supports a voter-identification rule, the same equal-rule idea as a Yes on Proposition 39. Weber’s record is universal mail voting and wider access, which this pass did not score as a framework failure. Raising feasibility narrows the gap to about 3.5 points and does not flip it.
+
+Policy is 65 against 45. One identification rule for every voter is the match. Universal mail voting is not treated as a failure of the framework. Concentrated benefit stays near the middle because donor tables did not render dollar amounts. Delivery is 30 against 40: administering mail voting is the job, not a counted framework result. Feasibility is 30 against 75.
+
+**Sensitivity.** 0 of 14 default-weight shifts change the leader. The narrowest is feasibility at +10: Wagner 54.86, Weber 51.36, gap 3.50.
+
+- [CalMatters secretary of state guide](https://calmatters.org/california-voter-guide-2026/secretary-of-state/)
+- [Certified candidate list](https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf)
+
+### Controller — Morgan, Medium
+
+Malia M. Cohen (Democratic, State Controller) and Herb W. Morgan (Republican, Chief Investment Officer).
+
+| Candidate | Policy 45 | Five-year 15 | Concentrated 12 | Individualism 10 | Delivery 8 | Feasibility 7 | Competence 3 | Composite |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Cohen | 50 | 55 | 45 | 50 | 40 | 70 | 80 | 51.65 |
+| Morgan | 70 | 65 | 55 | 60 | 30 | 25 | 75 | 60.25 |
+
+**Why Morgan over Cohen.** Morgan is running to expose fraud and founded an investment firm later acquired by Cantor Fitzgerald Investment Advisors, which matches this framework’s preference for private-sector financial experience in this office. Cohen urges spending caution and has not published a comparable audit plan in the sources used here. The gap is 8.60 and no shift flips it.
+
+Policy is 70 against 50 from that audit-and-experience contrast, not from a claim that fraud has already been documented. Delivery is 30 against 40 because the caution Cohen urged in a budget season is not a completed audit this framework can count. Feasibility is 25 against 70. Competence is 75 against 80: both can read a balance sheet, and the weight is 3 percent.
+
+**Sensitivity.** 0 of 14 default-weight shifts change the leader. The narrowest is feasibility at +10: Morgan 57.05, Cohen 53.32, gap 3.73.
+
+- [CalMatters controller guide](https://calmatters.org/california-voter-guide-2026/controller/)
+- [Certified candidate list](https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf)
+
+### Treasurer — Hawks, Low
+
+Eleni Kounalakis (Democratic, Lieutenant Governor) and Jennifer Hawks (Republican, Retired Business Executive).
+
+| Candidate | Policy 45 | Five-year 15 | Concentrated 12 | Individualism 10 | Delivery 8 | Feasibility 7 | Competence 3 | Composite |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Kounalakis | 45 | 50 | 35 | 55 | 35 | 70 | 75 | 47.40 |
+| Hawks | 55 | 55 | 60 | 55 | 25 | 25 | 60 | 51.25 |
+
+**Why Hawks over Kounalakis.** Hawks argues she would be an independent check, without a sourced plan for the state’s investments or debt. Kounalakis’s sourced record is votes against University of California and California State University tuition hikes, plus a long Democratic fundraising career. The gap is 3.85, so this is Low, and I am not confident here.
+
+**What would settle it.** A sourced Hawks plan for the state’s investments and debt, and Kounalakis’s record on the state’s bond programs, would settle it.
+
+Policy stays near the middle, 55 against 45, because independence is a real point and a missing investment plan is not a high score. Concentrated benefit is 60 against 35 from the fundraising career on one side and the lack of a party-institution endorsement list on the other. Feasibility is 25 against 70, which is why one shift flips the race. Do not treat a 3.85-point lead as a settled preference.
+
+**Sensitivity.** 1 of 14 default-weight shifts flips the leader. Feasibility at +10: Kounalakis 49.45, Hawks 48.86, gap 0.59 the other way. Among shifts that keep Hawks first, the narrowest is concentrated benefit at −10: Hawks 50.28, Kounalakis 48.78, gap 1.50.
+
+- [CalMatters treasurer guide](https://calmatters.org/california-voter-guide-2026/treasurer/)
+- [Certified candidate list](https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf)
+
+### Attorney general — Bonta, Medium
+
+Rob Bonta (Democratic, California Attorney General) and Michael E. Gates (Republican, Deputy United States Attorney).
+
+| Candidate | Policy 45 | Five-year 15 | Concentrated 12 | Individualism 10 | Delivery 8 | Feasibility 7 | Competence 3 | Composite |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Bonta | 70 | 65 | 35 | 50 | 55 | 75 | 85 | 62.65 |
+| Gates | 40 | 40 | 50 | 60 | 35 | 30 | 75 | 43.15 |
+
+**Why Bonta over Gates.** Bonta’s term has been spent enforcing laws that require cities to allow new housing, while Gates fought those laws as Huntington Beach city attorney. Gates’s equal-enforcement statement still fits this framework, and it does not outweigh that housing record. The label stays Medium because the sources are CalMatters and the candidates’ own statements, not the case files.
+
+Policy is 70 against 40 from that housing-enforcement contrast. Individualism is 50 against 60 because Gates’s voter-guide statement says equal justice without regard to zip code or last name. Concentrated benefit is 35 against 50: Bonta’s listed endorsements include the Democratic Party, the California Teachers Association, and California Environmental Voters. Delivery is 55 against 35 for described official conduct, not an audited unit count. His questionnaire claim of a pathway for 40,000 units, and Gates’s claim of a double-digit crime drop, were not checked against a non-campaign record. Feasibility is 75 against 30. CalMatters also reports Gates left a 2025 Justice Department post in November 2025 and returned to the Huntington Beach city attorney’s office. The certified designation remains Deputy United States Attorney.
+
+**Sensitivity.** 0 of 14 default-weight shifts change the leader. The narrowest is concentrated benefit at +10: Bonta 60.14, Gates 43.77, gap 16.36.
+
+- [CalMatters attorney general guide](https://calmatters.org/california-voter-guide-2026/attorney-general/)
+- [Official voter-guide statements](https://voterguide.sos.ca.gov/candidates/attorney-general-candidate-statements.htm)
+- [Bonta’s GrowSF questionnaire](https://growsf.org/voter-guide/questionnaires/june-2026/rob-bonta/)
+- [Ballotpedia attorney general election](https://ballotpedia.org/California_Attorney_General_election,_2026)
+
+### Insurance commissioner — Allen, Medium
+
+Ben Allen (Democratic, California State Senator) and Jane Kim (Democratic, Attorney/Consumer Advocate). Same-party runoff.
+
+| Candidate | Policy 45 | Five-year 15 | Concentrated 12 | Individualism 10 | Delivery 8 | Feasibility 7 | Competence 3 | Composite |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Allen | 48 | 45 | 40 | 50 | 40 | 65 | 70 | 48.00 |
+| Kim | 35 | 35 | 30 | 40 | 35 | 60 | 65 | 37.55 |
+
+**Why Allen over Kim.** Kim proposes a state-run disaster insurer funded by insurer premiums, and a larger public auto program. Allen wants more enforcement staff and a wildfire-resilience loan program inside a market that still uses private carriers. Neither has run an insurance business, and the gap is 10.45 with no flip.
+
+Policy is 48 against 35. A new public insurer is a new obligation this framework treats skeptically. Allen’s plan is not a market-opening reform, which is why 48 is only a step above the middle. The framework’s usual preference for industry operating experience does not pick either candidate. Feasibility is 65 against 60. Both are Democrats on the certified list.
+
+**Sensitivity.** 0 of 14 default-weight shifts change the leader. Three shifts tie for the narrowest gap, about 9.95, and none changes the leader.
+
+- [CalMatters insurance commissioner guide](https://calmatters.org/california-voter-guide-2026/insurance-commissioner/)
+- [Certified candidate list](https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf)
+
+### Board of Equalization, District 2 — Pimentel, Medium
+
+Sally J. Lieber (Democratic, incumbent) and John Pimentel (Democratic, San Mateo County Community College District trustee).
+
+| Candidate | Policy 45 | Five-year 15 | Concentrated 12 | Individualism 10 | Delivery 8 | Feasibility 7 | Competence 3 | Composite |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Lieber | 45 | 50 | 30 | 45 | 40 | 65 | 75 | 45.85 |
+| Pimentel | 70 | 65 | 60 | 60 | 30 | 50 | 65 | 62.30 |
+
+**Why Pimentel over Lieber.** Pimentel says he would end the sales tax on food, a regressive tax this framework disfavors. Lieber’s listed endorsements include the Democratic Party, SEIU California, and the California Teachers Association. The gap clears 15 and does not flip, and the label stays Medium because both platforms are campaign material rather than a statute either candidate has passed in this office.
+
+Policy is 70 against 45 from the food-tax proposal reported by the San Luis Obispo Tribune. Concentrated benefit is 60 against 30 from the endorsement contrast. CalMatters also lists the Howard Jarvis Taxpayers Association for Pimentel. The Tribune’s April 2026 reading said both campaigns were mostly self-funded then. Those figures are not treated as the latest general-election totals. Delivery is 30 against 40. Do not read this pick as a claim that Pimentel would abolish the board. That sentence is not in the sources used here.
+
+**Sensitivity.** 0 of 14 default-weight shifts change the leader. The narrowest is feasibility at +10: Pimentel 61.18, Lieber 47.59, gap 13.59.
+
+- [CalMatters Board of Equalization guide](https://calmatters.org/california-voter-guide-2026/board-of-equalization/)
+- [San Luis Obispo Tribune voter guide](https://www.sanluisobispo.com/news/politics-government/election/voter-guide/article315320445.html)
+- [Certified candidate list](https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf)
+
+### U.S. House, District 10 — Frese, Medium
+
+Mark DeSaulnier (Democratic, United States Congressman) and Jeff Frese (Republican, Small Business Owner).
+
+| Candidate | Policy 45 | Five-year 15 | Concentrated 12 | Individualism 10 | Delivery 8 | Feasibility 7 | Competence 3 | Composite |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| DeSaulnier | 40 | 40 | 45 | 45 | 35 | 60 | 70 | 43.00 |
 | Frese | 65 | 55 | 50 | 60 | 25 | 35 | 55 | 55.60 |
-| DeSaulnier | 45 | 40 | 50 | 45 | 35 | 60 | 70 | 45.85 |
 
-Policy is 65 for Frese because the term-limit, deficit, and housing-red-tape statements point toward the framework, while the proposed ban on a class of homebuyers points away, so the score stays well short of the top of the band. Policy is 45 for DeSaulnier because the family-tax-cut and housing-cost language points toward the framework and the wage, prescription-price, and progressive framing points away. Five-year is 55 and 40 for those same mixes: a homebuyer ban and drug-price controls are the shortage and price-setting patterns this framework treats as failures by year five. Individualism is 60 for the term-limit and stock-trading statements, and 45 where the "no one left behind" line is an outcome claim rather than a rule applied evenly.
+**Why Frese over DeSaulnier.** Frese would cut deficit spending, limit congressional terms, and reduce red tape on building. DeSaulnier’s campaign stresses workers’ rights, health-care access, and a progressive frame, with family tax cuts pointing the other way. The gap is 12.60 and no default weight shift flips it.
 
-Delivery is 35 and 25. The $46 million in local projects is a spending claim, and this framework does not treat earmarked local money as a success. The tax-cut sentence is his survey, with no bill identified here. Frese's sources show no delivered result. Years in Congress are not a delivery score. Feasibility is 60 and 35: DeSaulnier's 2024 and 2022 margins are an electability fact, Frese's primary share was 12.9 percent, and neither man passes a platform alone. This pass does not assume which party will organize the House in 2027. Competence is 70 and 55 from the record of having done the work of the House, or not having a sourced record of it. The weight is 3 percent.
+Policy is 65 against 40. Frese’s homebuyer ban on hedge funds points away from the framework, so 65 is not the top of the band. DeSaulnier’s policy cell moved from 45 to 40 after the local guide made the progressive and worker frame clearer. Concentrated benefit stays near the middle: Ballotpedia listed $567,258 in receipts for DeSaulnier as of June 30, 2026, and listed Frese’s receipts as data not available. Missing data is not independence. Delivery is 25 against 35. The $46 million in local projects is a spending claim, not a counted success. This file does not adopt Frese’s description of DeSaulnier’s bill record.
 
-- Frese: (65×0.45) + (55×0.15) + (50×0.12) + (60×0.10) + (25×0.08) + (35×0.07) + (55×0.03) = 29.25 + 8.25 + 6.00 + 6.00 + 2.00 + 2.45 + 1.65 = 55.60
-- DeSaulnier: (45×0.45) + (40×0.15) + (50×0.12) + (45×0.10) + (35×0.08) + (60×0.07) + (70×0.03) = 20.25 + 6.00 + 6.00 + 4.50 + 2.80 + 4.20 + 2.10 = 45.85
+**Sensitivity.** 0 of 14 default-weight shifts change the leader. The narrowest is feasibility at +10: Frese 53.73, DeSaulnier 44.55, gap 9.18.
 
-Gap: 9.75. Medium. The platforms are campaign statements, so this is not High.
+- [Ballotpedia District 10](https://ballotpedia.org/California%27s_10th_Congressional_District_election,_2026)
+- [DeSaulnier Ballotpedia profile](https://ballotpedia.org/Mark_DeSaulnier)
+- [DeSaulnier campaign site](https://desaulnierforcongress.com/)
+- [San Ramon Patch voter guide](https://patch.com/california/sanramon/san-ramon-voter-guide-2026-whats-ballot-voting-more)
 
-**Pick:** Frese, Medium. Policy alignment leads by enough that the incumbency edge on feasibility and competence, at 7 and 3 percent, does not catch up.
+### State Assembly, District 16 — Bauer-Kahan, Medium
 
-**Sensitivity:** 0 of 14 shifts change the leader. The narrowest is feasibility at +10, renormalized: Frese 53.73, DeSaulnier 47.14, gap 6.59. Delivery, feasibility, and competence clip to 0 on the −10 shifts. None of those flips the leader.
+Rebecca Bauer-Kahan (Democratic, Assemblymember) and Joseph A. Rubay (Republican, Businessman/Father).
+
+| Candidate | Policy 45 | Five-year 15 | Concentrated 12 | Individualism 10 | Delivery 8 | Feasibility 7 | Competence 3 | Composite |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Bauer-Kahan | 50 | 50 | 45 | 50 | 35 | 75 | 75 | 50.70 |
+| Rubay | 40 | 40 | 55 | 60 | 25 | 30 | 60 | 42.50 |
+
+**Why Bauer-Kahan over Rubay.** Rubay opposes state policies that push higher-density housing in the suburbs, which fails this framework’s supply test. Bauer-Kahan’s campaign, as reported locally, stresses online safety, insurance, school funding, and reproductive rights, and does not make that anti-supply argument. The source is a San Ramon Patch guide, thinner than the CalMatters pages used statewide, and the gap is 8.20.
+
+Policy is only 50 against 40. Her lead is not a detailed housing-bill record. Consent-calendar votes were not treated as a platform. Policy alignment, not the incumbency cells, is the larger share of the 8.20-point gap: about 4.5 points from policy and about 3.2 from feasibility. Feasibility is 75 against 30 because she is the incumbent in a Democratic district, and that weight is 7 percent.
+
+**Sensitivity.** 0 of 14 default-weight shifts change the leader. The narrowest is feasibility at −10, clipped to 0: Bauer-Kahan 48.87, Rubay 43.44, gap 5.43.
+
+- [San Ramon Patch voter guide](https://patch.com/california/sanramon/san-ramon-voter-guide-2026-whats-ballot-voting-more)
+- [Certified candidate list](https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf)
+
+### Superintendent of public instruction — Shaw, Medium
+
+Richard Barrera (State Superintendent Advisor) and Sonja Shaw (School District President). Nonpartisan. The office loses department control in 2027 to a governor-appointed education commissioner and keeps a statewide platform.
+
+| Candidate | Policy 45 | Five-year 15 | Concentrated 12 | Individualism 10 | Delivery 8 | Feasibility 7 | Competence 3 | Composite |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Barrera | 40 | 45 | 30 | 45 | 40 | 60 | 70 | 42.35 |
+| Shaw | 60 | 60 | 55 | 60 | 40 | 45 | 65 | 56.90 |
+
+**Why Shaw over Barrera.** Shaw’s stated focus is a return to academic basics. Barrera’s priority is more school funding and an easier path into teaching, and the California Teachers Association endorsement is what made him known outside San Diego in the CalMatters account. The gap is 14.55 and no shift flips it.
+
+Policy is 60 against 40. The transgender-student fight is part of Shaw’s public record and is not the whole score. Academic basics against a union-backed funding agenda is the core. Concentrated benefit is 55 against 30 because of that California Teachers Association endorsement. Delivery is 40 for both: a school-board presidency is not, by itself, a statewide result.
+
+**Sensitivity.** 0 of 14 default-weight shifts change the leader. The narrowest is feasibility at +10: Shaw 55.82, Barrera 43.95, gap 11.86.
+
+- [CalMatters superintendent guide](https://calmatters.org/california-voter-guide-2026/superintendent-of-public-instruction/)
+- [Certified candidate list](https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf)
 
 ## Statewide propositions
 
@@ -189,7 +319,7 @@ Summaries below are paraphrases of the June 29, 2026 numbering release unless an
 
 **Proposition 39. YES, Medium.** Initiative constitutional amendment. Requires government-issued identification at the polls, or the last four digits of such an identification number on a mail ballot; requires the state to provide identification cards on request; requires counties to report each year the share of voters whose citizenship they have verified. The analyst's estimate is tens of millions of dollars one time, and ongoing costs from the tens of millions to the low hundreds of millions. One identification rule for every voter matches this framework's rule-equality test. The cost, and the risk that a lawful voter is turned away, are the point the other way. This pass did not review evidence about how often that happens.
 
-**Proposition 40. NO, Medium.** Initiative constitutional amendment and statute. A one-time tax of up to 5 percent on covered assets above $1 billion, excluding real property and some retirement accounts. Ninety percent of the revenue is for health care and 10 percent for food assistance or education. The revenue is exempt from school-funding formulas, budget-reserve rules, and the state spending limit. The analyst's estimate says the tax would raise tens of billions over several years and that income-tax revenue would likely fall by hundreds of millions of dollars or more per year afterward. A new tax plus a spending-limit opt-out fails the fiscal tests. It is not High, because the payers are a narrow class and the tax is one time, not permanent.
+**Proposition 40. NO, Medium.** Initiative constitutional amendment and statute. A one-time tax of up to 5 percent on covered assets above $1 billion, excluding real property and some retirement accounts. Ninety percent of the revenue is for health care and 10 percent for food assistance or education. The revenue is exempt from school-funding formulas, budget-reserve rules, and the state spending limit. The analyst's estimate says the tax would raise tens of billions over several years and that income-tax revenue would likely fall by hundreds of millions of dollars or more per year afterward. A new tax plus a spending-limit opt-out fails the fiscal tests. San Ramon Patch describes the initiative as labor-union-sponsored. It is not High, because the payers are a narrow class and the tax is one time, not permanent. ([San Ramon Patch](https://patch.com/california/sanramon/san-ramon-voter-guide-2026-whats-ballot-voting-more))
 
 **Proposition 41. YES, High.** Initiative constitutional amendment. For statewide special taxes, requires a pre-election audit of the programs an initiative would fund, and recurring audits of programs funded by special taxes enacted after January 1, 2026. Prohibits new state taxes, enacted after that date, that exclude their revenue from the existing spending limit, including taxes on the same ballot. Three tests point the same way: it does not create a tax, it blocks spending-limit opt-outs, and it requires audits of the programs those taxes would fund. The analyst says the net fiscal effect is unknown. That is uncertainty about magnitude, not a test pointing the other way.
 
@@ -197,7 +327,7 @@ Summaries below are paraphrases of the June 29, 2026 numbering release unless an
 
 **Proposition 43. YES, Medium.** Legislative constitutional amendment. The qualified-list title says it limits voters' ability to raise local revenue. Beginning January 1, 2027, a local government, including voters using the initiative, could not impose, extend, or increase a special tax without a two-thirds vote, with stated exceptions. A higher bar for local special taxes matches the framework's skepticism of new taxes. The official framing, that the same rule would bind voter initiatives and not only governing bodies, is the point the other way.
 
-**Proposition 44. YES, Low.** Initiative statute. Requires nonprofit federally qualified health centers to spend at least 90 percent of revenue on program services. The attorney general may define qualifying spending. Shortfalls can be penalized, with a refund if the center complies within five years. False reports can be charged as crimes. The analyst's estimate is state cost up to the low tens of millions a year, much of it covered by fees and penalties. The accountability direction matches the concentrated-benefit test. Whether 90 percent is a workable line was not established in the summary. Push back. I am not confident here.
+**Proposition 44. YES, Low.** Initiative statute. Requires nonprofit federally qualified health centers to spend at least 90 percent of revenue on program services. The attorney general may define qualifying spending. Shortfalls can be penalized, with a refund if the center complies within five years. False reports can be charged as crimes. The analyst's estimate is state cost up to the low tens of millions a year, much of it covered by fees and penalties. The accountability direction matches the concentrated-benefit test. Whether 90 percent is a workable line was not established in the summary. San Ramon Patch describes the measure as union-backed and says penalties that are not refunded can fund clinic-worker training. Push back. I am not confident here. ([San Ramon Patch](https://patch.com/california/sanramon/san-ramon-voter-guide-2026-whats-ballot-voting-more))
 
 **Proposition 45. YES, Medium.** Initiative statute. Amends the California Environmental Quality Act to speed review of specified housing, transportation, water, health, and clean-energy projects: deadlines for the agency, a narrower alternatives analysis, and shorter, narrower court review. The analyst expects implementation costs in the tens of millions a year at first, and likely net savings later, with an uncertain court effect. Faster housing review matches this framework's five-year and housing-supply tests. Narrower court review is a rule-of-law point the other way.
 
@@ -211,13 +341,12 @@ A new sales tax fails this framework's high bar. The framework's own limitations
 
 ## Not scored
 
-No confidence label. The certified names are enough to know who is on the ballot and not enough, in this pass, to score the framework.
+No confidence label. The deep pass scored the statewide offices, Board of Equalization District 2, District 10, and Assembly District 16. These local contests are still unscored. Ballot designations, and the fact that Patch collected answers, are not a record. The answer text was not on the page retrieved.
 
-- Lieutenant governor, secretary of state, controller, treasurer, insurance commissioner, superintendent of public instruction, and Board of Equalization District 2. Designations are in the table above. Platforms and donor records were not collected to the standard used for the three scored races.
-- Assembly District 16. Bauer-Kahan and Rubay are the certified finalists. This pass did not collect a tier-1 or tier-2 record of either candidate's bills or platform.
-- San Ramon mayor, and whichever council district the household is in. The county list has ballot designations and little else that this pass verified. Abstain rather than score a designation.
-- San Ramon Valley Unified Area 5, if the address is in it. Two names and designations are not a record.
-- Dublin San Ramon Services District Division 2, if the address is in it. Same reason.
+- San Ramon mayor, citywide: Emma Chigbu, Mark H. Armstrong, and Paschalis Ntatsos.
+- Whichever council district the household is in. District 2 is Chirag Kathrani against Richard J. Adler. District 4 is Jeffrey Joh against Marisol Rubio. Districts 1 and 3 are not on this ballot.
+- San Ramon Valley Unified Area 5, if the address is in it: Rachel Hurd against Joel Woods. Areas 1 and 4 are unopposed if the household is in them.
+- Dublin San Ramon Services District Division 2, if the address is in it: Kismat Kathrani against Donald Downey.
 
 ## Judicial retention: abstain
 
@@ -226,22 +355,23 @@ The retention questions listed above are on the ballot. This pass did not read o
 ## Verification checklist
 
 - [x] Default weights 45+15+12+10+8+7+3 = 100.
-- [x] Composites recompute: Hilton 61.05, Becerra 48.50, Gates 58.35, Bonta 55.05, Frese 55.60, DeSaulnier 45.85.
-- [x] No candidate pick is High. The gaps are 12.55, 3.30, and 9.75. Attorney general is Low, and one weight shift flips it.
+- [x] Composites recompute: Hilton 62.45, Becerra 42.15, Romero 58.00, Ma 43.35, Wagner 57.35, Weber 49.00, Morgan 60.25, Cohen 51.65, Hawks 51.25, Kounalakis 47.40, Bonta 62.65, Gates 43.15, Allen 48.00, Kim 37.55, Pimentel 62.30, Lieber 45.85, Frese 55.60, DeSaulnier 43.00, Bauer-Kahan 50.70, Rubay 42.50, Shaw 56.90, Barrera 42.35.
+- [x] No candidate pick is High. Governor (gap 20.30), attorney general (gap 19.50), and Board of Equalization (gap 16.45) stay Medium because the evidence is campaign summaries and news reports, not statutes or case files. Treasurer is Low (gap 3.85) and flips when feasibility is raised by 10.
 - [x] The two High measure picks are Propositions 41 and 42. Each has three aligned tests and no serious test the other way, as written above.
-- [x] Unscored rows and the judicial abstention have no High, Medium, or Low label.
+- [x] Unscored local rows and the judicial abstention have no High, Medium, or Low label.
 - [x] Factual claims in this file have an inline link.
-- [x] Sensitivity: the leader is unchanged in all 14 shifts for governor and District 10. Attorney general flips when feasibility is raised by 10 and renormalized.
+- [x] Sensitivity is reported under each scored race. Treasurer is the only scored race whose leader changes in the 14 default-weight shifts.
 - [x] Last verified: October 14, 2026.
 
 ## What this pass did not verify
 
-- The street-level council district, school trustee area, and services-district division for a specific 94582 address.
+- The street-level council district, school trustee area, and services-district division for a specific 94582 address. Patch's description of Area 5 is a geography note, not an address lookup.
 - June 2026 canvass totals for county fiscal offices, and therefore whether any of them continued to November.
 - Every page of the county measure-wording list. No San Ramon city measure was found in the portions used. That is not a certified "none exist."
-- Campaign donors for the scored candidates, beyond the single receipts figure for DeSaulnier.
-- Huntington Beach election returns for Gates, his voter-guide claim of a double-digit crime drop, and Bonta's questionnaire claim of a pathway for 40,000 housing units. Those sentences are scored as the candidates' own statements.
+- Dollar totals on the CalMatters donor tables. Those tables did not render amounts. DeSaulnier's $567,258 receipts figure is the one finance total carried forward. The Tribune's April 2026 Board of Equalization figures are dated and mostly self-funding. They are not treated as the latest general-election totals.
+- Huntington Beach election returns for Gates, his voter-guide claim of a double-digit crime drop, and Bonta's questionnaire claim of a pathway for 40,000 housing units. The housing-enforcement contrast used for the attorney general pick is CalMatters's account of official conduct, not those unchecked numbers.
 - DeSaulnier's 2024 survey claim of tax cuts and of more than $46 million in local projects. No bill was identified in this pass.
-- The full text of each proposition, as opposed to the official title, summary, and analyst estimate in the numbering release.
-- Any justice's opinions.
+- The full text of each proposition, as opposed to the official title, summary, and analyst estimate in the numbering release. Patch's labor-sponsorship note on Proposition 40 and its union-backing note on Proposition 44 are local reporting, not the official summary.
+- Any justice's opinions, or the local candidates' written answers beyond the designations.
 - Whether the Secretary of State's "odd-numbered Senate seats" sentence was later corrected. The certified list controls this file either way.
+- The June 2, 2026 primary governor field in `examples/2026-primary-ca10.md`. That file still uses the earlier Hilton and Becerra cells. It was not recomputed in this deep pass.
