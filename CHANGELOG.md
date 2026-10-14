@@ -1,5 +1,9 @@
 # Changelog
 
+## October 14, 2026 — two-page ballot sheet
+
+`examples/2026-general-san-ramon-sheet.md` and `guide/ballot-sheet-nov-2026-san-ramon.pdf` are now a two-page sheet of the current picks. The sentences are plain language. Scores appear only as the small pair of composites under each scored race. Picks are unchanged from the deep pass below. The longer guide, with weight sliders, remains `guide/2026-general-san-ramon.html`.
+
 ## October 14, 2026 — deep pass and voter guide
 
 The November 3, 2026 San Ramon example was rescored from sourced platforms, not by nudging neutral cells. Policy alignment stays at 45. Feasibility stays additive at 7. A gap of 15 or more is Medium, not High, when the evidence is a campaign summary or a news report rather than a statute or a case file. That rule is now explicit in `scoring/confidence-levels.md`.

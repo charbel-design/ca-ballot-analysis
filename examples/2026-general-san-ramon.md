@@ -6,7 +6,7 @@
 
 **Voter:** the same San Ramon voter as `examples/2026-primary-ca10.md`. ZIP 94582, Contra Costa County, no party preference. Council district and school trustee area depend on the street address. This file does not assign them.
 
-This is an analysis under one named framework. It is not a prediction and not an instruction to vote. The voter guide is `guide/2026-general-san-ramon.html`, with the same text in `examples/2026-general-san-ramon-sheet.md` and `guide/ballot-sheet-nov-2026-san-ramon.pdf`. The HTML copy can recompute candidate races under other weights. Measures stay on the measure tests.
+This is an analysis under one named framework. It is not a prediction and not an instruction to vote. The short printable sheet is `examples/2026-general-san-ramon-sheet.md` and `guide/ballot-sheet-nov-2026-san-ramon.pdf`. The longer guide, with weight sliders, is `guide/2026-general-san-ramon.html`.
 
 Confidence labels follow `scoring/confidence-levels.md`. A row that was not scored does not get one.
 
@@ -87,7 +87,7 @@ Fairness-not-equity. Rules applied evenly, individual merit over group outcome, 
 
 ## Scored races
 
-Deep pass, October 14, 2026. This section replaces the earlier composites in this file. Those earlier numbers (Hilton 61.05, Becerra 48.50, Gates 58.35, Bonta 55.05, Frese 55.60, DeSaulnier 45.85) are in the changelog. They are not the current picks. Attorney general moves from Gates to Bonta because CalMatters reports that Bonta enforced housing laws that make cities allow housing and that Gates fought those laws in Huntington Beach. Governor stays Hilton. District 10 stays Frese. The other statewide offices and Assembly District 16 are scored here for the first time. A gap of 15 or more stays Medium when the evidence is a campaign summary or a news report rather than a statute or a case file. The same text is in `examples/2026-general-san-ramon-sheet.md` and `guide/2026-general-san-ramon.html`.
+Deep pass, October 14, 2026. This section replaces the earlier composites in this file. Those earlier numbers (Hilton 61.05, Becerra 48.50, Gates 58.35, Bonta 55.05, Frese 55.60, DeSaulnier 45.85) are in the changelog. They are not the current picks. Attorney general moves from Gates to Bonta because CalMatters reports that Bonta enforced housing laws that make cities allow housing and that Gates fought those laws in Huntington Beach. Governor stays Hilton. District 10 stays Frese. The other statewide offices and Assembly District 16 are scored here for the first time. A gap of 15 or more stays Medium when the evidence is a campaign summary or a news report rather than a statute or a case file. The short sheet summarizes these picks in plain language. This file is the full write-up. The longer guide is `guide/2026-general-san-ramon.html`.
 
 Scores are policy, five-year effects, concentrated benefit, individualism, delivery, feasibility, competence. Composite = the weighted sum. Gap of 15 or more stays Medium when the evidence is a campaign summary or a news report rather than a statute or a case file.
 
