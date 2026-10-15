@@ -1,5 +1,9 @@
 # Changelog
 
+## October 15, 2026 — phone guide
+
+`guide/2026-general-san-ramon.html` is now a single self-contained page for a phone. The public URL starts every weight equal and recomputes candidate picks from those sliders. Slider changes stay in that browser. A private hash on the same file opens the saved weights (policy 45, five-year effects 15, concentrated benefit 12, individualism 10, delivery 8, feasibility 7, competence 3), shows those picks, and remembers the view on the device. Measures still use the measure tests. The two-page sheet is unchanged.
+
 ## October 14, 2026 — two-page ballot sheet
 
 `examples/2026-general-san-ramon-sheet.md` and `guide/ballot-sheet-nov-2026-san-ramon.pdf` are now a two-page sheet of the current picks. The sentences are plain language. Scores appear only as the small pair of composites under each scored race. Picks are unchanged from the deep pass below. The longer guide, with weight sliders, remains `guide/2026-general-san-ramon.html`.
