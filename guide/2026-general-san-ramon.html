@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f2f2f7">
+<meta name="theme-color" content="#0c1424">
 <title>November 3, 2026 ballot — San Ramon</title>
 <meta name="description" content="November 3, 2026 ballot guide for San Ramon 94582. Fairness-not-equity research. Last verified October 14, 2026.">
 <script>
@@ -22,70 +22,83 @@
 </script>
 <style>
 :root {
-  --bg: #f2f2f7;
+  --bg: #e8eaef;
   --card: #ffffff;
-  --ink: #1d1d1f;
-  --secondary: #6e6e73;
-  --tertiary: #86868b;
-  --accent: #0071e3;
-  --fill: rgba(120, 120, 128, 0.16);
-  --sep: rgba(60, 60, 67, 0.14);
+  --ink: #12141a;
+  --secondary: #5c616b;
+  --tertiary: #8b909a;
+  --accent: #0a5bd3;
+  --fill: rgba(18, 20, 26, 0.06);
+  --sep: rgba(18, 20, 26, 0.08);
   --seg-on: #ffffff;
-  --nav: rgba(242, 242, 247, 0.78);
-  --sheet: #f2f2f7;
-  --track: rgba(120, 120, 128, 0.32);
+  --nav: rgba(232, 234, 239, 0.78);
+  --nav-ink: #12141a;
+  --track: rgba(18, 20, 26, 0.12);
   --thumb: #ffffff;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 28px rgba(0, 0, 0, 0.06);
-  --high-bg: rgba(0, 113, 227, 0.10);
-  --high-ink: #0a5cad;
-  --med-bg: rgba(120, 120, 128, 0.12);
-  --med-ink: #6e6e73;
-  --low-bg: rgba(120, 120, 128, 0.10);
-  --low-ink: #8e8e93;
-  --scrim: rgba(0, 0, 0, 0.32);
+  --shadow: 0 1px 1px rgba(16, 24, 40, 0.04), 0 12px 32px rgba(16, 24, 40, 0.08);
+  --high-bg: rgba(10, 91, 211, 0.10);
+  --high-ink: #0a4eae;
+  --med-bg: rgba(18, 20, 26, 0.06);
+  --med-ink: #5c616b;
+  --low-bg: rgba(18, 20, 26, 0.05);
+  --low-ink: #8b909a;
+  --yes-bg: rgba(30, 122, 72, 0.12);
+  --yes-ink: #1b6b40;
+  --no-bg: rgba(164, 58, 48, 0.12);
+  --no-ink: #8e342e;
+  --win: rgba(10, 91, 211, 0.10);
+  --hero: #0c1424;
+  --hero-ink: #f4f1ea;
+  --hero-dim: rgba(244, 241, 234, 0.62);
+  --chip: rgba(255, 255, 255, 0.10);
   color-scheme: light;
-  --nav-h: calc(44px + env(safe-area-inset-top));
+  --nav-h: calc(48px + env(safe-area-inset-top));
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 [data-theme="dark"] {
   --bg: #000000;
-  --card: #1c1c1e;
-  --ink: #f5f5f7;
-  --secondary: #98989d;
-  --tertiary: #636366;
-  --accent: #0071e3;
-  --fill: rgba(120, 120, 128, 0.32);
-  --sep: rgba(84, 84, 88, 0.65);
-  --seg-on: #636366;
+  --card: #16181e;
+  --ink: #f4f1ea;
+  --secondary: #a1a6b0;
+  --tertiary: #6e7480;
+  --accent: #4c9bff;
+  --fill: rgba(255, 255, 255, 0.08);
+  --sep: rgba(255, 255, 255, 0.10);
+  --seg-on: #2c2f36;
   --nav: rgba(0, 0, 0, 0.72);
-  --sheet: #000000;
-  --track: rgba(120, 120, 128, 0.45);
-  --thumb: #f5f5f7;
-  --shadow: none;
-  --high-bg: rgba(0, 113, 227, 0.28);
-  --high-ink: #9ec9ff;
-  --med-bg: rgba(120, 120, 128, 0.28);
-  --med-ink: #d1d1d6;
-  --low-bg: rgba(120, 120, 128, 0.18);
-  --low-ink: #aeaeb2;
-  --scrim: rgba(0, 0, 0, 0.55);
+  --nav-ink: #f4f1ea;
+  --track: rgba(255, 255, 255, 0.16);
+  --thumb: #f4f1ea;
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  --high-bg: rgba(76, 155, 255, 0.18);
+  --high-ink: #b9d6ff;
+  --med-bg: rgba(255, 255, 255, 0.08);
+  --med-ink: #c8ccd4;
+  --low-bg: rgba(255, 255, 255, 0.06);
+  --low-ink: #9aa0aa;
+  --yes-bg: rgba(72, 176, 112, 0.18);
+  --yes-ink: #8ed7ae;
+  --no-bg: rgba(196, 96, 88, 0.18);
+  --no-ink: #f0b2ac;
+  --win: rgba(76, 155, 255, 0.16);
+  --hero: #070b14;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
-html { background: var(--bg); }
+html { background: var(--hero); }
 body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, "Segoe UI", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
   font-size: 17px;
   line-height: 1.47;
   letter-spacing: -0.022em;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-html.sheet-open,
-html.sheet-open body {
+html.sheet-open, html.sheet-open body, html.deck-open, html.deck-open body {
   overflow: hidden;
   overscroll-behavior: none;
 }
@@ -97,39 +110,46 @@ button { -webkit-tap-highlight-color: transparent; }
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
 }
-.mathfail { margin: 0; padding: 12px 16px; background: #3a3a3c; color: #fff; }
+.mathfail { margin: 0; padding: 12px 16px; background: #3a3a3c; color: #fff; position: relative; z-index: 80; }
 
 .nav {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 0; left: 0; right: 0;
   z-index: 40;
   height: var(--nav-h);
   padding: env(safe-area-inset-top) 8px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--nav);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  background: transparent;
+  color: var(--hero-ink);
+  transition: background 0.35s var(--ease), color 0.35s var(--ease);
 }
-.nav.is-collapsed { box-shadow: inset 0 -0.5px 0 var(--sep); }
+.nav.is-collapsed {
+  background: var(--nav);
+  color: var(--nav-ink);
+  backdrop-filter: saturate(180%) blur(22px);
+  -webkit-backdrop-filter: saturate(180%) blur(22px);
+  box-shadow: inset 0 -0.5px 0 var(--sep);
+}
 .nav-hit {
   position: absolute; inset: 0; z-index: 1;
   border: 0; background: transparent; padding: 0;
 }
 .nav-title {
   position: absolute;
-  left: 92px; right: 92px;
+  left: 88px; right: 88px;
   text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
   font-size: 17px;
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   opacity: 0;
   pointer-events: none;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.25s ease;
 }
 .nav.is-collapsed .nav-title { opacity: 1; }
 .nav-btn {
@@ -137,39 +157,113 @@ button { -webkit-tap-highlight-color: transparent; }
   z-index: 2;
   min-width: 44px;
   min-height: 44px;
-  padding: 0 10px;
+  padding: 0 12px;
   border: 0;
   background: transparent;
-  color: var(--accent);
+  color: inherit;
   font-size: 17px;
-  font-weight: 400;
 }
+.nav.is-collapsed .nav-btn { color: var(--accent); }
 .nav-btn.icon { font-weight: 600; font-size: 15px; }
 
-.hero { padding: 2px 20px 2px; }
-.kicker {
-  margin: 8px 0 0;
+.cinema {
+  position: relative;
+  padding: calc(var(--nav-h) + 4px) 24px 36px;
+  color: var(--hero-ink);
+  background: var(--hero);
+  overflow: hidden;
+}
+.mesh, .grain, .cinema-fade {
+  position: absolute; inset: 0; pointer-events: none;
+}
+.mesh {
+  background:
+    radial-gradient(90% 70% at 8% -10%, rgba(88, 118, 196, 0.55), transparent 58%),
+    radial-gradient(70% 60% at 110% 8%, rgba(196, 132, 78, 0.38), transparent 52%),
+    radial-gradient(80% 70% at 70% 120%, rgba(28, 44, 92, 0.85), transparent 60%),
+    linear-gradient(165deg, #141c30 0%, #0c1424 46%, #1a140f 100%);
+}
+.grain {
+  opacity: 0.22;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.22) 0.55px, transparent 0.55px);
+  background-size: 3px 3px;
+  mix-blend-mode: overlay;
+}
+.cinema-fade {
+  top: auto;
+  height: 72px;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+}
+.cinema-inner { position: relative; z-index: 1; }
+.cinema-kicker {
+  margin: 0;
   font-size: 13px;
   font-weight: 600;
-  color: var(--secondary);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hero-dim);
 }
-.large {
-  margin: 0;
+.display {
+  margin: 8px 0 0;
   padding: 0;
   border: 0;
   background: transparent;
+  color: var(--hero-ink);
   text-align: left;
-  font-size: 34px;
-  line-height: 1.12;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+  font-size: 80px;
+  line-height: 0.84;
   font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--ink);
+  letter-spacing: -0.06em;
 }
-.lede {
-  margin: 6px 0 0;
-  color: var(--secondary);
-  font-size: 15px;
-  line-height: 1.35;
+.cinema-sub {
+  margin: 12px 0 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+  font-size: 28px;
+  line-height: 1.1;
+  font-weight: 560;
+  letter-spacing: -0.035em;
+}
+.cinema-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.chip-glass {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--chip);
+  border: 0.5px solid rgba(255, 255, 255, 0.16);
+  color: var(--hero-ink);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #e0b07a;
+  box-shadow: 0 0 0 4px rgba(224, 176, 122, 0.18);
+}
+.hero-stats { display: flex; gap: 28px; margin-top: 24px; }
+.hero-stats b {
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+.hero-stats span {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--hero-dim);
 }
 
 .stick {
@@ -177,7 +271,7 @@ button { -webkit-tap-highlight-color: transparent; }
   top: var(--nav-h);
   z-index: 30;
   padding: 8px 16px 10px;
-  background: var(--nav);
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
 }
@@ -185,18 +279,18 @@ button { -webkit-tap-highlight-color: transparent; }
 .seg, .viewseg {
   display: flex;
   background: var(--fill);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 2px;
 }
 .seg button, .viewseg button {
   flex: 1;
-  min-height: 44px;
+  min-height: 40px;
   border: 0;
   background: transparent;
-  border-radius: 8px;
+  border-radius: 10px;
   color: var(--ink);
   font-size: 13px;
-  font-weight: 590;
+  font-weight: 600;
   letter-spacing: -0.01em;
   padding: 6px 4px;
 }
@@ -205,76 +299,251 @@ button { -webkit-tap-highlight-color: transparent; }
   background: var(--seg-on);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12), 0 0.5px 1px rgba(0, 0, 0, 0.06);
 }
+.tally { margin-top: 10px; }
+.tally-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+.tally-track {
+  margin-top: 6px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--track);
+  overflow: hidden;
+}
+.tally-fill {
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: #d7b48a;
+  transition: width 0.35s var(--ease);
+}
 
-.wrap { padding-bottom: calc(28px + env(safe-area-inset-bottom)); }
+.wrap { padding-bottom: calc(40px + env(safe-area-inset-bottom)); }
+.glance { padding-top: 8px; }
+.glance-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 20px 0;
+}
 .glance-title {
-  margin: 16px 20px 4px;
-  font-size: 22px;
-  line-height: 1.2;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+  font-size: 28px;
+  line-height: 1.1;
   font-weight: 700;
-  letter-spacing: -0.022em;
+  letter-spacing: -0.035em;
+}
+.flip-btn {
+  flex: none;
+  min-height: 36px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
 }
 .intro {
-  margin: 0 20px 56px;
+  margin: 8px 20px 0;
   color: var(--secondary);
   font-size: 15px;
   line-height: 1.35;
 }
-.callout {
-  margin: 4px 20px 8px;
-  font-size: 17px;
-  font-weight: 600;
-}
-.group {
-  margin: 0 16px;
-  background: var(--card);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-[data-theme="dark"] .group { border: 0.5px solid rgba(255, 255, 255, 0.08); }
-.row {
-  width: 100%;
+.chips {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  min-height: 60px;
-  padding: 10px 12px 10px 14px;
-  border: 0;
-  border-bottom: 0.5px solid var(--sep);
-  background: transparent;
-  text-align: left;
-  cursor: pointer;
+  gap: 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 8px 16px 4px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
-.mono {
+.chips::-webkit-scrollbar { display: none; }
+.film {
   flex: none;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(0, 113, 227, 0.12);
-  color: var(--accent);
-  font-size: 13px;
+  scroll-snap-align: start;
+  width: 148px;
+  min-height: 84px;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 18px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  text-align: left;
+  transition: transform 0.18s var(--ease);
+}
+.film:active { transform: scale(0.98); }
+.film .eye {
+  display: block;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tertiary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.film .chip-pick {
+  display: block;
+  margin-top: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 680;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.film.yes .chip-pick { color: var(--yes-ink); }
+.film.no .chip-pick { color: var(--no-ink); }
+
+.sec { padding-top: 8px; }
+.sec-label {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 24px 20px 12px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+  font-size: 22px;
+  line-height: 1.15;
   font-weight: 700;
   letter-spacing: -0.03em;
+}
+.sec-count { color: var(--tertiary); font-weight: 600; font-size: 17px; letter-spacing: -0.02em; }
+.stack { display: flex; flex-direction: column; gap: 12px; padding: 0 16px; }
+
+.match, .measure, .quiet {
+  width: 100%;
+  display: block;
+  text-align: left;
+  border: 0;
+  border-radius: 22px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  color: var(--ink);
+  padding: 16px;
+  transition: transform 0.18s var(--ease);
+}
+.match:active, .measure:active, .quiet:active { transform: scale(0.98); }
+.match.featured { padding: 20px 18px 18px; }
+.match-top, .quiet-top, .m-top {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 8px;
 }
-[data-theme="dark"] .mono { background: rgba(0, 113, 227, 0.28); color: #9ec9ff; }
-.row:last-child { border-bottom: 0; }
-.row:active { background: var(--fill); }
-.name { flex: 1; min-width: 0; font-size: 17px; }
-.trail { display: flex; align-items: center; gap: 6px; flex-shrink: 0; max-width: 58%; }
-.pick { color: var(--secondary); font-size: 17px; text-align: right; }
+.eye {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tertiary);
+}
+.duel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 14px;
+}
+.side {
+  min-height: 72px;
+  border-radius: 16px;
+  padding: 12px;
+  background: transparent;
+}
+.side.win { background: var(--win); box-shadow: inset 3px 0 0 var(--accent); }
+.who {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--tertiary);
+}
+.side.win .who { color: var(--ink); font-weight: 700; }
+.featured .who { font-size: 20px; }
+.score {
+  display: block;
+  margin-top: 6px;
+  font-variant-numeric: tabular-nums;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--tertiary);
+}
+.side.win .score { color: var(--secondary); }
+.tick { color: var(--accent); display: flex; }
+.bar {
+  margin-top: 12px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--track);
+  overflow: hidden;
+}
+.bar > span {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: var(--ink);
+}
+.bar > span.go { width: var(--w); transition: width 0.8s var(--ease); }
+.measure {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 14px;
+  align-items: center;
+  min-height: 96px;
+}
+.m-num {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+  font-size: 40px;
+  line-height: 0.9;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+}
+.m-title {
+  display: block;
+  font-size: 16px;
+  font-weight: 640;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+.m-sub { display: block; margin-top: 4px; font-size: 13px; color: var(--secondary); }
+.vote {
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  border-radius: 999px;
+}
+.vote.yes { background: var(--yes-bg); color: var(--yes-ink); }
+.vote.no { background: var(--no-bg); color: var(--no-ink); }
+.quiet-line { margin: 10px 0 0; color: var(--secondary); font-size: 15px; line-height: 1.35; }
 .pick.changed { color: var(--accent); }
-.chev { display: flex; color: #c7c7cc; }
-[data-theme="dark"] .chev { color: #636366; }
+
 .pill {
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 650;
   letter-spacing: -0.01em;
   line-height: 1.2;
-  padding: 3px 7px;
+  padding: 4px 8px;
   border-radius: 999px;
   white-space: nowrap;
 }
@@ -282,25 +551,15 @@ button { -webkit-tap-highlight-color: transparent; }
 .pill.med { background: var(--med-bg); color: var(--med-ink); }
 .pill.low { background: var(--low-bg); color: var(--low-ink); }
 .note {
-  margin: 10px 20px 0;
+  margin: 12px 20px 0;
   color: var(--secondary);
   font-size: 13px;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 .note a { color: var(--accent); text-decoration: none; }
-.note a:hover { text-decoration: underline; }
-.sec-label {
-  margin: 26px 20px 8px;
-  font-size: 22px;
-  line-height: 1.2;
-  font-weight: 700;
-  letter-spacing: -0.022em;
-  color: var(--ink);
-}
-.sec-label.call { font-size: 22px; color: var(--ink); letter-spacing: -0.022em; }
 
 footer {
-  margin: 28px 20px 0;
+  margin: 32px 20px 0;
   color: var(--secondary);
   font-size: 13px;
   line-height: 1.45;
@@ -308,15 +567,85 @@ footer {
 footer p { margin: 0 0 10px; }
 footer a { color: var(--accent); }
 
+.deck {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  display: flex;
+  flex-direction: column;
+  color: var(--hero-ink);
+  background: #0c1424;
+}
+.deck-mesh {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(80% 50% at 20% 0%, rgba(88, 118, 196, 0.45), transparent 60%),
+    radial-gradient(60% 40% at 100% 80%, rgba(196, 132, 78, 0.28), transparent 55%),
+    #0c1424;
+}
+.deck-bar, .deck-stage, .deck-hint { position: relative; z-index: 1; }
+.deck-bar {
+  display: grid;
+  grid-template-columns: 72px 1fr 72px;
+  align-items: center;
+  padding: calc(8px + env(safe-area-inset-top)) 8px 0;
+  min-height: calc(52px + env(safe-area-inset-top));
+}
+.deck-bar button {
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: var(--hero-ink);
+  font-size: 17px;
+  font-weight: 600;
+}
+.deck-count { margin: 0; text-align: center; font-size: 13px; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: var(--hero-dim); }
+.deck-stage {
+  flex: 1;
+  margin: 8px 28px 8px;
+  position: relative;
+}
+.deck-card {
+  position: absolute;
+  left: 0; right: 0; top: 18px;
+  border-radius: 28px;
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  padding: 22px 20px 20px;
+  transform-origin: center top;
+}
+.deck-card.back2 { transform: translateY(28px) scale(0.9); opacity: 0.35; }
+.deck-card.back1 { transform: translateY(14px) scale(0.95); opacity: 0.62; }
+.deck-card.front { top: 0; touch-action: none; }
+.deck-card h2 {
+  margin: 8px 0 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+  font-size: 34px;
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+.deck-card .sheet-kicker { color: var(--tertiary); }
+.deck-card .who { font-size: 26px; }
+.deck-card .duel { margin-top: 20px; }
+.deck-card .side { min-height: 92px; }
+.deck-hint {
+  margin: 0;
+  padding: 8px 24px calc(16px + env(safe-area-inset-bottom));
+  text-align: center;
+  color: var(--hero-dim);
+  font-size: 13px;
+}
+
 .scrim {
   position: fixed; inset: 0; z-index: 50;
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
-[data-theme="dark"] .scrim { background: rgba(0, 0, 0, 0.5); }
 .scrim.on { opacity: 1; }
 .sheet {
   position: fixed;
@@ -330,24 +659,23 @@ footer a { color: var(--accent); }
   display: flex;
   flex-direction: column;
   background: var(--bg);
-  border-radius: 12px 12px 0 0;
+  border-radius: 16px 16px 0 0;
   box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.12);
   overflow: hidden;
   transform: translateY(110%);
-  transition: transform 0.5s cubic-bezier(0.22, 1.15, 0.36, 1);
+  transition: transform 0.52s cubic-bezier(0.22, 1.15, 0.36, 1);
   touch-action: pan-y;
 }
 .sheet.open { transform: translateY(0); }
 .sheet-head {
   flex: none;
   touch-action: none;
-  background: rgba(242, 242, 247, 0.72);
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 0.5px solid var(--sep);
   z-index: 2;
 }
-[data-theme="dark"] .sheet-head { background: rgba(0, 0, 0, 0.72); }
 .grab {
   width: 36px; height: 5px; border-radius: 3px;
   background: rgba(120, 120, 128, 0.45);
@@ -396,17 +724,15 @@ footer a { color: var(--accent); }
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   touch-action: pan-y;
-  padding: 4px 16px 20px;
+  padding: 8px 16px 24px;
 }
-.sheet:not(.has-foot) .sheet-body {
-  padding-bottom: calc(20px + env(safe-area-inset-bottom));
-}
+.sheet:not(.has-foot) .sheet-body { padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
 .sheet-fade {
   position: absolute;
   left: 0; right: 0; bottom: 0;
   height: 28px;
   pointer-events: none;
-  background: linear-gradient(to bottom, rgba(242, 242, 247, 0), var(--bg));
+  background: linear-gradient(to bottom, transparent, var(--bg));
 }
 .sheet-foot {
   flex: none;
@@ -415,89 +741,89 @@ footer a { color: var(--accent); }
   gap: 10px;
   min-height: 52px;
   padding: 8px 16px calc(10px + env(safe-area-inset-bottom));
-  background: rgba(255, 255, 255, 0.86);
+  background: color-mix(in srgb, var(--card) 88%, transparent);
   backdrop-filter: saturate(180%) blur(16px);
   -webkit-backdrop-filter: saturate(180%) blur(16px);
   border-top: 0.5px solid var(--sep);
 }
-[data-theme="dark"] .sheet-foot { background: rgba(28, 28, 30, 0.9); }
-.sum-label { font-weight: 600; font-size: 17px; }
-.sum-note {
-  flex: 1;
-  min-width: 0;
-  font-size: 13px;
-  line-height: 1.3;
-  color: var(--secondary);
-  font-weight: 400;
-}
+.sum-label { font-weight: 650; }
+.sum-note { flex: 1; min-width: 0; font-size: 13px; color: var(--secondary); }
 .sum-num {
-  flex: none;
   font-variant-numeric: tabular-nums;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 15px;
   color: var(--accent);
   background: var(--high-bg);
   border-radius: 999px;
   padding: 4px 10px;
 }
-.sheet-body > .sheet-kicker { margin: 14px 4px 0; }
-.sheet-body > .ballot-line { margin: 6px 4px 0; }
-.sheet-body .group { margin: 14px 0 0; }
-.sheet-card { padding: 12px 16px 14px; }
-.sheet-card > .pt:first-child { border-top: 0; padding-top: 2px; }
+.sheet-body .group, .sheet-card {
+  margin: 12px 0 0;
+  background: var(--card);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+.sheet-card { padding: 18px 16px 16px; }
+.sheet-card > .pt:first-child { border-top: 0; }
 .sheet-card > .block-h:first-child { margin-top: 0; }
-.sheet-kicker { margin: 0; color: var(--secondary); font-size: 13px; font-weight: 600; }
-.sheet-card h2 {
-  margin: 2px 0 0;
-  font-size: 28px;
-  line-height: 1.15;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-}
-.ballot-line { margin: 8px 0 0; color: var(--secondary); font-size: 15px; }
-.pickrow { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
-.bigpick {
+.sheet-kicker {
   margin: 0;
-  font-size: 28px;
-  line-height: 1.15;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tertiary);
 }
-.bigpick.flip { animation: rise 0.35s ease; }
-@keyframes rise { from { opacity: 0.35; transform: translateY(4px); } to { opacity: 1; transform: none; } }
-.why { margin: 12px 0 0; font-size: 17px; }
-.small { margin: 10px 0 0; color: var(--secondary); font-size: 13px; line-height: 1.4; }
+.sheet-card h2 {
+  margin: 6px 0 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+  font-size: 32px;
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+.ballot-line { margin: 10px 0 0; color: var(--secondary); font-size: 15px; }
+.pickrow { display: flex; align-items: center; gap: 8px; margin-top: 12px; }
+.meters { margin-top: 16px; display: flex; flex-direction: column; gap: 10px; }
+.meter-top { display: flex; justify-content: space-between; font-size: 15px; font-weight: 650; letter-spacing: -0.02em; }
+.meter-top span:last-child { font-variant-numeric: tabular-nums; color: var(--secondary); font-weight: 600; }
+.meter-track { margin-top: 6px; height: 6px; border-radius: 999px; background: var(--track); overflow: hidden; }
+.meter-track > span { display: block; height: 100%; width: 0; background: var(--ink); border-radius: inherit; }
+.meter-track > span.go { width: var(--w); transition: width 0.8s var(--ease); }
+.meter.win .meter-top span:first-child { font-weight: 750; }
+.why { margin: 10px 0 0; font-size: 17px; line-height: 1.45; }
+.small { margin: 10px 0 0; color: var(--secondary); font-size: 13px; line-height: 1.45; }
 .block-h {
-  margin: 22px 0 0;
+  margin: 18px 0 0;
   font-size: 13px;
-  font-weight: 600;
-  color: var(--secondary);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tertiary);
 }
-.pt { padding: 8px 0; border-top: 0.5px solid var(--sep); font-size: 13px; color: var(--secondary); }
-.pt-h { display: flex; justify-content: space-between; gap: 12px; color: var(--ink); font-weight: 600; }
-.pt-pair { display: flex; justify-content: space-between; gap: 12px; margin-top: 2px; font-variant-numeric: tabular-nums; }
+.pt { padding: 10px 0; border-top: 0.5px solid var(--sep); font-size: 13px; color: var(--secondary); }
+.pt-h { display: flex; justify-content: space-between; gap: 12px; color: var(--ink); font-weight: 650; }
+.pt-pair { display: flex; justify-content: space-between; gap: 12px; margin-top: 4px; font-variant-numeric: tabular-nums; }
 .src {
   display: flex;
   align-items: center;
-  min-height: 44px;
+  min-height: 48px;
   padding: 10px 0;
   border-top: 0.5px solid var(--sep);
   color: var(--accent);
   text-decoration: none;
   font-size: 17px;
 }
-.slider-group .slider {
-  padding: 14px 16px 10px;
-  border-bottom: 0.5px solid var(--sep);
-}
+.sheet-body > .sheet-kicker { margin: 8px 4px 0; }
+.sheet-body > .ballot-line { margin: 6px 4px 0; }
+.slider-group .slider { padding: 14px 16px 10px; border-bottom: 0.5px solid var(--sep); }
 .slider-group .slider:last-child { border-bottom: 0; }
-.sl-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-weight: 600; }
-.sl-top label { font-size: 17px; }
+.sl-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-weight: 650; }
 .sl-val {
   flex: none;
   font-variant-numeric: tabular-nums;
   color: var(--accent);
-  font-weight: 600;
+  font-weight: 700;
   font-size: 15px;
   background: var(--high-bg);
   border-radius: 999px;
@@ -521,17 +847,27 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none; appearance: none;
   width: 28px; height: 28px; border-radius: 50%;
   background: var(--thumb);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.28), 0 0 0 0.5px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
 }
 input[type="range"]::-moz-range-thumb {
   width: 28px; height: 28px; border: 0; border-radius: 50%;
   background: var(--thumb);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.28), 0 0 0 0.5px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
 }
 .hint { margin: 0 0 8px; color: var(--secondary); font-size: 13px; line-height: 1.35; }
 .sheet-note { margin: 12px 4px 0; }
+[data-theme="dark"] .match,
+[data-theme="dark"] .measure,
+[data-theme="dark"] .quiet,
+[data-theme="dark"] .stat,
+[data-theme="dark"] .film,
+[data-theme="dark"] .sheet-card,
+[data-theme="dark"] .group {
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+}
 @media (prefers-reduced-motion: reduce) {
-  .sheet, .scrim, .nav-title, .bigpick.flip { transition: none; animation: none; }
+  .sheet, .scrim, .nav, .nav-title, .tally-fill, .bar > span, .meter-track > span,
+  .match, .measure, .quiet, .film, .deck-card { transition: none !important; animation: none !important; }
 }
 </style>
 </head>
@@ -540,14 +876,28 @@ input[type="range"]::-moz-range-thumb {
 <header class="nav" id="nav">
   <button type="button" class="nav-hit" id="totop" aria-label="Back to top"></button>
   <button type="button" class="nav-btn icon" id="theme" aria-pressed="false">Dark</button>
-  <p class="nav-title" id="nav-title">Ballot</p>
+  <p class="nav-title" id="nav-title">Nov 3</p>
   <button type="button" class="nav-btn" id="adjust">Adjust</button>
 </header>
-<div class="hero">
-  <p class="kicker">November 3, 2026 · San Ramon 94582</p>
-  <button type="button" class="large" id="large">Ballot</button>
-  <p class="lede" id="lede">Fairness, not equity. Last verified Oct 14, 2026.</p>
-</div>
+<section class="cinema" id="cinema">
+  <div class="mesh" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cinema-fade" aria-hidden="true"></div>
+  <div class="cinema-inner">
+    <p class="cinema-kicker">San Ramon · 94582</p>
+    <h1 class="display" id="large">Nov 3</h1>
+    <p class="cinema-sub" id="lede">San Ramon ballot</p>
+      <div class="cinema-row">
+      <span class="chip-glass" id="countdown"><span class="dot" aria-hidden="true"></span><span id="countdown-text">19 days to vote</span></span>
+      <span class="chip-glass" id="mode-chip">Verified Oct 14</span>
+    </div>
+    <div class="hero-stats" id="stats">
+      <div><b id="stat-picks">0</b><span>Picks</span></div>
+      <div><b id="stat-yes">0</b><span>Yes</span></div>
+      <div><b id="stat-no">0</b><span>No</span></div>
+    </div>
+  </div>
+</section>
 <div class="stick" id="stick">
   <div class="viewseg" id="viewseg" hidden role="group" aria-label="View">
     <button type="button" data-view="owner" aria-pressed="false">My ballot</button>
@@ -558,13 +908,33 @@ input[type="range"]::-moz-range-thumb {
     <button type="button" role="tab" id="tab-measures" aria-selected="false" aria-controls="list">Measures</button>
     <button type="button" role="tab" id="tab-local" aria-selected="false" aria-controls="list">Local</button>
   </div>
+  <div class="tally" id="tally">
+    <div class="tally-meta"><span id="tally-label">0 of 32</span><span id="tally-split"></span></div>
+    <div class="tally-track"><div class="tally-fill" id="tally-fill"></div></div>
+  </div>
 </div>
 <main class="wrap" id="list">
-  <h2 class="glance-title" id="glance-title">At a glance</h2>
-  <p class="intro" id="intro"></p>
+  <div class="glance">
+    <div class="glance-head">
+      <h2 class="glance-title" id="glance-title">At a glance</h2>
+      <button type="button" class="flip-btn" id="flip-open">Flip through</button>
+    </div>
+    <p class="intro" id="intro"></p>
+    <div class="chips" id="chips"></div>
+  </div>
   <div id="sections"></div>
   <footer id="footer"></footer>
 </main>
+<div class="deck" id="deck" hidden>
+  <div class="deck-mesh" aria-hidden="true"></div>
+  <div class="deck-bar">
+    <button type="button" id="deck-close">Done</button>
+    <p class="deck-count" id="deck-count">1 of 32</p>
+    <button type="button" id="deck-next">Next</button>
+  </div>
+  <div class="deck-stage" id="deck-stage"></div>
+  <p class="deck-hint">Swipe the card. Tap it for the reason.</p>
+</div>
 <div class="scrim" id="scrim" hidden></div>
 <div class="sheet" id="detail" role="dialog" aria-modal="true" aria-labelledby="detail-title" hidden>
   <div class="sheet-head" id="detail-head">
@@ -600,6 +970,7 @@ input[type="range"]::-moz-range-thumb {
   </div>
 </div>
 <div id="live" class="sr-only" aria-live="polite"></div>
+
 <script type="application/json" id="payload">{"token": "23SvCGnzXXbU", "ownerWeights": [45, 15, 12, 10, 8, 7, 3], "criteria": ["Policy alignment", "Five-year effects", "Concentrated benefit", "Individualism", "Delivery", "Feasibility", "Competence"], "hints": ["How closely the platform matches even rules and individual merit.", "Still a good idea five years out, including housing supply and new taxes.", "Who gets the gain: a narrow interest, or the broader public.", "The same rules for each person, rather than group outcomes.", "A result the framework would count. Years in office are not delivery.", "Whether they can win, and whether the office can act. Added into the score, not a multiplier.", "Can they do the job. A small check."], "races": [{"id": "governor", "office": "Governor", "strong": false, "defaultLeader": "Hilton", "defaultRunner": "Becerra", "defaultLabel": "Medium", "candidates": [{"short": "Becerra", "scores": [40, 40, 40, 35, 30, 70, 85], "expect": 42.15}, {"short": "Hilton", "scores": [75, 60, 55, 75, 30, 20, 60], "expect": 62.45}]}, {"id": "ltgov", "office": "Lieutenant governor", "strong": false, "defaultLeader": "Romero", "defaultRunner": "Ma", "defaultLabel": "Medium", "candidates": [{"short": "Ma", "scores": [40, 45, 30, 45, 40, 70, 80], "expect": 43.35}, {"short": "Romero", "scores": [65, 60, 55, 65, 35, 25, 70], "expect": 58.0}]}, {"id": "sos", "office": "Secretary of state", "strong": false, "defaultLeader": "Wagner", "defaultRunner": "Weber", "defaultLabel": "Medium", "candidates": [{"short": "Weber", "scores": [45, 50, 45, 50, 40, 75, 80], "expect": 49.0}, {"short": "Wagner", "scores": [65, 60, 50, 65, 30, 30, 70], "expect": 57.35}]}, {"id": "controller", "office": "Controller", "strong": false, "defaultLeader": "Morgan", "defaultRunner": "Cohen", "defaultLabel": "Medium", "candidates": [{"short": "Cohen", "scores": [50, 55, 45, 50, 40, 70, 80], "expect": 51.65}, {"short": "Morgan", "scores": [70, 65, 55, 60, 30, 25, 75], "expect": 60.25}]}, {"id": "treasurer", "office": "Treasurer", "strong": false, "defaultLeader": "Hawks", "defaultRunner": "Kounalakis", "defaultLabel": "Low", "candidates": [{"short": "Kounalakis", "scores": [45, 50, 35, 55, 35, 70, 75], "expect": 47.4}, {"short": "Hawks", "scores": [55, 55, 60, 55, 25, 25, 60], "expect": 51.25}]}, {"id": "ag", "office": "Attorney general", "strong": false, "defaultLeader": "Bonta", "defaultRunner": "Gates", "defaultLabel": "Medium", "candidates": [{"short": "Bonta", "scores": [70, 65, 35, 50, 55, 75, 85], "expect": 62.65}, {"short": "Gates", "scores": [40, 40, 50, 60, 35, 30, 75], "expect": 43.15}]}, {"id": "insurance", "office": "Insurance commissioner", "strong": false, "defaultLeader": "Allen", "defaultRunner": "Kim", "defaultLabel": "Medium", "candidates": [{"short": "Allen", "scores": [48, 45, 40, 50, 40, 65, 70], "expect": 48.0}, {"short": "Kim", "scores": [35, 35, 30, 40, 35, 60, 65], "expect": 37.55}]}, {"id": "boe", "office": "Board of Equalization, District 2", "strong": false, "defaultLeader": "Pimentel", "defaultRunner": "Lieber", "defaultLabel": "Medium", "candidates": [{"short": "Lieber", "scores": [45, 50, 30, 45, 40, 65, 75], "expect": 45.85}, {"short": "Pimentel", "scores": [70, 65, 60, 60, 30, 50, 65], "expect": 62.3}]}, {"id": "ca10", "office": "U.S. House, District 10", "strong": false, "defaultLeader": "Frese", "defaultRunner": "DeSaulnier", "defaultLabel": "Medium", "candidates": [{"short": "DeSaulnier", "scores": [40, 40, 45, 45, 35, 60, 70], "expect": 43.0}, {"short": "Frese", "scores": [65, 55, 50, 60, 25, 35, 55], "expect": 55.6}]}, {"id": "ad16", "office": "State Assembly, District 16", "strong": false, "defaultLeader": "Bauer-Kahan", "defaultRunner": "Rubay", "defaultLabel": "Medium", "candidates": [{"short": "Bauer-Kahan", "scores": [50, 50, 45, 50, 35, 75, 75], "expect": 50.7}, {"short": "Rubay", "scores": [40, 40, 55, 60, 25, 30, 60], "expect": 42.5}]}, {"id": "spi", "office": "Superintendent of public instruction", "strong": false, "defaultLeader": "Shaw", "defaultRunner": "Barrera", "defaultLabel": "Medium", "candidates": [{"short": "Barrera", "scores": [40, 45, 30, 45, 40, 60, 70], "expect": 42.35}, {"short": "Shaw", "scores": [60, 60, 55, 60, 40, 45, 65], "expect": 56.9}]}], "items": [{"id": "governor", "tab": "offices", "kind": "race", "office": "Governor", "pick": "Hilton", "conf": "Medium", "ownerWhy": "Hilton wants to cut income and gas taxes, cut fees on smaller homes, and limit lawsuits that stop construction. Becerra would freeze utility and insurance rates and has not ruled out new taxes. These are campaign plans, not laws either man has passed, so this stays Medium.", "publicWhy": "Hilton wants to cut income and gas taxes, cut fees on smaller homes, and limit lawsuits that stop construction. Becerra would freeze utility and insurance rates and has not ruled out new taxes. These are campaign plans, not laws either candidate has passed.", "ballot": "Xavier Becerra (Democratic, Voting Rights Attorney) and Steve Hilton (Republican, Small Business Owner).", "how": "Policy is 75 against 40 from that tax and rate-freeze contrast. Hilton’s preference for suburban houses over apartments holds five-year effects at 60 rather than higher. Delivery is 30 for both: the sources do not show a checked result this framework would count, and years in office are not delivery. Feasibility is 20 against 70 from the Democratic trifecta since 2011 and the current legislative counts. That gap is weighted at 7 percent. Competence is 60 against 85 from the advisory record and the offices actually held, weighted at 3 percent.", "publicHow": "Policy is 75 against 40 from that tax and rate-freeze contrast. Hilton’s preference for suburban houses over apartments holds five-year effects at 60 rather than higher. Delivery is 30 for both: the sources do not show a checked result this framework would count, and years in office are not delivery. Feasibility is 20 against 70 from the Democratic trifecta since 2011 and the current legislative counts. Competence is 60 against 85 from the advisory record and the offices actually held.", "sens": "0 of 14 default-weight shifts change the leader. The narrowest is feasibility at +10: Hilton 58.59, Becerra 44.68, gap 13.91.", "settle": "", "extra": "Becerra: 18.00 + 6.00 + 4.80 + 3.50 + 2.40 + 4.90 + 2.55 = 42.15", "sources": [{"t": "CalMatters governor guide", "h": "https://calmatters.org/california-voter-guide-2026/governor/"}, {"t": "Ballotpedia governor election", "h": "https://ballotpedia.org/California_gubernatorial_election,_2026"}, {"t": "Certified candidate list", "h": "https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf"}]}, {"id": "ltgov", "tab": "offices", "kind": "race", "office": "Lieutenant governor", "pick": "Romero", "conf": "Medium", "ownerWhy": "The clear difference is school choice, which this voter reads as families getting to decide. Ma’s listed backers are the labor federation, the building trades, and AFSCME, and no reform plan turned up for her.", "publicWhy": "The clear difference in the research is school choice, which reads as families getting to decide. Ma’s listed backers are the labor federation, the building trades, and AFSCME, and no reform plan turned up for her.", "ballot": "Fiona Ma (Democratic, State Treasurer/CPA) and Gloria Romero (Republican, Educator/Businesswoman).", "how": "Policy is 65 against 40 because school choice is the only clear platform contrast in the source, not a full education plan. Concentrated benefit is 55 against 30 from those labor endorsements on Ma’s side and the absence of a comparable organized-interest list for Romero beyond the state Republican Party and Reform California. Delivery stays near the middle: holding the treasurer’s office is not itself a framework-aligned result. Feasibility is 25 against 70.", "publicHow": "Policy is 65 against 40 because school choice is the only clear platform contrast in the source, not a full education plan. Concentrated benefit is 55 against 30 from those labor endorsements on Ma’s side and the absence of a comparable organized-interest list for Romero beyond the state Republican Party and Reform California. Delivery stays near the middle: holding the treasurer’s office is not itself a framework-aligned result. Feasibility is 25 against 70.", "sens": "0 of 14 default-weight shifts change the leader. The narrowest is feasibility at +10: Romero 55.00, Ma 45.77, gap 9.23.", "settle": "", "extra": "Ma: 18.00 + 6.75 + 3.60 + 4.50 + 3.20 + 4.90 + 2.40 = 43.35", "sources": [{"t": "CalMatters lieutenant governor guide", "h": "https://calmatters.org/california-voter-guide-2026/lieutenant-governor/"}, {"t": "Certified candidate list", "h": "https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf"}]}, {"id": "sos", "tab": "offices", "kind": "race", "office": "Secretary of state", "pick": "Wagner", "conf": "Medium", "ownerWhy": "Wagner wants voters to show ID, the same idea as a Yes on Proposition 39: one rule for everyone. Weber’s record is mail ballots for all and wider access, which was not counted against her.", "publicWhy": "Wagner wants voters to show ID, the same idea as a Yes on Proposition 39: one rule for everyone. Weber’s record is mail ballots for all and wider access, which was not scored as a failure of the framework.", "ballot": "Shirley N. Weber (Democratic, California Secretary of State) and Donald P. Wagner (Republican, Orange County Supervisor).", "how": "Policy is 65 against 45. One identification rule for every voter is the match. Universal mail voting is not treated as a failure of the framework. Concentrated benefit stays near the middle because donor tables did not render dollar amounts. Delivery is 30 against 40: administering mail voting is the job, not a counted framework result. Feasibility is 30 against 75.", "publicHow": "Policy is 65 against 45. One identification rule for every voter is the match. Universal mail voting is not treated as a failure of the framework. Concentrated benefit stays near the middle because donor tables did not render dollar amounts. Delivery is 30 against 40: administering mail voting is the job, not a counted framework result. Feasibility is 30 against 75.", "sens": "0 of 14 default-weight shifts change the leader. The narrowest is feasibility at +10: Wagner 54.86, Weber 51.36, gap 3.50.", "settle": "", "extra": "Weber: 20.25 + 7.50 + 5.40 + 5.00 + 3.20 + 5.25 + 2.40 = 49.00", "sources": [{"t": "CalMatters secretary of state guide", "h": "https://calmatters.org/california-voter-guide-2026/secretary-of-state/"}, {"t": "Certified candidate list", "h": "https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf"}]}, {"id": "controller", "tab": "offices", "kind": "race", "office": "Controller", "pick": "Morgan", "conf": "Medium", "ownerWhy": "Morgan is running to expose fraud, and he founded an investment firm. That private-sector money experience is what this voter wants in the state’s accountant. Cohen urges careful spending, but a matching audit plan was not found.", "publicWhy": "Morgan is running to expose fraud, and he founded an investment firm. Cohen urges careful spending, but a matching audit plan was not found. Morgan’s policy score is higher. Cohen’s feasibility and competence scores are higher.", "ballot": "Malia M. Cohen (Democratic, State Controller) and Herb W. Morgan (Republican, Chief Investment Officer).", "how": "Policy is 70 against 50 from that audit-and-experience contrast, not from a claim that fraud has already been documented. Delivery is 30 against 40 because the caution Cohen urged in a budget season is not a completed audit this framework can count. Feasibility is 25 against 70. Competence is 75 against 80: both can read a balance sheet, and the weight is 3 percent.", "publicHow": "Policy is 70 against 50 from that audit-and-experience contrast, not from a claim that fraud has already been documented. Delivery is 30 against 40 because the caution Cohen urged in a budget season is not a completed audit this framework can count. Feasibility is 25 against 70. Competence is 75 against 80: both can read a balance sheet.", "sens": "0 of 14 default-weight shifts change the leader. The narrowest is feasibility at +10: Morgan 57.05, Cohen 53.32, gap 3.73.", "settle": "", "extra": "Cohen: 22.50 + 8.25 + 5.40 + 5.00 + 3.20 + 4.90 + 2.40 = 51.65", "sources": [{"t": "CalMatters controller guide", "h": "https://calmatters.org/california-voter-guide-2026/controller/"}, {"t": "Certified candidate list", "h": "https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf"}]}, {"id": "treasurer", "tab": "offices", "kind": "race", "office": "Treasurer", "pick": "Hawks", "conf": "Low", "ownerWhy": "Hawks says she would be an independent check, but no plan for the state’s investments or debt turned up. Kounalakis voted against UC and CSU tuition hikes and spent years raising money for Democrats. The lead is thin. I am not confident here.", "publicWhy": "Hawks says she would be an independent check, but no plan for the state’s investments or debt turned up. Kounalakis voted against UC and CSU tuition hikes and spent years raising money for Democrats.", "ballot": "Eleni Kounalakis (Democratic, Lieutenant Governor) and Jennifer Hawks (Republican, Retired Business Executive).", "how": "Policy stays near the middle, 55 against 45, because independence is a real point and a missing investment plan is not a high score. Concentrated benefit is 60 against 35 from the fundraising career on one side and the lack of a party-institution endorsement list on the other. Feasibility is 25 against 70, which is why one shift flips the race. Do not treat a 3.85-point lead as a settled preference.", "publicHow": "Policy stays near the middle, 55 against 45, because independence is a real point and a missing investment plan is not a high score. Concentrated benefit is 60 against 35 from the fundraising career on one side and the lack of a party-institution endorsement list on the other. Feasibility is 25 against 70.", "sens": "1 of 14 default-weight shifts flips the leader. Feasibility at +10: Kounalakis 49.45, Hawks 48.86, gap 0.59 the other way. Among shifts that keep Hawks first, the narrowest is concentrated benefit at −10: Hawks 50.28, Kounalakis 48.78, gap 1.50.", "settle": "What would settle it. A sourced Hawks plan for the state’s investments and debt, and Kounalakis’s record on the state’s bond programs, would settle it.", "extra": "Kounalakis: 20.25 + 7.50 + 4.20 + 5.50 + 2.80 + 4.90 + 2.25 = 47.40", "sources": [{"t": "CalMatters treasurer guide", "h": "https://calmatters.org/california-voter-guide-2026/treasurer/"}, {"t": "Certified candidate list", "h": "https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf"}]}, {"id": "ag", "tab": "offices", "kind": "race", "office": "Attorney general", "pick": "Bonta", "conf": "Medium", "ownerWhy": "Bonta has spent his term enforcing laws that make cities allow new housing. Gates fought those laws as Huntington Beach city attorney. His promise of equal justice still fits, and it does not outweigh that housing record. This stays Medium because the source is news and the candidates’ own words, not the court files.", "publicWhy": "Bonta has spent his term enforcing laws that make cities allow new housing. Gates fought those laws as Huntington Beach city attorney. Gates also promises equal justice. The sources are news and the candidates’ own words, not the court files.", "ballot": "Rob Bonta (Democratic, California Attorney General) and Michael E. Gates (Republican, Deputy United States Attorney).", "how": "Policy is 70 against 40 from that housing-enforcement contrast. Individualism is 50 against 60 because Gates’s voter-guide statement says equal justice without regard to zip code or last name. Concentrated benefit is 35 against 50: Bonta’s listed endorsements include the Democratic Party, the California Teachers Association, and California Environmental Voters. Delivery is 55 against 35 for described official conduct, not an audited unit count. His questionnaire claim of a pathway for 40,000 units, and Gates’s claim of a double-digit crime drop, were not checked against a non-campaign record. Feasibility is 75 against 30. CalMatters also reports Gates left a 2025 Justice Department post in November 2025 and returned to the Huntington Beach city attorney’s office. The certified designation remains Deputy United States Attorney.", "publicHow": "Policy is 70 against 40 from that housing-enforcement contrast. Individualism is 50 against 60 because Gates’s voter-guide statement says equal justice without regard to zip code or last name. Concentrated benefit is 35 against 50: Bonta’s listed endorsements include the Democratic Party, the California Teachers Association, and California Environmental Voters. Delivery is 55 against 35 for described official conduct, not an audited unit count. His questionnaire claim of a pathway for 40,000 units, and Gates’s claim of a double-digit crime drop, were not checked against a non-campaign record. Feasibility is 75 against 30. CalMatters also reports Gates left a 2025 Justice Department post in November 2025 and returned to the Huntington Beach city attorney’s office. The certified designation remains Deputy United States Attorney.", "sens": "0 of 14 default-weight shifts change the leader. The narrowest is concentrated benefit at +10: Bonta 60.14, Gates 43.77, gap 16.36.", "settle": "", "extra": "Bonta: 31.50 + 9.75 + 4.20 + 5.00 + 4.40 + 5.25 + 2.55 = 62.65", "sources": [{"t": "CalMatters attorney general guide", "h": "https://calmatters.org/california-voter-guide-2026/attorney-general/"}, {"t": "Official voter-guide statements", "h": "https://voterguide.sos.ca.gov/candidates/attorney-general-candidate-statements.htm"}, {"t": "Bonta’s GrowSF questionnaire", "h": "https://growsf.org/voter-guide/questionnaires/june-2026/rob-bonta/"}, {"t": "Ballotpedia attorney general election", "h": "https://ballotpedia.org/California_Attorney_General_election,_2026"}]}, {"id": "insurance", "tab": "offices", "kind": "race", "office": "Insurance commissioner", "pick": "Allen", "conf": "Medium", "ownerWhy": "Kim wants a state-run disaster insurer, paid by insurance companies, plus a bigger public auto program. Allen wants more staff for complaints and loans for wildfire safety, with private insurers still selling the policies. Neither has run an insurance company.", "publicWhy": "Kim wants a state-run disaster insurer, paid by insurance companies, plus a bigger public auto program. Allen wants more staff for complaints and loans for wildfire safety, with private insurers still selling the policies. Neither has run an insurance company.", "ballot": "Ben Allen (Democratic, California State Senator) and Jane Kim (Democratic, Attorney/Consumer Advocate). Same-party runoff.", "how": "Policy is 48 against 35. A new public insurer is a new obligation this framework treats skeptically. Allen’s plan is not a market-opening reform, which is why 48 is only a step above the middle. The framework’s usual preference for industry operating experience does not pick either candidate. Feasibility is 65 against 60. Both are Democrats on the certified list.", "publicHow": "Policy is 48 against 35. A new public insurer is a new obligation this framework treats skeptically. Allen’s plan is not a market-opening reform, which is why 48 is only a step above the middle. The framework’s usual preference for industry operating experience does not pick either candidate. Feasibility is 65 against 60. Both are Democrats on the certified list.", "sens": "0 of 14 default-weight shifts change the leader. Three shifts tie for the narrowest gap, about 9.95, and none changes the leader.", "settle": "", "extra": "Allen: 21.60 + 6.75 + 4.80 + 5.00 + 3.20 + 4.55 + 2.10 = 48.00", "sources": [{"t": "CalMatters insurance commissioner guide", "h": "https://calmatters.org/california-voter-guide-2026/insurance-commissioner/"}, {"t": "Certified candidate list", "h": "https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf"}]}, {"id": "boe", "tab": "offices", "kind": "race", "office": "Board of Equalization, District 2", "pick": "Pimentel", "conf": "Medium", "ownerWhy": "Pimentel says he would end the sales tax on food, which takes a bigger share from people with less money. Lieber’s listed backers include the Democratic Party, SEIU, and the teachers union. Both sides are campaign statements, so this is Medium.", "publicWhy": "Pimentel says he would end the sales tax on food, which takes a bigger share from people with less money. Lieber’s listed backers include the Democratic Party, SEIU, and the teachers union. Both sides are campaign statements.", "ballot": "Sally J. Lieber (Democratic, incumbent) and John Pimentel (Democratic, San Mateo County Community College District trustee).", "how": "Policy is 70 against 45 from the food-tax proposal reported by the San Luis Obispo Tribune. Concentrated benefit is 60 against 30 from the endorsement contrast. CalMatters also lists the Howard Jarvis Taxpayers Association for Pimentel. The Tribune’s April 2026 reading said both campaigns were mostly self-funded then. Those figures are not treated as the latest general-election totals. Delivery is 30 against 40. Do not read this pick as a claim that Pimentel would abolish the board. That sentence is not in the sources used here.", "publicHow": "Policy is 70 against 45 from the food-tax proposal reported by the San Luis Obispo Tribune. Concentrated benefit is 60 against 30 from the endorsement contrast. CalMatters also lists the Howard Jarvis Taxpayers Association for Pimentel. The Tribune’s April 2026 reading said both campaigns were mostly self-funded then. Those figures are not treated as the latest general-election totals. Delivery is 30 against 40. Do not read this pick as a claim that Pimentel would abolish the board. That sentence is not in the sources used here.", "sens": "0 of 14 default-weight shifts change the leader. The narrowest is feasibility at +10: Pimentel 61.18, Lieber 47.59, gap 13.59.", "settle": "", "extra": "Lieber: 20.25 + 7.50 + 3.60 + 4.50 + 3.20 + 4.55 + 2.25 = 45.85", "sources": [{"t": "CalMatters Board of Equalization guide", "h": "https://calmatters.org/california-voter-guide-2026/board-of-equalization/"}, {"t": "San Luis Obispo Tribune voter guide", "h": "https://www.sanluisobispo.com/news/politics-government/election/voter-guide/article315320445.html"}, {"t": "Certified candidate list", "h": "https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf"}]}, {"id": "ca10", "tab": "offices", "kind": "race", "office": "U.S. House, District 10", "pick": "Frese", "conf": "Medium", "ownerWhy": "Frese would cut deficit spending, limit how long members of Congress serve, and ease rules that slow building. DeSaulnier’s campaign stresses workers’ rights, health care, and a progressive approach, and also talks about tax cuts for families.", "publicWhy": "Frese would cut deficit spending, limit how long members of Congress serve, and ease rules that slow building. DeSaulnier’s campaign stresses workers’ rights, health care, and a progressive approach, and also talks about tax cuts for families.", "ballot": "Mark DeSaulnier (Democratic, United States Congressman) and Jeff Frese (Republican, Small Business Owner).", "how": "Policy is 65 against 40. Frese’s homebuyer ban on hedge funds points away from the framework, so 65 is not the top of the band. DeSaulnier’s policy cell moved from 45 to 40 after the local guide made the progressive and worker frame clearer. Concentrated benefit stays near the middle: Ballotpedia listed $567,258 in receipts for DeSaulnier as of June 30, 2026, and listed Frese’s receipts as data not available. Missing data is not independence. Delivery is 25 against 35. The $46 million in local projects is a spending claim, not a counted success. This file does not adopt Frese’s description of DeSaulnier’s bill record.", "publicHow": "Policy is 65 against 40. Frese’s homebuyer ban on hedge funds points away from the framework, so 65 is not the top of the band. DeSaulnier’s policy cell moved from 45 to 40 after the local guide made the progressive and worker frame clearer. Concentrated benefit stays near the middle: Ballotpedia listed $567,258 in receipts for DeSaulnier as of June 30, 2026, and listed Frese’s receipts as data not available. Missing data is not independence. Delivery is 25 against 35. The $46 million in local projects is a spending claim, not a counted success. This file does not adopt Frese’s description of DeSaulnier’s bill record.", "sens": "0 of 14 default-weight shifts change the leader. The narrowest is feasibility at +10: Frese 53.73, DeSaulnier 44.55, gap 9.18.", "settle": "", "extra": "DeSaulnier: 18.00 + 6.00 + 5.40 + 4.50 + 2.80 + 4.20 + 2.10 = 43.00", "sources": [{"t": "Ballotpedia District 10", "h": "https://ballotpedia.org/California%27s_10th_Congressional_District_election,_2026"}, {"t": "DeSaulnier Ballotpedia profile", "h": "https://ballotpedia.org/Mark_DeSaulnier"}, {"t": "DeSaulnier campaign site", "h": "https://desaulnierforcongress.com/"}, {"t": "San Ramon Patch voter guide", "h": "https://patch.com/california/sanramon/san-ramon-voter-guide-2026-whats-ballot-voting-more"}]}, {"id": "ad16", "tab": "offices", "kind": "race", "office": "State Assembly, District 16", "pick": "Bauer-Kahan", "conf": "Medium", "ownerWhy": "Rubay opposes state rules that push denser housing into the suburbs. That works against this voter’s preference for more homes. Bauer-Kahan’s campaign, as a San Ramon news guide describes it, does not make that argument. The guide is thinner than the statewide sources.", "publicWhy": "Rubay opposes state rules that push denser housing into the suburbs. That works against a preference for more homes. Bauer-Kahan’s campaign, as a San Ramon news guide describes it, does not make that argument. The guide is thinner than the statewide sources.", "ballot": "Rebecca Bauer-Kahan (Democratic, Assemblymember) and Joseph A. Rubay (Republican, Businessman/Father).", "how": "Policy is only 50 against 40. Her lead is not a detailed housing-bill record. Consent-calendar votes were not treated as a platform. Policy alignment, not the incumbency cells, is the larger share of the 8.20-point gap: about 4.5 points from policy and about 3.2 from feasibility. Feasibility is 75 against 30 because she is the incumbent in a Democratic district, and that weight is 7 percent.", "publicHow": "Policy is only 50 against 40. Her lead is not a detailed housing-bill record. Consent-calendar votes were not treated as a platform. Feasibility is 75 against 30 because she is the incumbent in a Democratic district.", "sens": "0 of 14 default-weight shifts change the leader. The narrowest is feasibility at −10, clipped to 0: Bauer-Kahan 48.87, Rubay 43.44, gap 5.43.", "settle": "", "extra": "Bauer-Kahan: 22.50 + 7.50 + 5.40 + 5.00 + 2.80 + 5.25 + 2.25 = 50.70", "sources": [{"t": "San Ramon Patch voter guide", "h": "https://patch.com/california/sanramon/san-ramon-voter-guide-2026-whats-ballot-voting-more"}, {"t": "Certified candidate list", "h": "https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf"}]}, {"id": "spi", "tab": "offices", "kind": "race", "office": "Superintendent of public instruction", "pick": "Shaw", "conf": "Medium", "ownerWhy": "Shaw says schools should get back to academic basics. Barrera’s priority is more school funding and an easier path into teaching, and the teachers union’s endorsement is what made him widely known. The office is nonpartisan, and in 2027 a governor-appointed commissioner takes over the department.", "publicWhy": "Shaw says schools should get back to academic basics. Barrera’s priority is more school funding and an easier path into teaching, and the teachers union’s endorsement is what made him widely known. The office is nonpartisan, and in 2027 a governor-appointed commissioner takes over the department.", "ballot": "Richard Barrera (State Superintendent Advisor) and Sonja Shaw (School District President). Nonpartisan. The office loses department control in 2027 to a governor-appointed education commissioner and keeps a statewide platform.", "how": "Policy is 60 against 40. The transgender-student fight is part of Shaw’s public record and is not the whole score. Academic basics against a union-backed funding agenda is the core. Concentrated benefit is 55 against 30 because of that California Teachers Association endorsement. Delivery is 40 for both: a school-board presidency is not, by itself, a statewide result.", "publicHow": "Policy is 60 against 40. The transgender-student fight is part of Shaw’s public record and is not the whole score. Academic basics against a union-backed funding agenda is the core. Concentrated benefit is 55 against 30 because of that California Teachers Association endorsement. Delivery is 40 for both: a school-board presidency is not, by itself, a statewide result.", "sens": "0 of 14 default-weight shifts change the leader. The narrowest is feasibility at +10: Shaw 55.82, Barrera 43.95, gap 11.86.", "settle": "", "extra": "Barrera: 18.00 + 6.75 + 3.60 + 4.50 + 3.20 + 4.20 + 2.10 = 42.35", "sources": [{"t": "CalMatters superintendent guide", "h": "https://calmatters.org/california-voter-guide-2026/superintendent-of-public-instruction/"}, {"t": "Certified candidate list", "h": "https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf"}]}, {"id": "judicial", "tab": "offices", "kind": "static", "office": "Judicial retention", "pick": "No pick", "conf": "", "ownerWhy": "No pick. Supreme Court justices Kelli M. Evans and Joshua Groban are on every ballot, along with the First Appellate District justices named on the certified list. Their opinions were not read. This is not a vote to keep them and not a vote to remove them.", "publicWhy": "No pick. Supreme Court justices Kelli M. Evans and Joshua Groban are on every ballot, along with the First Appellate District justices named on the certified list. Their opinions were not read. This is not a vote to keep them and not a vote to remove them.", "ballot": "Supreme Court: Kelli M. Evans and Joshua Groban. First Appellate District: Charles A. Smiley, Kathleen M. Banke, and Monique Langhorne Wilson (Division One); Presiding Justice Therese M. Stewart and Tara M. Desautels (Division Two); Ioana Petrou and Victor A. Rodriguez (Division Three); Presiding Justice Tracie L. Brown (Division Four); Mark Simons, Danny Y. Chou, and Gordon Burns (Division Five).", "how": "", "publicHow": "", "sens": "", "settle": "What would settle it. Read the opinions or the official voter-guide judicial section.", "extra": "", "sources": [{"t": "Certified candidate list", "h": "https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf"}]}, {"id": "mayor", "tab": "local", "kind": "static", "office": "San Ramon mayor", "pick": "No pick", "conf": "", "ownerWhy": "No pick. The citywide ballot lists Emma Chigbu, Mark H. Armstrong, and Paschalis Ntatsos. Job titles are not a record, and the candidates’ answers were not in the page used here.", "publicWhy": "No pick. The citywide ballot lists Emma Chigbu, Mark H. Armstrong, and Paschalis Ntatsos. Job titles are not a record, and the candidates’ answers were not in the page used here.", "ballot": "Citywide. Emma Chigbu (Student), Mark H. Armstrong (Mayor/Retired Colonel), and Paschalis Ntatsos (Nonprofit Director/CEO).", "how": "", "publicHow": "", "sens": "", "settle": "What would settle it. Those answers, read against the framework, would settle a score. The office itself is on every San Ramon ballot.", "extra": "", "sources": [{"t": "County contest list", "h": "https://www.contracostavote.gov/wp-content/uploads/8-27-26_candidatelist_detail_final.pdf"}, {"t": "San Ramon Patch voter guide", "h": "https://patch.com/california/sanramon/san-ramon-voter-guide-2026-whats-ballot-voting-more"}]}, {"id": "council2", "tab": "local", "kind": "static", "office": "City Council, District 2", "pick": "No pick", "conf": "", "ownerWhy": "No pick, and only if your address is in District 2: Chirag Kathrani or Richard J. Adler. Districts 1 and 3 are not on this ballot. Check your sample ballot.", "publicWhy": "No pick, and only if your address is in District 2: Chirag Kathrani or Richard J. Adler. Districts 1 and 3 are not on this ballot. Check your sample ballot.", "ballot": "Chirag Kathrani (Founder/Entrepreneur) and Richard J. Adler (Appointed Incumbent). You vote here only if your address is in District 2. Districts 1 and 3 are not on this ballot.", "how": "", "publicHow": "", "sens": "", "settle": "What would settle it. Confirm the district on the city lookup, then read the candidates’ own answers.", "extra": "", "sources": [{"t": "County contest list", "h": "https://www.contracostavote.gov/wp-content/uploads/8-27-26_candidatelist_detail_final.pdf"}, {"t": "City district lookup", "h": "https://www.sanramon.ca.gov/our_city/departments_and_divisions/city_clerk/Elections/district_elections"}, {"t": "San Ramon Patch voter guide", "h": "https://patch.com/california/sanramon/san-ramon-voter-guide-2026-whats-ballot-voting-more"}]}, {"id": "council4", "tab": "local", "kind": "static", "office": "City Council, District 4", "pick": "No pick", "conf": "", "ownerWhy": "No pick, and only if your address is in District 4: Jeffrey Joh or Marisol Rubio. A 94582 home is in one council district, not both.", "publicWhy": "No pick, and only if your address is in District 4: Jeffrey Joh or Marisol Rubio. A 94582 home is in one council district, not both.", "ballot": "Jeffrey Joh (Technology Strategist) and Marisol Rubio (Councilwoman/In-Home Provider). You vote here only if your address is in District 4.", "how": "", "publicHow": "", "sens": "", "settle": "What would settle it. Confirm the district, then read the answers Patch collected. They were not in the guide page used here.", "extra": "", "sources": [{"t": "County contest list", "h": "https://www.contracostavote.gov/wp-content/uploads/8-27-26_candidatelist_detail_final.pdf"}, {"t": "City district lookup", "h": "https://www.sanramon.ca.gov/our_city/departments_and_divisions/city_clerk/Elections/district_elections"}, {"t": "San Ramon Patch voter guide", "h": "https://patch.com/california/sanramon/san-ramon-voter-guide-2026-whats-ballot-voting-more"}]}, {"id": "srvusd", "tab": "local", "kind": "static", "office": "San Ramon Valley Unified, Area 5", "pick": "No pick", "conf": "", "ownerWhy": "No pick, and only if you live in Trustee Area 5: Rachel Hurd or Joel Woods. A local guide describes Area 5 as eastern and southeastern San Ramon, around Dougherty Valley. Area 1 (Amanda Butland) and Area 4 (Susanna Ordway) have one name each. Many 94582 addresses are not in Area 5.", "publicWhy": "No pick, and only if you live in Trustee Area 5: Rachel Hurd or Joel Woods. A local guide describes Area 5 as eastern and southeastern San Ramon, around Dougherty Valley. Area 1 (Amanda Butland) and Area 4 (Susanna Ordway) have one name each. Many 94582 addresses are not in Area 5.", "ballot": "Rachel Hurd (incumbent since 2006, seeking a fifth term) and Joel Woods (substitute teacher), if your address is in Area 5. Patch describes Area 5 as eastern and southeastern San Ramon, centered on Dougherty Valley. Area 1 has one candidate, Amanda Butland. Area 4 has one candidate, incumbent Susanna Ordway. ZIP 94582 includes Dougherty Valley and older San Ramon, so many 94582 voters are not in Area 5.", "how": "", "publicHow": "", "sens": "", "settle": "What would settle it. Confirm the trustee area on the district map and the sample ballot, then read Hurd’s and Woods’s answers.", "extra": "", "sources": [{"t": "County contest list", "h": "https://www.contracostavote.gov/wp-content/uploads/8-27-26_candidatelist_detail_final.pdf"}, {"t": "SRVUSD trustee-area map", "h": "https://www.srvusd.net/documents/About-Us/Board-of-Education/Redistricting/New-Trustee-Area-Map-Adopted-2-22-2022.pdf"}, {"t": "San Ramon Patch voter guide", "h": "https://patch.com/california/sanramon/san-ramon-voter-guide-2026-whats-ballot-voting-more"}]}, {"id": "dsrsd", "tab": "local", "kind": "static", "office": "Dublin San Ramon Services District, Division 2", "pick": "No pick", "conf": "", "ownerWhy": "No pick. Kismat Kathrani and Donald Downey are the names if your address is in Division 2. This ZIP was not matched to a division. If the race is not on your sample ballot, you do not have it.", "publicWhy": "No pick. Kismat Kathrani and Donald Downey are the names if your address is in Division 2. This ZIP was not matched to a division. If the race is not on your sample ballot, you do not have it.", "ballot": "Kismat Kathrani (Technology Business Owner) and Donald Downey (Registered Geologist), if your address is in Division 2. This pass did not confirm that a 94582 household is in that division.", "how": "", "publicHow": "", "sens": "", "settle": "What would settle it. The sample ballot is the check. If Division 2 is not on it, you do not have this contest.", "extra": "", "sources": [{"t": "County contest list", "h": "https://www.contracostavote.gov/wp-content/uploads/8-27-26_candidatelist_detail_final.pdf"}]}, {"id": "prop1", "tab": "measures", "kind": "measure", "office": "Proposition 1", "pick": "No", "conf": "Medium", "ownerWhy": "The state would borrow $11.25 billion, mostly for affordable housing, plus help for veterans buying a home, farm, or mobilehome. Taxpayers pay that debt back for years. More housing is a real reason to vote yes, which is why this is Medium rather than a firmer no.", "publicWhy": "The state would borrow $11.25 billion, mostly for affordable housing, plus help for veterans buying a home, farm, or mobilehome. Taxpayers pay that debt back for years. More housing is a reason the other way, so the measure tests land on No, at Medium rather than a firmer no.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Legislative statute. Official summaries used here are paraphrases of the Secretary of State’s June 29, 2026 numbering release. A local guide’s “about 40,000 homes” figure is not treated as the legislative analyst’s estimate.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop2", "tab": "measures", "kind": "measure", "office": "Proposition 2", "pick": "Yes", "conf": "Medium", "ownerWhy": "This raises the cap on the state’s rainy-day fund from 10 percent of tax revenue to 20 percent. That is savings, not a new tax. It also makes it easier to declare a budget emergency, which keeps this at Medium.", "publicWhy": "This raises the cap on the state’s rainy-day fund from 10 percent of tax revenue to 20 percent. That is savings, not a new tax. It also makes it easier to declare a budget emergency, which keeps the measure tests at Medium.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Legislative constitutional amendment. The qualified-list title is an increase in the state’s rainy-day fund. This pick follows the amendment text in the numbering release, not a shorthand that the state may save “10 percent more.”", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop3", "tab": "measures", "kind": "measure", "office": "Proposition 3", "pick": "No", "conf": "Medium", "ownerWhy": "The extra tax on high incomes, now set to end in 2031, would become permanent and keep about $5 billion to $15 billion a year, mostly for schools. A tax that never expires fails the bar this voter sets. The payers are high earners, so this is Medium.", "publicWhy": "The extra tax on high incomes, now set to end in 2031, would become permanent and keep about $5 billion to $15 billion a year, mostly for schools. A tax that never expires fails the framework’s bar. The payers are high earners, so this is Medium.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Initiative constitutional amendment. Thresholds in the summary are about $360,000 for single filers, $721,000 for joint filers, and $490,000 for heads of household, in 2024 dollars.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop4", "tab": "measures", "kind": "measure", "office": "Proposition 4", "pick": "No", "conf": "Medium", "ownerWhy": "Government could spend public money on campaigns for office. You would help pay for candidates you oppose. Supporters say that would make candidates less dependent on big donors, which is why this is Medium.", "publicWhy": "Government could spend public money on campaigns for office. People would help pay for candidates they oppose. Supporters say that would make candidates less dependent on big donors, which is why this is Medium.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Legislative statute. This pass did not review the campaign’s funders.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop5", "tab": "measures", "kind": "measure", "office": "Proposition 5", "pick": "Yes", "conf": "Low", "ownerWhy": "If voters recall a statewide officer, they would no longer pick the replacement on the same ballot. The job would be filled the way a vacancy usually is. That drops a messy side election. I am not confident. Push back if you want the replacement chosen the same day.", "publicWhy": "If voters recall a statewide officer, they would no longer pick the replacement on the same ballot. The job would be filled the way a vacancy usually is. That drops a side election. Confidence is low. The open question is whether the replacement should be chosen the same day.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "What would settle it. Whether you want the successor chosen on the same ballot.", "extra": "Legislative constitutional amendment. If the governor is recalled, the lieutenant governor serves the rest of the term, with a special election in the first two years if the recall falls before the next nomination period closes. The recalled officer cannot be appointed to the vacancy.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop37", "tab": "measures", "kind": "measure", "office": "Proposition 37", "pick": "Yes", "conf": "Low", "ownerWhy": "Up to $25 billion in loans would help some buyers with a down payment. The official summary says the buyers pay the money back, not the state, unlike Proposition 1. The setup is new, so this is Low. Push back if a taxpayer backup is hiding in the fine print.", "publicWhy": "Up to $25 billion in loans would help some buyers with a down payment. The official summary says the buyers pay the money back, not the state, unlike Proposition 1. The setup is new, so confidence is low. The open question is a taxpayer backup that was not in the summary.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "What would settle it. Whether repayment depends on a taxpayer backstop the official summary does not show.", "extra": "Initiative statute. Push back if the repayment promise depends on a taxpayer backstop the summary does not show.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop38", "tab": "measures", "kind": "measure", "office": "Proposition 38", "pick": "No", "conf": "Medium", "ownerWhy": "The state would borrow $8.4 billion for disease research, about $500 million a year for 25 years, paid by taxpayers. Drugs developed with the money would have to be sold cheaper in California. That purpose is real, so this is Medium rather than a firmer no.", "publicWhy": "The state would borrow $8.4 billion for disease research, about $500 million a year for 25 years, paid by taxpayers. Drugs developed with the money would have to be sold cheaper in California. That purpose is real, so the measure tests land on No, at Medium rather than a firmer no.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Initiative statute. Half the money goes to a University of California-affiliated institute and half to grants.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop39", "tab": "measures", "kind": "measure", "office": "Proposition 39", "pick": "Yes", "conf": "Medium", "ownerWhy": "Every voter would show a government ID at the polls, or the last four digits on a mail ballot, and the state would have to give an ID to anyone who asks. One ID rule for everyone matches this voter’s preference for the same rules for all. Cost, and the chance a legal voter is turned away, keep this at Medium.", "publicWhy": "Every voter would show a government ID at the polls, or the last four digits on a mail ballot, and the state would have to give an ID to anyone who asks. One ID rule for everyone matches the preference for the same rules for all. Cost, and the chance a legal voter is turned away, keep this at Medium.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Initiative constitutional amendment. The analyst’s estimate is tens of millions of dollars one time, and ongoing costs from the tens of millions to the low hundreds of millions. This pass did not review evidence about how often a lawful voter is turned away.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop40", "tab": "measures", "kind": "measure", "office": "Proposition 40", "pick": "No", "conf": "Medium", "ownerWhy": "A one-time tax of up to 5 percent would hit assets over $1 billion, and that money would sit outside the state’s spending limit. A new tax plus a way around the spending cap fails here. A San Ramon news guide calls it union-sponsored. It is one time and hits a narrow group, so this is Medium.", "publicWhy": "A one-time tax of up to 5 percent would hit assets over $1 billion, and that money would sit outside the state’s spending limit. A new tax plus a way around the spending cap fails the fiscal tests. A San Ramon news guide calls it union-sponsored. It is one time and hits a narrow group, so this is Medium.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Initiative constitutional amendment and statute. The analyst’s estimate says the tax would raise tens of billions over several years and that income-tax revenue would likely fall afterward. Ninety percent of the revenue is for health care and 10 percent for food assistance or education.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}, {"t": "San Ramon Patch voter guide", "h": "https://patch.com/california/sanramon/san-ramon-voter-guide-2026-whats-ballot-voting-more"}]}, {"id": "prop41", "tab": "measures", "kind": "measure", "office": "Proposition 41", "pick": "Yes", "conf": "High", "ownerWhy": "New special taxes would need an audit of the programs they pay for, before the vote and after. New state taxes could not dodge the spending limit, including taxes on the same ballot. It does not create a tax, and nothing of similar weight points the other way.", "publicWhy": "New special taxes would need an audit of the programs they pay for, before the vote and after. New state taxes could not dodge the spending limit, including taxes on the same ballot. It does not create a tax, and nothing of similar weight points the other way.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Initiative constitutional amendment. The analyst says the net fiscal effect is unknown. That is uncertainty about magnitude, not a test pointing the other way.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop42", "tab": "measures", "kind": "measure", "office": "Proposition 42", "pick": "Yes", "conf": "High", "ownerWhy": "The state could not add a new tax on things people own, including retirement accounts and investments, or certain taxes that reach backward, including measures on this ballot. Less revenue later is the point of the rule, not a reason to vote no.", "publicWhy": "The state could not add a new tax on things people own, including retirement accounts and investments, or certain taxes that reach backward, including measures on this ballot. Less revenue later is the point of the rule, not a reason to vote no.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Initiative constitutional amendment. The three tests are: no new tax of this kind, no retroactive tax of the kind described, and the rule covers same-ballot measures.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop43", "tab": "measures", "kind": "measure", "office": "Proposition 43", "pick": "Yes", "conf": "Medium", "ownerWhy": "Starting in 2027, a local special tax would need a two-thirds vote, including taxes placed by voters, with some exceptions. A higher bar for new local taxes matches this voter. The same hurdle would bind citizen initiatives, not only city halls, which keeps this at Medium.", "publicWhy": "Starting in 2027, a local special tax would need a two-thirds vote, including taxes placed by voters, with some exceptions. A higher bar for new local taxes matches the framework. The same hurdle would bind citizen initiatives, not only city halls, which keeps this at Medium.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Legislative constitutional amendment. The qualified-list title says it limits voters’ ability to raise local revenue.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop44", "tab": "measures", "kind": "measure", "office": "Proposition 44", "pick": "Yes", "conf": "Low", "ownerWhy": "Certain nonprofit clinics would have to spend at least 90 percent of revenue on the service itself, with penalties if they fall short. That pushes money toward care. Whether 90 percent is a workable line was not shown, and a local guide says the measure is union-backed, with leftover penalties usable for clinic-worker training. I am not confident.", "publicWhy": "Certain nonprofit clinics would have to spend at least 90 percent of revenue on the service itself, with penalties if they fall short. That pushes money toward care. Whether 90 percent is a workable line was not shown, and a local guide says the measure is union-backed, with leftover penalties usable for clinic-worker training. Confidence is low.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "What would settle it. Whether 90 percent is a workable line, and how the penalty fund would work.", "extra": "Initiative statute. San Ramon Patch describes the measure as union-backed and says penalties that are not refunded after five years can fund clinic-worker training, recruitment, and retention. The analyst’s estimate is state cost up to the low tens of millions a year, much of it covered by fees and penalties.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}, {"t": "San Ramon Patch voter guide", "h": "https://patch.com/california/sanramon/san-ramon-voter-guide-2026-whats-ballot-voting-more"}]}, {"id": "prop45", "tab": "measures", "kind": "measure", "office": "Proposition 45", "pick": "Yes", "conf": "Medium", "ownerWhy": "Environmental review would speed up for some housing, roads, water, health, and clean-energy projects, with shorter court fights. Faster housing review matches this voter’s preference for more homes. Narrower court review is a fairness concern the other way, so this is Medium.", "publicWhy": "Environmental review would speed up for some housing, roads, water, health, and clean-energy projects, with shorter court fights. Faster housing review matches a preference for more homes. Narrower court review is a fairness concern the other way, so this is Medium.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Initiative statute. The analyst expects implementation costs in the tens of millions a year at first, likely net savings later, and an uncertain court effect.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "rtm", "tab": "measures", "kind": "measure", "office": "Measure RTM", "pick": "No", "conf": "Medium", "ownerWhy": "Contra Costa would add a half-cent sales tax for 14 years, about $980 million a year, to avoid big transit cuts and to pay for safety, repairs, and oversight. This voter is skeptical of a new sales tax used to fill an operating hole. Riders and the repairs are a real benefit, so this is Medium.", "publicWhy": "Contra Costa would add a half-cent sales tax for 14 years, about $980 million a year, to avoid big transit cuts and to pay for safety, repairs, and oversight. The framework is skeptical of a new sales tax used to fill an operating hole. Riders and the repairs are a real benefit, so this is Medium.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "The county counsel’s analysis says the district was created by Senate Bill 63 (2025) and covers Alameda, Contra Costa, San Mateo, Santa Clara, and San Francisco. The San Francisco rate in that analysis is one percent. This pass did not review the yes and no campaign treasuries.", "sources": [{"t": "Contra Costa measure page", "h": "https://www.contracostavote.gov/m9001-en-2/"}]}], "equalExpect": {"governor": {"leader": "Hilton", "label": "Medium", "a": "53.57", "b": "48.57"}, "ltgov": {"leader": "Romero", "label": "Low", "a": "53.57", "b": "50.00"}, "sos": {"leader": "Weber", "label": "Low", "a": "55.00", "b": "52.86"}, "controller": {"leader": "No pick", "label": "No pick", "a": "55.71", "b": "54.29"}, "treasurer": {"leader": "Kounalakis", "label": "Low", "a": "52.14", "b": "47.86"}, "ag": {"leader": "Bonta", "label": "Medium", "a": "62.14", "b": "47.14"}, "insurance": {"leader": "Allen", "label": "Medium", "a": "51.14", "b": "42.86"}, "boe": {"leader": "Pimentel", "label": "Medium", "a": "57.14", "b": "50.00"}, "ca10": {"leader": "No pick", "label": "No pick", "a": "49.29", "b": "47.86"}, "ad16": {"leader": "Bauer-Kahan", "label": "Medium", "a": "54.29", "b": "44.29"}, "spi": {"leader": "Shaw", "label": "Medium", "a": "55.00", "b": "47.14"}}}</script>
 <script>
 (function () {
@@ -728,17 +1099,66 @@ input[type="range"]::-moz-range-thumb {
     return el("span", "pill " + (map[t] || k), t);
   }
 
+  var SHORT = {
+    prop1: "Housing bond",
+    prop2: "Rainy-day fund",
+    prop3: "High-income tax",
+    prop4: "Public campaign money",
+    prop5: "Recall replacement",
+    prop37: "Down-payment loans",
+    prop38: "Disease research",
+    prop39: "Voter identification",
+    prop40: "Billionaire tax",
+    prop41: "Tax audits",
+    prop42: "Tax on what you own",
+    prop43: "Local tax vote",
+    prop44: "Clinic spending",
+    prop45: "Faster review",
+    rtm: "Transit sales tax"
+  };
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var deckOn = false;
+  var deckIndex = 0;
+  var counted = false;
+  var CHECK = '<svg class="tick" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3.2 8.4l3 3.1 6.6-6.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  function daysLabel() {
+    var election = Date.UTC(2026, 10, 3);
+    var now = new Date();
+    var today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+    var d = Math.round((election - today) / 86400000);
+    if (d > 1) return d + " days to vote";
+    if (d === 1) return "1 day to vote";
+    if (d === 0) return "Vote today";
+    return "Election day has passed";
+  }
+  function shortTitle(item) {
+    return SHORT[item.id] || item.office;
+  }
+  function measureNum(item) {
+    var m = item.office.match(/(\d+)/);
+    if (m) return m[1];
+    return item.id === "rtm" ? "RTM" : "";
+  }
+  function headline(item, v) {
+    if (item.kind === "race") {
+      if (v.pick === "No pick") return "Too close for a pick";
+      return v.pick + " over " + v.runner;
+    }
+    if (item.kind === "measure") return (v.pick === "Yes" ? "Yes" : "No") + " on " + item.office.replace("Proposition ", "Prop ");
+    return "No pick";
+  }
+
   function renderChrome() {
     var owner = mode === "owner";
-    document.getElementById("large").textContent = owner ? "My ballot" : "Ballot";
-    document.getElementById("nav-title").textContent = owner ? "My ballot" : "Ballot";
-    document.getElementById("glance-title").textContent = owner ? "My ballot" : "At a glance";
-    document.getElementById("lede").textContent = owner
-      ? "Saved weights. Fairness, not equity. Last verified Oct 14, 2026."
-      : "Fairness, not equity. Weights start equal. Last verified Oct 14, 2026.";
+    document.getElementById("lede").textContent = owner ? "My ballot" : "San Ramon ballot";
+    document.getElementById("nav-title").textContent = owner ? "My ballot" : "Nov 3";
+    document.getElementById("glance-title").textContent = "At a glance";
+    document.getElementById("countdown-text").textContent = daysLabel();
+    document.getElementById("mode-chip").textContent = owner ? "Saved weights" : "Verified Oct 14";
     document.getElementById("intro").textContent = owner
-      ? "One line each, from the saved weights. Open a row for the reason. Not a prediction, and not an instruction to vote."
-      : "One line each. Picks follow the sliders, which start equal. Open a row for the reason. Not a prediction, and not an instruction to vote.";
+      ? "Saved weights. Open a card for the reason. Not a prediction, and not an instruction to vote."
+      : "Weights start equal. Open a card for the reason. Not a prediction, and not an instruction to vote.";
     var seg = document.getElementById("viewseg");
     seg.hidden = !unlocked;
     seg.querySelectorAll("button").forEach(function (b) {
@@ -751,32 +1171,94 @@ input[type="range"]::-moz-range-thumb {
     document.documentElement.setAttribute("data-mode", mode);
   }
 
-  var MONO = {
-    governor: "GO", ltgov: "LG", sos: "SS", controller: "CO", treasurer: "TR",
-    ag: "AG", insurance: "IC", boe: "BE", ca10: "10", ad16: "16", spi: "SP",
-    judicial: "JR", mayor: "MY", council2: "C2", council4: "C4", srvusd: "A5", dsrsd: "DS",
-    prop1: "1", prop2: "2", prop3: "3", prop4: "4", prop5: "5",
-    prop37: "37", prop38: "38", prop39: "39", prop40: "40", prop41: "41",
-    prop42: "42", prop43: "43", prop44: "44", prop45: "45", rtm: "RT"
-  };
-  function makeRow(item) {
+  function pill(k, t) {
+    var map = { High: "high", Medium: "med", Low: "low" };
+    return el("span", "pill " + (map[t] || k), t);
+  }
+  function check() {
+    var s = document.createElement("span");
+    s.innerHTML = CHECK;
+    return s.firstChild;
+  }
+
+  function fillCard(btn, item) {
     var v = viewOf(item);
+    btn.replaceChildren();
+    btn.className = item.kind === "race" ? "match row" : item.kind === "measure" ? "measure row" : "quiet row";
+    if (item.id === "governor") btn.classList.add("featured");
+    if (item.kind === "race") {
+      var top = el("div", "match-top");
+      top.appendChild(el("span", "eye", item.office));
+      if (v.pick === "No pick") top.appendChild(el("span", "pill low pick", "No pick"));
+      else if (v.conf) top.appendChild(pill(v.confK, v.conf));
+      btn.appendChild(top);
+      var duel = el("div", "duel");
+      var ranked = v.R.ranked;
+      ranked.forEach(function (entry) {
+        var win = entry.c.short === v.pick;
+        var side = el("div", "side" + (win ? " win" : ""));
+        var who = el("span", "who" + (win ? " pick" : "") + (v.changed && win ? " changed" : ""));
+        if (win) who.appendChild(check());
+        who.appendChild(document.createTextNode(entry.c.short));
+        side.appendChild(who);
+        side.appendChild(el("span", "score", fmt(entry.v)));
+        duel.appendChild(side);
+      });
+      btn.appendChild(duel);
+      var share = (ranked[0].v + ranked[1].v) > 0 ? (ranked[0].v / (ranked[0].v + ranked[1].v)) * 100 : 50;
+      var bar = el("div", "bar");
+      var fill = el("span", "");
+      fill.style.setProperty("--w", share.toFixed(2) + "%");
+      bar.appendChild(fill);
+      btn.appendChild(bar);
+    } else if (item.kind === "measure") {
+      btn.appendChild(el("div", "m-num", measureNum(item)));
+      var body = el("div", "");
+      body.appendChild(el("span", "m-title", shortTitle(item)));
+      body.appendChild(el("span", "m-sub", v.conf || ""));
+      btn.appendChild(body);
+      var vote = el("span", "vote pick " + (v.pick === "Yes" ? "yes" : "no"), v.pick);
+      btn.appendChild(vote);
+    } else {
+      var qtop = el("div", "quiet-top");
+      qtop.appendChild(el("span", "eye", item.office));
+      qtop.appendChild(el("span", "pill low pick", "No pick"));
+      btn.appendChild(qtop);
+      btn.appendChild(el("p", "quiet-line", "Check your sample ballot."));
+    }
+    btn.setAttribute("aria-label", item.office + ", " + v.pick);
+  }
+
+  function fillChip(btn, item) {
+    var v = viewOf(item);
+    btn.replaceChildren();
+    var kind = item.kind === "measure" ? (v.pick === "Yes" ? "yes" : "no") : "";
+    btn.className = "film" + (kind ? " " + kind : "");
+    var label = item.kind === "measure" ? (measureNum(item) === "RTM" ? "RTM" : "Prop " + measureNum(item)) : item.office;
+    btn.appendChild(el("span", "eye", label));
+    btn.appendChild(el("span", "chip-pick", v.pick));
+  }
+
+  function makeCard(item) {
     var btn = document.createElement("button");
     btn.type = "button";
-    btn.className = "row";
     btn.id = "row-" + item.id;
     btn.setAttribute("aria-haspopup", "dialog");
-    var badge = el("span", "mono", MONO[item.id] || item.office.slice(0, 1));
-    badge.setAttribute("aria-hidden", "true");
-    btn.appendChild(badge);
-    btn.appendChild(el("span", "name", item.office));
-    var trail = el("span", "trail");
-    trail.appendChild(el("span", "pick" + (v.changed ? " changed" : ""), v.pick));
-    if (v.conf) trail.appendChild(pill(v.confK, v.conf));
-    trail.appendChild(chev());
-    btn.appendChild(trail);
+    fillCard(btn, item);
     btn.addEventListener("click", function () { openDetail(item.id); });
     return btn;
+  }
+  function renderChips() {
+    var box = document.getElementById("chips");
+    box.replaceChildren();
+    items.forEach(function (item) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.id = "chip-" + item.id;
+      fillChip(b, item);
+      b.addEventListener("click", function () { openDetail(item.id); });
+      box.appendChild(b);
+    });
   }
   function sectionNotes(name) {
     var wrap = el("div", "");
@@ -806,47 +1288,96 @@ input[type="range"]::-moz-range-thumb {
   }
   function renderList() {
     renderChrome();
+    renderChips();
     var root = document.getElementById("sections");
     root.replaceChildren();
+    var labels = { offices: "Statewide offices", measures: "Measures", local: "Local" };
     ["offices", "measures", "local"].forEach(function (name) {
+      var list = items.filter(function (it) { return it.tab === name; });
       var sec = el("section", "sec");
       sec.id = "sec-" + name;
-      var label = name === "offices" ? "Offices" : name === "measures" ? "Measures" : "Local";
-      var h = el("h3", "sec-label" + (name === "local" ? " call" : ""), name === "local" ? "Check your sample ballot" : label);
+      var h = el("h3", "sec-label");
+      h.appendChild(document.createTextNode(labels[name] + " "));
+      h.appendChild(el("span", "sec-count", "· " + list.length));
       sec.appendChild(h);
-      var group = el("div", "group");
-      items.forEach(function (item) {
-        if (item.tab === name) group.appendChild(makeRow(item));
-      });
-      sec.appendChild(group);
+      var stack = el("div", "stack");
+      list.forEach(function (item) { stack.appendChild(makeCard(item)); });
+      sec.appendChild(stack);
       sec.appendChild(sectionNotes(name));
       root.appendChild(sec);
     });
     renderFooter();
+    paintStats(true);
+    requestAnimationFrame(function () {
+      document.querySelectorAll(".bar > span, .meter-track > span").forEach(function (s) { s.classList.add("go"); });
+    });
   }
   function updatePicks() {
     items.forEach(function (item) {
       var row = document.getElementById("row-" + item.id);
       if (!row) return;
+      var old = row.querySelector(".pick");
+      var oldText = old ? old.textContent.trim() : "";
+      fillCard(row, item);
       var v = viewOf(item);
-      var pk = row.querySelector(".pick");
-      var old = pk.textContent;
-      pk.textContent = v.pick;
-      pk.classList.toggle("changed", v.changed);
-      var existing = row.querySelector(".pill");
-      if (v.conf) {
-        if (!existing) {
-          existing = pill(v.confK, v.conf);
-          pk.after(existing);
-        } else {
-          existing.className = "pill " + (v.conf === "High" ? "high" : v.conf === "Low" ? "low" : "med");
-          existing.textContent = v.conf;
-        }
-      } else if (existing) existing.remove();
-      if (!first && old !== v.pick) {
+      var chip = document.getElementById("chip-" + item.id);
+      if (chip) fillChip(chip, item);
+      if (!first && oldText !== v.pick) {
         document.getElementById("live").textContent = item.office + " now shows " + v.pick + ".";
       }
     });
+    paintStats(false);
+    if (deckOn) renderDeck();
+    requestAnimationFrame(function () {
+      document.querySelectorAll(".bar > span").forEach(function (s) { s.classList.add("go"); });
+    });
+  }
+  function tallyCounts() {
+    var picks = 0, yes = 0, no = 0;
+    items.forEach(function (item) {
+      var v = viewOf(item);
+      if (item.kind === "measure") {
+        if (v.pick === "Yes") yes++;
+        else if (v.pick === "No") no++;
+      } else if (v.pick && v.pick !== "No pick") picks++;
+    });
+    return { picks: picks, yes: yes, no: no };
+  }
+  function setStat(id, n, animate) {
+    var node = document.getElementById(id);
+    if (!node) return;
+    if (!animate || reduce) { node.textContent = String(n); return; }
+    var start = performance.now();
+    function frame(t) {
+      var k = Math.min(1, (t - start) / 720);
+      var e = 1 - Math.pow(1 - k, 3);
+      node.textContent = String(Math.round(n * e));
+      if (k < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  function paintStats(animate) {
+    var c = tallyCounts();
+    var run = animate && !counted && !reduce;
+    setStat("stat-picks", c.picks, run);
+    setStat("stat-yes", c.yes, run);
+    setStat("stat-no", c.no, run);
+    if (run) counted = true;
+    var split = document.getElementById("tally-split");
+    if (split) split.textContent = c.picks + " picks · " + c.yes + " yes · " + c.no + " no";
+  }
+  function paintTally() {
+    var fill = document.getElementById("tally-fill");
+    var label = document.getElementById("tally-label");
+    if (!fill || !label) return;
+    var cards = document.querySelectorAll("#sections .row");
+    var mark = window.innerHeight * 0.82;
+    var seen = 0;
+    cards.forEach(function (c) { if (c.getBoundingClientRect().top < mark) seen++; });
+    var maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    var pct = Math.max(0, Math.min(100, (window.scrollY / maxScroll) * 100));
+    fill.style.width = pct + "%";
+    label.textContent = seen + " of " + cards.length;
   }
 
   function renderFooter() {
@@ -883,46 +1414,71 @@ input[type="range"]::-moz-range-thumb {
     });
   }
 
+  function addMeters(parent, v) {
+    if (!v.R) return;
+    var box = el("div", "meters");
+    var max = v.R.ranked[0].v || 1;
+    v.R.ranked.forEach(function (entry) {
+      var win = entry.c.short === v.pick;
+      var m = el("div", "meter" + (win ? " win" : ""));
+      var top = el("div", "meter-top");
+      top.appendChild(el("span", "", entry.c.short));
+      top.appendChild(el("span", "", fmt(entry.v)));
+      m.appendChild(top);
+      var track = el("div", "meter-track");
+      var span = el("span", "");
+      span.style.setProperty("--w", Math.max(6, entry.v / max * 100).toFixed(1) + "%");
+      track.appendChild(span);
+      m.appendChild(track);
+      box.appendChild(m);
+    });
+    parent.appendChild(box);
+  }
+
   function fillDetail(item, quiet) {
     var body = document.getElementById("detail-body");
     var prevPick = body.querySelector(".bigpick");
     var prevText = prevPick ? prevPick.textContent : "";
+    var v = viewOf(item);
     document.getElementById("detail-title").textContent = item.office;
     body.replaceChildren();
     var card = el("div", "group sheet-card");
     card.appendChild(el("p", "sheet-kicker", item.tab === "measures" ? "Measure" : item.tab === "local" ? "Local" : "Office"));
-    card.appendChild(el("h2", "", item.office));
+    var h = el("h2", "bigpick", headline(item, v));
+    if (!quiet && prevText && prevText !== h.textContent) h.classList.add("flip");
+    card.appendChild(h);
     if (item.ballot) card.appendChild(el("p", "ballot-line", item.ballot));
-    var v = viewOf(item);
-    var row = el("div", "pickrow");
-    var big = el("p", "bigpick", v.pick);
-    if (!quiet && prevText && prevText !== v.pick) big.classList.add("flip");
-    row.appendChild(big);
-    if (v.conf) row.appendChild(pill(v.confK, v.conf));
-    card.appendChild(row);
+    if (v.conf) {
+      var row = el("div", "pickrow");
+      row.appendChild(pill(v.confK, v.conf));
+      card.appendChild(row);
+    }
+    if (item.kind === "race") addMeters(card, v);
     body.appendChild(card);
 
     if (item.kind === "race") {
       var R = v.R;
+      var whyCard = el("div", "group sheet-card");
       if (mode === "public") {
-        card.appendChild(el("p", "block-h", v.pick === "No pick" ? "Under these weights" : "Why this pick under these weights"));
-        card.appendChild(el("p", "why", v.pick === "No pick"
+        whyCard.appendChild(el("p", "block-h", "Why"));
+        whyCard.appendChild(el("p", "why", v.pick === "No pick"
           ? "Under these weights, the scores are too close for a pick."
           : "Under these weights, " + R.ranked[0].c.short + " leads " + R.ranked[1].c.short + "."));
-        card.appendChild(el("p", "why", item.publicWhy));
+        whyCard.appendChild(el("p", "why", item.publicWhy));
       } else {
-        card.appendChild(el("p", "block-h", "Why " + item.pick + " over " + otherName(item)));
-        card.appendChild(el("p", "why", item.ownerWhy));
+        whyCard.appendChild(el("p", "block-h", "Why"));
+        whyCard.appendChild(el("p", "why", item.ownerWhy));
         if (v.pick !== item.pick) {
-          card.appendChild(el("p", "small", "Your weights pick " + v.pick + ". The explanation above is the saved-weight pick, " + item.pick + " over " + otherName(item) + "."));
+          whyCard.appendChild(el("p", "small", "Your weights pick " + v.pick + ". The explanation above is the saved-weight pick, " + item.pick + " over " + otherName(item) + "."));
         }
       }
-      card.appendChild(el("p", "small", "Scores: " + fmt(R.ranked[0].v) + " vs " + fmt(R.ranked[1].v) + "."));
+      whyCard.appendChild(el("p", "small", "Scores: " + fmt(R.ranked[0].v) + " vs " + fmt(R.ranked[1].v) + "."));
       var how = mode === "owner" ? item.how : item.publicHow;
       if (how) {
-        card.appendChild(el("p", "block-h", "How the scores were set"));
-        card.appendChild(el("p", "why", how));
+        whyCard.appendChild(el("p", "block-h", "How the scores were set"));
+        whyCard.appendChild(el("p", "why", how));
       }
+      body.appendChild(whyCard);
       var scoreCard = el("div", "group sheet-card");
       var race = races[item.id];
       DATA.criteria.forEach(function (name, i) {
@@ -957,7 +1513,7 @@ input[type="range"]::-moz-range-thumb {
       }
     } else {
       var why = mode === "owner" ? item.ownerWhy : item.publicWhy;
-      card.appendChild(el("p", "block-h", item.kind === "measure" ? (item.pick === "Yes" ? "Why yes" : "Why no") : "Why no pick"));
+      card.appendChild(el("p", "block-h", "Why"));
       card.appendChild(el("p", "why", why));
       if (item.kind === "measure") card.appendChild(el("p", "small", "Measure test. The sliders do not move this."));
       if (item.extra) card.appendChild(el("p", "why", item.extra));
@@ -967,6 +1523,9 @@ input[type="range"]::-moz-range-thumb {
     addSources(srcCard, item);
     if (srcCard.childNodes.length) body.appendChild(srcCard);
     refreshFades();
+    requestAnimationFrame(function () {
+      body.querySelectorAll(".meter-track > span").forEach(function (s) { s.classList.add("go"); });
+    });
   }
 
   function otherName(item) {
@@ -1184,8 +1743,80 @@ input[type="range"]::-moz-range-thumb {
     btn.textContent = dark ? "Light" : "Dark";
     btn.setAttribute("aria-pressed", dark ? "true" : "false");
     var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", dark ? "#000000" : "#f2f2f7");
+    applyChromeColor(document.getElementById("nav").classList.contains("is-collapsed"));
   }
+  function renderDeck() {
+    var stage = document.getElementById("deck-stage");
+    var n = items.length;
+    document.getElementById("deck-count").textContent = (deckIndex + 1) + " of " + n;
+    stage.replaceChildren();
+    [2, 1, 0].forEach(function (depth) {
+      var item = items[(deckIndex + depth) % n];
+      var v = viewOf(item);
+      var card = el("div", "deck-card " + (depth === 0 ? "front" : depth === 1 ? "back1" : "back2"));
+      card.appendChild(el("p", "sheet-kicker", item.kind === "measure" ? "Measure" : item.kind === "local" ? "Local" : "Office"));
+      card.appendChild(el("h2", "", headline(item, v)));
+      card.appendChild(el("p", "ballot-line", item.office));
+      if (item.kind === "race") addMeters(card, v);
+      else if (v.conf) {
+        var row = el("div", "pickrow");
+        row.appendChild(pill(v.confK, v.conf));
+        card.appendChild(row);
+      }
+      if (depth === 0) bindDeckSwipe(card, item.id);
+      stage.appendChild(card);
+    });
+    requestAnimationFrame(function () {
+      stage.querySelectorAll(".meter-track > span").forEach(function (s) { s.classList.add("go"); });
+    });
+  }
+  function bindDeckSwipe(card, id) {
+    var drag = null;
+    card.addEventListener("pointerdown", function (e) {
+      if (e.target.closest("a, button")) return;
+      drag = { x: e.clientX, y: e.clientY };
+      card.dataset.drag = "0";
+      card.style.transition = "none";
+      card.setPointerCapture(e.pointerId);
+    });
+    card.addEventListener("pointermove", function (e) {
+      if (!drag || reduce) return;
+      var dx = e.clientX - drag.x;
+      if (Math.abs(dx) > 10) card.dataset.drag = "1";
+      card.style.transform = "translateX(" + dx + "px) rotate(" + (dx / 30) + "deg)";
+    });
+    function end(e) {
+      if (!drag) return;
+      var dx = e.clientX - drag.x;
+      drag = null;
+      card.style.transition = "";
+      card.style.transform = "";
+      if (dx <= -64) stepDeck(1);
+      else if (dx >= 64) stepDeck(-1);
+      else if (card.dataset.drag !== "1") openDetail(id);
+    }
+    card.addEventListener("pointerup", end);
+    card.addEventListener("pointercancel", function () { drag = null; card.style.transform = ""; });
+  }
+  function stepDeck(dir) {
+    deckIndex = (deckIndex + dir + items.length) % items.length;
+    renderDeck();
+  }
+  function openDeck() {
+    deckOn = true;
+    document.getElementById("deck").hidden = false;
+    document.documentElement.classList.add("deck-open");
+    renderDeck();
+  }
+  function closeDeck() {
+    deckOn = false;
+    document.getElementById("deck").hidden = true;
+    document.documentElement.classList.remove("deck-open");
+  }
+
+  document.getElementById("flip-open").addEventListener("click", openDeck);
+  document.getElementById("deck-close").addEventListener("click", closeDeck);
+  document.getElementById("deck-next").addEventListener("click", function () { stepDeck(1); });
   document.getElementById("adjust").addEventListener("click", openAdjust);
   document.getElementById("detail-close").addEventListener("click", hideSheets);
   document.getElementById("adjust-close").addEventListener("click", hideSheets);
@@ -1207,7 +1838,14 @@ input[type="range"]::-moz-range-thumb {
   }, { passive: false });
   window.addEventListener("resize", refreshFades);
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") hideSheets();
+    if (e.key === "Escape") {
+      if (deckOn && !document.querySelector(".sheet.open")) closeDeck();
+      else hideSheets();
+      return;
+    }
+    if (!deckOn) return;
+    if (e.key === "ArrowRight") stepDeck(1);
+    if (e.key === "ArrowLeft") stepDeck(-1);
   });
   document.getElementById("viewseg").addEventListener("click", function (e) {
     var b = e.target.closest("button");
@@ -1247,9 +1885,18 @@ input[type="range"]::-moz-range-thumb {
     var y = sec.getBoundingClientRect().top + window.scrollY - stuckBottom() - 8;
     window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
   }
+  function applyChromeColor(collapsed) {
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (!meta) return;
+    var dark = document.documentElement.getAttribute("data-theme") === "dark";
+    meta.setAttribute("content", !collapsed ? "#0c1424" : (dark ? "#000000" : "#e8eaef"));
+  }
   function onScroll() {
     var navBottom = nav.getBoundingClientRect().bottom;
-    nav.classList.toggle("is-collapsed", large.getBoundingClientRect().bottom < navBottom - 2);
+    var collapsed = large.getBoundingClientRect().bottom < navBottom - 2;
+    nav.classList.toggle("is-collapsed", collapsed);
+    applyChromeColor(collapsed);
+    paintTally();
     if (lockSpy) return;
     var mark = document.getElementById("stick").getBoundingClientRect().bottom + 20;
     var current = "offices";

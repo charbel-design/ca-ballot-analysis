@@ -1,5 +1,9 @@
 # Changelog
 
+## October 15, 2026 — a ballot you can flip through
+
+The phone guide now opens on a full-screen date, then matchup cards instead of a settings list. Measures show the proposition number and a Yes or No. A tally fills as the page scrolls. Flip through is an optional card stack. The weights, both views, and the private link are unchanged.
+
 ## October 15, 2026 — sheets scroll on the phone
 
 The Adjust values sheet and the race sheets now fill the screen and scroll on their own, with a sticky title bar, a total along the bottom, and a fade when more content sits below. The page behind the sheet stays put. Rows sit in grouped cards with a monogram.
