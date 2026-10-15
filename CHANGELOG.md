@@ -1,5 +1,9 @@
 # Changelog
 
+## October 15, 2026 — sheets scroll on the phone
+
+The Adjust values sheet and the race sheets now fill the screen and scroll on their own, with a sticky title bar, a total along the bottom, and a fade when more content sits below. The page behind the sheet stays put. Rows sit in grouped cards with a monogram.
+
 ## October 15, 2026 — phone guide
 
 `guide/2026-general-san-ramon.html` is now a single self-contained page for a phone. The public URL starts every weight equal and recomputes candidate picks from those sliders. Slider changes stay in that browser. A private hash on the same file opens the saved weights (policy 45, five-year effects 15, concentrated benefit 12, individualism 10, delivery 8, feasibility 7, competence 3), shows those picks, and remembers the view on the device. Measures still use the measure tests. The two-page sheet is unchanged.

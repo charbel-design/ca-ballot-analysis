@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f5f5f7">
+<meta name="theme-color" content="#f2f2f7">
 <title>November 3, 2026 ballot — San Ramon</title>
 <meta name="description" content="November 3, 2026 ballot guide for San Ramon 94582. Fairness-not-equity research. Last verified October 14, 2026.">
 <script>
@@ -22,7 +22,7 @@
 </script>
 <style>
 :root {
-  --bg: #f5f5f7;
+  --bg: #f2f2f7;
   --card: #ffffff;
   --ink: #1d1d1f;
   --secondary: #6e6e73;
@@ -31,8 +31,8 @@
   --fill: rgba(120, 120, 128, 0.16);
   --sep: rgba(60, 60, 67, 0.14);
   --seg-on: #ffffff;
-  --nav: rgba(245, 245, 247, 0.86);
-  --sheet: #ffffff;
+  --nav: rgba(242, 242, 247, 0.78);
+  --sheet: #f2f2f7;
   --track: rgba(120, 120, 128, 0.32);
   --thumb: #ffffff;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 28px rgba(0, 0, 0, 0.06);
@@ -56,8 +56,8 @@
   --fill: rgba(120, 120, 128, 0.32);
   --sep: rgba(84, 84, 88, 0.65);
   --seg-on: #636366;
-  --nav: rgba(0, 0, 0, 0.78);
-  --sheet: #1c1c1e;
+  --nav: rgba(0, 0, 0, 0.72);
+  --sheet: #000000;
   --track: rgba(120, 120, 128, 0.45);
   --thumb: #f5f5f7;
   --shadow: none;
@@ -84,7 +84,12 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-body.locked { position: fixed; width: 100%; overflow: hidden; }
+html.sheet-open,
+html.sheet-open body {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+html.sheet-open body { touch-action: none; }
 button, input { font: inherit; color: inherit; }
 button { -webkit-tap-highlight-color: transparent; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -210,7 +215,7 @@ button { -webkit-tap-highlight-color: transparent; }
   letter-spacing: -0.022em;
 }
 .intro {
-  margin: 0 20px 12px;
+  margin: 0 20px 56px;
   color: var(--secondary);
   font-size: 15px;
   line-height: 1.35;
@@ -232,15 +237,30 @@ button { -webkit-tap-highlight-color: transparent; }
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  padding: 11px 14px 11px 16px;
+  gap: 12px;
+  min-height: 60px;
+  padding: 10px 12px 10px 14px;
   border: 0;
   border-bottom: 0.5px solid var(--sep);
   background: transparent;
   text-align: left;
   cursor: pointer;
 }
+.mono {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 113, 227, 0.12);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+[data-theme="dark"] .mono { background: rgba(0, 113, 227, 0.28); color: #9ec9ff; }
 .row:last-child { border-bottom: 0; }
 .row:active { background: var(--fill); }
 .name { flex: 1; min-width: 0; font-size: 17px; }
@@ -270,12 +290,14 @@ button { -webkit-tap-highlight-color: transparent; }
 .note a { color: var(--accent); text-decoration: none; }
 .note a:hover { text-decoration: underline; }
 .sec-label {
-  margin: 22px 20px 8px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--secondary);
+  margin: 26px 20px 8px;
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  color: var(--ink);
 }
-.sec-label.call { font-size: 17px; color: var(--ink); letter-spacing: -0.02em; }
+.sec-label.call { font-size: 22px; color: var(--ink); letter-spacing: -0.022em; }
 
 footer {
   margin: 28px 20px 0;
@@ -288,52 +310,149 @@ footer a { color: var(--accent); }
 
 .scrim {
   position: fixed; inset: 0; z-index: 50;
-  background: var(--scrim);
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   opacity: 0;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.4s ease;
 }
+[data-theme="dark"] .scrim { background: rgba(0, 0, 0, 0.5); }
 .scrim.on { opacity: 1; }
 .sheet {
   position: fixed;
-  left: 0; right: 0; bottom: 0;
+  left: 0; right: 0;
+  top: 10px;
+  height: calc(100vh - 10px);
+  height: calc(100dvh - 10px);
+  max-height: calc(100vh - 10px);
+  max-height: calc(100dvh - 10px);
   z-index: 60;
-  max-height: min(92dvh, 920px);
   display: flex;
   flex-direction: column;
-  background: var(--sheet);
-  border-radius: 14px 14px 0 0;
-  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.16);
-  transform: translateY(100%);
-  transition: transform 0.42s cubic-bezier(0.32, 0.72, 0, 1);
-  padding-bottom: env(safe-area-inset-bottom);
+  background: var(--bg);
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  transform: translateY(110%);
+  transition: transform 0.5s cubic-bezier(0.22, 1.15, 0.36, 1);
   touch-action: pan-y;
 }
 .sheet.open { transform: translateY(0); }
-.sheet-head { flex: none; touch-action: none; }
+.sheet-head {
+  flex: none;
+  touch-action: none;
+  background: rgba(242, 242, 247, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 0.5px solid var(--sep);
+  z-index: 2;
+}
+[data-theme="dark"] .sheet-head { background: rgba(0, 0, 0, 0.72); }
 .grab {
   width: 36px; height: 5px; border-radius: 3px;
   background: rgba(120, 120, 128, 0.45);
-  margin: 8px auto 0;
+  margin: 6px auto 0;
 }
 .sheet-bar {
-  display: flex;
+  display: grid;
+  grid-template-columns: 72px 1fr 72px;
   align-items: center;
-  justify-content: flex-end;
   min-height: 44px;
+  padding: 0 4px 4px;
+}
+.sheet-side {
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  font-size: 17px;
   padding: 0 8px;
 }
+.sheet-side.start { justify-self: start; text-align: left; }
+.sheet-done { justify-self: end; text-align: right; font-weight: 600; }
+.sheet-side.ghost { visibility: hidden; pointer-events: none; }
+.sheet-title {
+  margin: 0;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sheet-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
 .sheet-body {
-  overflow: auto;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
-  padding: 0 20px 28px;
+  touch-action: pan-y;
+  padding: 4px 16px 20px;
 }
+.sheet:not(.has-foot) .sheet-body {
+  padding-bottom: calc(20px + env(safe-area-inset-bottom));
+}
+.sheet-fade {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 28px;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(242, 242, 247, 0), var(--bg));
+}
+.sheet-foot {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 8px 16px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border-top: 0.5px solid var(--sep);
+}
+[data-theme="dark"] .sheet-foot { background: rgba(28, 28, 30, 0.9); }
+.sum-label { font-weight: 600; font-size: 17px; }
+.sum-note {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  line-height: 1.3;
+  color: var(--secondary);
+  font-weight: 400;
+}
+.sum-num {
+  flex: none;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--accent);
+  background: var(--high-bg);
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+.sheet-body > .sheet-kicker { margin: 14px 4px 0; }
+.sheet-body > .ballot-line { margin: 6px 4px 0; }
+.sheet-body .group { margin: 14px 0 0; }
+.sheet-card { padding: 12px 16px 14px; }
+.sheet-card > .pt:first-child { border-top: 0; padding-top: 2px; }
+.sheet-card > .block-h:first-child { margin-top: 0; }
 .sheet-kicker { margin: 0; color: var(--secondary); font-size: 13px; font-weight: 600; }
-.sheet h2 {
+.sheet-card h2 {
   margin: 2px 0 0;
-  font-size: 22px;
-  line-height: 1.2;
-  letter-spacing: -0.022em;
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.03em;
 }
 .ballot-line { margin: 8px 0 0; color: var(--secondary); font-size: 15px; }
 .pickrow { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
@@ -367,19 +486,32 @@ footer a { color: var(--accent); }
   text-decoration: none;
   font-size: 17px;
 }
-.slider {
-  padding: 12px 0 4px;
-  border-top: 0.5px solid var(--sep);
+.slider-group .slider {
+  padding: 14px 16px 10px;
+  border-bottom: 0.5px solid var(--sep);
 }
-.slider:first-of-type { border-top: 0; }
-.sl-top { display: flex; justify-content: space-between; gap: 12px; font-weight: 600; }
-.sl-val { font-variant-numeric: tabular-nums; color: var(--secondary); font-weight: 600; }
+.slider-group .slider:last-child { border-bottom: 0; }
+.sl-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-weight: 600; }
+.sl-top label { font-size: 17px; }
+.sl-val {
+  flex: none;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 15px;
+  background: var(--high-bg);
+  border-radius: 999px;
+  padding: 3px 8px;
+  min-width: 44px;
+  text-align: center;
+}
 .sl-track { position: relative; height: 44px; display: flex; align-items: center; }
 .sl-rail, .sl-fill {
-  position: absolute; left: 0; height: 4px; border-radius: 2px; pointer-events: none;
+  position: absolute; left: 0; top: 50%; height: 6px; margin-top: -3px;
+  border-radius: 3px; pointer-events: none;
 }
 .sl-rail { right: 0; background: var(--track); }
-.sl-fill { width: var(--pct); background: var(--accent); }
+.sl-fill { background: var(--accent); }
 input[type="range"] {
   -webkit-appearance: none; appearance: none;
   position: relative; z-index: 1;
@@ -397,18 +529,7 @@ input[type="range"]::-moz-range-thumb {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.28), 0 0 0 0.5px rgba(0, 0, 0, 0.08);
 }
 .hint { margin: 0 0 8px; color: var(--secondary); font-size: 13px; line-height: 1.35; }
-.reset {
-  width: 100%;
-  min-height: 44px;
-  margin-top: 8px;
-  border: 0;
-  border-radius: 12px;
-  background: var(--card);
-  box-shadow: var(--shadow);
-  color: var(--accent);
-  font-size: 17px;
-}
-[data-theme="dark"] .reset { border: 0.5px solid rgba(255, 255, 255, 0.08); }
+.sheet-note { margin: 12px 4px 0; }
 @media (prefers-reduced-motion: reduce) {
   .sheet, .scrim, .nav-title, .bigpick.flip { transition: none; animation: none; }
 }
@@ -448,16 +569,35 @@ input[type="range"]::-moz-range-thumb {
 <div class="sheet" id="detail" role="dialog" aria-modal="true" aria-labelledby="detail-title" hidden>
   <div class="sheet-head" id="detail-head">
     <div class="grab" aria-hidden="true"></div>
-    <div class="sheet-bar"><button type="button" class="nav-btn" id="detail-close">Close</button></div>
+    <div class="sheet-bar">
+      <span class="sheet-side ghost" aria-hidden="true">Reset</span>
+      <h2 class="sheet-title" id="detail-title">Details</h2>
+      <button type="button" class="sheet-side sheet-done" id="detail-close">Done</button>
+    </div>
   </div>
-  <div class="sheet-body" id="detail-body"></div>
+  <div class="sheet-scroll">
+    <div class="sheet-body" id="detail-body"></div>
+    <div class="sheet-fade" id="detail-fade" hidden></div>
+  </div>
 </div>
-<div class="sheet" id="adjust-sheet" role="dialog" aria-modal="true" aria-labelledby="adjust-title" hidden>
+<div class="sheet has-foot" id="adjust-sheet" role="dialog" aria-modal="true" aria-labelledby="adjust-title" hidden>
   <div class="sheet-head" id="adjust-head">
     <div class="grab" aria-hidden="true"></div>
-    <div class="sheet-bar"><button type="button" class="nav-btn" id="adjust-close">Close</button></div>
+    <div class="sheet-bar">
+      <button type="button" class="sheet-side start" id="adjust-reset">Reset</button>
+      <h2 class="sheet-title" id="adjust-title">Adjust values</h2>
+      <button type="button" class="sheet-side sheet-done" id="adjust-close">Done</button>
+    </div>
   </div>
-  <div class="sheet-body" id="adjust-body"></div>
+  <div class="sheet-scroll">
+    <div class="sheet-body" id="adjust-body"></div>
+    <div class="sheet-fade" id="adjust-fade" hidden></div>
+  </div>
+  <div class="sheet-foot" id="adjust-foot">
+    <span class="sum-label">Total</span>
+    <span class="sum-note" id="w-dirty" hidden>Changed from the starting weights.</span>
+    <span class="sum-num" id="w-sum">100</span>
+  </div>
 </div>
 <div id="live" class="sr-only" aria-live="polite"></div>
 <script type="application/json" id="payload">{"token": "23SvCGnzXXbU", "ownerWeights": [45, 15, 12, 10, 8, 7, 3], "criteria": ["Policy alignment", "Five-year effects", "Concentrated benefit", "Individualism", "Delivery", "Feasibility", "Competence"], "hints": ["How closely the platform matches even rules and individual merit.", "Still a good idea five years out, including housing supply and new taxes.", "Who gets the gain: a narrow interest, or the broader public.", "The same rules for each person, rather than group outcomes.", "A result the framework would count. Years in office are not delivery.", "Whether they can win, and whether the office can act. Added into the score, not a multiplier.", "Can they do the job. A small check."], "races": [{"id": "governor", "office": "Governor", "strong": false, "defaultLeader": "Hilton", "defaultRunner": "Becerra", "defaultLabel": "Medium", "candidates": [{"short": "Becerra", "scores": [40, 40, 40, 35, 30, 70, 85], "expect": 42.15}, {"short": "Hilton", "scores": [75, 60, 55, 75, 30, 20, 60], "expect": 62.45}]}, {"id": "ltgov", "office": "Lieutenant governor", "strong": false, "defaultLeader": "Romero", "defaultRunner": "Ma", "defaultLabel": "Medium", "candidates": [{"short": "Ma", "scores": [40, 45, 30, 45, 40, 70, 80], "expect": 43.35}, {"short": "Romero", "scores": [65, 60, 55, 65, 35, 25, 70], "expect": 58.0}]}, {"id": "sos", "office": "Secretary of state", "strong": false, "defaultLeader": "Wagner", "defaultRunner": "Weber", "defaultLabel": "Medium", "candidates": [{"short": "Weber", "scores": [45, 50, 45, 50, 40, 75, 80], "expect": 49.0}, {"short": "Wagner", "scores": [65, 60, 50, 65, 30, 30, 70], "expect": 57.35}]}, {"id": "controller", "office": "Controller", "strong": false, "defaultLeader": "Morgan", "defaultRunner": "Cohen", "defaultLabel": "Medium", "candidates": [{"short": "Cohen", "scores": [50, 55, 45, 50, 40, 70, 80], "expect": 51.65}, {"short": "Morgan", "scores": [70, 65, 55, 60, 30, 25, 75], "expect": 60.25}]}, {"id": "treasurer", "office": "Treasurer", "strong": false, "defaultLeader": "Hawks", "defaultRunner": "Kounalakis", "defaultLabel": "Low", "candidates": [{"short": "Kounalakis", "scores": [45, 50, 35, 55, 35, 70, 75], "expect": 47.4}, {"short": "Hawks", "scores": [55, 55, 60, 55, 25, 25, 60], "expect": 51.25}]}, {"id": "ag", "office": "Attorney general", "strong": false, "defaultLeader": "Bonta", "defaultRunner": "Gates", "defaultLabel": "Medium", "candidates": [{"short": "Bonta", "scores": [70, 65, 35, 50, 55, 75, 85], "expect": 62.65}, {"short": "Gates", "scores": [40, 40, 50, 60, 35, 30, 75], "expect": 43.15}]}, {"id": "insurance", "office": "Insurance commissioner", "strong": false, "defaultLeader": "Allen", "defaultRunner": "Kim", "defaultLabel": "Medium", "candidates": [{"short": "Allen", "scores": [48, 45, 40, 50, 40, 65, 70], "expect": 48.0}, {"short": "Kim", "scores": [35, 35, 30, 40, 35, 60, 65], "expect": 37.55}]}, {"id": "boe", "office": "Board of Equalization, District 2", "strong": false, "defaultLeader": "Pimentel", "defaultRunner": "Lieber", "defaultLabel": "Medium", "candidates": [{"short": "Lieber", "scores": [45, 50, 30, 45, 40, 65, 75], "expect": 45.85}, {"short": "Pimentel", "scores": [70, 65, 60, 60, 30, 50, 65], "expect": 62.3}]}, {"id": "ca10", "office": "U.S. House, District 10", "strong": false, "defaultLeader": "Frese", "defaultRunner": "DeSaulnier", "defaultLabel": "Medium", "candidates": [{"short": "DeSaulnier", "scores": [40, 40, 45, 45, 35, 60, 70], "expect": 43.0}, {"short": "Frese", "scores": [65, 55, 50, 60, 25, 35, 55], "expect": 55.6}]}, {"id": "ad16", "office": "State Assembly, District 16", "strong": false, "defaultLeader": "Bauer-Kahan", "defaultRunner": "Rubay", "defaultLabel": "Medium", "candidates": [{"short": "Bauer-Kahan", "scores": [50, 50, 45, 50, 35, 75, 75], "expect": 50.7}, {"short": "Rubay", "scores": [40, 40, 55, 60, 25, 30, 60], "expect": 42.5}]}, {"id": "spi", "office": "Superintendent of public instruction", "strong": false, "defaultLeader": "Shaw", "defaultRunner": "Barrera", "defaultLabel": "Medium", "candidates": [{"short": "Barrera", "scores": [40, 45, 30, 45, 40, 60, 70], "expect": 42.35}, {"short": "Shaw", "scores": [60, 60, 55, 60, 40, 45, 65], "expect": 56.9}]}], "items": [{"id": "governor", "tab": "offices", "kind": "race", "office": "Governor", "pick": "Hilton", "conf": "Medium", "ownerWhy": "Hilton wants to cut income and gas taxes, cut fees on smaller homes, and limit lawsuits that stop construction. Becerra would freeze utility and insurance rates and has not ruled out new taxes. These are campaign plans, not laws either man has passed, so this stays Medium.", "publicWhy": "Hilton wants to cut income and gas taxes, cut fees on smaller homes, and limit lawsuits that stop construction. Becerra would freeze utility and insurance rates and has not ruled out new taxes. These are campaign plans, not laws either candidate has passed.", "ballot": "Xavier Becerra (Democratic, Voting Rights Attorney) and Steve Hilton (Republican, Small Business Owner).", "how": "Policy is 75 against 40 from that tax and rate-freeze contrast. Hilton’s preference for suburban houses over apartments holds five-year effects at 60 rather than higher. Delivery is 30 for both: the sources do not show a checked result this framework would count, and years in office are not delivery. Feasibility is 20 against 70 from the Democratic trifecta since 2011 and the current legislative counts. That gap is weighted at 7 percent. Competence is 60 against 85 from the advisory record and the offices actually held, weighted at 3 percent.", "publicHow": "Policy is 75 against 40 from that tax and rate-freeze contrast. Hilton’s preference for suburban houses over apartments holds five-year effects at 60 rather than higher. Delivery is 30 for both: the sources do not show a checked result this framework would count, and years in office are not delivery. Feasibility is 20 against 70 from the Democratic trifecta since 2011 and the current legislative counts. Competence is 60 against 85 from the advisory record and the offices actually held.", "sens": "0 of 14 default-weight shifts change the leader. The narrowest is feasibility at +10: Hilton 58.59, Becerra 44.68, gap 13.91.", "settle": "", "extra": "Becerra: 18.00 + 6.00 + 4.80 + 3.50 + 2.40 + 4.90 + 2.55 = 42.15", "sources": [{"t": "CalMatters governor guide", "h": "https://calmatters.org/california-voter-guide-2026/governor/"}, {"t": "Ballotpedia governor election", "h": "https://ballotpedia.org/California_gubernatorial_election,_2026"}, {"t": "Certified candidate list", "h": "https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf"}]}, {"id": "ltgov", "tab": "offices", "kind": "race", "office": "Lieutenant governor", "pick": "Romero", "conf": "Medium", "ownerWhy": "The clear difference is school choice, which this voter reads as families getting to decide. Ma’s listed backers are the labor federation, the building trades, and AFSCME, and no reform plan turned up for her.", "publicWhy": "The clear difference in the research is school choice, which reads as families getting to decide. Ma’s listed backers are the labor federation, the building trades, and AFSCME, and no reform plan turned up for her.", "ballot": "Fiona Ma (Democratic, State Treasurer/CPA) and Gloria Romero (Republican, Educator/Businesswoman).", "how": "Policy is 65 against 40 because school choice is the only clear platform contrast in the source, not a full education plan. Concentrated benefit is 55 against 30 from those labor endorsements on Ma’s side and the absence of a comparable organized-interest list for Romero beyond the state Republican Party and Reform California. Delivery stays near the middle: holding the treasurer’s office is not itself a framework-aligned result. Feasibility is 25 against 70.", "publicHow": "Policy is 65 against 40 because school choice is the only clear platform contrast in the source, not a full education plan. Concentrated benefit is 55 against 30 from those labor endorsements on Ma’s side and the absence of a comparable organized-interest list for Romero beyond the state Republican Party and Reform California. Delivery stays near the middle: holding the treasurer’s office is not itself a framework-aligned result. Feasibility is 25 against 70.", "sens": "0 of 14 default-weight shifts change the leader. The narrowest is feasibility at +10: Romero 55.00, Ma 45.77, gap 9.23.", "settle": "", "extra": "Ma: 18.00 + 6.75 + 3.60 + 4.50 + 3.20 + 4.90 + 2.40 = 43.35", "sources": [{"t": "CalMatters lieutenant governor guide", "h": "https://calmatters.org/california-voter-guide-2026/lieutenant-governor/"}, {"t": "Certified candidate list", "h": "https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf"}]}, {"id": "sos", "tab": "offices", "kind": "race", "office": "Secretary of state", "pick": "Wagner", "conf": "Medium", "ownerWhy": "Wagner wants voters to show ID, the same idea as a Yes on Proposition 39: one rule for everyone. Weber’s record is mail ballots for all and wider access, which was not counted against her.", "publicWhy": "Wagner wants voters to show ID, the same idea as a Yes on Proposition 39: one rule for everyone. Weber’s record is mail ballots for all and wider access, which was not scored as a failure of the framework.", "ballot": "Shirley N. Weber (Democratic, California Secretary of State) and Donald P. Wagner (Republican, Orange County Supervisor).", "how": "Policy is 65 against 45. One identification rule for every voter is the match. Universal mail voting is not treated as a failure of the framework. Concentrated benefit stays near the middle because donor tables did not render dollar amounts. Delivery is 30 against 40: administering mail voting is the job, not a counted framework result. Feasibility is 30 against 75.", "publicHow": "Policy is 65 against 45. One identification rule for every voter is the match. Universal mail voting is not treated as a failure of the framework. Concentrated benefit stays near the middle because donor tables did not render dollar amounts. Delivery is 30 against 40: administering mail voting is the job, not a counted framework result. Feasibility is 30 against 75.", "sens": "0 of 14 default-weight shifts change the leader. The narrowest is feasibility at +10: Wagner 54.86, Weber 51.36, gap 3.50.", "settle": "", "extra": "Weber: 20.25 + 7.50 + 5.40 + 5.00 + 3.20 + 5.25 + 2.40 = 49.00", "sources": [{"t": "CalMatters secretary of state guide", "h": "https://calmatters.org/california-voter-guide-2026/secretary-of-state/"}, {"t": "Certified candidate list", "h": "https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf"}]}, {"id": "controller", "tab": "offices", "kind": "race", "office": "Controller", "pick": "Morgan", "conf": "Medium", "ownerWhy": "Morgan is running to expose fraud, and he founded an investment firm. That private-sector money experience is what this voter wants in the state’s accountant. Cohen urges careful spending, but a matching audit plan was not found.", "publicWhy": "Morgan is running to expose fraud, and he founded an investment firm. Cohen urges careful spending, but a matching audit plan was not found. Morgan’s policy score is higher. Cohen’s feasibility and competence scores are higher.", "ballot": "Malia M. Cohen (Democratic, State Controller) and Herb W. Morgan (Republican, Chief Investment Officer).", "how": "Policy is 70 against 50 from that audit-and-experience contrast, not from a claim that fraud has already been documented. Delivery is 30 against 40 because the caution Cohen urged in a budget season is not a completed audit this framework can count. Feasibility is 25 against 70. Competence is 75 against 80: both can read a balance sheet, and the weight is 3 percent.", "publicHow": "Policy is 70 against 50 from that audit-and-experience contrast, not from a claim that fraud has already been documented. Delivery is 30 against 40 because the caution Cohen urged in a budget season is not a completed audit this framework can count. Feasibility is 25 against 70. Competence is 75 against 80: both can read a balance sheet.", "sens": "0 of 14 default-weight shifts change the leader. The narrowest is feasibility at +10: Morgan 57.05, Cohen 53.32, gap 3.73.", "settle": "", "extra": "Cohen: 22.50 + 8.25 + 5.40 + 5.00 + 3.20 + 4.90 + 2.40 = 51.65", "sources": [{"t": "CalMatters controller guide", "h": "https://calmatters.org/california-voter-guide-2026/controller/"}, {"t": "Certified candidate list", "h": "https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf"}]}, {"id": "treasurer", "tab": "offices", "kind": "race", "office": "Treasurer", "pick": "Hawks", "conf": "Low", "ownerWhy": "Hawks says she would be an independent check, but no plan for the state’s investments or debt turned up. Kounalakis voted against UC and CSU tuition hikes and spent years raising money for Democrats. The lead is thin. I am not confident here.", "publicWhy": "Hawks says she would be an independent check, but no plan for the state’s investments or debt turned up. Kounalakis voted against UC and CSU tuition hikes and spent years raising money for Democrats.", "ballot": "Eleni Kounalakis (Democratic, Lieutenant Governor) and Jennifer Hawks (Republican, Retired Business Executive).", "how": "Policy stays near the middle, 55 against 45, because independence is a real point and a missing investment plan is not a high score. Concentrated benefit is 60 against 35 from the fundraising career on one side and the lack of a party-institution endorsement list on the other. Feasibility is 25 against 70, which is why one shift flips the race. Do not treat a 3.85-point lead as a settled preference.", "publicHow": "Policy stays near the middle, 55 against 45, because independence is a real point and a missing investment plan is not a high score. Concentrated benefit is 60 against 35 from the fundraising career on one side and the lack of a party-institution endorsement list on the other. Feasibility is 25 against 70.", "sens": "1 of 14 default-weight shifts flips the leader. Feasibility at +10: Kounalakis 49.45, Hawks 48.86, gap 0.59 the other way. Among shifts that keep Hawks first, the narrowest is concentrated benefit at −10: Hawks 50.28, Kounalakis 48.78, gap 1.50.", "settle": "What would settle it. A sourced Hawks plan for the state’s investments and debt, and Kounalakis’s record on the state’s bond programs, would settle it.", "extra": "Kounalakis: 20.25 + 7.50 + 4.20 + 5.50 + 2.80 + 4.90 + 2.25 = 47.40", "sources": [{"t": "CalMatters treasurer guide", "h": "https://calmatters.org/california-voter-guide-2026/treasurer/"}, {"t": "Certified candidate list", "h": "https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf"}]}, {"id": "ag", "tab": "offices", "kind": "race", "office": "Attorney general", "pick": "Bonta", "conf": "Medium", "ownerWhy": "Bonta has spent his term enforcing laws that make cities allow new housing. Gates fought those laws as Huntington Beach city attorney. His promise of equal justice still fits, and it does not outweigh that housing record. This stays Medium because the source is news and the candidates’ own words, not the court files.", "publicWhy": "Bonta has spent his term enforcing laws that make cities allow new housing. Gates fought those laws as Huntington Beach city attorney. Gates also promises equal justice. The sources are news and the candidates’ own words, not the court files.", "ballot": "Rob Bonta (Democratic, California Attorney General) and Michael E. Gates (Republican, Deputy United States Attorney).", "how": "Policy is 70 against 40 from that housing-enforcement contrast. Individualism is 50 against 60 because Gates’s voter-guide statement says equal justice without regard to zip code or last name. Concentrated benefit is 35 against 50: Bonta’s listed endorsements include the Democratic Party, the California Teachers Association, and California Environmental Voters. Delivery is 55 against 35 for described official conduct, not an audited unit count. His questionnaire claim of a pathway for 40,000 units, and Gates’s claim of a double-digit crime drop, were not checked against a non-campaign record. Feasibility is 75 against 30. CalMatters also reports Gates left a 2025 Justice Department post in November 2025 and returned to the Huntington Beach city attorney’s office. The certified designation remains Deputy United States Attorney.", "publicHow": "Policy is 70 against 40 from that housing-enforcement contrast. Individualism is 50 against 60 because Gates’s voter-guide statement says equal justice without regard to zip code or last name. Concentrated benefit is 35 against 50: Bonta’s listed endorsements include the Democratic Party, the California Teachers Association, and California Environmental Voters. Delivery is 55 against 35 for described official conduct, not an audited unit count. His questionnaire claim of a pathway for 40,000 units, and Gates’s claim of a double-digit crime drop, were not checked against a non-campaign record. Feasibility is 75 against 30. CalMatters also reports Gates left a 2025 Justice Department post in November 2025 and returned to the Huntington Beach city attorney’s office. The certified designation remains Deputy United States Attorney.", "sens": "0 of 14 default-weight shifts change the leader. The narrowest is concentrated benefit at +10: Bonta 60.14, Gates 43.77, gap 16.36.", "settle": "", "extra": "Bonta: 31.50 + 9.75 + 4.20 + 5.00 + 4.40 + 5.25 + 2.55 = 62.65", "sources": [{"t": "CalMatters attorney general guide", "h": "https://calmatters.org/california-voter-guide-2026/attorney-general/"}, {"t": "Official voter-guide statements", "h": "https://voterguide.sos.ca.gov/candidates/attorney-general-candidate-statements.htm"}, {"t": "Bonta’s GrowSF questionnaire", "h": "https://growsf.org/voter-guide/questionnaires/june-2026/rob-bonta/"}, {"t": "Ballotpedia attorney general election", "h": "https://ballotpedia.org/California_Attorney_General_election,_2026"}]}, {"id": "insurance", "tab": "offices", "kind": "race", "office": "Insurance commissioner", "pick": "Allen", "conf": "Medium", "ownerWhy": "Kim wants a state-run disaster insurer, paid by insurance companies, plus a bigger public auto program. Allen wants more staff for complaints and loans for wildfire safety, with private insurers still selling the policies. Neither has run an insurance company.", "publicWhy": "Kim wants a state-run disaster insurer, paid by insurance companies, plus a bigger public auto program. Allen wants more staff for complaints and loans for wildfire safety, with private insurers still selling the policies. Neither has run an insurance company.", "ballot": "Ben Allen (Democratic, California State Senator) and Jane Kim (Democratic, Attorney/Consumer Advocate). Same-party runoff.", "how": "Policy is 48 against 35. A new public insurer is a new obligation this framework treats skeptically. Allen’s plan is not a market-opening reform, which is why 48 is only a step above the middle. The framework’s usual preference for industry operating experience does not pick either candidate. Feasibility is 65 against 60. Both are Democrats on the certified list.", "publicHow": "Policy is 48 against 35. A new public insurer is a new obligation this framework treats skeptically. Allen’s plan is not a market-opening reform, which is why 48 is only a step above the middle. The framework’s usual preference for industry operating experience does not pick either candidate. Feasibility is 65 against 60. Both are Democrats on the certified list.", "sens": "0 of 14 default-weight shifts change the leader. Three shifts tie for the narrowest gap, about 9.95, and none changes the leader.", "settle": "", "extra": "Allen: 21.60 + 6.75 + 4.80 + 5.00 + 3.20 + 4.55 + 2.10 = 48.00", "sources": [{"t": "CalMatters insurance commissioner guide", "h": "https://calmatters.org/california-voter-guide-2026/insurance-commissioner/"}, {"t": "Certified candidate list", "h": "https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf"}]}, {"id": "boe", "tab": "offices", "kind": "race", "office": "Board of Equalization, District 2", "pick": "Pimentel", "conf": "Medium", "ownerWhy": "Pimentel says he would end the sales tax on food, which takes a bigger share from people with less money. Lieber’s listed backers include the Democratic Party, SEIU, and the teachers union. Both sides are campaign statements, so this is Medium.", "publicWhy": "Pimentel says he would end the sales tax on food, which takes a bigger share from people with less money. Lieber’s listed backers include the Democratic Party, SEIU, and the teachers union. Both sides are campaign statements.", "ballot": "Sally J. Lieber (Democratic, incumbent) and John Pimentel (Democratic, San Mateo County Community College District trustee).", "how": "Policy is 70 against 45 from the food-tax proposal reported by the San Luis Obispo Tribune. Concentrated benefit is 60 against 30 from the endorsement contrast. CalMatters also lists the Howard Jarvis Taxpayers Association for Pimentel. The Tribune’s April 2026 reading said both campaigns were mostly self-funded then. Those figures are not treated as the latest general-election totals. Delivery is 30 against 40. Do not read this pick as a claim that Pimentel would abolish the board. That sentence is not in the sources used here.", "publicHow": "Policy is 70 against 45 from the food-tax proposal reported by the San Luis Obispo Tribune. Concentrated benefit is 60 against 30 from the endorsement contrast. CalMatters also lists the Howard Jarvis Taxpayers Association for Pimentel. The Tribune’s April 2026 reading said both campaigns were mostly self-funded then. Those figures are not treated as the latest general-election totals. Delivery is 30 against 40. Do not read this pick as a claim that Pimentel would abolish the board. That sentence is not in the sources used here.", "sens": "0 of 14 default-weight shifts change the leader. The narrowest is feasibility at +10: Pimentel 61.18, Lieber 47.59, gap 13.59.", "settle": "", "extra": "Lieber: 20.25 + 7.50 + 3.60 + 4.50 + 3.20 + 4.55 + 2.25 = 45.85", "sources": [{"t": "CalMatters Board of Equalization guide", "h": "https://calmatters.org/california-voter-guide-2026/board-of-equalization/"}, {"t": "San Luis Obispo Tribune voter guide", "h": "https://www.sanluisobispo.com/news/politics-government/election/voter-guide/article315320445.html"}, {"t": "Certified candidate list", "h": "https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf"}]}, {"id": "ca10", "tab": "offices", "kind": "race", "office": "U.S. House, District 10", "pick": "Frese", "conf": "Medium", "ownerWhy": "Frese would cut deficit spending, limit how long members of Congress serve, and ease rules that slow building. DeSaulnier’s campaign stresses workers’ rights, health care, and a progressive approach, and also talks about tax cuts for families.", "publicWhy": "Frese would cut deficit spending, limit how long members of Congress serve, and ease rules that slow building. DeSaulnier’s campaign stresses workers’ rights, health care, and a progressive approach, and also talks about tax cuts for families.", "ballot": "Mark DeSaulnier (Democratic, United States Congressman) and Jeff Frese (Republican, Small Business Owner).", "how": "Policy is 65 against 40. Frese’s homebuyer ban on hedge funds points away from the framework, so 65 is not the top of the band. DeSaulnier’s policy cell moved from 45 to 40 after the local guide made the progressive and worker frame clearer. Concentrated benefit stays near the middle: Ballotpedia listed $567,258 in receipts for DeSaulnier as of June 30, 2026, and listed Frese’s receipts as data not available. Missing data is not independence. Delivery is 25 against 35. The $46 million in local projects is a spending claim, not a counted success. This file does not adopt Frese’s description of DeSaulnier’s bill record.", "publicHow": "Policy is 65 against 40. Frese’s homebuyer ban on hedge funds points away from the framework, so 65 is not the top of the band. DeSaulnier’s policy cell moved from 45 to 40 after the local guide made the progressive and worker frame clearer. Concentrated benefit stays near the middle: Ballotpedia listed $567,258 in receipts for DeSaulnier as of June 30, 2026, and listed Frese’s receipts as data not available. Missing data is not independence. Delivery is 25 against 35. The $46 million in local projects is a spending claim, not a counted success. This file does not adopt Frese’s description of DeSaulnier’s bill record.", "sens": "0 of 14 default-weight shifts change the leader. The narrowest is feasibility at +10: Frese 53.73, DeSaulnier 44.55, gap 9.18.", "settle": "", "extra": "DeSaulnier: 18.00 + 6.00 + 5.40 + 4.50 + 2.80 + 4.20 + 2.10 = 43.00", "sources": [{"t": "Ballotpedia District 10", "h": "https://ballotpedia.org/California%27s_10th_Congressional_District_election,_2026"}, {"t": "DeSaulnier Ballotpedia profile", "h": "https://ballotpedia.org/Mark_DeSaulnier"}, {"t": "DeSaulnier campaign site", "h": "https://desaulnierforcongress.com/"}, {"t": "San Ramon Patch voter guide", "h": "https://patch.com/california/sanramon/san-ramon-voter-guide-2026-whats-ballot-voting-more"}]}, {"id": "ad16", "tab": "offices", "kind": "race", "office": "State Assembly, District 16", "pick": "Bauer-Kahan", "conf": "Medium", "ownerWhy": "Rubay opposes state rules that push denser housing into the suburbs. That works against this voter’s preference for more homes. Bauer-Kahan’s campaign, as a San Ramon news guide describes it, does not make that argument. The guide is thinner than the statewide sources.", "publicWhy": "Rubay opposes state rules that push denser housing into the suburbs. That works against a preference for more homes. Bauer-Kahan’s campaign, as a San Ramon news guide describes it, does not make that argument. The guide is thinner than the statewide sources.", "ballot": "Rebecca Bauer-Kahan (Democratic, Assemblymember) and Joseph A. Rubay (Republican, Businessman/Father).", "how": "Policy is only 50 against 40. Her lead is not a detailed housing-bill record. Consent-calendar votes were not treated as a platform. Policy alignment, not the incumbency cells, is the larger share of the 8.20-point gap: about 4.5 points from policy and about 3.2 from feasibility. Feasibility is 75 against 30 because she is the incumbent in a Democratic district, and that weight is 7 percent.", "publicHow": "Policy is only 50 against 40. Her lead is not a detailed housing-bill record. Consent-calendar votes were not treated as a platform. Feasibility is 75 against 30 because she is the incumbent in a Democratic district.", "sens": "0 of 14 default-weight shifts change the leader. The narrowest is feasibility at −10, clipped to 0: Bauer-Kahan 48.87, Rubay 43.44, gap 5.43.", "settle": "", "extra": "Bauer-Kahan: 22.50 + 7.50 + 5.40 + 5.00 + 2.80 + 5.25 + 2.25 = 50.70", "sources": [{"t": "San Ramon Patch voter guide", "h": "https://patch.com/california/sanramon/san-ramon-voter-guide-2026-whats-ballot-voting-more"}, {"t": "Certified candidate list", "h": "https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf"}]}, {"id": "spi", "tab": "offices", "kind": "race", "office": "Superintendent of public instruction", "pick": "Shaw", "conf": "Medium", "ownerWhy": "Shaw says schools should get back to academic basics. Barrera’s priority is more school funding and an easier path into teaching, and the teachers union’s endorsement is what made him widely known. The office is nonpartisan, and in 2027 a governor-appointed commissioner takes over the department.", "publicWhy": "Shaw says schools should get back to academic basics. Barrera’s priority is more school funding and an easier path into teaching, and the teachers union’s endorsement is what made him widely known. The office is nonpartisan, and in 2027 a governor-appointed commissioner takes over the department.", "ballot": "Richard Barrera (State Superintendent Advisor) and Sonja Shaw (School District President). Nonpartisan. The office loses department control in 2027 to a governor-appointed education commissioner and keeps a statewide platform.", "how": "Policy is 60 against 40. The transgender-student fight is part of Shaw’s public record and is not the whole score. Academic basics against a union-backed funding agenda is the core. Concentrated benefit is 55 against 30 because of that California Teachers Association endorsement. Delivery is 40 for both: a school-board presidency is not, by itself, a statewide result.", "publicHow": "Policy is 60 against 40. The transgender-student fight is part of Shaw’s public record and is not the whole score. Academic basics against a union-backed funding agenda is the core. Concentrated benefit is 55 against 30 because of that California Teachers Association endorsement. Delivery is 40 for both: a school-board presidency is not, by itself, a statewide result.", "sens": "0 of 14 default-weight shifts change the leader. The narrowest is feasibility at +10: Shaw 55.82, Barrera 43.95, gap 11.86.", "settle": "", "extra": "Barrera: 18.00 + 6.75 + 3.60 + 4.50 + 3.20 + 4.20 + 2.10 = 42.35", "sources": [{"t": "CalMatters superintendent guide", "h": "https://calmatters.org/california-voter-guide-2026/superintendent-of-public-instruction/"}, {"t": "Certified candidate list", "h": "https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf"}]}, {"id": "judicial", "tab": "offices", "kind": "static", "office": "Judicial retention", "pick": "No pick", "conf": "", "ownerWhy": "No pick. Supreme Court justices Kelli M. Evans and Joshua Groban are on every ballot, along with the First Appellate District justices named on the certified list. Their opinions were not read. This is not a vote to keep them and not a vote to remove them.", "publicWhy": "No pick. Supreme Court justices Kelli M. Evans and Joshua Groban are on every ballot, along with the First Appellate District justices named on the certified list. Their opinions were not read. This is not a vote to keep them and not a vote to remove them.", "ballot": "Supreme Court: Kelli M. Evans and Joshua Groban. First Appellate District: Charles A. Smiley, Kathleen M. Banke, and Monique Langhorne Wilson (Division One); Presiding Justice Therese M. Stewart and Tara M. Desautels (Division Two); Ioana Petrou and Victor A. Rodriguez (Division Three); Presiding Justice Tracie L. Brown (Division Four); Mark Simons, Danny Y. Chou, and Gordon Burns (Division Five).", "how": "", "publicHow": "", "sens": "", "settle": "What would settle it. Read the opinions or the official voter-guide judicial section.", "extra": "", "sources": [{"t": "Certified candidate list", "h": "https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf"}]}, {"id": "mayor", "tab": "local", "kind": "static", "office": "San Ramon mayor", "pick": "No pick", "conf": "", "ownerWhy": "No pick. The citywide ballot lists Emma Chigbu, Mark H. Armstrong, and Paschalis Ntatsos. Job titles are not a record, and the candidates’ answers were not in the page used here.", "publicWhy": "No pick. The citywide ballot lists Emma Chigbu, Mark H. Armstrong, and Paschalis Ntatsos. Job titles are not a record, and the candidates’ answers were not in the page used here.", "ballot": "Citywide. Emma Chigbu (Student), Mark H. Armstrong (Mayor/Retired Colonel), and Paschalis Ntatsos (Nonprofit Director/CEO).", "how": "", "publicHow": "", "sens": "", "settle": "What would settle it. Those answers, read against the framework, would settle a score. The office itself is on every San Ramon ballot.", "extra": "", "sources": [{"t": "County contest list", "h": "https://www.contracostavote.gov/wp-content/uploads/8-27-26_candidatelist_detail_final.pdf"}, {"t": "San Ramon Patch voter guide", "h": "https://patch.com/california/sanramon/san-ramon-voter-guide-2026-whats-ballot-voting-more"}]}, {"id": "council2", "tab": "local", "kind": "static", "office": "City Council, District 2", "pick": "No pick", "conf": "", "ownerWhy": "No pick, and only if your address is in District 2: Chirag Kathrani or Richard J. Adler. Districts 1 and 3 are not on this ballot. Check your sample ballot.", "publicWhy": "No pick, and only if your address is in District 2: Chirag Kathrani or Richard J. Adler. Districts 1 and 3 are not on this ballot. Check your sample ballot.", "ballot": "Chirag Kathrani (Founder/Entrepreneur) and Richard J. Adler (Appointed Incumbent). You vote here only if your address is in District 2. Districts 1 and 3 are not on this ballot.", "how": "", "publicHow": "", "sens": "", "settle": "What would settle it. Confirm the district on the city lookup, then read the candidates’ own answers.", "extra": "", "sources": [{"t": "County contest list", "h": "https://www.contracostavote.gov/wp-content/uploads/8-27-26_candidatelist_detail_final.pdf"}, {"t": "City district lookup", "h": "https://www.sanramon.ca.gov/our_city/departments_and_divisions/city_clerk/Elections/district_elections"}, {"t": "San Ramon Patch voter guide", "h": "https://patch.com/california/sanramon/san-ramon-voter-guide-2026-whats-ballot-voting-more"}]}, {"id": "council4", "tab": "local", "kind": "static", "office": "City Council, District 4", "pick": "No pick", "conf": "", "ownerWhy": "No pick, and only if your address is in District 4: Jeffrey Joh or Marisol Rubio. A 94582 home is in one council district, not both.", "publicWhy": "No pick, and only if your address is in District 4: Jeffrey Joh or Marisol Rubio. A 94582 home is in one council district, not both.", "ballot": "Jeffrey Joh (Technology Strategist) and Marisol Rubio (Councilwoman/In-Home Provider). You vote here only if your address is in District 4.", "how": "", "publicHow": "", "sens": "", "settle": "What would settle it. Confirm the district, then read the answers Patch collected. They were not in the guide page used here.", "extra": "", "sources": [{"t": "County contest list", "h": "https://www.contracostavote.gov/wp-content/uploads/8-27-26_candidatelist_detail_final.pdf"}, {"t": "City district lookup", "h": "https://www.sanramon.ca.gov/our_city/departments_and_divisions/city_clerk/Elections/district_elections"}, {"t": "San Ramon Patch voter guide", "h": "https://patch.com/california/sanramon/san-ramon-voter-guide-2026-whats-ballot-voting-more"}]}, {"id": "srvusd", "tab": "local", "kind": "static", "office": "San Ramon Valley Unified, Area 5", "pick": "No pick", "conf": "", "ownerWhy": "No pick, and only if you live in Trustee Area 5: Rachel Hurd or Joel Woods. A local guide describes Area 5 as eastern and southeastern San Ramon, around Dougherty Valley. Area 1 (Amanda Butland) and Area 4 (Susanna Ordway) have one name each. Many 94582 addresses are not in Area 5.", "publicWhy": "No pick, and only if you live in Trustee Area 5: Rachel Hurd or Joel Woods. A local guide describes Area 5 as eastern and southeastern San Ramon, around Dougherty Valley. Area 1 (Amanda Butland) and Area 4 (Susanna Ordway) have one name each. Many 94582 addresses are not in Area 5.", "ballot": "Rachel Hurd (incumbent since 2006, seeking a fifth term) and Joel Woods (substitute teacher), if your address is in Area 5. Patch describes Area 5 as eastern and southeastern San Ramon, centered on Dougherty Valley. Area 1 has one candidate, Amanda Butland. Area 4 has one candidate, incumbent Susanna Ordway. ZIP 94582 includes Dougherty Valley and older San Ramon, so many 94582 voters are not in Area 5.", "how": "", "publicHow": "", "sens": "", "settle": "What would settle it. Confirm the trustee area on the district map and the sample ballot, then read Hurd’s and Woods’s answers.", "extra": "", "sources": [{"t": "County contest list", "h": "https://www.contracostavote.gov/wp-content/uploads/8-27-26_candidatelist_detail_final.pdf"}, {"t": "SRVUSD trustee-area map", "h": "https://www.srvusd.net/documents/About-Us/Board-of-Education/Redistricting/New-Trustee-Area-Map-Adopted-2-22-2022.pdf"}, {"t": "San Ramon Patch voter guide", "h": "https://patch.com/california/sanramon/san-ramon-voter-guide-2026-whats-ballot-voting-more"}]}, {"id": "dsrsd", "tab": "local", "kind": "static", "office": "Dublin San Ramon Services District, Division 2", "pick": "No pick", "conf": "", "ownerWhy": "No pick. Kismat Kathrani and Donald Downey are the names if your address is in Division 2. This ZIP was not matched to a division. If the race is not on your sample ballot, you do not have it.", "publicWhy": "No pick. Kismat Kathrani and Donald Downey are the names if your address is in Division 2. This ZIP was not matched to a division. If the race is not on your sample ballot, you do not have it.", "ballot": "Kismat Kathrani (Technology Business Owner) and Donald Downey (Registered Geologist), if your address is in Division 2. This pass did not confirm that a 94582 household is in that division.", "how": "", "publicHow": "", "sens": "", "settle": "What would settle it. The sample ballot is the check. If Division 2 is not on it, you do not have this contest.", "extra": "", "sources": [{"t": "County contest list", "h": "https://www.contracostavote.gov/wp-content/uploads/8-27-26_candidatelist_detail_final.pdf"}]}, {"id": "prop1", "tab": "measures", "kind": "measure", "office": "Proposition 1", "pick": "No", "conf": "Medium", "ownerWhy": "The state would borrow $11.25 billion, mostly for affordable housing, plus help for veterans buying a home, farm, or mobilehome. Taxpayers pay that debt back for years. More housing is a real reason to vote yes, which is why this is Medium rather than a firmer no.", "publicWhy": "The state would borrow $11.25 billion, mostly for affordable housing, plus help for veterans buying a home, farm, or mobilehome. Taxpayers pay that debt back for years. More housing is a reason the other way, so the measure tests land on No, at Medium rather than a firmer no.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Legislative statute. Official summaries used here are paraphrases of the Secretary of State’s June 29, 2026 numbering release. A local guide’s “about 40,000 homes” figure is not treated as the legislative analyst’s estimate.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop2", "tab": "measures", "kind": "measure", "office": "Proposition 2", "pick": "Yes", "conf": "Medium", "ownerWhy": "This raises the cap on the state’s rainy-day fund from 10 percent of tax revenue to 20 percent. That is savings, not a new tax. It also makes it easier to declare a budget emergency, which keeps this at Medium.", "publicWhy": "This raises the cap on the state’s rainy-day fund from 10 percent of tax revenue to 20 percent. That is savings, not a new tax. It also makes it easier to declare a budget emergency, which keeps the measure tests at Medium.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Legislative constitutional amendment. The qualified-list title is an increase in the state’s rainy-day fund. This pick follows the amendment text in the numbering release, not a shorthand that the state may save “10 percent more.”", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop3", "tab": "measures", "kind": "measure", "office": "Proposition 3", "pick": "No", "conf": "Medium", "ownerWhy": "The extra tax on high incomes, now set to end in 2031, would become permanent and keep about $5 billion to $15 billion a year, mostly for schools. A tax that never expires fails the bar this voter sets. The payers are high earners, so this is Medium.", "publicWhy": "The extra tax on high incomes, now set to end in 2031, would become permanent and keep about $5 billion to $15 billion a year, mostly for schools. A tax that never expires fails the framework’s bar. The payers are high earners, so this is Medium.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Initiative constitutional amendment. Thresholds in the summary are about $360,000 for single filers, $721,000 for joint filers, and $490,000 for heads of household, in 2024 dollars.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop4", "tab": "measures", "kind": "measure", "office": "Proposition 4", "pick": "No", "conf": "Medium", "ownerWhy": "Government could spend public money on campaigns for office. You would help pay for candidates you oppose. Supporters say that would make candidates less dependent on big donors, which is why this is Medium.", "publicWhy": "Government could spend public money on campaigns for office. People would help pay for candidates they oppose. Supporters say that would make candidates less dependent on big donors, which is why this is Medium.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Legislative statute. This pass did not review the campaign’s funders.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop5", "tab": "measures", "kind": "measure", "office": "Proposition 5", "pick": "Yes", "conf": "Low", "ownerWhy": "If voters recall a statewide officer, they would no longer pick the replacement on the same ballot. The job would be filled the way a vacancy usually is. That drops a messy side election. I am not confident. Push back if you want the replacement chosen the same day.", "publicWhy": "If voters recall a statewide officer, they would no longer pick the replacement on the same ballot. The job would be filled the way a vacancy usually is. That drops a side election. Confidence is low. The open question is whether the replacement should be chosen the same day.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "What would settle it. Whether you want the successor chosen on the same ballot.", "extra": "Legislative constitutional amendment. If the governor is recalled, the lieutenant governor serves the rest of the term, with a special election in the first two years if the recall falls before the next nomination period closes. The recalled officer cannot be appointed to the vacancy.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop37", "tab": "measures", "kind": "measure", "office": "Proposition 37", "pick": "Yes", "conf": "Low", "ownerWhy": "Up to $25 billion in loans would help some buyers with a down payment. The official summary says the buyers pay the money back, not the state, unlike Proposition 1. The setup is new, so this is Low. Push back if a taxpayer backup is hiding in the fine print.", "publicWhy": "Up to $25 billion in loans would help some buyers with a down payment. The official summary says the buyers pay the money back, not the state, unlike Proposition 1. The setup is new, so confidence is low. The open question is a taxpayer backup that was not in the summary.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "What would settle it. Whether repayment depends on a taxpayer backstop the official summary does not show.", "extra": "Initiative statute. Push back if the repayment promise depends on a taxpayer backstop the summary does not show.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop38", "tab": "measures", "kind": "measure", "office": "Proposition 38", "pick": "No", "conf": "Medium", "ownerWhy": "The state would borrow $8.4 billion for disease research, about $500 million a year for 25 years, paid by taxpayers. Drugs developed with the money would have to be sold cheaper in California. That purpose is real, so this is Medium rather than a firmer no.", "publicWhy": "The state would borrow $8.4 billion for disease research, about $500 million a year for 25 years, paid by taxpayers. Drugs developed with the money would have to be sold cheaper in California. That purpose is real, so the measure tests land on No, at Medium rather than a firmer no.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Initiative statute. Half the money goes to a University of California-affiliated institute and half to grants.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop39", "tab": "measures", "kind": "measure", "office": "Proposition 39", "pick": "Yes", "conf": "Medium", "ownerWhy": "Every voter would show a government ID at the polls, or the last four digits on a mail ballot, and the state would have to give an ID to anyone who asks. One ID rule for everyone matches this voter’s preference for the same rules for all. Cost, and the chance a legal voter is turned away, keep this at Medium.", "publicWhy": "Every voter would show a government ID at the polls, or the last four digits on a mail ballot, and the state would have to give an ID to anyone who asks. One ID rule for everyone matches the preference for the same rules for all. Cost, and the chance a legal voter is turned away, keep this at Medium.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Initiative constitutional amendment. The analyst’s estimate is tens of millions of dollars one time, and ongoing costs from the tens of millions to the low hundreds of millions. This pass did not review evidence about how often a lawful voter is turned away.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop40", "tab": "measures", "kind": "measure", "office": "Proposition 40", "pick": "No", "conf": "Medium", "ownerWhy": "A one-time tax of up to 5 percent would hit assets over $1 billion, and that money would sit outside the state’s spending limit. A new tax plus a way around the spending cap fails here. A San Ramon news guide calls it union-sponsored. It is one time and hits a narrow group, so this is Medium.", "publicWhy": "A one-time tax of up to 5 percent would hit assets over $1 billion, and that money would sit outside the state’s spending limit. A new tax plus a way around the spending cap fails the fiscal tests. A San Ramon news guide calls it union-sponsored. It is one time and hits a narrow group, so this is Medium.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Initiative constitutional amendment and statute. The analyst’s estimate says the tax would raise tens of billions over several years and that income-tax revenue would likely fall afterward. Ninety percent of the revenue is for health care and 10 percent for food assistance or education.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}, {"t": "San Ramon Patch voter guide", "h": "https://patch.com/california/sanramon/san-ramon-voter-guide-2026-whats-ballot-voting-more"}]}, {"id": "prop41", "tab": "measures", "kind": "measure", "office": "Proposition 41", "pick": "Yes", "conf": "High", "ownerWhy": "New special taxes would need an audit of the programs they pay for, before the vote and after. New state taxes could not dodge the spending limit, including taxes on the same ballot. It does not create a tax, and nothing of similar weight points the other way.", "publicWhy": "New special taxes would need an audit of the programs they pay for, before the vote and after. New state taxes could not dodge the spending limit, including taxes on the same ballot. It does not create a tax, and nothing of similar weight points the other way.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Initiative constitutional amendment. The analyst says the net fiscal effect is unknown. That is uncertainty about magnitude, not a test pointing the other way.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop42", "tab": "measures", "kind": "measure", "office": "Proposition 42", "pick": "Yes", "conf": "High", "ownerWhy": "The state could not add a new tax on things people own, including retirement accounts and investments, or certain taxes that reach backward, including measures on this ballot. Less revenue later is the point of the rule, not a reason to vote no.", "publicWhy": "The state could not add a new tax on things people own, including retirement accounts and investments, or certain taxes that reach backward, including measures on this ballot. Less revenue later is the point of the rule, not a reason to vote no.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Initiative constitutional amendment. The three tests are: no new tax of this kind, no retroactive tax of the kind described, and the rule covers same-ballot measures.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop43", "tab": "measures", "kind": "measure", "office": "Proposition 43", "pick": "Yes", "conf": "Medium", "ownerWhy": "Starting in 2027, a local special tax would need a two-thirds vote, including taxes placed by voters, with some exceptions. A higher bar for new local taxes matches this voter. The same hurdle would bind citizen initiatives, not only city halls, which keeps this at Medium.", "publicWhy": "Starting in 2027, a local special tax would need a two-thirds vote, including taxes placed by voters, with some exceptions. A higher bar for new local taxes matches the framework. The same hurdle would bind citizen initiatives, not only city halls, which keeps this at Medium.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Legislative constitutional amendment. The qualified-list title says it limits voters’ ability to raise local revenue.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "prop44", "tab": "measures", "kind": "measure", "office": "Proposition 44", "pick": "Yes", "conf": "Low", "ownerWhy": "Certain nonprofit clinics would have to spend at least 90 percent of revenue on the service itself, with penalties if they fall short. That pushes money toward care. Whether 90 percent is a workable line was not shown, and a local guide says the measure is union-backed, with leftover penalties usable for clinic-worker training. I am not confident.", "publicWhy": "Certain nonprofit clinics would have to spend at least 90 percent of revenue on the service itself, with penalties if they fall short. That pushes money toward care. Whether 90 percent is a workable line was not shown, and a local guide says the measure is union-backed, with leftover penalties usable for clinic-worker training. Confidence is low.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "What would settle it. Whether 90 percent is a workable line, and how the penalty fund would work.", "extra": "Initiative statute. San Ramon Patch describes the measure as union-backed and says penalties that are not refunded after five years can fund clinic-worker training, recruitment, and retention. The analyst’s estimate is state cost up to the low tens of millions a year, much of it covered by fees and penalties.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}, {"t": "San Ramon Patch voter guide", "h": "https://patch.com/california/sanramon/san-ramon-voter-guide-2026-whats-ballot-voting-more"}]}, {"id": "prop45", "tab": "measures", "kind": "measure", "office": "Proposition 45", "pick": "Yes", "conf": "Medium", "ownerWhy": "Environmental review would speed up for some housing, roads, water, health, and clean-energy projects, with shorter court fights. Faster housing review matches this voter’s preference for more homes. Narrower court review is a fairness concern the other way, so this is Medium.", "publicWhy": "Environmental review would speed up for some housing, roads, water, health, and clean-energy projects, with shorter court fights. Faster housing review matches a preference for more homes. Narrower court review is a fairness concern the other way, so this is Medium.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "Initiative statute. The analyst expects implementation costs in the tens of millions a year at first, likely net savings later, and an uncertain court effect.", "sources": [{"t": "Numbering release", "h": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/secretary-state-shirley-n-weber-phd-assigns-numbers-november-ballot-measures-invites-ballot-arguments"}, {"t": "Qualified measures", "h": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"}]}, {"id": "rtm", "tab": "measures", "kind": "measure", "office": "Measure RTM", "pick": "No", "conf": "Medium", "ownerWhy": "Contra Costa would add a half-cent sales tax for 14 years, about $980 million a year, to avoid big transit cuts and to pay for safety, repairs, and oversight. This voter is skeptical of a new sales tax used to fill an operating hole. Riders and the repairs are a real benefit, so this is Medium.", "publicWhy": "Contra Costa would add a half-cent sales tax for 14 years, about $980 million a year, to avoid big transit cuts and to pay for safety, repairs, and oversight. The framework is skeptical of a new sales tax used to fill an operating hole. Riders and the repairs are a real benefit, so this is Medium.", "ballot": "", "how": "", "publicHow": "", "sens": "", "settle": "", "extra": "The county counsel’s analysis says the district was created by Senate Bill 63 (2025) and covers Alameda, Contra Costa, San Mateo, Santa Clara, and San Francisco. The San Francisco rate in that analysis is one percent. This pass did not review the yes and no campaign treasuries.", "sources": [{"t": "Contra Costa measure page", "h": "https://www.contracostavote.gov/m9001-en-2/"}]}], "equalExpect": {"governor": {"leader": "Hilton", "label": "Medium", "a": "53.57", "b": "48.57"}, "ltgov": {"leader": "Romero", "label": "Low", "a": "53.57", "b": "50.00"}, "sos": {"leader": "Weber", "label": "Low", "a": "55.00", "b": "52.86"}, "controller": {"leader": "No pick", "label": "No pick", "a": "55.71", "b": "54.29"}, "treasurer": {"leader": "Kounalakis", "label": "Low", "a": "52.14", "b": "47.86"}, "ag": {"leader": "Bonta", "label": "Medium", "a": "62.14", "b": "47.14"}, "insurance": {"leader": "Allen", "label": "Medium", "a": "51.14", "b": "42.86"}, "boe": {"leader": "Pimentel", "label": "Medium", "a": "57.14", "b": "50.00"}, "ca10": {"leader": "No pick", "label": "No pick", "a": "49.29", "b": "47.86"}, "ad16": {"leader": "Bauer-Kahan", "label": "Medium", "a": "54.29", "b": "44.29"}, "spi": {"leader": "Shaw", "label": "Medium", "a": "55.00", "b": "47.14"}}}</script>
@@ -611,6 +751,14 @@ input[type="range"]::-moz-range-thumb {
     document.documentElement.setAttribute("data-mode", mode);
   }
 
+  var MONO = {
+    governor: "GO", ltgov: "LG", sos: "SS", controller: "CO", treasurer: "TR",
+    ag: "AG", insurance: "IC", boe: "BE", ca10: "10", ad16: "16", spi: "SP",
+    judicial: "JR", mayor: "MY", council2: "C2", council4: "C4", srvusd: "A5", dsrsd: "DS",
+    prop1: "1", prop2: "2", prop3: "3", prop4: "4", prop5: "5",
+    prop37: "37", prop38: "38", prop39: "39", prop40: "40", prop41: "41",
+    prop42: "42", prop43: "43", prop44: "44", prop45: "45", rtm: "RT"
+  };
   function makeRow(item) {
     var v = viewOf(item);
     var btn = document.createElement("button");
@@ -618,6 +766,9 @@ input[type="range"]::-moz-range-thumb {
     btn.className = "row";
     btn.id = "row-" + item.id;
     btn.setAttribute("aria-haspopup", "dialog");
+    var badge = el("span", "mono", MONO[item.id] || item.office.slice(0, 1));
+    badge.setAttribute("aria-hidden", "true");
+    btn.appendChild(badge);
     btn.appendChild(el("span", "name", item.office));
     var trail = el("span", "trail");
     trail.appendChild(el("span", "pick" + (v.changed ? " changed" : ""), v.pick));
@@ -736,41 +887,43 @@ input[type="range"]::-moz-range-thumb {
     var body = document.getElementById("detail-body");
     var prevPick = body.querySelector(".bigpick");
     var prevText = prevPick ? prevPick.textContent : "";
+    document.getElementById("detail-title").textContent = item.office;
     body.replaceChildren();
-    body.appendChild(el("p", "sheet-kicker", item.tab === "measures" ? "Measure" : item.tab === "local" ? "Local" : "Office"));
-    var h = el("h2", "", item.office);
-    h.id = "detail-title";
-    body.appendChild(h);
-    if (item.ballot) body.appendChild(el("p", "ballot-line", item.ballot));
+    var card = el("div", "group sheet-card");
+    card.appendChild(el("p", "sheet-kicker", item.tab === "measures" ? "Measure" : item.tab === "local" ? "Local" : "Office"));
+    card.appendChild(el("h2", "", item.office));
+    if (item.ballot) card.appendChild(el("p", "ballot-line", item.ballot));
     var v = viewOf(item);
     var row = el("div", "pickrow");
     var big = el("p", "bigpick", v.pick);
     if (!quiet && prevText && prevText !== v.pick) big.classList.add("flip");
     row.appendChild(big);
     if (v.conf) row.appendChild(pill(v.confK, v.conf));
-    body.appendChild(row);
+    card.appendChild(row);
+    body.appendChild(card);
 
     if (item.kind === "race") {
       var R = v.R;
       if (mode === "public") {
-        body.appendChild(el("p", "block-h", v.pick === "No pick" ? "Under these weights" : "Why this pick under these weights"));
-        body.appendChild(el("p", "why", v.pick === "No pick"
+        card.appendChild(el("p", "block-h", v.pick === "No pick" ? "Under these weights" : "Why this pick under these weights"));
+        card.appendChild(el("p", "why", v.pick === "No pick"
           ? "Under these weights, the scores are too close for a pick."
           : "Under these weights, " + R.ranked[0].c.short + " leads " + R.ranked[1].c.short + "."));
-        body.appendChild(el("p", "why", item.publicWhy));
+        card.appendChild(el("p", "why", item.publicWhy));
       } else {
-        body.appendChild(el("p", "block-h", "Why " + item.pick + " over " + otherName(item)));
-        body.appendChild(el("p", "why", item.ownerWhy));
+        card.appendChild(el("p", "block-h", "Why " + item.pick + " over " + otherName(item)));
+        card.appendChild(el("p", "why", item.ownerWhy));
         if (v.pick !== item.pick) {
-          body.appendChild(el("p", "small", "Your weights pick " + v.pick + ". The explanation above is the saved-weight pick, " + item.pick + " over " + otherName(item) + "."));
+          card.appendChild(el("p", "small", "Your weights pick " + v.pick + ". The explanation above is the saved-weight pick, " + item.pick + " over " + otherName(item) + "."));
         }
       }
-      body.appendChild(el("p", "small", "Scores: " + fmt(R.ranked[0].v) + " vs " + fmt(R.ranked[1].v) + "."));
+      card.appendChild(el("p", "small", "Scores: " + fmt(R.ranked[0].v) + " vs " + fmt(R.ranked[1].v) + "."));
       var how = mode === "owner" ? item.how : item.publicHow;
       if (how) {
-        body.appendChild(el("p", "block-h", "How the scores were set"));
-        body.appendChild(el("p", "why", how));
+        card.appendChild(el("p", "block-h", "How the scores were set"));
+        card.appendChild(el("p", "why", how));
       }
+      var scoreCard = el("div", "group sheet-card");
       var race = races[item.id];
       DATA.criteria.forEach(function (name, i) {
         var pt = el("div", "pt");
@@ -783,29 +936,37 @@ input[type="range"]::-moz-range-thumb {
           pair.appendChild(el("span", "", c.short + " " + c.scores[i] + " · " + fmt(c.scores[i] * weights[i] / 100)));
         });
         pt.appendChild(pair);
-        body.appendChild(pt);
+        scoreCard.appendChild(pt);
       });
       var lines = race.candidates.map(function (c) {
         var bits = c.scores.map(function (s, i) { return s * weights[i] / 100; });
         var sum = bits.reduce(function (a, b) { return a + b; }, 0);
         return c.short + ": " + bits.map(fmt).join(" + ") + " = " + fmt(sum);
       });
-      body.appendChild(el("p", "small", lines.join(" ")));
-      body.appendChild(el("p", "small", "Gap under these weights: " + fmt(R.gap) + ". A gap of 2 or less is no pick. Under 5 is Low. Candidate races stay Medium at 15 or more unless the evidence is a statute, a case file, or an official fiscal text."));
-      if (mode === "owner" && item.sens) {
-        body.appendChild(el("p", "block-h", "At the saved weights"));
-        body.appendChild(el("p", "why", item.sens));
+      scoreCard.appendChild(el("p", "small", lines.join(" ")));
+      scoreCard.appendChild(el("p", "small", "Gap under these weights: " + fmt(R.gap) + ". A gap of 2 or less is no pick. Under 5 is Low. Candidate races stay Medium at 15 or more unless the evidence is a statute, a case file, or an official fiscal text."));
+      body.appendChild(scoreCard);
+      if (mode === "owner" && (item.sens || item.settle)) {
+        var sensCard = el("div", "group sheet-card");
+        if (item.sens) {
+          sensCard.appendChild(el("p", "block-h", "At the saved weights"));
+          sensCard.appendChild(el("p", "why", item.sens));
+        }
+        if (item.settle) sensCard.appendChild(el("p", "small", item.settle));
+        body.appendChild(sensCard);
       }
-      if (item.settle && mode === "owner") body.appendChild(el("p", "small", item.settle));
     } else {
       var why = mode === "owner" ? item.ownerWhy : item.publicWhy;
-      body.appendChild(el("p", "block-h", item.kind === "measure" ? (item.pick === "Yes" ? "Why yes" : "Why no") : "Why no pick"));
-      body.appendChild(el("p", "why", why));
-      if (item.kind === "measure") body.appendChild(el("p", "small", "Measure test. The sliders do not move this."));
-      if (item.extra) body.appendChild(el("p", "why", item.extra));
-      if (item.settle) body.appendChild(el("p", "small", item.settle));
+      card.appendChild(el("p", "block-h", item.kind === "measure" ? (item.pick === "Yes" ? "Why yes" : "Why no") : "Why no pick"));
+      card.appendChild(el("p", "why", why));
+      if (item.kind === "measure") card.appendChild(el("p", "small", "Measure test. The sliders do not move this."));
+      if (item.extra) card.appendChild(el("p", "why", item.extra));
+      if (item.settle) card.appendChild(el("p", "small", item.settle));
     }
-    addSources(body, item);
+    var srcCard = el("div", "group sheet-card");
+    addSources(srcCard, item);
+    if (srcCard.childNodes.length) body.appendChild(srcCard);
+    refreshFades();
   }
 
   function otherName(item) {
@@ -821,18 +982,10 @@ input[type="range"]::-moz-range-thumb {
     var active = document.activeElement;
     body.replaceChildren();
     body.appendChild(el("p", "sheet-kicker", mode === "owner" ? "My ballot" : "Public view"));
-    var h = el("h2", "", "Adjust values");
-    h.id = "adjust-title";
-    body.appendChild(h);
     body.appendChild(el("p", "ballot-line", mode === "owner"
       ? "These start from the saved weights. Move one. The others scale so the seven still add to 100. Changes stay in this browser."
       : "These start equal. Move one. The others scale so the seven still add to 100. Changes stay in this browser."));
-    var sum = el("p", "small", "");
-    sum.id = "w-sum";
-    body.appendChild(sum);
-    var dirty = el("p", "small", "Changed from the starting weights.");
-    dirty.id = "w-dirty";
-    body.appendChild(dirty);
+    var group = el("div", "group slider-group");
     DATA.criteria.forEach(function (name, i) {
       var wrap = el("div", "slider");
       var top = el("div", "sl-top");
@@ -870,20 +1023,12 @@ input[type="range"]::-moz-range-thumb {
       track.appendChild(input);
       wrap.appendChild(track);
       wrap.appendChild(el("p", "hint", DATA.hints[i]));
-      body.appendChild(wrap);
+      group.appendChild(wrap);
     });
-    var reset = el("button", "reset", "Reset");
-    reset.type = "button";
-    reset.addEventListener("click", function () {
-      weights = baseline(mode);
-      persist();
-      updatePicks();
-      updateAdjust();
-      document.getElementById("live").textContent = "Weights reset.";
-    });
+    body.appendChild(group);
+    body.appendChild(el("p", "small sheet-note", "A gap under 5 is Low. A gap of 2 or less is no pick. A gap of 15 or more stays Medium on candidate races when the evidence is a campaign plan or a news report rather than a statute or a case file. Measures stay on the measure tests."));
     updateAdjust();
-    body.appendChild(reset);
-    body.appendChild(el("p", "small", "A gap under 5 is Low. A gap of 2 or less is no pick. A gap of 15 or more stays Medium on candidate races when the evidence is a campaign plan or a news report rather than a statute or a case file. Measures stay on the measure tests."));
+    refreshFades();
     if (active && active.id && active.id.indexOf("w-") === 0) {
       var keep = document.getElementById(active.id);
       if (keep) keep.focus();
@@ -892,7 +1037,8 @@ input[type="range"]::-moz-range-thumb {
   function updateAdjust() {
     var sum = document.getElementById("w-sum");
     if (!sum) return;
-    sum.textContent = "Sum " + fmtW(weights.reduce(function (a, b) { return a + b; }, 0)) + " · " + weights.map(fmtW).join(" / ");
+    var total = weights.reduce(function (a, b) { return a + b; }, 0);
+    sum.textContent = fmtW(total);
     var dirty = document.getElementById("w-dirty");
     if (dirty) dirty.hidden = sameWeights(weights, baseline(mode));
     DATA.criteria.forEach(function (name, i) {
@@ -908,25 +1054,35 @@ input[type="range"]::-moz-range-thumb {
     });
   }
 
+  function updateFade(body, fade) {
+    if (!body || !fade) return;
+    var more = body.scrollHeight - body.scrollTop - body.clientHeight > 12;
+    fade.hidden = !more;
+  }
+  function refreshFades() {
+    updateFade(document.getElementById("detail-body"), document.getElementById("detail-fade"));
+    updateFade(document.getElementById("adjust-body"), document.getElementById("adjust-fade"));
+  }
   function lockScroll() {
     lockedY = window.scrollY;
-    document.body.style.top = "-" + lockedY + "px";
-    document.body.classList.add("locked");
+    document.documentElement.classList.add("sheet-open");
   }
   function unlockScroll() {
-    if (!document.body.classList.contains("locked")) return;
-    document.body.classList.remove("locked");
-    document.body.style.top = "";
-    window.scrollTo(0, lockedY);
+    if (!document.documentElement.classList.contains("sheet-open")) return;
+    document.documentElement.classList.remove("sheet-open");
+    if (Math.abs(window.scrollY - lockedY) > 1) window.scrollTo(0, lockedY);
   }
   function showSheet(sheet) {
     var scrim = document.getElementById("scrim");
+    var scroller = sheet.querySelector(".sheet-body");
     scrim.hidden = false;
     sheet.hidden = false;
     sheet.style.transform = "";
+    if (scroller) scroller.scrollTop = 0;
     requestAnimationFrame(function () {
       scrim.classList.add("on");
       sheet.classList.add("open");
+      requestAnimationFrame(refreshFades);
     });
     lockScroll();
   }
@@ -937,7 +1093,7 @@ input[type="range"]::-moz-range-thumb {
       s.classList.remove("open");
       s.style.transform = "";
     });
-    var wait = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 400;
+    var wait = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 520;
     setTimeout(function () {
       if (document.querySelector(".sheet.open")) return;
       scrim.hidden = true;
@@ -1028,12 +1184,28 @@ input[type="range"]::-moz-range-thumb {
     btn.textContent = dark ? "Light" : "Dark";
     btn.setAttribute("aria-pressed", dark ? "true" : "false");
     var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", dark ? "#000000" : "#f5f5f7");
+    if (meta) meta.setAttribute("content", dark ? "#000000" : "#f2f2f7");
   }
   document.getElementById("adjust").addEventListener("click", openAdjust);
   document.getElementById("detail-close").addEventListener("click", hideSheets);
   document.getElementById("adjust-close").addEventListener("click", hideSheets);
+  document.getElementById("adjust-reset").addEventListener("click", function () {
+    weights = baseline(mode);
+    persist();
+    updatePicks();
+    updateAdjust();
+    if (openId) fillDetail(byId[openId], false);
+    document.getElementById("live").textContent = "Weights reset.";
+  });
   document.getElementById("scrim").addEventListener("click", hideSheets);
+  document.getElementById("scrim").addEventListener("touchmove", function (e) { e.preventDefault(); }, { passive: false });
+  document.getElementById("detail-body").addEventListener("scroll", refreshFades, { passive: true });
+  document.getElementById("adjust-body").addEventListener("scroll", refreshFades, { passive: true });
+  document.addEventListener("touchmove", function (e) {
+    if (!document.documentElement.classList.contains("sheet-open")) return;
+    if (!e.target.closest(".sheet-body")) e.preventDefault();
+  }, { passive: false });
+  window.addEventListener("resize", refreshFades);
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") hideSheets();
   });
