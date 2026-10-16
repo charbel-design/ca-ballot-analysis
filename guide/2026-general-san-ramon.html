@@ -718,6 +718,7 @@ footer a { color: var(--accent); }
   height: 100dvh;
   max-height: 100dvh;
   padding-top: env(safe-area-inset-top);
+  overflow: hidden;
 }
 .deck-progress, .deck-bar, .deck-stage, .deck-hint { position: relative; z-index: 1; }
 .deck-progress {
@@ -772,7 +773,7 @@ footer a { color: var(--accent); }
 }
 .deck-card {
   position: absolute;
-  left: 0; right: 0;
+  inset: 0;
   display: flex;
   flex-direction: column;
   border-radius: 28px;
@@ -780,10 +781,11 @@ footer a { color: var(--accent); }
   color: var(--ink);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
   overflow: hidden;
+  touch-action: pan-y;
+  transform-origin: 50% 70%;
+  will-change: transform, opacity;
 }
-.deck-card.back2 { top: 0; left: 18px; right: 18px; bottom: 20px; opacity: 0.28; }
-.deck-card.back1 { top: 7px; left: 9px; right: 9px; bottom: 10px; opacity: 0.5; }
-.deck-card.front { top: 14px; bottom: 0; z-index: 2; }
+.deck-card.front { z-index: 3; }
 .deck-card h2 {
   margin: 2px 0 0;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
@@ -2231,90 +2233,374 @@ input[type="range"]:focus-visible::-moz-range-thumb {
     var more = why.scrollHeight - why.scrollTop - why.clientHeight > 8;
     fade.hidden = !more;
   }
-  function renderDeck() {
+  var stack = { front: null, back1: null, back2: null };
+  var deckBusy = false;
+  var deckDirty = false;
+  var deckMotion = null;
+  var deckDrag = null;
+  var deckRaf = 0;
+  var motionGen = 0;
+  var DECK_MS = 360;
+  var DECK_EASE = "cubic-bezier(0.22, 1.08, 0.36, 1)";
+  function deckWidth() {
     var stage = document.getElementById("deck-stage");
+    return stage ? stage.getBoundingClientRect().width : 320;
+  }
+  function deckMod(index) {
+    var n = items.length;
+    return (index % n + n) % n;
+  }
+  function paintDeckChrome() {
     var n = items.length;
     document.getElementById("deck-count").textContent = (deckIndex + 1) + " of " + n;
     var bar = document.getElementById("deck-progress");
     if (bar) bar.style.transform = "scaleX(" + ((deckIndex + 1) / n) + ")";
+  }
+  function buildCard(index) {
+    var i = deckMod(index);
+    var card = el("div", "deck-card");
+    card.dataset.deckIndex = String(i);
+    fillDeckCard(card, items[i], viewOf(items[i]));
+    var why = card.querySelector(".deck-why");
+    if (why) why.addEventListener("scroll", function () { syncDeckFade(card); }, { passive: true });
+    return card;
+  }
+  function placeCard(card, pose) {
+    if (!card) return;
+    card.style.transition = "none";
+    card.classList.remove("front");
+    if (pose === "front") {
+      card.style.transform = "translate3d(0,0,0) rotate(0deg) scale(1)";
+      card.style.opacity = "1";
+      card.style.zIndex = "3";
+      card.classList.add("front");
+      card.removeAttribute("aria-hidden");
+    } else if (pose === "back1") {
+      card.style.transform = "translate3d(0,12px,0) rotate(0deg) scale(0.95)";
+      card.style.opacity = "1";
+      card.style.zIndex = "2";
+      card.setAttribute("aria-hidden", "true");
+    } else {
+      card.style.transform = "translate3d(0,22px,0) rotate(0deg) scale(0.91)";
+      card.style.opacity = "0.55";
+      card.style.zIndex = "1";
+      card.setAttribute("aria-hidden", "true");
+    }
+  }
+  function deckEase() {
+    return "transform " + DECK_MS + "ms " + DECK_EASE + ", opacity " + (DECK_MS - 30) + "ms ease";
+  }
+  function startMotion(done) {
+    deckBusy = true;
+    var settled = false;
+    function finish() {
+      if (settled) return;
+      settled = true;
+      if (deckMotion && deckMotion.timer) clearTimeout(deckMotion.timer);
+      done();
+      deckBusy = false;
+      deckMotion = null;
+      if (deckDirty) { deckDirty = false; renderDeck(); }
+    }
+    deckMotion = { finish: finish, timer: setTimeout(finish, DECK_MS + 50) };
+    return finish;
+  }
+  function renderDeck() {
+    if (deckBusy) { deckDirty = true; return; }
+    var stage = document.getElementById("deck-stage");
+    paintDeckChrome();
     stage.replaceChildren();
-    [2, 1, 0].forEach(function (depth) {
-      var item = items[(deckIndex + depth) % n];
-      var v = viewOf(item);
-      var card = el("div", "deck-card " + (depth === 0 ? "front" : depth === 1 ? "back1" : "back2"));
-      if (depth !== 0) card.setAttribute("aria-hidden", "true");
-      fillDeckCard(card, item, v);
-      if (depth === 0) {
-        card.addEventListener("keydown", function (e) {
-          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openDetail(item.id); }
-        });
-        bindDeckSwipe(card, item.id);
-        card.querySelector(".deck-why").addEventListener("scroll", function () { syncDeckFade(card); }, { passive: true });
-      }
-      stage.appendChild(card);
-    });
+    var front = buildCard(deckIndex);
+    var back1 = buildCard(deckIndex + 1);
+    var back2 = buildCard(deckIndex + 2);
+    placeCard(back2, "back2");
+    placeCard(back1, "back1");
+    placeCard(front, "front");
+    stage.appendChild(back2);
+    stage.appendChild(back1);
+    stage.appendChild(front);
+    stack = { front: front, back1: back1, back2: back2 };
     requestAnimationFrame(function () {
       stage.querySelectorAll(".meter-track > span").forEach(function (s) { s.classList.add("go"); });
-      var front = stage.querySelector(".front");
-      if (front) syncDeckFade(front);
+      syncDeckFade(front);
     });
   }
-  function bindDeckSwipe(card, id) {
-    var drag = null;
-    card.addEventListener("pointerdown", function (e) {
-      if (e.target.closest("a, button")) return;
-      drag = { x: e.clientX, y: e.clientY, id: e.pointerId, locked: false, scroll: false };
-      card.dataset.drag = "0";
-    });
-    card.addEventListener("pointermove", function (e) {
-      if (!drag || drag.id !== e.pointerId || reduce) return;
-      var dx = e.clientX - drag.x;
-      var dy = e.clientY - drag.y;
-      if (!drag.locked) {
-        if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
-        drag.locked = true;
-        if (Math.abs(dy) > Math.abs(dx) && e.target.closest(".deck-why")) {
-          drag.scroll = true;
-          return;
-        }
-        try { card.setPointerCapture(e.pointerId); } catch (err) {}
-        card.style.transition = "none";
-      }
-      if (drag.scroll) return;
-      card.dataset.drag = "1";
-      card.style.transform = "translate3d(" + dx + "px, 0, 0) rotate(" + (dx / 42) + "deg)";
-    });
-    function end(e) {
-      if (!drag || (e && drag.id !== e.pointerId)) return;
-      var dx = e.clientX - drag.x;
-      var scrolled = drag.scroll;
-      drag = null;
-      if (dx <= -64) { card.style.transform = ""; stepDeck(1); return; }
-      if (dx >= 64) { card.style.transform = ""; stepDeck(-1); return; }
-      if (scrolled || card.dataset.drag === "1") {
-        card.style.transition = "transform 0.48s cubic-bezier(0.22, 1.15, 0.36, 1)";
-        card.style.transform = "";
-        return;
-      }
-      card.style.transform = "";
-      if (!e.target.closest(".deck-why")) openDetail(id);
+  function commitNext() {
+    if (!stack.front) return;
+    if (deckMotion) deckMotion.finish();
+    if (reduce) {
+      deckIndex = deckMod(deckIndex + 1);
+      renderDeck();
+      return;
     }
-    card.addEventListener("pointerup", end);
-    card.addEventListener("pointercancel", function () {
-      drag = null;
-      card.style.transition = "";
-      card.style.transform = "";
-    });
-  }
-  function stepDeck(dir) {
+    var outgoing = stack.front;
+    var rising = stack.back1;
+    var deeper = stack.back2;
+    var fresh = buildCard(deckIndex + 3);
     var stage = document.getElementById("deck-stage");
-    var fromStage = stage && stage.contains(document.activeElement);
-    deckIndex = (deckIndex + dir + items.length) % items.length;
-    renderDeck();
-    if (fromStage) {
-      var card = document.querySelector("#deck-stage .front");
-      if (card) card.focus();
+    placeCard(fresh, "back2");
+    fresh.style.opacity = "0";
+    stage.appendChild(fresh);
+    deckIndex = deckMod(deckIndex + 1);
+    paintDeckChrome();
+    outgoing.setAttribute("data-leaving", "1");
+    outgoing.style.pointerEvents = "none";
+    var ease = deckEase();
+    [outgoing, rising, deeper, fresh].forEach(function (c) { c.style.transition = ease; });
+    var off = -Math.round(deckWidth() * 1.28);
+    var gen = ++motionGen;
+    outgoing.classList.remove("front");
+    outgoing.setAttribute("aria-hidden", "true");
+    rising.classList.add("front");
+    rising.removeAttribute("aria-hidden");
+    requestAnimationFrame(function () {
+      if (gen !== motionGen) return;
+      outgoing.style.transform = "translate3d(" + off + "px, 36px, 0) rotate(-10deg) scale(1)";
+      outgoing.style.opacity = "0";
+      outgoing.style.zIndex = "4";
+      rising.style.transform = "translate3d(0,0,0) rotate(0deg) scale(1)";
+      rising.style.opacity = "1";
+      rising.style.zIndex = "3";
+      deeper.style.transform = "translate3d(0,12px,0) rotate(0deg) scale(0.95)";
+      deeper.style.opacity = "1";
+      deeper.style.zIndex = "2";
+      fresh.style.opacity = "0.55";
+    });
+    startMotion(function () {
+      if (outgoing.parentNode) outgoing.remove();
+      placeCard(rising, "front");
+      placeCard(deeper, "back1");
+      placeCard(fresh, "back2");
+      stack = { front: rising, back1: deeper, back2: fresh };
+      syncDeckFade(rising);
+      document.querySelectorAll("#deck-stage .meter-track > span").forEach(function (s) { s.classList.add("go"); });
+    });
+  }
+  function commitBack(existing) {
+    if (!stack.front) return;
+    if (deckMotion) deckMotion.finish();
+    if (reduce) {
+      deckIndex = deckMod(deckIndex - 1);
+      renderDeck();
+      return;
     }
+    var current = stack.front;
+    var mid = stack.back1;
+    var deep = stack.back2;
+    var stage = document.getElementById("deck-stage");
+    var incoming = existing || null;
+    if (incoming) incoming.removeAttribute("data-cancel");
+    if (!incoming) {
+      incoming = buildCard(deckIndex - 1);
+      incoming.style.transition = "none";
+      incoming.style.zIndex = "5";
+      incoming.style.opacity = "1";
+      incoming.style.transform = "translate3d(" + (-Math.round(deckWidth() * 1.28)) + "px, 36px, 0) rotate(-10deg) scale(1)";
+      stage.appendChild(incoming);
+      void incoming.offsetWidth;
+    }
+    deckIndex = deckMod(deckIndex - 1);
+    paintDeckChrome();
+    var ease = deckEase();
+    [incoming, current, mid, deep].forEach(function (c) { if (c) c.style.transition = ease; });
+    var gen = ++motionGen;
+    current.classList.remove("front");
+    current.setAttribute("aria-hidden", "true");
+    incoming.classList.add("front");
+    incoming.removeAttribute("aria-hidden");
+    requestAnimationFrame(function () {
+      if (gen !== motionGen) return;
+      incoming.style.transform = "translate3d(0,0,0) rotate(0deg) scale(1)";
+      incoming.style.opacity = "1";
+      incoming.style.zIndex = "5";
+      current.style.transform = "translate3d(0,12px,0) rotate(0deg) scale(0.95)";
+      current.style.opacity = "1";
+      current.style.zIndex = "2";
+      mid.style.transform = "translate3d(0,22px,0) rotate(0deg) scale(0.91)";
+      mid.style.opacity = "0.55";
+      mid.style.zIndex = "1";
+      if (deep) deep.style.opacity = "0";
+    });
+    startMotion(function () {
+      if (deep && deep.parentNode) deep.remove();
+      placeCard(incoming, "front");
+      placeCard(current, "back1");
+      placeCard(mid, "back2");
+      stack = { front: incoming, back1: current, back2: mid };
+      syncDeckFade(incoming);
+      document.querySelectorAll("#deck-stage .meter-track > span").forEach(function (s) { s.classList.add("go"); });
+    });
+  }
+  function springCancel(incoming) {
+    var ease = "transform " + DECK_MS + "ms cubic-bezier(0.22, 1.15, 0.36, 1), opacity 300ms ease";
+    var gen = ++motionGen;
+    var front = stack.front;
+    var back1 = stack.back1;
+    if (front) front.style.transition = ease;
+    if (back1) back1.style.transition = ease;
+    if (incoming) {
+      incoming.setAttribute("data-cancel", "1");
+      incoming.style.transition = ease;
+    }
+    requestAnimationFrame(function () {
+      if (gen !== motionGen) return;
+      if (front) {
+        front.style.transform = "translate3d(0,0,0) rotate(0deg) scale(1)";
+        front.style.opacity = "1";
+      }
+      if (back1) back1.style.transform = "translate3d(0,12px,0) rotate(0deg) scale(0.95)";
+      if (incoming && incoming.getAttribute("data-cancel") === "1") {
+        incoming.style.transform = "translate3d(" + (-Math.round(deckWidth() * 1.2)) + "px, 28px, 0) rotate(-10deg) scale(1)";
+        incoming.style.opacity = "0";
+      }
+    });
+    if (incoming) {
+      setTimeout(function () {
+        if (incoming.getAttribute("data-cancel") === "1" && incoming.parentNode) incoming.remove();
+      }, DECK_MS + 40);
+    }
+  }
+  function paintNextDrag(dx) {
+    var w = deckWidth();
+    var rot = Math.max(-12, Math.min(12, dx / w * 14));
+    stack.front.style.transition = "none";
+    stack.front.style.transform = "translate3d(" + dx + "px,0,0) rotate(" + rot + "deg) scale(1)";
+    var p = Math.max(0, Math.min(1, -dx / (w * 0.9)));
+    var y = 12 * (1 - p);
+    var s = 0.95 + 0.05 * p;
+    stack.back1.style.transition = "none";
+    stack.back1.style.transform = "translate3d(0," + y + "px,0) rotate(0deg) scale(" + s + ")";
+    stack.back1.style.opacity = "1";
+  }
+  function paintBackDrag(dx) {
+    if (!deckDrag.incoming) {
+      var card = buildCard(deckIndex - 1);
+      card.style.transition = "none";
+      card.style.zIndex = "5";
+      card.style.opacity = "1";
+      document.getElementById("deck-stage").appendChild(card);
+      deckDrag.incoming = card;
+    }
+    var w = deckWidth();
+    var p = Math.max(0, Math.min(1, dx / (w * 0.9)));
+    var x = -w * 1.28 * (1 - p);
+    var rot = -10 * (1 - p);
+    deckDrag.incoming.style.transform = "translate3d(" + x + "px," + (32 * (1 - p)) + "px,0) rotate(" + rot + "deg) scale(1)";
+    stack.front.style.transition = "none";
+    stack.front.style.transform = "translate3d(0," + (12 * p) + "px,0) rotate(0deg) scale(" + (1 - 0.05 * p) + ")";
+  }
+  function dropStrays() {
+    var stage = document.getElementById("deck-stage");
+    if (!stage) return;
+    stage.querySelectorAll(".deck-card").forEach(function (c) {
+      if (c !== stack.front && c !== stack.back1 && c !== stack.back2) c.remove();
+    });
+  }
+  function dragFrame() {
+    deckRaf = 0;
+    if (!deckDrag || reduce || !deckDrag.locked || deckDrag.scroll) return;
+    var dx = deckDrag.x - deckDrag.sx;
+    if (deckDrag.mode === "next") paintNextDrag(dx);
+    else paintBackDrag(dx);
+  }
+  function lockDrag() {
+    if (!deckDrag || deckDrag.locked) return;
+    var dx = deckDrag.x - deckDrag.sx;
+    var dy = deckDrag.y - deckDrag.sy;
+    if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+    deckDrag.locked = true;
+    var onWhy = deckDrag.target && deckDrag.target.closest && deckDrag.target.closest(".deck-why");
+    if (Math.abs(dy) > Math.abs(dx) && onWhy) {
+      deckDrag.scroll = true;
+      return;
+    }
+    deckDrag.mode = dx < 0 ? "next" : "back";
+    try { document.getElementById("deck-stage").setPointerCapture(deckDrag.id); } catch (err) {}
+  }
+  function onDeckPointerDown(e) {
+    if (!deckOn || document.documentElement.classList.contains("sheet-open")) return;
+    if (!stack.front || (e.target.closest && e.target.closest("a, button"))) return;
+    if (deckMotion) deckMotion.finish();
+    var front = stack.front;
+    if (!front) return;
+    var r = front.getBoundingClientRect();
+    if (e.clientX < r.left - 4 || e.clientX > r.right + 4 || e.clientY < r.top - 4 || e.clientY > r.bottom + 4) return;
+    motionGen += 1;
+    dropStrays();
+    deckDrag = {
+      id: e.pointerId,
+      sx: e.clientX,
+      sy: e.clientY,
+      x: e.clientX,
+      y: e.clientY,
+      lx: e.clientX,
+      lt: performance.now(),
+      vx: 0,
+      locked: false,
+      scroll: false,
+      mode: "",
+      incoming: null,
+      target: e.target
+    };
+  }
+  function onDeckPointerMove(e) {
+    if (!deckDrag || deckDrag.id !== e.pointerId) return;
+    var now = performance.now();
+    var dt = now - deckDrag.lt;
+    if (dt > 0) deckDrag.vx = (e.clientX - deckDrag.lx) / dt;
+    deckDrag.lx = e.clientX;
+    deckDrag.lt = now;
+    deckDrag.x = e.clientX;
+    deckDrag.y = e.clientY;
+    if (reduce) return;
+    lockDrag();
+    if (deckDrag.scroll || !deckDrag.locked) return;
+    if (!deckRaf) deckRaf = requestAnimationFrame(dragFrame);
+  }
+  function onDeckPointerUp(e) {
+    if (!deckDrag || deckDrag.id !== e.pointerId) return;
+    try { document.getElementById("deck-stage").releasePointerCapture(e.pointerId); } catch (err) {}
+    deckDrag.x = e.clientX;
+    deckDrag.y = e.clientY;
+    if (deckRaf) { cancelAnimationFrame(deckRaf); deckRaf = 0; dragFrame(); }
+    var dx = deckDrag.x - deckDrag.sx;
+    var locked = deckDrag.locked;
+    var scroll = deckDrag.scroll;
+    var vx = deckDrag.vx;
+    var incoming = deckDrag.incoming;
+    var target = deckDrag.target;
+    deckDrag = null;
+    if (reduce) {
+      if (dx <= -30) commitNext();
+      else if (dx >= 30) commitBack();
+      return;
+    }
+    if (scroll) return;
+    var w = deckWidth();
+    var commit = Math.abs(dx) > w * 0.3 || Math.abs(vx) > 0.55;
+    var dir = Math.abs(dx) >= 8 ? Math.sign(dx) : (Math.abs(vx) > 0.55 ? Math.sign(vx) : 0);
+    if (commit && dir < 0) { commitNext(); return; }
+    if (commit && dir > 0) { commitBack(incoming); return; }
+    if (locked || incoming) { springCancel(incoming); return; }
+    if (target && !(target.closest && target.closest(".deck-why, a, button"))) {
+      var item = items[+stack.front.dataset.deckIndex];
+      if (item) openDetail(item.id);
+    }
+  }
+  function onDeckPointerCancel(e) {
+    if (!deckDrag || deckDrag.id !== e.pointerId) return;
+    var incoming = deckDrag.incoming;
+    deckDrag = null;
+    if (deckRaf) { cancelAnimationFrame(deckRaf); deckRaf = 0; }
+    springCancel(incoming);
+  }
+  document.addEventListener("pointerdown", onDeckPointerDown, true);
+  document.addEventListener("pointermove", onDeckPointerMove, true);
+  document.addEventListener("pointerup", onDeckPointerUp, true);
+  document.addEventListener("pointercancel", onDeckPointerCancel, true);
+  function stepDeck(dir) {
+    if (dir > 0) commitNext();
+    else if (dir < 0) commitBack();
   }
   function openDeck() {
     deckOn = true;

@@ -1,5 +1,9 @@
 # Changelog
 
+## October 16, 2026 — card stack swipe
+
+A committed swipe keeps the top card moving off the screen, with a slight tilt, until it is gone. The card behind rises into that spot. Back brings the previous card in from the left. A short swipe springs back. Next and Back use the same motion.
+
 ## October 16, 2026 — flip cards fill the phone
 
 Flip through now uses the space under the top bar. Each card has the reason on it. Measures lead with the proposition number and a large Yes or No. Local no-picks list the candidate names and say to check the sample ballot. Back sits beside Next, and a thin bar shows how far you are in the stack.
