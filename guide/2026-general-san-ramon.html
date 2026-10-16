@@ -714,14 +714,37 @@ footer a { color: var(--accent); }
     radial-gradient(60% 40% at 100% 80%, rgba(196, 132, 78, 0.28), transparent 55%),
     #0c1424;
 }
-.deck-bar, .deck-stage, .deck-hint { position: relative; z-index: 1; }
+.deck {
+  height: 100dvh;
+  max-height: 100dvh;
+  padding-top: env(safe-area-inset-top);
+}
+.deck-progress, .deck-bar, .deck-stage, .deck-hint { position: relative; z-index: 1; }
+.deck-progress {
+  flex: none;
+  height: 2px;
+  margin: 8px 16px 0;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.16);
+  overflow: hidden;
+}
+.deck-progress > span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: #f4f1ea;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
 .deck-bar {
+  flex: none;
   display: grid;
   grid-template-columns: 44px 1fr auto;
   align-items: center;
   gap: 8px;
-  padding: calc(8px + env(safe-area-inset-top)) 12px 0;
-  min-height: calc(52px + env(safe-area-inset-top));
+  padding: 8px 12px 0;
+  min-height: 52px;
 }
 .deck-bar .icon-btn {
   justify-self: start;
@@ -729,8 +752,8 @@ footer a { color: var(--accent); }
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.16);
 }
+.deck-actions { display: flex; gap: 8px; justify-self: end; }
 .deck-next {
-  justify-self: end;
   min-height: 44px;
   padding: 0 16px;
   border-radius: 999px;
@@ -742,38 +765,123 @@ footer a { color: var(--accent); }
 }
 .deck-count { margin: 0; text-align: center; font-size: 13px; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: var(--hero-dim); }
 .deck-stage {
-  flex: 1;
-  margin: 8px 28px 8px;
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 8px 14px 6px;
   position: relative;
 }
 .deck-card {
   position: absolute;
-  left: 0; right: 0; top: 18px;
+  left: 0; right: 0;
+  display: flex;
+  flex-direction: column;
   border-radius: 28px;
   background: var(--card);
   color: var(--ink);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-  padding: 22px 20px 20px;
-  transform-origin: center top;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
 }
-.deck-card.back2 { transform: translateY(28px) scale(0.9); opacity: 0.35; }
-.deck-card.back1 { transform: translateY(14px) scale(0.95); opacity: 0.62; }
-.deck-card.front { top: 0; touch-action: none; }
+.deck-card.back2 { top: 0; left: 18px; right: 18px; bottom: 20px; opacity: 0.28; }
+.deck-card.back1 { top: 7px; left: 9px; right: 9px; bottom: 10px; opacity: 0.5; }
+.deck-card.front { top: 14px; bottom: 0; z-index: 2; }
 .deck-card h2 {
-  margin: 8px 0 0;
+  margin: 2px 0 0;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
-  font-size: 34px;
-  line-height: 1.05;
+  font-size: clamp(28px, 8vw, 40px);
+  line-height: 1.02;
   font-weight: 700;
   letter-spacing: -0.045em;
 }
-.deck-card .sheet-kicker { color: var(--tertiary); }
-.deck-card .who { font-size: 26px; }
-.deck-card .duel { margin-top: 20px; }
-.deck-card .side { min-height: 92px; }
-.deck-hint {
+.deck-head { flex: none; padding: 18px 20px 0; }
+.deck-kicker {
   margin: 0;
-  padding: 8px 24px calc(16px + env(safe-area-inset-bottom));
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tertiary);
+}
+.deck-meta { display: flex; align-items: center; gap: 8px; margin-top: 10px; min-height: 28px; }
+.deck-card .meters { margin: 14px 20px 0; gap: 8px; flex: none; }
+.deck-card .meter-track { height: 4px; }
+.deck-num {
+  margin: 6px 0 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+  font-size: clamp(56px, 16vw, 88px);
+  line-height: 0.86;
+  font-weight: 700;
+  letter-spacing: -0.055em;
+}
+.deck-measure-title {
+  margin: 8px 0 0;
+  font-size: 18px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+.deck-vote {
+  margin: 8px 0 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+  font-size: clamp(36px, 10vw, 56px);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+.deck-vote.yes { color: var(--yes-ink); }
+.deck-vote.no { color: var(--no-ink); }
+.deck-names { list-style: none; margin: 14px 20px 0; padding: 0; flex: none; }
+.deck-names li {
+  padding: 9px 0;
+  border-top: 0.5px solid var(--sep);
+  font-size: 17px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+.deck-note { margin: 8px 20px 0; color: var(--secondary); font-size: 13px; font-weight: 600; flex: none; }
+.deck-body { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; margin-top: 14px; }
+.deck-why-kicker {
+  flex: none;
+  margin: 0 20px 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tertiary);
+}
+.deck-scroll { flex: 1 1 auto; min-height: 0; position: relative; }
+.deck-why {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+  padding: 0 20px 16px;
+  font-size: 17px;
+  line-height: 1.45;
+  scrollbar-width: none;
+}
+.deck-why::-webkit-scrollbar { display: none; }
+.deck-fade {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 32px;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent, var(--card));
+}
+.deck-foot {
+  flex: none;
+  margin: 0;
+  padding: 8px 20px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tertiary);
+}
+.deck-hint {
+  flex: none;
+  margin: 0;
+  padding: 6px 24px calc(12px + env(safe-area-inset-bottom));
   text-align: center;
   color: var(--hero-dim);
   font-size: 13px;
@@ -1040,7 +1148,7 @@ input[type="range"]:focus-visible::-moz-range-thumb {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .sheet, .scrim, .nav, .nav-title, .tally-fill, .bar > span, .meter-track > span,
-  .match, .measure, .quiet, .film, .deck-card, #sections, .seg-ind, .modepill-ind,
+  .match, .measure, .quiet, .film, .deck-card, .deck-progress > span, #sections, .seg-ind, .modepill-ind,
   .theme-ico .sun, .theme-ico .moon { transition: none !important; animation: none !important; }
 }
 </style>
@@ -1119,15 +1227,19 @@ input[type="range"]:focus-visible::-moz-range-thumb {
 </main>
 <div class="deck" id="deck" hidden role="dialog" aria-modal="true" aria-labelledby="deck-count">
   <div class="deck-mesh" aria-hidden="true"></div>
+  <div class="deck-progress" aria-hidden="true"><span id="deck-progress"></span></div>
   <div class="deck-bar">
     <button type="button" class="icon-btn" id="deck-close" aria-label="Close">
       <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg>
     </button>
     <p class="deck-count" id="deck-count">1 of 32</p>
-    <button type="button" class="deck-next" id="deck-next">Next</button>
+    <div class="deck-actions">
+      <button type="button" class="deck-next" id="deck-back">Back</button>
+      <button type="button" class="deck-next" id="deck-next">Next</button>
+    </div>
   </div>
   <div class="deck-stage" id="deck-stage"></div>
-  <p class="deck-hint">Swipe the card. Tap it for the reason.</p>
+  <p class="deck-hint">Swipe the card.</p>
 </div>
 <div class="scrim" id="scrim" hidden aria-hidden="true"></div>
 <div class="sheet" id="detail" role="dialog" aria-modal="true" aria-labelledby="detail-title" hidden>
@@ -2038,65 +2150,161 @@ input[type="range"]:focus-visible::-moz-range-thumb {
     btn.setAttribute("aria-label", dark ? "Use light theme" : "Use dark theme");
     applyChromeColor(document.getElementById("nav").classList.contains("is-collapsed"));
   }
+  function ballotNames(text) {
+    var out = [];
+    var re = /([A-Z](?:[a-z'’\-]+|\.)(?:\s+[A-Z](?:[a-z'’\-]+|\.)){0,3})\s+\(/g;
+    var m;
+    while ((m = re.exec(text || ""))) {
+      if (out.indexOf(m[1]) < 0) out.push(m[1]);
+    }
+    return out;
+  }
+  function deckWhy(item, v) {
+    if (item.kind === "race") {
+      if (mode === "owner") {
+        var text = item.ownerWhy;
+        if (v.pick !== item.pick) text += " Your weights pick " + v.pick + ". The explanation above is the saved-weight pick, " + item.pick + ".";
+        return text;
+      }
+      if (v.pick === "No pick") return "Under these weights, the scores are too close for a pick. " + item.publicWhy;
+      return item.publicWhy;
+    }
+    return mode === "owner" ? item.ownerWhy : item.publicWhy;
+  }
+  function sourceCount(item) {
+    var n = item.sources ? item.sources.length : 0;
+    return n === 1 ? "1 source" : n + " sources";
+  }
+  function fillDeckCard(card, item, v) {
+    var head = el("div", "deck-head");
+    if (item.kind === "measure") {
+      head.appendChild(el("p", "deck-kicker", "Measure"));
+      head.appendChild(el("p", "deck-num", measureNum(item)));
+      head.appendChild(el("p", "deck-measure-title", shortTitle(item)));
+      var vote = el("p", "deck-vote " + (v.pick === "Yes" ? "yes" : "no"), v.pick === "Yes" ? "Yes" : "No");
+      head.appendChild(vote);
+      if (v.conf) {
+        var meta = el("div", "deck-meta");
+        meta.appendChild(pill(v.confK, v.conf));
+        head.appendChild(meta);
+      }
+    } else if (item.tab === "local") {
+      head.appendChild(el("p", "deck-kicker", item.office));
+      head.appendChild(el("h2", "", "No pick"));
+      card.appendChild(head);
+      var names = ballotNames(item.ballot);
+      if (names.length) {
+        var list = el("ul", "deck-names");
+        names.forEach(function (name) { list.appendChild(el("li", "", name)); });
+        card.appendChild(list);
+      }
+      card.appendChild(el("p", "deck-note", "Check your sample ballot"));
+      head = null;
+    } else {
+      head.appendChild(el("p", "deck-kicker", item.office));
+      head.appendChild(el("h2", "", headline(item, v)));
+      if (v.conf) {
+        var badge = el("div", "deck-meta");
+        badge.appendChild(pill(v.confK, v.conf));
+        head.appendChild(badge);
+      }
+    }
+    if (head) card.appendChild(head);
+    if (item.kind === "race") addMeters(card, v);
+    var body = el("div", "deck-body");
+    body.appendChild(el("p", "deck-why-kicker", "Why"));
+    var scroll = el("div", "deck-scroll");
+    var why = el("div", "deck-why");
+    why.textContent = deckWhy(item, v);
+    scroll.appendChild(why);
+    var fade = el("div", "deck-fade");
+    fade.hidden = true;
+    scroll.appendChild(fade);
+    body.appendChild(scroll);
+    card.appendChild(body);
+    card.appendChild(el("p", "deck-foot", sourceCount(item)));
+  }
+  function syncDeckFade(card) {
+    var why = card.querySelector(".deck-why");
+    var fade = card.querySelector(".deck-fade");
+    if (!why || !fade) return;
+    var more = why.scrollHeight - why.scrollTop - why.clientHeight > 8;
+    fade.hidden = !more;
+  }
   function renderDeck() {
     var stage = document.getElementById("deck-stage");
     var n = items.length;
     document.getElementById("deck-count").textContent = (deckIndex + 1) + " of " + n;
+    var bar = document.getElementById("deck-progress");
+    if (bar) bar.style.transform = "scaleX(" + ((deckIndex + 1) / n) + ")";
     stage.replaceChildren();
     [2, 1, 0].forEach(function (depth) {
       var item = items[(deckIndex + depth) % n];
       var v = viewOf(item);
       var card = el("div", "deck-card " + (depth === 0 ? "front" : depth === 1 ? "back1" : "back2"));
-      card.appendChild(el("p", "sheet-kicker", item.kind === "measure" ? "Measure" : item.kind === "local" ? "Local" : "Office"));
-      card.appendChild(el("h2", "", headline(item, v)));
-      card.appendChild(el("p", "ballot-line", item.office));
-      if (item.kind === "race") addMeters(card, v);
-      else if (v.conf) {
-        var row = el("div", "pickrow");
-        row.appendChild(pill(v.confK, v.conf));
-        card.appendChild(row);
-      }
+      if (depth !== 0) card.setAttribute("aria-hidden", "true");
+      fillDeckCard(card, item, v);
       if (depth === 0) {
-        card.tabIndex = 0;
-        card.setAttribute("role", "button");
         card.addEventListener("keydown", function (e) {
           if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openDetail(item.id); }
         });
         bindDeckSwipe(card, item.id);
+        card.querySelector(".deck-why").addEventListener("scroll", function () { syncDeckFade(card); }, { passive: true });
       }
       stage.appendChild(card);
     });
     requestAnimationFrame(function () {
       stage.querySelectorAll(".meter-track > span").forEach(function (s) { s.classList.add("go"); });
+      var front = stage.querySelector(".front");
+      if (front) syncDeckFade(front);
     });
   }
   function bindDeckSwipe(card, id) {
     var drag = null;
     card.addEventListener("pointerdown", function (e) {
       if (e.target.closest("a, button")) return;
-      drag = { x: e.clientX, y: e.clientY };
+      drag = { x: e.clientX, y: e.clientY, id: e.pointerId, locked: false, scroll: false };
       card.dataset.drag = "0";
-      card.style.transition = "none";
-      card.setPointerCapture(e.pointerId);
     });
     card.addEventListener("pointermove", function (e) {
-      if (!drag || reduce) return;
+      if (!drag || drag.id !== e.pointerId || reduce) return;
       var dx = e.clientX - drag.x;
-      if (Math.abs(dx) > 10) card.dataset.drag = "1";
-      card.style.transform = "translateX(" + dx + "px) rotate(" + (dx / 30) + "deg)";
+      var dy = e.clientY - drag.y;
+      if (!drag.locked) {
+        if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+        drag.locked = true;
+        if (Math.abs(dy) > Math.abs(dx) && e.target.closest(".deck-why")) {
+          drag.scroll = true;
+          return;
+        }
+        try { card.setPointerCapture(e.pointerId); } catch (err) {}
+        card.style.transition = "none";
+      }
+      if (drag.scroll) return;
+      card.dataset.drag = "1";
+      card.style.transform = "translate3d(" + dx + "px, 0, 0) rotate(" + (dx / 42) + "deg)";
     });
     function end(e) {
-      if (!drag) return;
+      if (!drag || (e && drag.id !== e.pointerId)) return;
       var dx = e.clientX - drag.x;
+      var scrolled = drag.scroll;
+      drag = null;
+      if (dx <= -64) { card.style.transform = ""; stepDeck(1); return; }
+      if (dx >= 64) { card.style.transform = ""; stepDeck(-1); return; }
+      if (scrolled || card.dataset.drag === "1") {
+        card.style.transition = "transform 0.48s cubic-bezier(0.22, 1.15, 0.36, 1)";
+        card.style.transform = "";
+        return;
+      }
+      card.style.transform = "";
+      if (!e.target.closest(".deck-why")) openDetail(id);
+    }
+    card.addEventListener("pointerup", end);
+    card.addEventListener("pointercancel", function () {
       drag = null;
       card.style.transition = "";
       card.style.transform = "";
-      if (dx <= -64) stepDeck(1);
-      else if (dx >= 64) stepDeck(-1);
-      else if (card.dataset.drag !== "1") openDetail(id);
-    }
-    card.addEventListener("pointerup", end);
-    card.addEventListener("pointercancel", function () { drag = null; card.style.transform = ""; });
+    });
   }
   function stepDeck(dir) {
     var stage = document.getElementById("deck-stage");
@@ -2127,6 +2335,7 @@ input[type="range"]:focus-visible::-moz-range-thumb {
 
   document.getElementById("flip-open").addEventListener("click", openDeck);
   document.getElementById("deck-close").addEventListener("click", closeDeck);
+  document.getElementById("deck-back").addEventListener("click", function () { stepDeck(-1); });
   document.getElementById("deck-next").addEventListener("click", function () { stepDeck(1); });
   document.getElementById("adjust").addEventListener("click", openAdjust);
   document.getElementById("detail-close").addEventListener("click", hideSheets);

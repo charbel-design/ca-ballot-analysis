@@ -1,5 +1,9 @@
 # Changelog
 
+## October 16, 2026 — flip cards fill the phone
+
+Flip through now uses the space under the top bar. Each card has the reason on it. Measures lead with the proposition number and a large Yes or No. Local no-picks list the candidate names and say to check the sample ballot. Back sits beside Next, and a thin bar shows how far you are in the stack.
+
 ## October 16, 2026 — drawn controls
 
 Once a device has opened the private link, the hero keeps a My ballot | Public switch on screen. The public page does not show it. Theme, Adjust, and Close are drawn controls. The sliders use a custom track, thumb, and value. Offices, Measures, and Local slide an indicator, and the list fades and slides with transform and opacity. Sheets still spring open. Card edges are a hairline so the list does not repaint a large shadow while scrolling.
