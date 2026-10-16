@@ -1,5 +1,9 @@
 # Changelog
 
+## October 15, 2026 — public-share pass
+
+The phone guide now sends no referrer, keeps a tight content-security policy, and only opens outside links with `noopener` and `noreferrer`. The private link is still a hash, not a login. Countdown days use Pacific time. Muted text is darker so it meets contrast AA, and the sheets trap keyboard focus. The city district lookup points at the city’s current map. A preview image is included for messages.
+
 ## October 15, 2026 — a ballot you can flip through
 
 The phone guide now opens on a full-screen date, then matchup cards instead of a settings list. Measures show the proposition number and a Yes or No. A tally fills as the page scrolls. Flip through is an optional card stack. The weights, both views, and the private link are unchanged.
