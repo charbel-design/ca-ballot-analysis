@@ -143,7 +143,7 @@ button {
 .modepill :focus-visible {
   box-shadow: 0 0 0 2px #0c1424, 0 0 0 4px #f4f1ea;
 }
-.nav.is-collapsed :focus-visible {
+.nav.is-page :focus-visible {
   box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
 }
 html, .sheet-body {
@@ -180,13 +180,18 @@ html, .sheet-body {
   justify-content: space-between;
   background: transparent;
   color: var(--hero-ink);
-  transition: background 0.35s var(--ease), color 0.35s var(--ease);
+  transition: color 0.25s var(--ease);
 }
 .nav.is-collapsed {
-  background: var(--nav);
+  background: var(--hero);
+  color: var(--hero-ink);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: inset 0 -0.5px 0 rgba(255, 255, 255, 0.16);
+}
+.nav.is-collapsed.is-page {
+  background: var(--bg);
   color: var(--nav-ink);
-  backdrop-filter: saturate(180%) blur(22px);
-  -webkit-backdrop-filter: saturate(180%) blur(22px);
   box-shadow: inset 0 -0.5px 0 var(--sep);
 }
 .nav-hit {
@@ -221,7 +226,7 @@ html, .sheet-body {
   background: rgba(255, 255, 255, 0.1);
   border: 0.5px solid rgba(255, 255, 255, 0.16);
 }
-.nav.is-collapsed .icon-btn {
+.nav.is-page .icon-btn {
   color: var(--ink);
   background: var(--fill);
   border-color: transparent;
@@ -462,6 +467,12 @@ html[data-unlocked="true"] .stick { top: calc(var(--nav-h) + 64px); }
   gap: 12px;
   padding: 8px 20px 0;
 }
+.glance-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+}
 .glance-title {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
@@ -469,6 +480,14 @@ html[data-unlocked="true"] .stick { top: calc(var(--nav-h) + 64px); }
   line-height: 1.1;
   font-weight: 700;
   letter-spacing: -0.035em;
+}
+.glance-n {
+  color: var(--tertiary);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
 }
 .flip-btn {
   flex: none;
@@ -491,24 +510,39 @@ html[data-unlocked="true"] .stick { top: calc(var(--nav-h) + 64px); }
   font-size: 15px;
   line-height: 1.35;
 }
+.chips-wrap { position: relative; }
+.chips-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: calc(36px + var(--peek, 0px));
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(232, 234, 239, 0), var(--bg) 72%);
+  transition: opacity 0.2s var(--ease);
+}
+.chips-wrap.is-end::after { opacity: 0; }
 .chips {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding: 8px 16px 4px;
+  scroll-padding-left: 20px;
+  padding: 10px 20px 8px;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
   scrollbar-width: none;
 }
-.chips::-webkit-scrollbar { display: none; }
+.chips::-webkit-scrollbar { display: none; width: 0; height: 0; }
 .film {
-  flex: none;
+  flex: 0 0 auto;
+  width: max-content;
+  max-width: 156px;
   scroll-snap-align: start;
-  width: 148px;
-  min-height: 84px;
-  padding: 12px 14px;
+  padding: 6px 10px 7px;
   border: 0;
-  border-radius: 18px;
+  border-radius: 14px;
   background: var(--card);
   box-shadow: var(--shadow);
   text-align: left;
@@ -517,28 +551,57 @@ html[data-unlocked="true"] .stick { top: calc(var(--nav-h) + 64px); }
 .film:active { transform: scale(0.98); }
 .film .eye {
   display: block;
-  font-size: 11px;
+  max-width: 136px;
+  font-size: 10px;
   font-weight: 650;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--tertiary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.chip-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
 .film .chip-pick {
   display: block;
-  margin-top: 8px;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 680;
   letter-spacing: -0.03em;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+}
+.cdot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex: none;
+  background: var(--tertiary);
+}
+.film.high .cdot { background: var(--accent); }
+.film.med .cdot { background: #a8843f; }
+.film.low .cdot { background: #8b919c; }
+.film.none .cdot {
+  background: transparent;
+  box-shadow: inset 0 0 0 1.25px var(--tertiary);
+}
+.film.yes {
+  background:
+    linear-gradient(180deg, var(--yes-bg), transparent 72%),
+    var(--card);
+}
+.film.no {
+  background:
+    linear-gradient(180deg, var(--no-bg), transparent 72%),
+    var(--card);
 }
 .film.yes .chip-pick { color: var(--yes-ink); }
 .film.no .chip-pick { color: var(--no-ink); }
+[data-theme="dark"] .film.med .cdot { background: #e0b07a; }
 
 .sec { padding-top: 8px; }
 .sec-label {
@@ -1218,11 +1281,16 @@ input[type="range"]:focus-visible::-moz-range-thumb {
 <main class="wrap" id="list">
   <div class="glance">
     <div class="glance-head">
-      <h2 class="glance-title" id="glance-title">At a glance</h2>
+      <div class="glance-title-row">
+        <h2 class="glance-title" id="glance-title">At a glance</h2>
+        <span class="glance-n" id="glance-n">32</span>
+      </div>
       <button type="button" class="flip-btn" id="flip-open" aria-haspopup="dialog"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="8" y="4" width="11" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"></rect><path d="M5 7.5V18a2 2 0 0 0 2 2h8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>Flip through</button>
     </div>
     <p class="intro" id="intro"></p>
-    <div class="chips" id="chips"></div>
+    <div class="chips-wrap" id="chips-wrap">
+      <div class="chips" id="chips"></div>
+    </div>
   </div>
   <div id="sections"></div>
   <footer id="footer"></footer>
@@ -1602,11 +1670,21 @@ input[type="range"]:focus-visible::-moz-range-thumb {
   function fillChip(btn, item) {
     var v = viewOf(item);
     btn.replaceChildren();
-    var kind = item.kind === "measure" ? (v.pick === "Yes" ? "yes" : "no") : "";
+    var kind = "";
+    if (item.kind === "measure") kind = v.pick === "Yes" ? "yes" : "no";
+    else if (!v.pick || v.pick === "No pick") kind = "none";
+    else kind = v.confK || "med";
     btn.className = "film" + (kind ? " " + kind : "");
     var label = item.kind === "measure" ? (measureNum(item) === "RTM" ? "RTM" : "Prop " + measureNum(item)) : item.office;
     btn.appendChild(el("span", "eye", label));
-    btn.appendChild(el("span", "chip-pick", v.pick));
+    var row = el("span", "chip-row");
+    row.appendChild(el("span", "chip-pick", v.pick));
+    if (item.kind !== "measure") {
+      var dot = el("span", "cdot");
+      dot.setAttribute("aria-hidden", "true");
+      row.appendChild(dot);
+    }
+    btn.appendChild(row);
   }
 
   function makeCard(item) {
@@ -1618,8 +1696,45 @@ input[type="range"]:focus-visible::-moz-range-thumb {
     btn.addEventListener("click", function () { openDetail(item.id); });
     return btn;
   }
+  function syncChipFade() {
+    var box = document.getElementById("chips");
+    var wrap = document.getElementById("chips-wrap");
+    if (!box || !wrap) return;
+    var end = box.scrollLeft + box.clientWidth >= box.scrollWidth - 2;
+    wrap.classList.toggle("is-end", end);
+  }
+  function tunePeek() {
+    var box = document.getElementById("chips");
+    var wrap = document.getElementById("chips-wrap");
+    if (!box || !wrap || !box.firstElementChild) return;
+    var chosen = 0;
+    var found = false;
+    var bestScore = -1;
+    var bestInset = 0;
+    for (var inset = 0; inset <= 72; inset += 2) {
+      box.style.marginRight = inset + "px";
+      var edge = box.getBoundingClientRect().right;
+      var nodes = box.querySelectorAll(".film");
+      var hit = null;
+      for (var i = 0; i < nodes.length; i++) {
+        var r = nodes[i].getBoundingClientRect();
+        if (r.left < edge - 1 && r.right > edge + 1) { hit = r; break; }
+      }
+      if (!hit) continue;
+      var shown = edge - hit.left;
+      var hidden = hit.right - edge;
+      if (shown >= 22 && hidden >= 22) { chosen = inset; found = true; break; }
+      var score = Math.min(shown, hidden);
+      if (score > bestScore) { bestScore = score; bestInset = inset; }
+    }
+    if (!found && bestScore >= 0) chosen = bestInset;
+    box.style.marginRight = chosen + "px";
+    wrap.style.setProperty("--peek", chosen + "px");
+  }
   function renderChips() {
     var box = document.getElementById("chips");
+    var count = document.getElementById("glance-n");
+    if (count) count.textContent = String(items.length);
     box.replaceChildren();
     items.forEach(function (item) {
       var b = document.createElement("button");
@@ -1629,6 +1744,9 @@ input[type="range"]:focus-visible::-moz-range-thumb {
       b.addEventListener("click", function () { openDetail(item.id); });
       box.appendChild(b);
     });
+    box.scrollLeft = 0;
+    tunePeek();
+    syncChipFade();
   }
   function sectionNotes(name) {
     var wrap = el("div", "");
@@ -2150,7 +2268,7 @@ input[type="range"]:focus-visible::-moz-range-thumb {
     var btn = document.getElementById("theme");
     btn.setAttribute("aria-pressed", dark ? "true" : "false");
     btn.setAttribute("aria-label", dark ? "Use light theme" : "Use dark theme");
-    applyChromeColor(document.getElementById("nav").classList.contains("is-collapsed"));
+    applyChromeColor(document.getElementById("nav").classList.contains("is-page"));
   }
   function ballotNames(text) {
     var out = [];
@@ -2619,6 +2737,7 @@ input[type="range"]:focus-visible::-moz-range-thumb {
     if (opener) opener.focus();
   }
 
+  document.getElementById("chips").addEventListener("scroll", syncChipFade, { passive: true });
   document.getElementById("flip-open").addEventListener("click", openDeck);
   document.getElementById("deck-close").addEventListener("click", closeDeck);
   document.getElementById("deck-back").addEventListener("click", function () { stepDeck(-1); });
@@ -2644,6 +2763,8 @@ input[type="range"]:focus-visible::-moz-range-thumb {
   }, { passive: false });
   window.addEventListener("resize", function () {
     layoutReady = false;
+    tunePeek();
+    syncChipFade();
     refreshFades();
   });
   document.addEventListener("keydown", function (e) {
@@ -2705,12 +2826,14 @@ input[type="range"]:focus-visible::-moz-range-thumb {
   var lockSpy = false;
   var scrollQueued = false;
   var chromeCollapsed = null;
+  var chromeOnPage = null;
   var tallyRows = [];
   var tallySeen = -1;
   var tallyPct = -1;
   var cardTops = [];
   var sectionAt = [];
   var collapseAt = 0;
+  var pageAt = 0;
   var maxScroll = 1;
   var layoutReady = false;
   var swapGen = 0;
@@ -2734,7 +2857,10 @@ input[type="range"]:focus-visible::-moz-range-thumb {
       var sec = document.getElementById("sec-" + TAB_ORDER[s]);
       sectionAt[s] = sec ? sec.getBoundingClientRect().top + y - line : 1e9;
     }
-    collapseAt = large.getBoundingClientRect().bottom + y - nav.getBoundingClientRect().bottom + 2;
+    var navBottom = nav.getBoundingClientRect().bottom;
+    collapseAt = large.getBoundingClientRect().bottom + y - navBottom + 2;
+    var cinema = document.getElementById("cinema");
+    pageAt = cinema.getBoundingClientRect().bottom + y - navBottom;
     maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
     layoutReady = tallyRows.length > 0;
   }
@@ -2777,11 +2903,13 @@ input[type="range"]:focus-visible::-moz-range-thumb {
       window.scrollTo(0, target);
     }
   }
-  function applyChromeColor(collapsed) {
+  function applyChromeColor(onPage) {
     var meta = document.querySelector('meta[name="theme-color"]');
     if (!meta) return;
     var dark = document.documentElement.getAttribute("data-theme") === "dark";
-    meta.setAttribute("content", !collapsed ? "#0c1424" : (dark ? "#000000" : "#e8eaef"));
+    var hero = dark ? "#070b14" : "#0c1424";
+    var page = dark ? "#000000" : "#e8eaef";
+    meta.setAttribute("content", onPage ? page : hero);
   }
   function paintTally() {
     var fill = document.getElementById("tally-fill");
@@ -2805,10 +2933,13 @@ input[type="range"]:focus-visible::-moz-range-thumb {
     if (!layoutReady) measureLayout();
     var y = window.scrollY;
     var collapsed = y > collapseAt;
-    if (collapsed !== chromeCollapsed) {
+    var onPage = y > pageAt;
+    if (collapsed !== chromeCollapsed || onPage !== chromeOnPage) {
       chromeCollapsed = collapsed;
+      chromeOnPage = onPage;
       nav.classList.toggle("is-collapsed", collapsed);
-      applyChromeColor(collapsed);
+      nav.classList.toggle("is-page", onPage);
+      applyChromeColor(onPage);
     }
     paintTally();
     if (lockSpy) return;

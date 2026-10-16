@@ -1,5 +1,9 @@
 # Changelog
 
+## October 16, 2026 — glance chips
+
+The At a glance chips are only as wide as the name, with a smaller label and a confidence dot. Yes and No chips carry a tint. The first chip lines up with the page margin, and the next chip stays partly in view under a fade at the right. The top bar is a solid color while the hero is behind it, then the page color once the hero has scrolled away.
+
 ## October 16, 2026 — card stack swipe
 
 A committed swipe keeps the top card moving off the screen, with a slight tilt, until it is gone. The card behind rises into that spot. Back brings the previous card in from the left. A short swipe springs back. Next and Back use the same motion.
