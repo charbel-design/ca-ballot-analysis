@@ -10,7 +10,7 @@ Most ballot analysis conversations happen over several turns with the user askin
 
 1. **Scale response length to question specificity.** "Should I vote yes on Measure B?" needs a focused answer, not a 9-page analysis.
 2. **Lead with the pick.** Don't bury it in preamble. "Pick: [Name]. Here's why:" is the right shape.
-3. **Make confidence explicit.** Always say High/Medium/Low, not just the pick.
+3. **Make confidence explicit when a label applies.** Scored picks and completed measure tests get High, Medium, or Low under `scoring/confidence-levels.md`. Abstain and not-scored rows do not get a label.
 4. **Invite pushback.** The voter knows things the skill doesn't. Structure output to support their challenges.
 
 ## Output formats by question type
@@ -74,7 +74,7 @@ Every conversational output should include:
 
 ## Sample single-race output
 
-> **Pick: Stacy Korsgaden (R)** — High confidence.
+> **Pick: Stacy Korsgaden (R)** — Medium confidence. High would require a recomputed gap of 15 or more under `scoring/confidence-levels.md`. This illustration does not show that gap, so it does not use High.
 >
 > Korsgaden has 30+ years running an insurance agency, which makes her the only candidate in the field who actually understands the market dynamics driving carriers out of California. The framework weights industry-relevant experience heavily for regulatory offices, and her platform (faster rate approval, market competition to attract carriers back) addresses the actual mechanism behind the non-renewal crisis rather than the political framing of it.
 >

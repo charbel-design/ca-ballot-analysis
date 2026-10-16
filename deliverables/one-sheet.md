@@ -9,7 +9,7 @@ Produce a one-sheet PDF when the user requests:
 - "Wallet card" / "pocket reference"
 - "Ballot summary"
 
-Often produced alongside the full report, but can stand alone for users who only want a quick reference.
+A one-sheet is optional. Produce it only when the user asks. It can accompany a full report or stand alone. It is not part of the default analysis.
 
 ## Hard constraint
 

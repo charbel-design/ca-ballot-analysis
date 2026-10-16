@@ -7,7 +7,7 @@ description: Analyze a California voter's ballot through an explicit framework a
 
 ## Purpose
 
-Apply an explicit framework to every race and measure on a California voter's ballot, produce ranked recommendations with confidence levels, flag what's NOT on the ballot that the user might expect, and optionally generate a full Word report and printable one-sheet PDF.
+Apply an explicit framework to every race and measure on a California voter's ballot, produce ranked recommendations with confidence levels, and flag what's NOT on the ballot that the user might expect. A Word report and a one-sheet PDF are optional. Produce them only when the voter asks. The default is the conversational write-up.
 
 ## Core principle
 
@@ -31,7 +31,11 @@ Use tools:
 - Confirm district assignments against current maps (Prop 50 redistricting is in effect for 2026)
 - Verify what's actually on that ballot — not every office is up every cycle
 
-Critical: flag explicitly what is NOT on the ballot that the voter might expect to be (school board races in off-cycle years, odd-numbered State Senate districts in odd years, DA/Sheriff in non-presidential cycles, etc.). This prevents confused follow-ups later.
+Critical: flag explicitly what is NOT on the ballot that the voter might expect to be. Check the cycle instead of guessing.
+
+- State Senate seats are four-year and staggered, and the elections fall in even-numbered years. For the current maps, even-numbered districts are on the 2026 ballot and odd-numbered districts are next up in 2028. There is no regular State Senate election in an odd-numbered calendar year. Confirm the voter's district against the current Senate zip directory or the county sample ballot.
+- County district attorney and sheriff: Elections Code section 1300 puts those elections on the presidential-primary ballot for counties the statute covers. Officers elected in 2022 serve a six-year term, and the next regular election is the 2028 presidential primary. The exception is a charter county that, on or before January 1, 2021, fixed a different date in its charter. Contra Costa County's elections office applies the 2028 date. Confirm against that county's current candidate guide before telling a voter the race is absent.
+- School board races and most city offices are usually on the November ballot of the year those seats are up, not on the June primary. Board of Supervisors seats are staggered. A voter is in one supervisorial district.
 
 ### Phase 2: Lock the framework
 
@@ -52,9 +56,9 @@ For each race:
 - Certified candidate list (SoS or county registrar)
 - Ballot designation for each candidate
 - Key platform positions (candidate sites, Ballotpedia, CalMatters)
-- Delivery record (prior office, track record)
+- Delivery of results aligned with the framework. Holding the office is not itself a result.
 - Endorsements and funding (FPPC disclosures, campaign finance)
-- Disqualifying conduct (lawsuits, criminal records, extremist affiliations)
+- Disqualifying conduct (lawsuits, criminal records, extremist affiliations). Screening is not an accusation. Cite the record or do not disqualify. See `research/character-gate.md`.
 
 For each measure:
 - Plain-English summary of what it does
@@ -72,27 +76,34 @@ Step 1: **Run the character gate.**
 For every candidate, check disqualifying conduct per the framework's gate definition. Log failures with explicit reasons. Gate-failed candidates drop out of scoring entirely. See `research/character-gate.md` for gate evaluation patterns.
 
 Step 2: **Score remaining candidates.**
-Apply the framework's weighted criteria. Write explicit rationale for each criterion, not just numbers. If the framework requires a feasibility multiplier (most do), apply it — do not just add feasibility as another additive criterion.
+Apply the framework's weighted criteria. Write explicit rationale for each criterion, not just numbers. For fairness-not-equity, score policy alignment and feasibility as two additive criteria. Do not multiply them. Score delivery on framework-aligned results, not on years in office.
 
-Step 3: **Rank and assess confidence.**
-For each race, rank the remaining candidates. Assign confidence: High / Medium / Low.
-- **High**: framework points decisively, evidence is strong, picks survive edge-case scrutiny
-- **Medium**: framework points in a direction, but runner-up has reasonable claim
-- **Low**: thin research surface, or framework outputs tied, or pick is essentially symbolic
+Step 3: **Rank, then check the weights.**
+For each scored race, rank from the composites. If the voter wants different weights, substitute a set that sums to 100 and recompute. The method, and the ±10-point sensitivity check, are in `scoring/weighted-criteria.md`. The fairness-not-equity defaults stay 45 / 15 / 12 / 10 / 8 / 7 / 3 unless the voter changes them. That order is policy, five-year, concentrated benefit, individualism, delivery, feasibility, competence.
 
-Low-confidence picks require explicit "I'm not confident here, push back if you disagree" language in output.
+Step 4: **Assign confidence or abstain.**
+Follow `scoring/confidence-levels.md` only. Do not copy a looser definition into the write-up.
 
-Step 4: **Abstention is valid.**
-If evidence is insufficient for a reasoned pick (judicial races for appointees with <3 years on bench, uncontested races with no public record), recommend abstention. Do not fabricate a pick to fill the slot.
+- High, Medium, and Low apply to scored candidate picks and to measure picks that completed the tests.
+- High on a scored candidate requires a gap of 15 or more and a sensitivity check that does not change the leader.
+- Abstain and "not scored" get no confidence label.
+- A low-confidence pick says, in so many words, that the voter should push back.
 
 ### Phase 5: Output
 
-Default output: conversational summary with picks and one-line rationale per race.
+Default output: conversational summary with picks and one-line rationale per race. That summary is the analysis. A Word file or a PDF is an optional rendering, produced only if the voter asks.
 
-On request, produce:
+On request, and only on request:
 - **Full report**: Word document, see `deliverables/full-report.md` for structure
 - **One-sheet**: PDF, single printable page, see `deliverables/one-sheet.md`
-- **Both**: Build report first, then derive one-sheet from it
+- **Both**: Build the report first, then derive the one-sheet from it
+
+Before finishing, run the verification checklist in `scoring/weighted-criteria.md`:
+
+- The weights sum to 100.
+- Each composite recomputes from the stated scores.
+- Every High candidate pick has a gap of 15 or more.
+- Every factual claim has a source.
 
 ## Hard rules (non-negotiable)
 
@@ -100,8 +111,8 @@ On request, produce:
 2. **Source verification.** Every factual claim about a candidate or measure must be sourced. No hallucinated candidates, votes, or positions. If uncertain, search before asserting.
 3. **No invented candidates.** Pull names only from certified candidate lists. Verify spelling and party designation from primary sources.
 4. **Character gate is binary.** No partial credit. Candidates who fail the gate are out, regardless of policy positions.
-5. **Feasibility multiplier.** Policy quality × feasibility, never policy quality + feasibility.
-6. **Confidence flagging.** High/Medium/Low on every pick. Honest about thin research.
+5. **Feasibility stays additive.** Policy alignment and feasibility are separate scores. Never multiply them. A low feasibility score must not erase a large policy-alignment lead.
+6. **Confidence flagging.** Use `scoring/confidence-levels.md`. High, Medium, or Low on scored picks only. Abstain and not-scored rows get no label.
 7. **Abstention over fabrication.** "I don't have enough information to recommend here" is always a valid output.
 8. **Copyright discipline.** Paraphrase everything. One quote per source maximum, under 15 words. Never reproduce ballot measure text or candidate statements verbatim beyond brief identifying phrases.
 9. **No endorsement language.** The skill produces analysis; the voter votes. Avoid "you should vote" framing in favor of "the framework points toward."
@@ -113,7 +124,7 @@ Watch for these specifically:
 
 - **District confusion.** California redistricted in 2025 (Prop 50). Some voters are in different congressional districts than they were in 2024. Always verify against current maps.
 - **County vs. district offices.** County Superintendent of Schools is different from a local school district superintendent. County Sheriff is different from city police chief. Don't conflate.
-- **Odd-year vs. even-year offices.** State Senate is staggered — even-numbered districts in one cycle, odd in the next. Municipal offices are typically November-only. School boards are usually November-only and often off-cycle.
+- **Even-year offices, staggered.** State Senate elections are in even-numbered years. Even-numbered districts are up in 2026; odd-numbered districts are next up in 2028. Do not describe that stagger as "odd years." Municipal offices are typically November-only. School boards are usually November-only and often on their own four-year stagger.
 - **Board of Supervisors districts.** Each voter is in exactly one BoS district. Not every district is up every cycle.
 - **Top-two primary mechanics.** Top two vote-getters advance regardless of party. Exception: presidential primaries. Exception: some offices (nonpartisan) can win outright with 50%+1 in the primary.
 - **Party registration effects.** NPP voters see the full ballot in primaries for non-presidential offices. Presidential primaries require opting into a party's crossover ballot (if that party allows it).

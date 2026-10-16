@@ -37,7 +37,7 @@ List 4-6 criteria that sum to 100%. Each criterion must have:
 - A weight (percentage)
 - A definition (what it captures, with 1-2 examples)
 - How to score it (what makes a candidate score high vs. low)
-- Whether it's additive or multiplicative with other criteria
+- Whether it is additive. Do not hide electability inside the dominant criterion by multiplying the two. Fairness-not-equity keeps them separate. A custom framework that truly wants a product has to say so in its own file and keep the product from deciding the race by itself.
 
 Template:
 
@@ -52,7 +52,7 @@ Template:
 
 **Evidence sources**: [Where to look for this]
 
-**Interaction**: Additive / multiplicative with criterion ___
+**Interaction**: Additive. If this criterion is a product with another, say so here and explain why the product will not override policy fit.
 
 ### ___%: [Criterion name]
 [Repeat structure]
@@ -68,6 +68,8 @@ Template:
 ## Confidence calibration
 
 When is a pick High/Medium/Low confidence in your framework?
+
+If you leave these blank, use `scoring/confidence-levels.md`. Do not invent a looser High.
 
 - **High**: ____________
 - **Medium**: ____________
