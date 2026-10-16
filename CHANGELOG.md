@@ -1,5 +1,9 @@
 # Changelog
 
+## October 16, 2026 — drawn controls
+
+Once a device has opened the private link, the hero keeps a My ballot | Public switch on screen. The public page does not show it. Theme, Adjust, and Close are drawn controls. The sliders use a custom track, thumb, and value. Offices, Measures, and Local slide an indicator, and the list fades and slides with transform and opacity. Sheets still spring open. Card edges are a hairline so the list does not repaint a large shadow while scrolling.
+
 ## October 15, 2026 — public-share pass
 
 The phone guide now sends no referrer, keeps a tight content-security policy, and only opens outside links with `noopener` and `noreferrer`. The private link is still a hash, not a login. Countdown days use Pacific time. Muted text is darker so it meets contrast AA, and the sheets trap keyboard focus. The city district lookup points at the city’s current map. A preview image is included for messages.
