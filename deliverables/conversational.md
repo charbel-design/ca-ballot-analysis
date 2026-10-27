@@ -74,7 +74,7 @@ Every conversational output should include:
 
 ## Sample single-race output
 
-> **Pick: Stacy Korsgaden (R)** — Medium confidence. High would require a recomputed gap of 15 or more under `scoring/confidence-levels.md`. This illustration does not show that gap, so it does not use High.
+> **Pick: Stacy Korsgaden (R).** The confidence label comes from the recomputed gap under `scoring/confidence-levels.md`. This illustration shows no composites, so it carries no label; a real write-up states the two composites and the gap here, then the label.
 >
 > Korsgaden has 30+ years running an insurance agency, which makes her the only candidate in the field who actually understands the market dynamics driving carriers out of California. The framework weights industry-relevant experience heavily for regulatory offices, and her platform (faster rate approval, market competition to attract carriers back) addresses the actual mechanism behind the non-renewal crisis rather than the political framing of it.
 >

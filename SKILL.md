@@ -85,7 +85,7 @@ Step 4: **Assign confidence or abstain.**
 Follow `scoring/confidence-levels.md` only. Do not copy a looser definition into the write-up.
 
 - High, Medium, and Low apply to scored candidate picks and to measure picks that completed the tests.
-- High on a scored candidate requires a gap of 15 or more and a sensitivity check that does not change the leader.
+- High on a scored candidate requires a gap of 15 or more, strong evidence behind the criterion scores (a statute, a case file, or an official fiscal text, not a campaign summary or a news report), and a sensitivity check that does not change the leader.
 - Abstain and "not scored" get no confidence label.
 - A low-confidence pick says, in so many words, that the voter should push back.
 
