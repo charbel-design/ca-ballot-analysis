@@ -1,8 +1,8 @@
 # Changelog
 
-## October 27, 2026 — saved weights on the public page, and a design pass
+## October 27, 2026 — local rosters, review fixes, and a design pass
 
-The public link started every weight at an equal 14.3 and recomputed picks from there, so a visitor saw Weber over Wagner, Kounalakis over Hawks, and no pick for Controller and U.S. House 10, under reasons written for the saved-weight picks. Both views now start from the saved weights (policy 45, five-year effects 15, concentrated benefit 12, individualism 10, delivery 8, feasibility 7, competence 3). The sliders still move everything, changes still stay in the browser, and the private link still marks the owner's view on that device. The picks on the public page now match `examples/2026-general-san-ramon-sheet.md` and the PDF.
+The public page still starts every weight equal; that is by design. The private link still loads the saved weights. The Local cards on the list and in Flip through now show each contest's candidates with their ballot designations and a line saying who votes in it, taken from the county contest list. Before, those cards said only "Check your sample ballot" and the names were in the detail sheet alone.
 
 The repo now carries the version that was live on Vercel, which had a driver note under each score, safe-area padding, a web manifest, and the icon set.
 

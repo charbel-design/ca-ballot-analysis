@@ -6,7 +6,7 @@
 
 **Voter:** the same San Ramon voter as `examples/2026-primary-ca10.md`. ZIP 94582, Contra Costa County, no party preference. Council district and school trustee area depend on the street address. This file does not assign them.
 
-This is an analysis under one named framework. It is not a prediction and not an instruction to vote. The short printable sheet is `examples/2026-general-san-ramon-sheet.md` and `guide/ballot-sheet-nov-2026-san-ramon.pdf`. The longer guide, with weight sliders, is `guide/2026-general-san-ramon.html`. That page opens with the saved weights used in the sheet, and the sliders start there. A private link on the same file marks the owner's view on that device.
+This is an analysis under one named framework. It is not a prediction and not an instruction to vote. The short printable sheet is `examples/2026-general-san-ramon-sheet.md` and `guide/ballot-sheet-nov-2026-san-ramon.pdf`. The longer guide, with weight sliders, is `guide/2026-general-san-ramon.html`. That page opens with equal weights. A private link on the same file loads the saved weights used in the sheet.
 
 Confidence labels follow `scoring/confidence-levels.md`. A row that was not scored does not get one.
 
