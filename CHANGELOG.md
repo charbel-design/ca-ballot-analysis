@@ -1,5 +1,15 @@
 # Changelog
 
+## October 27, 2026 — saved weights on the public page, and a design pass
+
+The public link started every weight at an equal 14.3 and recomputed picks from there, so a visitor saw Weber over Wagner, Kounalakis over Hawks, and no pick for Controller and U.S. House 10, under reasons written for the saved-weight picks. Both views now start from the saved weights (policy 45, five-year effects 15, concentrated benefit 12, individualism 10, delivery 8, feasibility 7, competence 3). The sliders still move everything, changes still stay in the browser, and the private link still marks the owner's view on that device. The picks on the public page now match `examples/2026-general-san-ramon-sheet.md` and the PDF.
+
+The repo now carries the version that was live on Vercel, which had a driver note under each score, safe-area padding, a web manifest, and the icon set.
+
+Fixes from a review of the branch: a `tab=` link scrolls to its section instead of being reset to Offices by the scroll spy; an abstention under adjusted weights no longer reads "Your weights pick No pick"; the confidence label is taken from the same two-decimal gap the page prints; the At a glance chips retune once per width change rather than on every resize event; the unlocking hash is removed from the address bar once it has been stored; the duplicate pill helper is gone. `SKILL.md` still restates the High rule without the strong-evidence condition, and the owner token is still readable in the page source. Neither is changed here.
+
+Design: warm paper and ink instead of gray, a serif for the date, headlines, section titles, and proposition numbers, and tabular figures throughout. A race card lists both candidates with a bar each, the pick in accent and the runner-up muted, in place of the tinted winner box and the single shared bar. Confidence pills carry a dot and a tint. The sticky controls are shorter. Flip-through cards show "How the scores were set" under the reason so the card is not mostly empty. The dark theme follows the same palette. The preview image for messages was not redrawn.
+
 ## October 16, 2026 — glance chips
 
 The At a glance chips are only as wide as the name, with a smaller label and a confidence dot. Yes and No chips carry a tint. The first chip lines up with the page margin, and the next chip stays partly in view under a fade at the right. The top bar is a solid color while the hero is behind it, then the page color once the hero has scrolled away.
