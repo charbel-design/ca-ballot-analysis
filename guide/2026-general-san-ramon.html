@@ -4,9 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0c1424">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230c1424'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='14' font-family='sans-serif' fill='%23f4f1ea'%3E3%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Ballot 2026">
+<meta name="application-name" content="Ballot 2026">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="referrer" content="no-referrer">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
 <title>November 3, 2026 ballot — San Ramon</title>
 <meta name="description" content="November 3, 2026 ballot guide for San Ramon 94582. Fairness-not-equity research. Last verified October 14, 2026.">
 <meta property="og:title" content="November 3, 2026 ballot — San Ramon">
@@ -1216,6 +1224,20 @@ input[type="range"]:focus-visible::-moz-range-thumb {
   .match, .measure, .quiet, .film, .deck-card, .deck-progress > span, #sections, .seg-ind, .modepill-ind,
   .theme-ico .sun, .theme-ico .moon { transition: none !important; animation: none !important; }
 }
+
+/* safe areas */
+:root{--sat:env(safe-area-inset-top,0px);--sab:env(safe-area-inset-bottom,0px);--sal:env(safe-area-inset-left,0px);--sar:env(safe-area-inset-right,0px);--nav-h:calc(48px + var(--sat));}
+.nav{padding:var(--sat) calc(8px + var(--sar)) 0 calc(8px + var(--sal));}
+.stick{padding-left:calc(16px + var(--sal));padding-right:calc(16px + var(--sar));}
+.wrap{padding-bottom:calc(40px + var(--sab));}
+.deck{padding:var(--sat) var(--sar) 0 var(--sal);}
+.deck-hint{padding-bottom:calc(12px + var(--sab));}
+.sheet{top:calc(var(--sat) + 10px);height:calc(100dvh - var(--sat) - 10px);max-height:calc(100dvh - var(--sat) - 10px);padding-left:var(--sal);padding-right:var(--sar);}
+.sheet:not(.has-foot) .sheet-body{padding-bottom:calc(24px + var(--sab));}
+.sheet-foot{padding-bottom:calc(10px + var(--sab));}
+.sheet .close-btn{min-width:44px;min-height:44px;}
+[class*="toast"]{bottom:calc(16px + var(--sab));}
+.score-live{font-variant-numeric:tabular-nums;font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.score-cue{font-size:11px;font-weight:650;letter-spacing:.02em;padding:2px 8px;border-radius:99px;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent)}.driver{color:var(--ink)}
 </style>
 </head>
 <body>
@@ -1388,6 +1410,16 @@ input[type="range"]:focus-visible::-moz-range-thumb {
     if (gap < 5) return { k: "low", t: "Low" };
     if (gap >= 15 && strong) return { k: "high", t: "High" };
     return { k: "med", t: "Medium" };
+  }
+  function driverNote(race, R) {
+    var a = R.ranked[0], b = R.ranked[1];
+    var c = DATA.criteria.map(function (n, i) { return { n: n, d: (a.c.scores[i] - b.c.scores[i]) * weights[i] / 100, raw: a.c.scores[i] - b.c.scores[i] }; });
+    var pro = c.filter(function (x) { return x.d > 0; }).sort(function (x, y) { return y.d - x.d; });
+    var con = c.filter(function (x) { return x.raw < 0; }).sort(function (x, y) { return x.d - y.d; });
+    var t = a.c.short + " leads mainly on " + (pro.length ? pro[0].n : "the overall mix");
+    if (pro.length > 1) t += " and " + pro[1].n;
+    if (con.length) t += "; " + con.map(function (x) { return x.n + " favors " + b.c.short + " by " + (-x.raw); }).join(", ");
+    return t + ".";
   }
   function scoreRace(race, w) {
     var ranked = race.candidates.map(function (c, i) {
@@ -1941,7 +1973,19 @@ input[type="range"]:focus-visible::-moz-range-thumb {
           whyCard.appendChild(el("p", "small", "Your weights pick " + v.pick + ". The explanation above is the saved-weight pick, " + item.pick + " over " + otherName(item) + "."));
         }
       }
-      whyCard.appendChild(el("p", "small", "Scores: " + fmt(R.ranked[0].v) + " vs " + fmt(R.ranked[1].v) + "."));
+      var bR = scoreRace(races[item.id], baseline(mode));
+      var scoreLine = el("p", "small score-live", R.ranked[0].c.short + " " + fmt(R.ranked[0].v) + " · " + R.ranked[1].c.short + " " + fmt(R.ranked[1].v));
+      var bv = {}; bR.ranked.forEach(function (x) { bv[x.c.short] = x.v; });
+      var moved = R.ranked.some(function (x) { return Math.abs(x.v - bv[x.c.short]) > 0.005; });
+      if (moved) {
+        var cue = el("span", "score-cue", "Scores changed");
+        cue.title = "Starting weights: " + bR.ranked.map(function (x) { return x.c.short + " " + fmt(x.v); }).join(", ");
+        scoreLine.appendChild(cue);
+      }
+      whyCard.appendChild(scoreLine);
+      if (moved) whyCard.appendChild(el("p", "small", "At the starting weights: " + bR.ranked.map(function (x) { return x.c.short + " " + fmt(x.v); }).join(" vs ") + "."));
+      if (v.pick !== "No pick") whyCard.appendChild(el("p", "small driver", driverNote(races[item.id], R)));
+      if (mode === "public" && v.pick !== "No pick" && v.pick !== item.pick) whyCard.appendChild(el("p", "small", "The facts above don't change. Your weights value them differently, so " + v.pick + " comes out ahead."));
       var how = mode === "owner" ? item.how : item.publicHow;
       if (how) {
         whyCard.appendChild(el("p", "block-h", "How the scores were set"));
@@ -2147,7 +2191,9 @@ input[type="range"]:focus-visible::-moz-range-thumb {
     if (e.shiftKey && cur === firstN) { e.preventDefault(); lastN.focus(); }
     else if (!e.shiftKey && cur === lastN) { e.preventDefault(); firstN.focus(); }
   }
+  var hideTimer = 0;
   function showSheet(sheet) {
+    clearTimeout(hideTimer);
     var scrim = document.getElementById("scrim");
     var scroller = sheet.querySelector(".sheet-body");
     scrim.hidden = false;
@@ -2170,7 +2216,8 @@ input[type="range"]:focus-visible::-moz-range-thumb {
       s.style.transform = "";
     });
     var wait = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 520;
-    setTimeout(function () {
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(function () {
       if (document.querySelector(".sheet.open")) return;
       scrim.hidden = true;
       document.querySelectorAll(".sheet").forEach(function (s) { s.hidden = true; });
