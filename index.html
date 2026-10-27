@@ -2359,13 +2359,25 @@ input[type="range"]:focus-visible::-moz-range-thumb {
       return Array.prototype.map.call(new Uint8Array(buf), function (b) { return ("0" + b.toString(16)).slice(-2); }).join("");
     });
   }
-  function unlockOwner() {
+  function ownerKey() {
+    var k = storageGet("bguide-key");
+    return typeof k === "string" && /^[A-Za-z0-9]{8,32}$/.test(k) ? k : "";
+  }
+  function syncHash() {
+    if (!history.replaceState) return;
+    var key = ownerKey();
+    var want = unlocked && mode === "owner" && key ? "#me-" + key : "";
+    var have = location.hash || "";
+    if (want === have) return;
+    try { history.replaceState(null, "", location.pathname + location.search + want); } catch (e) {}
+  }
+  function unlockOwner(key) {
     try {
       localStorage.setItem("bguide-owner", "1");
       localStorage.setItem("bguide-view", "owner");
+      if (key) localStorage.setItem("bguide-key", key);
     } catch (e) {}
-    try { if (history.replaceState) history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
-    if (unlocked && mode === "owner") return;
+    if (unlocked && mode === "owner") { syncHash(); return; }
     unlocked = true;
     mode = "owner";
     weights = loadWeights(mode);
@@ -2373,6 +2385,7 @@ input[type="range"]:focus-visible::-moz-range-thumb {
     hideSheets();
     renderList();
     onScroll();
+    syncHash();
   }
   function bootMode() {
     try {
@@ -2387,9 +2400,12 @@ input[type="range"]:focus-visible::-moz-range-thumb {
     if (/(?:^|[?&])demo=feas100(?:&|$)/.test(location.search)) applyLock(5, 100);
     var hash = readHash();
     if (hash && typeof DATA.tokenHash === "string") {
-      sha256Hex(hash.slice(4)).then(function (hex) {
-        if (hex === DATA.tokenHash) unlockOwner();
+      var key = hash.slice(4);
+      sha256Hex(key).then(function (hex) {
+        if (hex === DATA.tokenHash) unlockOwner(key);
       }).catch(function () {});
+    } else {
+      syncHash();
     }
   }
 
@@ -2961,6 +2977,7 @@ input[type="range"]:focus-visible::-moz-range-thumb {
     openId = null;
     hideSheets();
     renderList();
+    syncHash();
   });
   ["offices", "measures", "local"].forEach(function (name) {
     document.getElementById("tab-" + name).addEventListener("click", function () {
