@@ -1388,7 +1388,7 @@ input[type="range"]:focus-visible::-moz-range-thumb {
   var mode = "public";
   var unlocked = false;
   var tab = "offices";
-  var weights = EQUAL.slice();
+  var weights = OWNER.slice();
   var openId = null;
   var lastFocus = null;
   var lockedY = 0;
@@ -1406,6 +1406,7 @@ input[type="range"]:focus-visible::-moz-range-thumb {
     return r.toFixed(1);
   }
   function labelFor(gap, strong) {
+    gap = Math.round(gap * 100) / 100;
     if (gap <= 2.0000001) return { k: "nopick", t: "No pick" };
     if (gap < 5) return { k: "low", t: "Low" };
     if (gap >= 15 && strong) return { k: "high", t: "High" };
@@ -1428,7 +1429,7 @@ input[type="range"]:focus-visible::-moz-range-thumb {
     var gap = ranked[0].v - ranked[1].v;
     return { ranked: ranked, gap: gap, lab: labelFor(gap, race.strong) };
   }
-  function baseline(which) { return (which === "owner" ? OWNER : EQUAL).slice(); }
+  function baseline(which) { return OWNER.slice(); }
   function sameWeights(a, b) {
     for (var i = 0; i < 7; i++) if (Math.abs(a[i] - b[i]) > 0.05) return false;
     return true;
@@ -1600,9 +1601,7 @@ input[type="range"]:focus-visible::-moz-range-thumb {
     document.getElementById("glance-title").textContent = "At a glance";
     document.getElementById("countdown-text").textContent = daysLabel();
     document.getElementById("mode-chip").textContent = owner ? "Saved weights" : "Verified Oct 14";
-    document.getElementById("intro").textContent = owner
-      ? "Saved weights. Open a card for the reason. Not a prediction, and not an instruction to vote."
-      : "Weights start equal. Open a card for the reason. Not a prediction, and not an instruction to vote.";
+    document.getElementById("intro").textContent = "Saved weights. Open a card for the reason. Not a prediction, and not an instruction to vote.";
     var unlockedOn = !!unlocked;
     document.documentElement.setAttribute("data-unlocked", unlockedOn ? "true" : "false");
     var dock = document.getElementById("mode-dock");
@@ -1617,10 +1616,6 @@ input[type="range"]:focus-visible::-moz-range-thumb {
     document.documentElement.setAttribute("data-mode", mode);
   }
 
-  function pill(k, t) {
-    var map = { High: "high", Medium: "med", Low: "low" };
-    return el("span", "pill " + (map[t] || k), t);
-  }
   function check() {
     var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("class", "tick");
@@ -1893,7 +1888,7 @@ input[type="range"]:focus-visible::-moz-range-thumb {
     var p1 = el("p", "", "");
     p1.textContent = mode === "owner"
       ? "Saved weights: policy 45, five-year effects 15, concentrated benefit 12, individualism 10, delivery 8, feasibility 7, competence 3. Feasibility is added. It is not a multiplier."
-      : "Candidate scores multiply the research cells by the weights in Adjust. The seven weights start equal and always add to 100. Feasibility is added. It is not a multiplier.";
+      : "Candidate scores multiply the research cells by the weights in Adjust. The weights start from the saved set: policy 45, five-year effects 15, concentrated benefit 12, individualism 10, delivery 8, feasibility 7, competence 3. They always add to 100. Feasibility is added. It is not a multiplier.";
     var p2 = el("p");
     p2.textContent = "Last verified October 14, 2026. Polls 7 a.m. to 8 p.m. Register by October 19. Ballots are mailed by October 5. A mailed ballot must be postmarked by November 3 and received by November 10. Counties target certification by December 3.";
     var p3 = el("p");
@@ -1970,7 +1965,7 @@ input[type="range"]:focus-visible::-moz-range-thumb {
         whyCard.appendChild(el("p", "block-h", "Why"));
         whyCard.appendChild(el("p", "why", item.ownerWhy));
         if (v.pick !== item.pick) {
-          whyCard.appendChild(el("p", "small", "Your weights pick " + v.pick + ". The explanation above is the saved-weight pick, " + item.pick + " over " + otherName(item) + "."));
+          whyCard.appendChild(el("p", "small", (v.pick === "No pick" ? "Under your weights the scores are too close for a pick." : "Your weights pick " + v.pick + ".") + " The explanation above is the saved-weight pick, " + item.pick + " over " + otherName(item) + "."));
         }
       }
       var bR = scoreRace(races[item.id], baseline(mode));
@@ -2054,9 +2049,7 @@ input[type="range"]:focus-visible::-moz-range-thumb {
     var active = document.activeElement;
     body.replaceChildren();
     body.appendChild(el("p", "sheet-kicker", mode === "owner" ? "My ballot" : "Public view"));
-    body.appendChild(el("p", "ballot-line", mode === "owner"
-      ? "These start from the saved weights. Move one. The others scale so the seven still add to 100. Changes stay in this browser."
-      : "These start equal. Move one. The others scale so the seven still add to 100. Changes stay in this browser."));
+    body.appendChild(el("p", "ballot-line", "These start from the saved weights. Move one. The others scale so the seven still add to 100. Changes stay in this browser."));
     var group = el("div", "group slider-group");
     DATA.criteria.forEach(function (name, i) {
       var wrap = el("div", "slider");
@@ -2283,6 +2276,7 @@ input[type="range"]:focus-visible::-moz-range-thumb {
       if (fromHash) {
         localStorage.setItem("bguide-owner", "1");
         localStorage.setItem("bguide-view", "owner");
+        if (history.replaceState) history.replaceState(null, "", location.pathname + location.search);
       }
       unlocked = storageGet("bguide-owner") === "1";
       var view = storageGet("bguide-view");
@@ -2330,7 +2324,7 @@ input[type="range"]:focus-visible::-moz-range-thumb {
     if (item.kind === "race") {
       if (mode === "owner") {
         var text = item.ownerWhy;
-        if (v.pick !== item.pick) text += " Your weights pick " + v.pick + ". The explanation above is the saved-weight pick, " + item.pick + ".";
+        if (v.pick !== item.pick) text += (v.pick === "No pick" ? " Under your weights the scores are too close for a pick." : " Your weights pick " + v.pick + ".") + " The explanation above is the saved-weight pick, " + item.pick + ".";
         return text;
       }
       if (v.pick === "No pick") return "Under these weights, the scores are too close for a pick. " + item.publicWhy;
@@ -2808,11 +2802,17 @@ input[type="range"]:focus-visible::-moz-range-thumb {
     if (!document.documentElement.classList.contains("sheet-open")) return;
     if (!e.target.closest(".sheet-body")) e.preventDefault();
   }, { passive: false });
+  var lastW = window.innerWidth;
+  var resizeRaf = 0;
   window.addEventListener("resize", function () {
     layoutReady = false;
-    tunePeek();
-    syncChipFade();
-    refreshFades();
+    if (resizeRaf) return;
+    resizeRaf = requestAnimationFrame(function () {
+      resizeRaf = 0;
+      if (window.innerWidth !== lastW) { lastW = window.innerWidth; tunePeek(); }
+      syncChipFade();
+      refreshFades();
+    });
   });
   document.addEventListener("keydown", function (e) {
     var sheet = visibleSheet();
@@ -3021,7 +3021,10 @@ input[type="range"]:focus-visible::-moz-range-thumb {
   var tabQ = /(?:^|[?&])tab=([^&]+)/.exec(location.search);
   if (tabQ && (tabQ[1] === "offices" || tabQ[1] === "measures" || tabQ[1] === "local")) {
     tab = tabQ[1];
-    renderList();
+    syncTabs();
+    lockSpy = true;
+    scrollToSection(tab);
+    setTimeout(function () { lockSpy = false; onScroll(); }, 700);
   }
 
   var ok = true;
