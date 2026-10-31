@@ -748,6 +748,7 @@ html[data-unlocked="true"] .stick { top: calc(var(--nav-h) + 54px); }
   letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
 }
+.m-num.word { font-size: 22px; letter-spacing: 0; }
 .m-title {
   display: block;
   font-size: 16px;
@@ -1749,7 +1750,8 @@ input[type="range"]:focus-visible::-moz-range-thumb {
       });
       btn.appendChild(poll);
     } else if (item.kind === "measure") {
-      btn.appendChild(el("div", "m-num", measureNum(item)));
+      var num = measureNum(item);
+      btn.appendChild(el("div", /^\d+$/.test(num) ? "m-num" : "m-num word", num));
       var body = el("div", "");
       body.appendChild(el("span", "m-title", shortTitle(item)));
       body.appendChild(el("span", "m-sub", v.conf || ""));
