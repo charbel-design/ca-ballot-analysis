@@ -16,7 +16,7 @@ Three ways to use this, in order of effort:
 
 Most ballot guides are either comprehensive reference (Ballotpedia), nonpartisan journalism (CalMatters), or disguised endorsement (newspaper editorial boards). None of them applies an explicit, user-chosen framework to every item on the ballot.
 
-This skill does. You choose (or build) a framework. The skill researches every race and measure on your California ballot, applies your framework with a documented character gate and weighted criteria, and produces picks with confidence levels, plus optional Word report and printable one-sheet PDF deliverables.
+This skill does. You choose (or build) a framework. The skill researches every race and measure on your California ballot, applies your framework with a documented character gate and weighted criteria, and produces picks with confidence levels. A Word report and a printable one-sheet PDF are optional, and only if you ask for them.
 
 The framework is always explicit. A progressive framework and a libertarian framework will produce different picks from the same ballot. That's the feature.
 
@@ -25,8 +25,8 @@ The framework is always explicit. A progressive framework and a libertarian fram
 1. **Framework transparency.** Every output states which framework was used. No hidden framework.
 2. **Source verification.** Every factual claim is sourced. No hallucinated candidates or votes.
 3. **Character gate first.** Disqualifying conduct is checked before scoring. Rule of law, extremism, unseriousness, and judgment lapses are evaluated explicitly.
-4. **Feasibility multiplier.** Policy quality times feasibility, not plus. A great platform that cannot pass is worth less than a good platform that can.
-5. **Confidence calibration.** Every pick is High, Medium, or Low confidence. Low-confidence picks explicitly invite pushback.
+4. **Values first.** Policy alignment is the dominant weight. Feasibility is a small additive criterion, never a multiplier. Office-holding does not override policy fit.
+5. **Confidence calibration.** Scored picks are High, Medium, or Low under one shared rule. Abstentions carry no label. Low-confidence picks explicitly invite pushback.
 6. **Abstention is valid.** If evidence is insufficient (judicial races with thin records), recommend abstention over fabrication.
 
 ## Framework library
@@ -65,8 +65,10 @@ Shipped frameworks (all in `frameworks/`):
 │   ├── full-report.md                 (Word doc spec)
 │   ├── one-sheet.md                   (PDF spec)
 │   └── conversational.md              (default chat output spec)
+├── CHANGELOG.md
 └── examples/
-    └── 2026-primary-ca10.md           (worked example)
+    ├── 2026-primary-ca10.md           (June 2026 primary, corrected)
+    └── 2026-general-san-ramon.md      (November 2026 general)
 ```
 
 ## Contributing
